@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2019/2020}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -31,11 +31,12 @@
 \author{\nama \textendash \@npm} 
 
 %tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{Stephen Jordan}
+\newcommand{\@npm}{2016730018}
+\newcommand{\@judultopik}{Penerapan Algoritma Anonimisasi Data pada
+Lingkungan Big Data} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\tanggal}{03/02/2020}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,71 +45,87 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
+Pertumbuhan data yang semakin pesat, mendorong munculnya teknik baru bagi pengolahan data untuk menemukan informasi yang tepat pada sekumpulan data. Konsep ini sering dikenal dengan nama {\it data mining}. Selain keuntungan yang ditawarkan, penggunaan teknik {\it data mining} juga menimbulkan masalah baru bagi keamanan privasi data. Masalah ini terjadi ketika informasi tersebut disalahgunakan untuk merugikan orang lain. Keuntungan yang didapat dari teknik {\it data mining} dinilai tidak seimbang dengan konsekuensi yang diterima saat ada privasi yang terlanggar. Oleh karena itu, diperlukan pendekatan baru agar perlindungan privasi masih tetap terjaga meskipun data diolah menggunakan teknik {\it data mining}.
 
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
+Perlindungan privasi dapat dicapai dengan 2 metode, yaitu enkripsi dan anonimisasi. Enkripsi adalah metode perlindungan privasi dengan memanfaatkan pola atau kunci untuk mengubah bentuk  data menjadi bentuk lain yang tidak mudah dikenali. Anonimisasi adalah metode perlindungan privasi dengan cara menyamarkan sebagian atribut data agar tidak dapat dikenali dengan nilai dari atribut data lainnya. Anonimisasi bertujuan untuk menyamarkan data agar tidak ada seseorang yang dapat mencari kemungkinan tertinggi antara hubungan nilai atribut dengan entitas yang dimaksud. Pada kasus tertentu, keamanan enkripsi dapat diretas melalui penalaran hubungan antar nilai atribut yang dapat mengungkapkan identitas individu sesungguhnya. 
 
-Dst, dst, dst, \ldots\ldots\ldots 
+Pemanfaatan teknologi informasi saat ini, menimbulkan pertumbuhan data yang sangat pesat. Dalam waktu singkat, data yang diperoleh dapat mencapai ukuran yang sangat besar. Ukuran terbesar saat ini dapat mencapai {\it Petabyte}, yakni satu juta kali lebih besar dari ukuran {\it Gigabyte}. {\it Big data} adalah himpunan data dalam jumlah yang sangat besar dan kompleks sehingga sulit untuk ditangani atau diproses apabila hanya menggunakan manajemen basis data biasa. {\it Big data} dipilih, karena di masa mendatang data yang diolah akan berukuran besar, sehingga rawan terjadinya pelanggaran privasi saat dilakukan teknik {\it data mining}. 
 
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
+Keamanan privasi data dapat ditingkatkan dengan menyembunyikan lebih banyak nilai data, tetapi menurunkan nilai informasi pada data tersebut, berlaku juga sebaliknya. Karena itu, diperlukan pendekatan untuk menyeimbangkan kebutuhan nilai informasi dan privasi. Pendekatan ini disebut {\it k-anonymity}. Pada penelitian sebelumnya, {\it k-anonymity} dimodelkan dengan 2 algoritma, yaitu {\it hierarchy based generalization} and {\it hierarchy-free generalization}. Akan tetapi algoritma ini memiliki kelemahan, yaitu hilangnya nilai informasi yang relatif tinggi. Solusinya adalah memandang {\it k-anonymity} menjadi permasalahan {\it clustering}, dikenal sebagai {\it K-member clustering problem}. {\it K-member clustering problem} mendorong penggunaan algoritma {\it Greedy K-member clustering } karena memiliki performa yang cukup baik pada penelitian sebelumnya.
 
-Dst, dst, dst, \ldots\ldots\ldots 
+Pada penelitian ini, dibuat perangkat lunak yang dapat memproses anonimisasi pada lingkungan {\it big data} melalui penerapan algoritma {\it Greedy K-member clustering } menggunakan Spark. Spark adalah {\it framework} yang mendukung penerapan komputasi kompleks pada lingkungan {\it big data}. Spark membutuhkan mekanisme penyimpanan Hadoop, karena Spark tidak memiliki mekanisme penyimpanan tetap. Mekanisme penyimpanan Hadoop dikenal sebagai Hadoop File System (HDFS). Mekanisme penyimpanan Hadoop dibutuhkan, agar hasil pemrosesan data dapat disimpan pada {\it hardisk} komputer. Kelebihan dari Spark adalah waktu pemrosesan data yang lebih cepat, karena hasil pemrosesan data dapat disimpan sementara pada memori untuk diambil lagi pada iterasi selanjutnya. Tujuan akhir dari penelitian ini adalah membandingkan kualitas informasi yang didapat dari penggunaan teknik {\it data mining}, sebelum dan setelah data dianonimisasi.
+
+
+
 
 \section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Berdasarkan deskripsi diatas, rumusan masalah pada skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Bagaimana cara kerja algoritma anonimisasi {\it Greedy K-member clustering} ?
+	\item Bagaimana implementasi algoritma anonimisasi {\it Greedy K-member clustering } pada lingkungan Spark?
+	\item Bagaimana perbandingan kualitas informasi, sebelum dan setelah data dianonimisasi?
+\end{enumerate}
 
 \section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Berdasarkan rumusan masalah di atas, tujuan dari skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Mempelajari cara kerja algoritma {\it Greedy K-member clustering}.
+	\item Mengimplementasikan algoritma {\it Greedy K-member clustering } pada lingkungan Spark.
+	\item Melakukan analisis kualitas informasi terhadap hasil teknik data mining, sebelum dan setelah data dianonimisasi.
+\end{enumerate}
 
 \section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
-
 Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 \begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
-		
+	\item Perangkat lunak dapat menerima masukan data XML dan CSV.
+	\item Perangkat lunak dapat melakukan modifikasi data input menjadi data yang sudah dianonimisasi  
+	\item Pengguna dapat memilih atribut data yang ingin dianonimisasi.
+	\item Pengguna dapat memperoleh data yang sudah dianonimisasi.
+	\item Pengguna dapat membandingkan kualitas informasi, sebelum dan setelah data dianonimisasi.
 \end{itemize}
 
 \section{Detail Pengerjaan Skripsi}
-Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan tersebut mencakup awal hingga akhir skripsi, termasuk di dalamnya pengerjaan dokumentasi skripsi, pengujian, survei, dll.
-
-Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
-	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
-		\item Menulis dokumen skripsi
-	\end{enumerate}
+Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+\item Mempelajari teknik-teknik dasar {\it data mining}.
+\item Mempelajari algoritma {\it Greedy K-member clustering}.
+\item Mempelajari konsep Hadoop, Spark, dan Spark MLlib.
+\item Melakukan instalasi dan konfigurasi Spark pada {\it cluster} Hadoop. 
+\item Mempelajari bahasa pemrograman Scala pada {\it framework} Spark.
+\item Melakukan studi dan eksplorasi teknik-teknik dasar {\it data mining} pada Spark MLlib.
+\item Mencari dan mengumpulkan data studi kasus.
+\item Mengimplementasikan algoritma {\it Greedy K-member clustering } pada Spark.
+\item Melakukan perancangan dan implementasi perangkat lunak menggunakan {\it library} Scala-swing.
+\item Mengimplementasikan teknik-teknik dasar {\it data mining} menggunakan {\it library}  Spark MLlib.
+\item Melakukan pengujian fungsional dan experimental.
+\item Melakukan analisis kualitas informasi, sebelum dan setelah data dianonimisasi.
+\item Menulis dokumen skripsi.
+\end{enumerate}
 
 \section{Rencana Kerja}
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mempelajari teknik-teknik dasar {\it data mining}.
+\item Mempelajari algoritma {\it Greedy K-member clustering}.
+\item Mempelajari konsep Hadoop, Spark, dan Spark MLlib. 
+\item Melakukan instalasi dan konfigurasi Spark pada {\it cluster} Hadoop.
+\item Mempelajari bahasa pemrograman Scala pada {\it framework} Spark.
+\item Melakukan studi dan eksplorasi teknik-teknik dasar {\it data mining} pada Spark MLlib.
+\item Menulis dokumen skripsi.
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mencari dan mengumpulkan data studi kasus.
+\item Mengimplementasikan algoritma {\it Greedy K-member clustering } pada Spark.
+\item Melakukan perancangan dan implementasi perangkat lunak menggunakan {\it library} Scala-swing.
+\item Mengimplementasikan teknik-teknik dasar {\it data mining} menggunakan {\it library}  Spark MLlib.
+\item Melakukan pengujian fungsional dan experimental.
+\item Melakukan analisis kualitas informasi, sebelum dan setelah data dianonimisasi.
+\item Menulis dokumen skripsi.
 \end{enumerate}
-
+\newpage
 \vspace{1cm}
 \centering Bandung, \tanggal\\
 \vspace{2cm} \nama \\ 
