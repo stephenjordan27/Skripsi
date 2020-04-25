@@ -1,18 +1,26 @@
 %versi 2 (8-10-2016)\chapter{Landasan Teori}
+\chapter{Dasar Teori}
 \label{chap:teori}
-\section{Privasi}
-Privasi adalah adalah kemampuan satu atau sekelompok individu untuk menutupi atau melindungi kehidupan dan urusan personalnya dari publik dengan mengontrol sumber-sumber informasi mengenai diri mereka. Sebelum melindungi privasi sebuah data, diperlukan pemahaman untuk membedakan jenis atribut yang bersifat sensitif dan non-sensitif. 
 
-\par Personally Identifiable Information  (PII) adalah standar yang digunakan untuk menentukan apakah informasi yang ada dapat melakukan identifikasi entitas individu secara lansung atau tidak langsung. PII menjelaskan bahwa identifikasi entitas secara langsung dapat dilakukan menggunakan atribut sensitif. Sedangkan identifikasi entitas secara tidak langsung dapat dilakukan menggunakan penggabungan beberapa atribut non-sensitif. 
+\section{Privasi}
+\label{sec:privasi}
+Privasi adalah suatu keadaan dimana kehidupan pribadi seseorang atau sekelompok orang terbebas dari pengawasan atau gangguan orang lain. Privasi juga dapat berarti kemampuan satu atau sekelompok individu untuk menutupi atau melindungi kehidupan dan urusan personalnya dari publik dengan mengontrol sumber-sumber informasi mengenai diri mereka. Untuk melakukan publikasi data dari satu perusahaan ke perusahaan lain, digunakan teknik anonimisasi data untuk melindungi dan menyamarkan atribut sensitif untuk setiap data.
+
+\par Personally Identifiable Information  (PII) adalah standar yang digunakan untuk menentukan apakah informasi yang ada dapat melakukan identifikasi entitas individu secara lansung atau tidak langsung. PII menjelaskan bahwa identifikasi entitas secara langsung dapat dilakukan menggunakan atribut sensitif. Sedangkan identifikasi entitas secara tidak langsung dapat dilakukan menggunakan penggabungan beberapa atribut non-sensitif. PII adalah atribut  yang biasanya terjadi pelanggaran data dan pencurian identitas. Jika data perusahaan atau organisasi terungkap, maka data pribadi pelanggan sangat mungkin terungkap. PII yang diketahui dapat dijual dan digunakan untuk melakukan pencurian identitas, menempatkan korban dalam risiko.
 \\\\
 Berikut adalah contoh informasi yang bersifat sensitif menurut standar PII:
 
 \begin{itemize}
-\item Identitas diri seperti nama lengkap, tempat tanggal lahir, alamat rumah, alamat email.
-\item Nomor identitas diri seperti NIK, nomor passport, nomor SIM, nomor wajib pajak, nomor rekening, nomor telepon, dan nomor kartu kredit.
-\item Karakteristik pribadi seperti foto diri, sidik jari, dan tulisan tangan.
-\item Data biometrik seperti pemindaian retina, jenis suara, dan geometri wajah.
-\item Aset informasi lainnya seperti IP Address dan Media Access Control (MAC). 
+\item Identitas diri \\ 
+Nama lengkap, tempat tanggal lahir, alamat rumah, alamat email.
+\item Nomor identitas diri \\
+NIK, nomor passport, nomor SIM, nomor wajib pajak, nomor rekening, nomor telepon, dan nomor kartu kredit.
+\item Karakteristik pribadi  \\
+Foto diri, sidik jari, dan tulisan tangan.
+\item Data biometrik \\
+Pemindaian retina, jenis suara, dan geometri wajah.
+\item Aset informasi lainnya \\
+IP Address dan Media Access Control (MAC). 
 \end{itemize}
 
 \noindent Berikut adalah contoh informasi yang bersifat non-sensitif menurut standar PII:
@@ -24,13 +32,9 @@ Berikut adalah contoh informasi yang bersifat sensitif menurut standar PII:
 \item Letak geografis
 \end{itemize}
 
-
-\par Untuk melakukan publikasi data dari satu perusahaan ke perusahaan lain digunakan teknik anonimisasi untuk melindungi dan menyamarkan atribut sensitif pada masing-masing data, sehingga data yang diterima oleh perusahaan lain tidak dapat dilakukan identifikasi. Sebagai contoh, perusahaan asuransi ingin membagikan informasi dengan perusahaan pemasaran. Maka perusahaan ansuransi akan menyamarkan data yang bersifat sensitif dan menyediakan data terkait dengan kebutuhan perusahaan pemasaran. 
-
-
 \newpage
 \section{Data Mining}
-Data yang dikumpulkan oleh sistem informasi semakin bertambah banyak. Oleh karena itu, perlu adanya cara untuk melakukan proses ekstraksi informasi pada sekumpulan data yang sangat banyak. Menurut Gartner, data mining adalah proses menemukan korelasi, pola, dan tren baru yang bermakna dengan menyaring sejumlah besar data yang disimpan menggunakan teknologi pengenalan pola serta teknik statistik dan matematika. Data mining merupakan bagian dari Knowledge Discovery in Databases (KDD). KDD adalah proses transformasi sekumpulan data yang disimpan pada basis data menjadi informasi yang berguna.\\
+Data yang dikumpulkan bertambah banyak, sehingga perlu adanya cara untuk melakukan proses ekstraksi informasi pada sekumpulan data yang sangat banyak. Menurut Gartner, Data Mining adalah proses menemukan korelasi, pola, dan tren baru yang bermakna dengan menyaring sejumlah besar data yang disimpan menggunakan teknologi pengenalan pola serta teknik statistik dan matematika. Data mining merupakan bagian dari Knowledge Discovery in Databases (KDD). KDD adalah proses transformasi sekumpulan data yang disimpan pada basis data menjadi informasi yang berguna.\\
 
 \begin{figure}[H]
 	\centering
@@ -42,72 +46,92 @@ Data yang dikumpulkan oleh sistem informasi semakin bertambah banyak. Oleh karen
 \noindent Berikut ini adalah penjelasan tahapan pada KDD pada Gambar \ref{fig:datamining1} sebagai berikut:
 
 \begin{enumerate}
-\item Selection adalah proses mengambil data yang relevan terhadap analisis.
-\item Preprocessing adalah proses pembersihan data dengan menghilangkan data yang tidak konsisten dan integrasi data dengan menggabungkan beberapa data dari sumber yang berbeda.
-\item Transformation adalah proses manipulasi data menggunakan konsep agregasi, generalisasi, normalisasi, dan reduksi agar data tersebut dapat dipakai sesuai kebutuhan analisis.
-\item Data Mining adalah proses ekstraksi informasi dari sekumpulan data yang telah diolah pada tahap sebelumnya, menggunakan metode yang umum digunakan untuk mengenali pola seperti klasifikasi, pengelompokan/clustering.
-\item Interpretation/Evaluation adalah proses interpretasi hasil pengolahan data menjadi sebuah grafik yang dapat dimengerti, sehingga dapat disimpulkan menjadi sebuah pengetahuan.
+\item Selection: proses mengambil data yang relevan terhadap analisis.
+\item Preprocessing: proses pembersihan data dari data yang tidak konsisten dan integrasi data saat penggabungan data.
+\item Transformation: proses manipulasi data menggunakan konsep agregasi, generalisasi, normalisasi, dan reduksi untuk kebutuhan analisis.
+\item Data Mining: proses ekstraksi informasi menggunakan metode pengenalan pola seperti klasifikasi, pengelompokan/clustering.
+\item Interpretation/Evaluation: proses interpretasi hasil pengolahan data menjadi sebuah grafik yang dapat dimengerti.
 \end{enumerate}
 
-\noindent Tantangan yang sering muncul pada penggunaan teknik data mining adalah sebagai berikut:
+
+\noindent Berikut adalah beberapa jenis tipe data terkait teknik data mining:
 
 \begin{itemize}
-\item Skalabilitas, artinya data yang ingin diolah berukuran sangat besar.
-\item Dimensionalitas yang tinggi, artinya data memiliki jumlah jenis atribut yang sangat banyak.
-\item Data yang heterogen, artinya munculnya jenis data terstruktur, semi-terstruktur, dan tidak struktur.
+
+\item Binary: tipe data alphabet/numerik yang hanya memiliki 2 kemungkinan nilai.\\
+Contoh: diadakan survei evaluasi beberapa produk pakaian untuk mengetahui produk yang diminati dan tidak diminati. Penilaian produk dapat diwakilkan nilai True atau False. True atau False termasuk jenis binary.
+
+\item Nominal: tipe data alphabet/numerik yang memiliki lebih dari 2 kemungkinan nilai.\\
+Contoh: seseorang memilih beberapa bahan dari warna yang berbeda. Warna yang mungkin adalah kuning, hijau, hitam, merah. Warna termasuk jenis nominal.
+
 \end{itemize}
 
 \noindent Tujuan dari penggunaan teknik data mining adalah sebagai berikut:
 
 \begin{itemize}
-\item Prediksi adalah menggunakan nilai dari beberapa atribut yang sudah ada untuk memprediksi nilai atribut di masa yang akan datang, contohnya adalah klasifikasi.
-\item Deskripsi adalah menemukan pola-pola yang dapat merepresentasikan kelompok dari sebuah data, contohnya adalah pengelompokan/clustering.
+
+\item Prediksi: proses menggunakan nilai dari beberapa atribut yang sudah ada untuk memprediksi nilai atribut di masa yang akan datang. Contoh: klasifikasi.
+
+\item Deskripsi: proses menemukan pola yang dapat merepresentasikan kelompok dari sebuah data. Contoh: pengelompokan/clustering.
+
 \end{itemize}
 
-\section{Klasifikasi} 
-Klasifikasi adalah proses menemukan model (atau fungsi) yang cocok untuk mendeskripsikan dan membedakan sebuah kelas data dengan kelas data lain. Dalam pembelajaran mesin, klasifikasi sering dianggap sebagai contoh dari metode pembelajaran yang diawasi, yaitu menyimpulkan fungsi dari data pelatihan berlabel. Tugas klasifikasi adalah  menganalisis data pelatihan dan menghasilkan fungsi yang tepat untuk digunakan dalam menentukan kelas dari data baru  dengan menetapkan label kelas yang benar untuk masing-masing data. Metode klasifikasi memerlukan  analisis relevansi antar atribut untuk mengidentifikasi atribut yang akan dipakai pada proses klasifikasi. Atribut tersebut dipilih sebelum proses klasifikasi dimulai. Atribut lain yang tidak relevan terhadap proses klasifikasi dapat diabaikan. 
-\\
+\subsection{Klasifikasi} 
+Klasifikasi adalah proses menemukan model (atau fungsi) yang cocok untuk mendeskripsikan dan membedakan sebuah kelas data dengan kelas data lain. Dalam pembelajaran mesin, klasifikasi sering dianggap sebagai contoh dari metode pembelajaran yang diawasi, yaitu menyimpulkan fungsi dari data pelatihan berlabel. \\
+
+\noindent Berikut adalah tahapan klasifikasi secara umum:
+\begin{enumerate}
+
+\item
+Pelatihan: proses konstruksi model klasifikasi menggunakan algoritma tertentu. Algoritma digunakan untuk membuat model belajar menggunakan set pelatihan data yang tersedia. Model dilatih untuk menghasilkan prediksi yang akurat.
+
+\item
+Klasifikasi: model yang digunakan untuk memprediksi label kelas dan menguji model yang dibangun pada data uji dan karenanya memperkirakan akurasi aturan klasifikasi.
+\end{enumerate}
+\vspace{0.3cm}
+\noindent Berikut adalah kategori pemodelan klasifikasi:
+\begin{itemize}
+
+\item 
+Discriminative: pemodelan paling mendasar untuk menentukan satu kelas untuk setiap baris data. Pemodelan ini bergantung pada data yang diamati dan sangat bergantung pada kualitas data daripada distribusi data.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{klasifikasi1}
-	\caption{Jenis Pemodelan Klasifikasi}
+	\includegraphics[scale=0.75]{klasifikasi1}
+	\caption{Contoh soal}
 	\label{fig:klasifikasi1}
 \end{figure}
 
-\noindent Pada Gambar \ref{fig:klasifikasi1}, klasifikasi dapat dimodelkan dengan 3 cara yaitu (a) IF-THEN, (b) Decision Tree, dan (c) Neural Network. Setiap model memiliki caranya masing-masing untuk melakukan proses klasifikasi pada data pelatihan. Algoritma klasifikasi biasanya  menggunakan salah satu model dari ketiga jenis pemodelan tersebut. Berikut adalah penjelasan singkat dari ketiga jenis pemodelan klasifikasi  pada Gambar \ref{fig:klasifikasi1} yang umum digunakan: 
+Contoh: Logistic Regression\\
+Penerimaan siswa pada sebuah Universitas, untuk mempertimbangkan test score dan grades terhadap keputusan seorang siswa diterima/tidak diterima.
 
+\item 
+Generative: pemodelan ini memodelkan distribusi kelas individu dan mencoba mempelajari model yang menghasilkan data dengan memperkirakan asumsi dan distribusi model. Digunakan untuk memprediksi nilai data yang belum diketahui. \\\\
+Contoh: Naive Bayes \\
+Mendeteksi email spam dengan melihat data sebelumnya. Misalkan dari 100 email yang ada dibagi menjadi kategori Kelas A: 25\% (Email spam) dan Kelas B: 75\% (Email Non-Spam). Ingin diperiksa apakah email berisi  spam atau bukan. Pada Kelas A, 20 dari 25 email adalah spam dan sisanya bukan spam. Pada Kelas B, 70 dari 75 email bukan spam dan sisanya adalah spam. Probabilitas email yang berisi spam termasuk pemodelan naive bayes. \\
+\end{itemize}
+
+\noindent Berikut adalah contoh pemodelan yang umum digunakan:
 \begin{itemize}
-\item IF-THEN adalah pemodelan klasifikasi data dengan diberikan kondisi-kondisi tertentu yang bersifat unik  untuk merepresentasikan hasil dari klasifikasi kelas.
-\item Decision Tree adalah pemodelan klasifikasi data dengan menggunakan analogi struktur pohon, di mana setiap cabang mewakili jenis nilai atribut pada sebuah node dan setiap daun mewakili hasil dari klasifikasi kelas.
-\item Neural Network adalah pemodelan klasifikasi data menggunakan analogi neuron pada jaringan syaraf, di mana neuron adalah node yang saling terhubung dan memiliki bobot antar node untuk klasifikasi kelas.
+\item Decision Trees
+\item Naive Bayes
+\item Neural Networks
+\item K-Nearest Neighbour
+\item Linear Regression
 \end{itemize}
 
 \newpage
-\section{Naive bayes}
-\par Naive bayes menerapkan metode klasifikasi probabilistik. Jenis klasifikasi ini menghasilkan probabilitas yang sesuai untuk masing-masing kelas yang mungkin. Kelas dengan probabilitas tertinggi akan dipilih sebagai kelas terbaik. Naive bayes menggunakan teorema bayes. Naive bayes mengasumsikan bahwa fitur tertentu tidak selalu berhubungan dengan fitur lainnya. Naive bayes mudah untuk dibangun dan memiliki komputasi yang lebih cepat daripada model klasifikasi lainnya untuk dataset berukuran sangat besar. 
-\\\\
-\noindent Kelebihan dari Naive bayes adalah sebagai berikut:
+\subsection{Naive bayes}
+\par Naive bayes menerapkan klasifikasi dengan menggunakan metode probabilitas dan statistik. Pemodelan ini mencari nilai probabilitas tertinggi pada masing-masing kelas menggunakan teorema Bayes. Kelas dengan probabilitas tertinggi akan dipilih sebagai hasil akhir. Naive bayes mudah untuk dibangun dan memiliki komputasi yang lebih cepat daripada model klasifikasi lainnya.\\
 
-\begin{itemize}
-\item Memiliki kinerja yang cepat untuk melakukan klasifikasi data.
-\item Membutuhkan data pelatihan yang lebih sedikit dibandingkan model lain.
-\item Implementasi lebih mudah dibandingkan model lain.
-\end{itemize}
-
-\noindent Kekurangan dari Naive bayes adalah sebagai berikut:
-
-\begin{itemize}
-\item Tidak dapat membuat prediksi untuk probabilitas yang bernilai nol.
-\item Hanya bergantung pada nilai probabilitas saja sehingga hasil prediksi menjadi kurang baik.
-\end{itemize}
- 
-\noindent Teorema Bayes dapat dinyatakan dalam rumus sebagai berikut:
+\noindent Teorema Bayes menemukan probabilitas suatu peristiwa terjadi mengingat probabilitas peristiwa lain yang telah terjadi. Teorema Bayes dinyatakan secara matematis melalui persamaan berikut:
 
 \begin{equation}
 P(H|D) = \frac{P(D|H) \cdot P(H)}{P(D)}
 \end{equation}
 
-\noindent Probabilitas hipotesis tertinggi dapat dinyatakan dalam rumus sebagai berikut:
+\noindent
+Dari perhitungan probabilitas teorema Bayes, akan dicari kelas dengan probabilitas maksimum. Probabilitas maksimum dapat dinyatakan secara matematis melalui persamaan berikut:
 
 \begin{align}
 MAP(H) = max(P(H|D))
@@ -116,96 +140,213 @@ MAP(H) = max(P(H|D))
 \noindent Keterangan:
 \begin{itemize}
 \item P(H|D) adalah probabilitas posterior apabila diberika hipotesis H dan diketahui data D. 
-\item P(D|H) adalah probabilitas posterior  data d jika hipotesis h adalah benar.
+\item P(D|H) adalah probabilitas posterior data D jika hipotesis h adalah benar.
 \item P(H) adalah probabilitas hipotesis h adalah benar 
 \item P(D) adalah probabilitas data.
 \end{itemize}
 
+\vspace{0.3cm}
+
+\noindent Dataset diberikan untuk menggambarkan kondisi cuaca saat bermain golf. Masing-masing data dikategorikan berdasarkan nilai atribut PlayGolf, yaitu cocok ("Yes") atau tidak cocok ("No"). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{naive_bayes1}
+	\caption{Dataset untuk kondisi cuaca saat bermain golf}
+	\label{fig:naive_bayes1}
+\end{figure}
+
+\noindent Berikut adalah pengelompokan nilai berdasarkan dataset yang telah diberikan:
+
+\begin{itemize}
+
+\item 
+Vektor Fitur\\
+Vektor Fitur adalah vektor yang mewakili nilai fitur untuk setiap baris dataset. Vektor Fitur dalam dataset ini tersusun dari nilai atribut Outlook, Temperature, Humidity, dan Windy.
+
+\item
+Vektor Respon\\
+Vektor Respon adalah nilai prediksi kelas untuk setiap vektor fitur. Vektor Respon dalam dataset ini diwakili oleh nilai atribut PlayGolf.
+
+\end{itemize}
+
+
 \noindent Secara singkat, langkah kerja algoritma Naive Bayes dapat dijelaskan sebagai berikut:
 
 \begin{enumerate}
-\item Menghitung probabilitas masing-masing kelas.\\
-Probabilitas kelas dapat dihitung berdasarkan f data dari masing-masing kelas dibagi dengan jumlah f data dari seluruh kelas. Dalam kasus paling sederhana, setiap kelas akan memiliki probabilitas sebesar 0,5. Sebagai contoh dalam klasifikasi biner, probabilitas untuk atribut kelas “class” dengan nilai 1 dapat dihitung sebagai berikut:
-\begin{align*}
-P(class=1) = \frac{f(class=1)}{f(class=0)+f(class=1)}
-\end{align*}
+\item Merepresentasikan teorema Bayes terhadap vektor fitur.\\
+Berdasarkan dataset, teorema Bayes dapat diubah seperti berikut:
 
-\item Menghitung probabilitas bersyarat berdasarkan nilai atribut data yang diketahui.\\
-Probabilitas bersyarat dapat dihitung berdasarkan f data dari setiap nilai atribut untuk nilai kelas tertentu dibagi dengan f nilai kelas tertentu. Misalnya untuk atribut data yang diketahui "weather" dengan nilai "sunny" dan "rainy" dan atribut kelas dengan nilai "goingout " dan "stayhome", maka probabilitas bersyarat dari seluruh nilai atribut "weather" jika diketahui seluruh nilai atribut "class" dapat dihitung sebagai berikut:\\
-\begin{eqnarray*}
-P(weather=sunny|class=goingout) &=& \frac{f(weather=sunny \; dan \; class=goingout)} {f(class=goingout)}\\
-P(weather=sunny|class=stayhome) &=& \frac{f(weather=sunny \; dan \; class=stayhome)}{f(class = stayhome)}\\
-P(weather=rainy|class=goingout) &=& \frac{f(weather=rainy \; dan \; class=goingout)} {f(class = goingout)}\\
-P(weather=rainy|class=stayhome) &=& \frac{f(weather=rainy \; dan \; class=stayhome)}{f(class=stayhome)}
-\end{eqnarray*}
+\begin{equation}
+P(y|X) = \frac{P(X|y) \cdot P(y)}{P(X)}
+\end{equation}
 
-\item Membuat prediksi berdasarkan probabilitas.\\
-\noindent Model Naive bayes dapat membuat prediksi untuk data baru menggunakan teorema bayes berdasarkan rumus berikut ini:
+Dimana y adalah variabel kelas dan X adalah vektor fitur (dengan ukuran n), dinyatakan melalui persamaan berikut:
 
-\begin{align}
-MAP(H) = max(P(D|H) * P(H))
-\end{align}
+\begin{equation}
+X = (x_1, x_2, x_3, \ldots, x_n)
+\end{equation}
 
-\noindent Apabila ingin menghitung probabilitas bersyarat untuk setiap nilai atribut kelas, dengan diketahui nilai atribut “weather = sunny “, maka dapat dihitung sebagai berikut:
+Contoh: X = (Rainy, Hot, High, False), y = No
+\\\\
+Diasumsikan teorema Bayes saling independen terhadap fitur-fiturnya. Berikut adalah persamaan teorema Bayes baru, jika memakai lebih dari satu nilai atribut:
 
-\begin{eqnarray*}
-goingout &=& P(weather=sunny class=goingout)*P(class=goingout)\\
-stayhome &=& P(weather=sunny|class=stayhome)*P(class=stayhome)
-\end{eqnarray*}
+\begin{equation}
+P(y|x_1,\ldots,x_n) = \frac{P(x_1|y) P(x_2|y) \ldots P(x_n|y) P(y)}{P(x_1) P(x_2) \ldots P(x_n)}
+\end{equation}
 
-\noindent Hasil dari probabilitas bersyarat akan dinormalisasi sebagai berikut:
 
-\begin{eqnarray*}
-P(goingout|weather=sunny) = \frac{goingout}{(goingout+stayhome)} \\
-P(stayhome|weather=sunny) = \frac{stayhome}{(goingout+stayhome)}
-\end{eqnarray*}
+\item Menghitung probabilitas masing-masing atribut.
 
-\noindent Apabila ditambahkan atribut baru “car” dengan nilai “working” dan “broken”, maka probabilitas bersyarat setelah atribut baru ditambahkan adalah sebagai berikut: 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{naive_bayes2}
+	\caption{Menghitung Probabilitas}
+	\label{fig:naive_bayes2}
+\end{figure}
 
-\begin{eqnarray*}
-goingout = &P(weather=sunny \; dan \; class=goingout)*&\\
-&P(car=working|class=goingout)*P(class=goingout)&
-\end{eqnarray*}
+Contoh: menghitung $P(No)$ untuk nilai "Sunny" pada atribut "Outlook"
+\begin{equation}
+P(No) = \frac{frekuensi(Sunny \cap No)}{frekuensi(No)}
+\end{equation}
+
+Contoh: menghitung $P(Yes)$ untuk nilai "Sunny" pada atribut "Outlook"
+\begin{equation}
+P(Yes) = \frac{frekuensi(Sunny \cap Yes)}{frekuensi(Yes)}
+\end{equation}
+
+\item Menghitung probabilitas bersyarat jika diketahui nilai dari data baru. \\\\
+Contoh: today = (Sunny, Hot, Normal, False)
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.73]{naive_bayes3}
+	\label{fig:naive_bayes3}
+\end{figure}
+
+\begin{equation}
+P(Yes|today) = \frac{3}{5} \cdot \frac{2}{5} \cdot \frac{1}{5} \cdot \frac{2}{5} \cdot \frac{5}{14} = 0.0068
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.73]{naive_bayes4}
+	\label{fig:naive_bayes4}
+\end{figure}
+
+\begin{equation}
+P(Yes|today) = \frac{2}{9} \cdot \frac{2}{9} \cdot \frac{6}{9} \cdot \frac{6}{9} \cdot \frac{9}{14} = 0.0068
+\end{equation}
+
+\item Melakukan normalisasi terhadap probabilitas besyarat.\\
+
+Setelah probabilitas bersyarat dinormalisasi, akan menjadi seperti berikut:
+
+\begin{equation}
+P(Yes|today) = \frac{0.0141}{0.0141 + 0.0068} = 0.67
+\end{equation}
+
+\begin{equation}
+P(Yes|today) = \frac{0.0068}{0.0141 + 0.0068} = 0.33
+\end{equation}
+
+Sehingga memiliki probabilitas total seperti berikut:
+
+\begin{equation}
+P(Yes|today) + P(No|today) = 1
+\end{equation}
+
+\item Mencari probabilitas tertinggi.\\
+
+Berdasarkan pernyataan berikut:
+\begin{equation}
+P(Yes|today) > P(No|today)
+\end{equation}
+
+\noindent Dapat disimpulkan bahwa, jika diberikan data dengan nilai (Sunny, Hot, Normal, False) klasifikasi yang tepat untuk atribut PlayGolf adalah Yes.
+
+
 
 \end{enumerate}
 
 \newpage
-\section{Pengelompokan/Clustering} 
-Clustering adalah proses menganalisis set data tanpa perlu mengetahui label kelas. Pada beberapa kasus, label kelas tidak selalu tersedia pada set pelatihan data. Clustering dapat digunakan untuk menghasilkan label kelas pada sekelompok tuple. Tuple baru dikelompokan berdasarkan prinsip memaksimalkan kesamaan satu kelas dan meminimalkan kesamaan antar kelas. Sebuah kluster terbentuk karena memiliki banyak kesamaan sifat antar sesama tuple di kluster tersebut, dan memiliki perbedaan sifat terhadap tuple di kluster lain. Setiap kluster yang terbentuk dapat dilihat sebagai kelas.
+\subsection{Pengelompokan/Clustering} 
+Clustering adalah salah satu teknik analisis data yang paling umum digunakan untuk mendapatkan kemiripan antar data. Clustering dapat didefinisikan sebagai sebuah tugas untuk mengidentifikasi subkelompok dalam data sedemikian rupa sehingga titik data dalam subkelompok yang sama (cluster) sangat mirip sedangkan titik data dalam kelompok berbeda sangat berbeda. Contoh pemodelah clustering adalah K-Means.
+
+\subsection{K-Means} 
+K-Means adalah algoritma pembelajaran mesin unsupervised learning untuk menentukan kelompok objek tertentu benar-benar milik. Unsupervised learning artinya tidak ada label yang ditentukan dalam data. Gagasan utama K-Means adalah menetapkan setiap data ke dalam cluster dengan mean terdekat (centroid). Mencari titik terdekat dilakukan dengan cara menghitung distance antara dua data menggunakan Euclidean distance, lalu membandingkat titik yang memiliki jarang paling dekat dengan titik lainnya. \\
+
+\noindent Berikut adalah persamaan untuk menghitung Euclidean distance:
+\begin{equation}
+EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
+\end{equation}
+\vspace{0.2cm}
+
+\noindent Diberikan dataset skor A dan B untuk masing-masing individu:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{clustering1}
-	\caption{Hasil dari clustering}
-	\label{fig:rnaalgorithm}
+	\includegraphics[scale=0.9]{kmeans_1}
+	\caption{Contoh Dataset}
+	\label{fig:kmeans_1}
 \end{figure}
 
-\section{K-Means Clustering} 
-K-Means Clustering akan mempartisi data pada dataset D ke dalam k buah cluster 
-$(C_1, \ldots, C_k)$, dengan syarat $C_i \subset D$ dan $C_i \cap C_j = \emptyset$ untuk $(1 \leq i, j \leq k)$.  K-Means Clustering memiliki fungsi obyektif untuk menilai kualitas partisi sehingga tuple-tuple di dalam sebuah cluster akan mirip satu sama lain dan berbeda dengan tuple-tuple di kluster lain. K-Means Clustering bertujuan untuk mencari tingkat kesamaan dalam satu cluster yang tinggi, dengan tingkat kesamaan dengan kluster lain yang rendah.
-
-\par K-Means Clustering menggunakan centroid dari cluster $(C_i)$  untuk mewakili kluster tersebut. Centroid adalah pusat massa sebuah cluster sebagai titik pusatnya. Centroid dapat didefinisikan dengan berbagai cara seperti dengan rata-rata nilai atribut pada sebuah cluster. Perbedaan antar objek diukur berdasarkan jarak antar objek p dengan centroidnya, diwakili dengan notasi Dist$(p, C_i)$. Notasi Dist$(p,C_i)$ adalah Euclidean distance antara dua titik p dan $C_i$. Untuk setiap tuple di setiap cluster, jarak dari tuple ke pusat clusternya akan dikuadratkan dan dijumlah. Kualitas sebuah cluster dapat diukur berdasarkan jumlah variasi di dalam kluster itu sendiri. Semakin banyak variasi dalam sebuah kluster, maka akan semakin buruk kualitas kluster tersebut.
-
-\par Mengoptimalkan jumlah variasi pada kluster merupakan tantangan komputasi. Dalam kasus terburuk, perlu mencoba sejumlah kemungkinan partisi (p) yang eksponensial terhadap jumlah cluster (C) dengan kompleksitas $(p^C)$ dan memeriksa nilai variasi di dalam sebuah kelompok data. Telah terbukti bahwa K-Means Clustering termasuk masalah eksponensial walaupun memiliki jumlah kluster yang sedikit. Jika jumlah kluster dan dimensi ruang pada kluster diperbaiki, masalah dapat diselesaikan dalam waktu O (n dk + 1 log n), di mana n adalah jumlah tuple,dk adalah jumlah dimensi ruang pada kluster. Untuk mengatasi biaya komputasi yang mahal, solusi yang tepat adalah menggunakan pendekatan algoritma greedy. Salah satu contoh penerapan algoritma greedy adalah, Greedy K-Member Clustering.\\
-\\
-\noindent Secara singkat, langkah kerja algoritma K-Means Clustering dapat dijelaskan sebagai berikut:
+\noindent Secara singkat, langkah kerja algoritma K-Means dapat dijelaskan sebagai berikut:
 \begin{enumerate}
-\item Memilih jumlah cluster (K).
-\item Inisialisasi K-buah nilai centroid secara random.
-\item Menghitung kemiripan antar objek dengan menghitung jarak terdekat antar suatu objek dengan centroid. Jika suatu objek memiliki jarak terpendek dengan nilai centroid tertentu maka objek tersebut akan dikelompokkan pada kelompok centroid tersebut.
-\item Menentukan nilai centroid baru dengan cara menghitung nilai rata-rata dari semua objek pada kelompok tertentu.
-\item Kumpulan objek pada setiap cluster dikelompokkan kembali berdasarkan nilai centroid baru.
-\item Ulangi langkah 3 dan 4 sampai nilai centroid tidak mengalami perubahan atau Thresshold.
+
+\item Kumpulan data ini akan dibuat menjadi dua kelompok dengan menginisialisasi k = 2. Untuk menentukan titik centroid awal, akan dicari nilai A dan B terjauh dengan data lainnya menggunakan Euclidean distance.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_2}
+	\caption{Hasil Pengelompokan Awal}
+	\label{fig:kmeans_2}
+\end{figure}
+
+\item Data yang tersisa akan diperiksa secara berurutan dan dialokasikan pada cluster yang paling dekat dengan centroid awal menggunakan Euclidean distance. Vektor rata-rata (centroid) akan dihitung ulang setiap kali anggota baru ditambahkan.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_3}
+	\caption{Mencari Centroid Kelompok}
+	\label{fig:kmeans_3}
+\end{figure}
+
+\item Menentukan titik centroid baru pada cluster yang baru terbentuk dari tahap sebelumnya.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_4}
+	\caption{Hasil Pengelompokan Baru}
+	\label{fig:kmeans_4}
+\end{figure}
+
+\item Belum bisa dipastikan bahwa setiap individu telah dialokasikan pada cluster yang tepat. Oleh karena itu, perlu membandingkan distance masing-masing data dengan centroid baru pada masing-masing kelompok.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_5}
+	\caption{Euclidean Distance Cluster 1, Cluster 2}
+	\label{fig:kmeans_5}
+\end{figure}
+
+\item Dapat disimpulkan bahwa, hanya individu 3 yang jaraknya lebih dekat dengan centroid Cluster 2 dari pada centroid Cluster 1. Dengan kata lain, distance masing-masing individu ke centroid kelompoknya sendiri harus lebih kecil daripada rata-rata kelompok lain. Dengan demikian, individu 3 harus dialokasikan ke Cluster 2.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_6}
+	\caption{Hasil Pengelompokan Akhir}
+	\label{fig:kmeans_6}
+\end{figure}
+
+
+
 \end{enumerate}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.8]{kmeansclustering1}
-	\caption{K-Means Clustering}
-	\label{fig:rnaalgorithm}
-\end{figure}
 
 
+
+
+\newpage
 \section{Bidang Terkait Data Mining}
 Data mining terhubung dengan beberapa bidang lain seperti statistika, machine learning, pengenalan pola, sistem basisdata, sistem data warehouse, information retrieval, visualisasi data, dan bidang lainnya. Jenis bidang ini memberikan berkontribusi yang signifikan terhadap keberhasilan dalam pengolahan data menggunakan teknik data mining.
 
@@ -217,9 +358,9 @@ Data mining terhubung dengan beberapa bidang lain seperti statistika, machine le
 \end{figure}
 
 \subsection{Visualisasi Data} 
-Visualisasi adalah penggunaan representasi data pada komputer. Visualisasi data melibatkan penyajian data dalam bentuk grafik atau gambar agar membuat informasi mudah dimengerti, membantu menjelaskan fakta, dan menentukan arah tindakan. Sulit untuk membuat visualisasi pada ukuran data yang besar. Kemampuan untuk memvisualisasikan data sangat penting untuk melakukan analisis data. Saat ini, komputer dapat memproses data dalam jumlah besar. Visualisasi data berkaitan dengan tata cara untuk menyatakan representasi data secara informatif agar mudah untuk dipahami. Dengan adanya representasi data dalam bentuk visual, seseorang dapat memahami sekumpulan data dengan mudah. Hal ini membantu individu  menemukan pola, memahami informasi, dan membentuk opini berdasarkan hasil analisis. Visualisasi menguntungkan bidang studi yang membutuhkan cara-cara inovatif untuk menyajikan informasi yang besar dan kompleks. Dalam visualisasi data, data diabstraksi dan diringkas. Visualisasi harus melakukan reduksi data, melakukan ransformasi data, dan menampilkan hasil pengolahan data dalam bentuk grafik. Grafik dapat menyajikan hasil analisis data agar mudah untuk dimengerti.
+Visualisasi adalah penggunaan representasi grafik pada komputer. Visualisasi data melibatkan penyajian data dalam bentuk grafik atau gambar agar membuat informasi mudah dimengerti, membantu menjelaskan fakta, dan menentukan arah tindakan.  Dengan adanya representasi data dalam bentuk visual, seseorang dapat memahami sekumpulan data dengan mudah. Hal ini membantu individu  menemukan pola, memahami informasi, dan membentuk opini berdasarkan hasil analisis. 
 \\\\
-Beberapa teknik visualisasi yang umum digunakan untuk menggambarkan informasi dari sekumpulan data adalah berikut:
+Beberapa teknik visualisasi yang umum digunakan untuk menggambarkan informasi dari sekumpulan data adalah sebagai berikut:
 
 \begin{itemize}
 \item Line chart adalah grafik pembanding perubahan nilai atribut pada periode waktu tertentu.
@@ -229,30 +370,28 @@ Beberapa teknik visualisasi yang umum digunakan untuk menggambarkan informasi da
 \end{itemize}
 
 \subsection{Statistika}
-Statistika adalah suatu metode yang digunakan dalam pengumpulan dan analisis data dapat diperoleh informasi yang bermamfaat. Statistika menyedikan prinsip dan metodologi untuk merancang proses pengumpulan data , meringkas dan menyajikan data yang telah diperoleh , menganalisis dan pengambilan keputusan secara ringkas. Secara ringkas pengertian statistika adalah pengetahuan yang berkaitan dengan pengumpulan angka-angka , pengolahan , dan penganalisisan , penarikan kesimpulan , serta pembuatan keputusan berdasarkan data dan fakta yang sudah dianalisis.
-
-Analisis statistika secara deskriptif merupakan metode penyajian data sehingga memberikan informasi yang berguna. Upaya penyajian ini dimaksudkan untuk mengungkapkan informasi penting yang terdapat dalam data ke dalam berntuk yang lebih ringkas dan sederhana yang pada akhirnya mengarah pada keperluan adanya penjelasan dan penafsiran (Aunudin, 1989). Analisis yang dilakukan dalam statistika meliputi ukuran pemusatan dan penyebaran data. Ukuran pemusatan data meliputi nilai rata-rata (mean), modus, dan median. Sedangkan ukuran penyebaran data meliputi variansi dan standar deviasi
+Statistika adalah pengetahuan yang berkaitan dengan pengumpulan angka-angka, pengolahan, dan analisis, penarikan kesimpulan, dan membuat keputusan berdasarkan data dan fakta yang sudah dianalisis. Analisis yang dilakukan dalam statistika meliputi ukuran pemusatan dan penyebaran data. Ukuran pemusatan data meliputi nilai rata-rata (mean), modus, dan median. Sedangkan ukuran penyebaran data meliputi variansi dan standar deviasi
 
 \subsubsection{Mean}
 Mean adalah nilai rata-rata dari sekumpulan data. Nilai dari mean dapat ditentukan dengan cara membagi jumlah data yang ada dengan total data. Mean terdiri dari dua jenis yaitu: populasi dan sampel. Mean populasi memiliki simbol $\mu$, sedangkan mean untuk sampel memiliki simbol $\overline{x}$.   
 \\\\
-Berikut adalah rumus untuk menghitung mean populasi ($\mu$):
+Berikut adalah persamaan untuk menghitung mean populasi ($\mu$):
 
 \begin{equation}
-\mu = \frac{x_1+x_2+x_3+\ldots+x_n}{N}
+\mu = \frac{x_1+x_2+x_3+\ldots+x_n}{n}
 \end{equation}
 
-\noindent Berikut adalah rumus untuk menghitung mean sampel ($\overline{x}$):
+\noindent Berikut adalah persamaan untuk menghitung mean sampel ($\overline{x}$):
 
 \begin{equation}
-\overline{x} = \frac{x_1+x_2+x_3+\ldots+x_n}{N}
+\overline{x} = \frac{x_1+x_2+x_3+\ldots+x_n}{n}
 \end{equation}
 
 
 \subsubsection{Median}
 Median menentukan letak dari titik tengah data setelah data disusun menurut urutan nilainya. Median disimbolkan dengan $\widetilde x$. Median dibedakan  berdasarkan jumlah datanya, yaitu jumlah data yang bernilai ganjil dan jumlah data yang bernilai genap. 
 \\\\
-\noindent Berikut adalah rumus untuk menghitung median dengan jumlah data yang bernilai ganjil dan genap:
+\noindent Berikut adalah persamaan median untuk jumlah data ganjil dan genap:
 
 \begin{align}
 \widetilde x = 
@@ -264,17 +403,25 @@ X_{\frac{n+1}{2}} & \hspace{5mm} ,n=ganjil \vspace{2mm}\\
 \end{align}
 
 \subsubsection{Modus}
-Modus adalah nilai yang sering muncul dalam kelompok data tersebut. Modus berarti nilai data yang memiliki frekuensi terbanyak dalam sekelompok data. Jika dalam suatu kelompok data memiliki lebih dari satu nilai data yang sering muncul maka sekumpulan data tersebut memiliki lebih dari satu modus. Sekelompok data yang memiliki dua modus disebut dengan bimodal, sedangkan jika lebih dari dua modus disebut multimodal. Jika dalam sekelompok data tidak terdapat satu pun nilai data yang sering muncul, maka sekelompok data tersebut dianggap tidak memiliki modus. Modus biasanya dilambangkan dengan $M_o$.
-
+Modus adalah nilai yang sering muncul dalam kelompok data tersebut. Modus berarti nilai data yang memiliki frekuensi terbanyak dalam sekelompok data. 
 
 
 \subsection{Machine Learning} 
-Machine learning mempelajari metode pembelajaran pada sebuah komputer, agar dapat belajar secara mandiri atau meningkatkan kinerjanya berdasarkan data pelatihan yang pernah diberi. Penelitian terutama pada machine learning adalah membuat program komputer secara otomatis belajar mengenali pola yang kompleks dan membuat keputusan cerdas berdasarkan data. Machine leaning adalah disiplin ilmu yang berkembang dengan cepat. Berikut adalah jenis pembelajaran machine learning untuk mengenali sebuah pola:
+Machine learning mempelajari metode pembelajaran pada sebuah komputer, agar dapat belajar secara mandiri atau meningkatkan kinerjanya berdasarkan data pelatihan yang pernah diberi. Penelitian pada machine learning adalah membuat program komputer bekerja secara otomatis untuk belajar mengenali pola yang kompleks dan membuat keputusan cerdas berdasarkan data. \\
 
-\par Contoh penerapan metode machine Learning adalah supervised learning. Supervised learning  adalah permasalahan klasifikasi. Beberapa algoritma klasifikasi yang umum digunakan adalah regression, , artificial neural networks, and random forests. Tujuan klasifikasi adalah untuk mengenali hubungan yang spesifik dalam data input agar secara efektif dapat menghasilkan data output yang benar apabila diberikan data baru. Menentukan output yang benar pada klasifikasi ditentukan dari banyaknya data pelatihan yang diberi. Noisy data  sering ditemui pada banyak kasus sehingga perlu ditangani secara khusus dengan metode machine learning tertentu.
+\noindent Berikut adalah contoh pembelajaran pada Machine Learning:
 
-\par Contoh penerapan lain dari metode machine learning adalah unsupervised learning. Unsupervised learning adalah permasalahan pengelompokan/clustering. Unsupervised learning mempelajari sifat data tanpa menggunakan label yang disediakan secara eksplisit. Beberapa algoritma clustering yang umum digunakan adalah k-means clustering. Karena tidak ada label yang disediakan, perlu adanya cara khusus untuk mencari kesamaan antar nilai atribut data menggunakan metode unsupervised learning.
+\begin{itemize}
 
+\item
+Supervised Learning adalah pembelajaran dengan menggunakan data yang diberi label dengan baik yang berarti beberapa data sudah ditandai dengan jawaban yang benar. Supervised Learning menganalisis data pelatihan dan menghasilkan hasil pelatihan yang benar dari data yang diberi label. Contoh penerapannya adalah clustering.
+
+\item
+Unsupervised Learning adalah pembelajaran menggunakan informasi yang tidak diklasifikasikan atau diberi label dan memungkinkan algoritma  bertindak pada informasi tersebut tanpa bimbingan. Unsupervised Learning bertujuan untuk mengelompokkan informasi yang tidak disortir menurut persamaan, pola dan perbedaan tanpa pelatihan data sebelumnya. Contoh penerapannya adalah klasifikasi.
+
+\end{itemize}
+
+\newpage
 \section{Privacy Preserving Data Mining (PPDM)} 
 Privacy Preserving Data Mining (PPDM) adalah teknik yang telah dikembangkan untuk mencegah pengungkapan informasi sensitif seseorang saat dilakukan data mining dari sekumpulan data yang berukuran besar. PPDM dapat melakukan perubahan dan  menghilangkan sebagian data untuk menjaga privasi. Semakin banyak terjadinya perubahan pada data, maka perlindungan privasi akan meningkat dan kualitas informasi akan menurun.  Utilitas adalah kondisi untuk meningkatkan kualitas informasi yang diperoleh dengan mempertimbangkan jumlah data yang dimodifikasi. Metode PPDM menjamin perlindungan data pada tingkat privasi tertentu bersamaan dengan memaksimalkan utilitas data, sehingga memungkinkan pengolahan data mining menghasilkan informasi yang efektif. Klasifikasi PPDM dibuat berdasarkan siklus pengolahan data mulai dari pengumpulan data, proses data mining, penerbitan data, dan distribusi data.
 
@@ -300,9 +447,10 @@ Record linkage mengacu pada pemetaan beberapa data korban yang ditargetkan ke da
 Dalam serangan ini, penyerang mendapatkan beberapa informasi terkait atribut sensitifnya, meskipun penyerang tidak dapat menghubungkan satu tupel dengan tupel lain dari data yang telah dipublikasi. Pemodelan  l-diversity dapat mencegah serangan attribute linkage. Kondisi yang diperlukan adalah kesetaraan setidaknya sebuah tupel memiliki l nilai atribut yang berbeda dengan tupel lainnya pada data yang telah dipublikasi. Konsep dasarnya adalah menghindari hubungan atribut jika akan ada nilai sensitif yang bernilai unik pada tupel-tuper tertentu dalam sebuah tabel.
 
 \section{Anonimisasi}
+\label{sec:anonimisasi}
 Anonimisasi adalah proses menghilangkan pengidentifikasi pribadi, baik langsung maupun tidak langsung, yang dapat menyebabkan seseorang diidentifikasi. Seseorang dapat diidentifikasi secara langsung dari nama, alamat, kode pos, nomor telepon, foto atau gambar, atau beberapa karakteristik pribadi unik lainnya. Seseorang dapat diidentifikasi secara tidak langsung ketika informasi tertentu dihubungkan bersama dengan sumber informasi lain.
 \\\\
-Berikut adalah istilah yang umum digunakan pada proses anonimisasi data: 
+Berikut adalah beberapa istilah yang umum digunakan pada proses anonimisasi data: 
 
 \begin{itemize}
 \item Identifier (ID) adalah atribut yang unik dan secara langsung dapat mengidentifikasi seseorang seperti nama, nomor ID, dan nomor ponsel.
@@ -313,41 +461,67 @@ dengan jenis nilai atribut yang identik satu sama lain.
 \item Non-sensitive Attribute (NSA) adalah atribut yang tidak menyangkut informasi privasi sensitif seseorang.
 \end{itemize}
 
-
+\newpage
 \subsection{Anonimisasi berdasarkan generalisasi dan supresi}
-Idenya adalah meningkatkan jumlah equivalence class pada tabel dengan mengurangi nilai akurasi data dari atribut quasi-identifier. Secara umum, quasi-identifier dapat dibagi menjadi dua jenis yaitu atribut numerik dan atribut kategori. Atribut numerik biasanya dilakukan generalisasi secara interval, misalnya, usia 16 dapat digeneralisasi ke interval [10-20]. Dan untuk atribut kategori, nilai-nilai  asli akan digantikan oleh yang nilai lebih umum menurut VGH. Sebagai contoh, atribut negara yang nilainya "China", maka dapat digeneralisasi menjadi "Asia". Supresi dapat dipandang sebagai bentuk generalisasi yang ekstrem, di mana atribut yang digeneralisasi tidak dapat digeneralisasi lebih lanjut.
+Idenya adalah meningkatkan jumlah equivalence class pada tabel dengan mengurangi nilai akurasi data dari atribut quasi-identifier. Quasi-identifier dikategorikan menjadi atribut numerik dan kategorial. Atribut numerik digeneralisasi secara interval, misalnya usia 16 dapat digeneralisasi pada interval [10-20]. Atribut kategorial mengubah nilai asli ke nilai yang lebih umum, misalnya negara "China" digeneralisasi menjadi "Asia". Supresi dipandang sebagai bentuk generalisasi yang ekstrem, karena menghilangkan beberapa nilai atribut.
 
 \subsection{Anonimisasi berdasarkan generalisasi}
-Saat ini, banyak jenis algoritma yang dipakai untuj implementasi algoritma anonimisasi, dan sebagian besar algoritma menggunakan pendekatan generalisasi dan supresi untuk proses anonimisasi. Berdasarkan perspektif, metode generalisasi dapat dibagi menjadi 2 kategori yaitu global generalization dan local generalization. 
-
-\subsubsection{Global generalization}
-Algoritma ini memungkinkan seluruh domain atribut identifier dipetakan ke dalam domain generalisasi, artinya nilai dalam tabel hanya akan memiliki satu nilai. Secara umum, algoritma global generalization dapat diimplementasi secara sederhana dan efisien. Akan tetapi perlu diketahui bahwa generalisasi yang berlebihan dapat menyebabkan hilangnya informasi yang tinggi. 
-
-\subsubsection{Local generalization}
-Algoritma ini memetakan seluruh nilai atribut ke dalam nilai generalisasi berdasarkan pengelompokan. Pengelompokan nilai atribut yang sama dapat digeneralisasikan ke nilai atribut yang berbeda jika berada dalam kelompok yang berbeda. Pengelompokan data biasanya mengadopsi beberapa prinsip heuristik, seperti pembagian, pengelompokan, dan sebagainya. Jumlah kehilangan informasi pada jenis algoritma ini lebih kecil dibandingkan dengan algoritma global generalization. Akan tetapi algoritma ini memiliki kompleksitas yang lebih tinggi dibandingkan dengan algoritma global generalization. Dalam kasus sejumlah besar data, kompleksitas adalah masalah yang harus diperhatikan. 
-\\\\
-Melalui pernyataan diatas, dapat disimpulkan bahwa secara umum algoritma generalisasi global paling efisien, tetapi kualitas informasinya rendah. Sebaliknya, algoritma generalisasi lokal dapat sangat meningkatkan kualitas informasi, tetapi memiliki kompleksitas yang tinggi sehingga tidak efisien. 
+Saat ini, banyak jenis algoritma yang dipakai untul implementasi  anonimisasi. Berdasarkan perspektif, metode generalisasi dapat dibagi menjadi global generalization dan local generalization. 
 
 \subsection{Anonimisasi berdasarkan clustering}
-Anonimisasi dapat diimplementasikan dengan pengelompokan/clustering. Clustering merupakan metode yang paling umum digunakan. Ide dasarnya adalah untuk menghasilkan setidaknya k buah tupel kelas sebagai kelas ekivalensi. Tupel dalam kelas yang sama harus sama mungkin untuk membuat kehilangan informasi seminimal mungkin setelah generalisasi. Konsep anonimisasi berdasarkan clustering ada ide dasar untuk perancangan model K-anonimity.
+Anonimisasi dapat diimplementasikan dengan konsep clustering. Ide dasarnya adalah menghasilkan setidaknya k buah data. Data dalam kelompok yang sama harus semirip mungkin agar kehilangan informasi dapat diminimalkan setelah dilakukan generalisasi. Konsep ini menjadi ide dasar untuk perancangan model K-anonimity.
+
+\section{Hierarchy Based Generalization} 
+Hierarchy-based generalization adalah tahapan anonimisasi setelah data yang memiliki quasi-identifier yang sama dikelompokan ke dalam kelas yang sama. Hierarchy-based generalization menggunakan konsep generalisasi dan supresi dalam melakukan anonimisasi. Hierarchy-based generalization termasuk metode full-domain generalization. Full-domain generalization diusulkan oleh Samarati dan Sweeney untuk memetakan seluruh domain untuk masing-masing atribut quasi-identifier pada tabel ke domain yang lebih umum.
+
+\par Full-domain generalization menetapkan bahwa metode generalisasi dapat dilakukan jika quasi-identifier telah ditentukan sebelumnya. Sebagai contoh QI = $\{A_1, \ldots , A_n\}$, dimana A adalah atribut dari tabel dataset. Full-domain generalization digunakan oleh K-Anonymity  untuk menentukan generalisasi dan supresi dari sebuah nilai. Terdapat dua jenis hierarki pada Full-domain generalization yaitu Domain Generalization Hierarchy (DGH) dan Value Generalization Hierarchy (VGH). Jenis hierarki yang paling umum digunakan adalah DGH. Tidak terdapat aturan khusus untuk memodelkan hierarki DGH. Semua nilai atribut dalam tabel harus bisa digeneralisasi menggunakan DGH. DGH adalah konsep sederhana dari penggantian nilai berdasarkan nilai yang kurang spesifik menjadi nilai lebih umum terhadap nilai aslinya. 
+
+Pada Gambar \ref{fig:DGH1}, nilai ZIP \{02138, 02139\} dapat digeneralisasi menjadi \{0213*\} dengan menghilangkan digit paling kanan. Secara semantik nilai yang telah digeneralisasi akan memiliki lingkup nilai yang lebih besar. Pada basis data relasional, domain digunakan untuk merepresentasikan nilai dari masing-masing atribut. Gagasan tentang domain akan diperluas agar lebih mudah dalam memahami cara kerja generalisasi. Dalam basis data, nilai telah dicatat secara spesifik sehingga dapat diasumsikan nilai atribut masih berada pada domain dasar. Sebagai contoh, nilai ZIP adalah \{02138, 02139\} berada pada domain dasar yaitu $Z_0$. Untuk mencapai perlindungan pada K-Anonymity, maka kode ZIP yang sebelumnya representatif harus diubah menjadi kurang informatif. Sebuah nilai dapat digeneralisasi jika memiliki domain yang lebih umum. Sedangkan domain yang kurang spesifik dapat digunakan untuk mendeskripsikan garis besar nilai ZIP. Sebagai contoh dari domain kurang spesifik adalah $Z_1$, di mana digit terakhir diganti dengan simbol (*). Berikut adalah contoh pemetaan dari Z0 ke Z1 seperti berikut $02139 \rightarrow 0213*$.
+
+\newpage
+Jika diberikan atribut A, maka fungsi generalisasi untuk atribut A adalah f: $A \rightarrow B$. Gambar 2.1 menyatakan urutan generalisasi secara fungsional dengan definisi fungsi sebagai berikut $f_h$: h = \{$0,\ldots, n-1\}$, sehingga A = $A_0$ and |$A_n$| = 1. Fungsi $f_h$ menerapkan urutan linier pada $A_h$ di mana elemen minimal harus berada pada domain dasar yaitu $A_0$ dan elemen maksimalnya harus berada paling atas yaitu $A_n$. Persyaratannya adalah $A_n$ memastikan bahwa semua nilai yang terkait dengan suatu atribut bisa digeneralisasikan ke nilai tunggal. $A_h$, $h = 0, \ldots, n$ akan diuraikan jika pada implementasi nilainya bertentangan dengan memiliki nilai yang sama. Hubungan seperti itu menyiratkan adanya hierarki generalisasi nilai VGHA untuk atribut A. 
+
+\[
+  A_0 \overset{f_0} {\longrightarrow} A_1 \overset{f_1} {\longrightarrow} \mathcal{\ldots} \overset{f_n-1}{\longrightarrow} A_n
+\]
+
+Representasi generalisasi diperluas agar metode supresi dapat diterapkan dengan cara membuat hirarki generalisasi untuk elemen dengan nilai maksimal yang baru berada di atas elemen dengan nilai maksimal yang lama. Elemen maksimal baru adalah nilai supresi atribut. Ketinggian setiap hierarki generalisasi akan bertambah seiring munculnya elemen maksimal yang baru. Setelah elemen mencapai nilai maksimal yang dapat digeneralisasi maka tidak akan ada lagi perubahan yang diperlukan untuk memasukkan nilai supresi (*). Gambar \ref{fig:DGH1} dan Gambar \ref{fig:DGH2} memberikan contoh hierarki generalisasi dari nilai dan domain yang diperluas untuk memasukkan elemen maksimal yang disupresi (*****). Pada contoh ini, domain $Z_0$ mewakili kode ZIP untuk Cambridge, MA, dan $E_0$ mewakili ras. Mulai sekarang, semua referensi untuk generalisasi termasuk elemen maksimal baru dan hierarki mengacu pada hierarki generalisasi domain.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{DGH1}
+	\caption{DGH dan VGH pada atribut ZIP}
+	\label{fig:DGH1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{DGH2}
+	\caption{DGH dan VGH pada atribut Race}
+	\label{fig:DGH2}
+\end{figure}
+
+
+
 
 \newpage
 \section{K-Anonymity}
 K-anonymity merupakan model yang paling efektif untuk melindungi privasi saat melakukan publikasi data. K-anonymity adalah pemodelan untuk mengurangi perbedaan antara satu data dengan data lain, agar sebuah data tidak dapat dibedakan setidaknya dengan k-1 data lainnya. Dengan kata lain, penyerang tidak dapat mengidentifikasi identitas dari satu data karena k-1 data yang lain memiliki sifat yang sama. Dalam pemodelan k-anonymity, nilai k dapat digunakan sebagai tingkat keamanan privasi. Semakin tinggi nilai k, semakin sulit untuk mengindentifikasi sebuah data. Secara teori, probabilitas identifikasi sebuah data adalah 1 / k. Namun, meningkatkan nilai k juga berpengaruh terhadap nilai informasi yang diperoleh dari sekumpulan data.
 
-\par K- anonymity pertama kali diusulkan pada tahun 1998 oleh Sweeney et al. K- anonymity tergantung pada menganonimkan kumpulan data asli untuk memenuhi persyaratan anonimisasi, yang dapat digunakan untuk penerbitan data. Teknik anonimisasi yang umum adalah generalisasi dan disembunyikan. Gagasan dasar K- anonymity adalah menganonimkan data penerbitan untuk memenuhi persyaratan bahwa setidaknya K tupel tidak dapat dibedakan satu sama lain. Yaitu, untuk masing-masing tuple terdapat setidaknya K tuple dengan nilai yang sama dari quasi-identifiers. Para peneliti telah membuktikan bahwa kompleksitas K- anonymity adalah NP-hard. NP-hard adalah istilah yang sering digunakan untuk menyatakan kompleksitas sebuah algoritma sangat tinggi (eksponensial).
+\par K-Anonymity pertama kali diusulkan pada tahun 1998 oleh Sweeney et al. K- anonymity tergantung pada menganonimkan kumpulan data asli untuk memenuhi persyaratan anonimisasi, yang dapat digunakan untuk penerbitan data. Teknik anonimisasi yang umum adalah generalisasi dan disembunyikan. Gagasan dasar K- anonymity adalah menganonimkan data penerbitan untuk memenuhi persyaratan bahwa setidaknya K buah record yang tidak dapat dibedakan satu sama lain. Yaitu, untuk masing-masing tuple terdapat setidaknya K tuple dengan nilai yang sama dari quasi-identifiers. Para peneliti telah membuktikan bahwa kompleksitas K- anonymity adalah NP-hard. NP-hard adalah istilah yang sering digunakan untuk menyatakan kompleksitas sebuah algoritma sangat tinggi (eksponensial).
 
-\par Penelitian menunjukkan bahwa sebagian besar metode k-anonymity menggunakan metode generalisasi dan supresi. Pendekatan tersebut menderita kehilangan informasi yang signifikan karena mereka sangat bergantung terhadap hubungan relasi antar atribut. Oleh karena itu, hasil anonimisasi menghasilkan nilai kehilangan informasi yang cukup tinggi. Selain itu, algoritma anonimisasi yang ada hanya berfokus pada perlindungan informasi pribadi dan mengabaikan utilitas data yang sebenarnya. Akibatnya, nilai utilitas pada data yang telah dianonimisasi memiliki bernilai rendah. Beberapa algoritma telah dicoba untuk mengimplementasikan pemodelan k-anonymity.
+\par Penelitian menunjukkan bahwa sebagian besar pemodelan k-anonymity menggunakan metode generalisasi dan supresi. Pendekatan tersebut menderita kehilangan informasi yang signifikan karena mereka sangat bergantung terhadap hubungan relasi antar atribut. Oleh karena itu, hasil anonimisasi menghasilkan nilai kehilangan informasi yang cukup tinggi. Selain itu, algoritma anonimisasi yang ada hanya berfokus pada perlindungan informasi pribadi dan mengabaikan utilitas data yang sebenarnya. Akibatnya, nilai utilitas pada data yang telah dianonimisasi memiliki bernilai rendah. Beberapa algoritma telah dicoba untuk mengimplementasikan pemodelan K-Anonymity.
 
 \par Algoritma k-means clustering akan melakukan beberapa iterasi sampai centroid dari semua data tidak lagi berubah atau perubahannya kecil. Algoritma k-means clustering tidak mampu untuk menyelesaikan masalah pada atribut yang bernilai kategorikal. Kelebihan dari algoritma k-means clustering adalah memiliki hasil pengelompokan yang sudah baik. Kekurangan dari algoritma k-means clustering adalah pemilihan centroid awal k-means secara acak, sehingga setelah digeneralisasi hasil pengelompokannya mengakibatkan hilangnya informasi yang besar.
 
 \par Algoritma k-member dapat melakukan generalisasi atribut kategorikal dengan memperoleh kualitas informasi yang lebih baik daripada algoritma k-means clustering. Namun algoritma k-member masih memiliki masalah ketika melakukan pengelompokan data. Kekurangan dari algoritma K-member adalah hanya mempertimbangkan pengelompokan terakhir tanpa memperhatikan pengelompokan yang dihasilkan pada proses sebelumnya sehingga menyebabkan distribusi kelompok pada beberapa bagian menjadi kurang tepat. 
 
-\par Untuk menghindari kekurangan pada algoritma k-means dan algoritma k-member maka kedua konsep ini perlu digabung menjadi sebuah algoritma baru dengan nama algoritma Greedy K-member Clustering. Algoritma Greedy K-member Clustering mendapatkan hasil pengelompokan yang lebih tepat dan memiliki nilai informasi yang lebih baik meskipun dilakukan generalisasi. Menggunakan algoritma Greedy K-Member Clustering, pengelompokan data dapat dilakukan satu kali sehingga dapat menurunkan kompleksitas algoritma dan hasil  pemilihan centroid dapat dioptimalkan sehingga hasil pengelompokan dapat ditingkatkan secara signifikan. 
+\par Untuk menghindari kekurangan pada algoritma k-means dan algoritma k-member maka kedua konsep ini perlu digabung menjadi sebuah algoritma baru dengan nama algoritma Greedy K-member Clustering. Algoritma Greedy K-member Clustering mendapatkan hasil pengelompokan yang lebih tepat dan memiliki nilai informasi yang lebih baik meskipun dilakukan generalisasi. Menggunakan algoritma Greedy K-Member Clustering, pengelompokan data dapat dilakukan satu kali sehingga dapat menurunkan kompleksitas algoritma dan hasil  pemilihan centroid dapat dioptimalkan sehingga hasil pengelompokan dapat ditingkatkan secara signifikan. Hasil akhir dari algoritma Greedy K-member Clustering adalah data-data yang sejenis sudah dikelompokan pada kelompok data yang sama. Untuk melakukan anonimisasi pada pemodelan k-anonymity, digunakan konsep Hierarchy Based Generalization. Konsep ini menyamarkan data yang  memiliki nilai quasi-identifier yang sama. Beberapa pemodelan yang dapat digunakan adalah Domain Generalization Hierarchy (DGH) dan Value Generalization Hierarychy (VGH). Pemodelan VGH akan diterapkan pada data yang nilainya sama dengan data lain dalam satu kelompok. 
 
-\newpage
+
 \section{Greedy K-Member Clustering}
-Penelitian menunjukkan bahwa sebagian besar metode k-anonymity didasarkan pada generalisasi dan teknik penekanan sehingga menderita dari kehilangan informasi yang signifikan. Masalah pengelompokan dapat meminimalkan kehilangan informasi. Akan tetapi k-member clustering berpotensi memiliki kompleksitas eksponensial. Untuk menurunkan kompleksitas, maka permasalahan pengelompokan pada algoritma k-member dapat didefinisikan sebagai permasalahan greedy. Algoritma Greedy K-Clustering anggota bertujuan untuk membagi seluruh tuple pada dataset ke masing-masing cluster dengan kerumitan yang lebih baik dan mendukung informasi yang lebih banyak dibandingkan algoritma clustering yang lain.
+\label{sec:greedyclustering}
+Penelitian menunjukkan bahwa sebagian besar metode K-Anonymity didasarkan pada generalisasi dan teknik penekanan sehingga menderita dari kehilangan informasi yang signifikan. Masalah pengelompokan dapat meminimalkan kehilangan informasi melalui algoritma K-Member Clustering. Akan tetapi algoritma K-Member Clustering berpotensi memiliki kompleksitas yang eksponensial. Untuk menurunkan kompleksitas tersebut, maka permasalahan algoritma K-Member Clustering dapat didefinisikan sebagai permasalahan algoritma Greedy. Algoritma Greedy K-Member Clustering bertujuan untuk membagi seluruh tuple pada dataset ke masing-masing cluster dengan kompleksitas yang lebih baik dan mendukung informasi yang lebih banyak dibandingkan algoritma clustering yang lain.
 
 \begin{theorem}
 Masalah pengambilan keputusan pada k-member clustering adalah NP-complete.
@@ -358,7 +532,7 @@ Melalui pengamatan Aggarwal et al, permasalahan k-member clustering dapat disele
 \end{proof}
 
 \begin{theorem}
-N adalah total tuple dan k adalah parameter anonimisasi. Setiap kluster yang ditemukan oleh algoritma greedy k-member clustering memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k–1$.
+N adalah total tuple dan k adalah parameter anonimisasi. Setiap kluster yang ditemukan oleh algoritma greedy k-member clustering memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k - 1$.
 \end{theorem}
 
 \begin{proof}
@@ -366,29 +540,104 @@ S adalah himpunan tuple. Algoritma ini menemukan cluster selama jumlah tuple yan
 \end{proof}
 
 \begin{theorem}
-N adalah jumlah tuple dan k menjadi parameter anonimitas yang ditentukan. Jika $n \gg k$, kompleksitas algoritma greedy k-member clustering adalah $O(n^2)$.
+N adalah jumlah tuple dan k menjadi parameter anonimitas yang ditentukan. Jika $n > k$, kompleksitas algoritma greedy k-member clustering adalah $O(n^2)$.
 \end{theorem}
 
 \begin{proof}
 Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk memilih tuple dari S satu per satu hingga mencapai $|S| = k$. Karena ukuran set input berkurang satu pada setiap iterasi, total waktu eksekusi adalah O $(n^2)$.
 \end{proof}
 
-\noindent Secara singkat, langkah kerja algoritma Greedy K-Means Clustering dapat dijelaskan sebagai berikut:
+\noindent Beberapa hal penting terkait algoritma Greedy K-Means Clustering:
+
+\begin{itemize}
+\item Menetapkan tabel S  
+\item Menetapkan nilai k
+\item Menetapkan jumlah cluster (m) yang ingin dibuat
+\begin{align}
+m = \left \lfloor \frac{n}{k} \right \rfloor - 1
+\end{align}
+\end{itemize}
+
+
+\noindent Berikut adalah langkah kerja algoritma Greedy K-Means Clustering secara lengkap:
 
 \begin{enumerate}
-\item Menghitung jumlah kluster (m) berdasarkan m = pagardalam(n/k)-1
-\item Memilih sebuah tupel r secara acak, menjadikan r sebagai centroid dari kluster ci. 
-\item Setiap (1-r) tupel dalam dataset S, akan dihitung distance antara (1-r) tupel lain dengan centroid r, lalu dipilih sebuah tupel dengan nilai distance terbesar pada centroid r, sehingga centroid r menjadi nilai centroid baru bagi kluster ci.
-\item Memilih k-1 tupel lain yang dekat dengan nilai ri, artinya mencari nilai $IL(e1 \cup {rj})$ yang minimal.
-\item Mengulangi langkaH 4, sampai pada kondisi dimana $|ci| < k$.
-\item Mengulangi proses clustering dari tahap 3 sampai dengan tahap 5, sampai pada kondisi dimana $|S| < k$.  
-\item Melakukan iterasi $(1-r)$ tupel yang tersisa dalam dataset dan masukan setiap tupel ke dalam sebuah kluster dengan mempertimbangkan nilai information loss seminimal mungkin. 
+\item Melakukan inisialisasi variabel result dengan himpunan kosong dan variabel r dengan memilih data secara acak dari tabel S
+
+\item Pada kondisi $|S| \geq k$, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data baru pada variabel r berdasarkan perbedaaan distance tertinggi dari nilai r sebelumnya. Perbedaan distance dapat dicari menggunakan rumus berikut:
+\begin{align*}
+\Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
+\end{align*}
+
+\noindent Berikut adalah rumus menghitung distance antar data numerik:
+\begin{align*}
+\delta_n(v_1,v_2) = \frac{|v_1 - v_2|}{|D|} 
+\end{align*}
+
+\vspace{0.4cm}
+
+\noindent Berikut adalah rumus menghitung distance antar data kategorikal:
+
+\begin{align*}
+\delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
+\end{align*}
+
+\vspace{0.4cm}
+
+\item Membuang himpunan data variabel r pada variabel S
+
+\item Mengisi data dari variabel r pada variabel c.
+
+\item Pada kondisi $|c| \geq k$, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data baru terbaik untuk variabel r berdasarkan nilai Information Loss (IL) yang paling rendah. Information Loss (IL) dapat dicari menggunakan rumus berikut:
+
+\begin{align*}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align*}
+
+\item Membuang himpunan data dari variabel r pada variabel S
+
+\item Menambahkan himpunan data dari variabel r pada variabel c.
+
+\item Menambahkan himpunan data dari variabel c pada variabel result
+
 \end{enumerate}
 
+\end{enumerate}
+
+\item Pada kondisi $|S| \neq  0$, artinya jika masih terdapat data yang belum dimasukkan pada sebuah cluster dari tabel S, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data secara acak dari tabel S untuk disimpan pada variabel r
+
+\item Membuang himpunan data dari variabel r pada variabel S
+
+\item Memilih cluster terbaik untuk variabel c berdasarkan nilai Information Loss (IL) yang paling rendah. Information Loss (IL) dapat dicari menggunakan rumus berikut:
+
+\begin{align*}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align*}
+
+\item Menambahkan himpunan data dari variabel r pada variabel c.
+
+\end{enumerate}
+
+\item Algoritma ini mengembalikan himpunan data berdasarkan jenis cluster yang berbeda-beda melalui variabel result.
+
+\end{enumerate}
+
+\newpage
 \noindent Berikut adalah pseudocode secara lengkap dari algoritma greedy k-member clustering:
 
 \begin{algorithm}[H]
-  \caption{Find Best Record}\label{euclid}
+  \caption{Find Best Record}\label{alg:1}
   \begin{algorithmic}[1]
   %-------------- Input & Output -----------------
   \State \textbf{Function} \texttt{find\_best\_record(S,c)}
@@ -410,9 +659,9 @@ Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk 
   \State{return best}
   \end{algorithmic}
 \end{algorithm}
-
+Algoritma \ref{alg:1} menerima input himpunan data  dataset dan sebuah data dengan nilai distance tertinggi dari data terpilih acak. Algoritma ini menghitung selisih distance dari dua jenis data yang berbeda. Variabel "diff" pada algoritma ini adalah perbedaan distance, dicari dengan penjumlahan information loss pada sebuah kluster dengan information loss pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan information loss dari kluster. Output algoritma ini adalah sebuah data dengan nilai terbaik, yaitu data ke-i dari dataset S dengan nilai distance paling kecil.
 \begin{algorithm}[H]
-  \caption{Find Best Cluster}\label{euclid}
+  \caption{Find Best Cluster}\label{alg:2}
   \begin{algorithmic}[1]
   %-------------- Input & Output -----------------
   \State \textbf{Function} \texttt{find\_best\_cluster(C,r)}
@@ -424,7 +673,7 @@ Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk 
   \State{$min = \infty$}
   \State{$best = null$}
   \For{$i = 1 \ldots n$}
-  \State{r = i-th record in S}
+  \State{c = i-th cluster in C}
   \State{diff = $IL(c \cup \{r\}) - IL(c)$}
   \If{diff < min}
   \State{min = diff}
@@ -435,9 +684,10 @@ Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk 
   \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}[H]
-  \caption{Greedy K-Member Clustering}\label{euclid}
+Algoritma \ref{alg:2} menerima input himpunan data  kluster dan sebuah data dengan nilai distance tertinggi dari data terpilih acak. Algoritma ini menghitung selisih distance dari dua jenis data yang berbeda. Variabel "diff" pada algoritma ini adalah perbedaan distance, dicari dengan penjumlahan information loss pada sebuah kluster dengan information loss pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan information loss dari kluster. Output algoritma ini adalah data dengan nilai kluster terbaik, yaitu data ke-i dari dataset S dengan nilai distance paling kecil.
 
+\begin{algorithm}[H]
+  \caption{Greedy K-Member Clustering}		 \label{alg:3}
   \begin{algorithmic}[1]
   %-------------- Input & Output -----------------
   \State \textbf{Function} \texttt{greedy\_k\_member\_clustering(S,k)}
@@ -456,7 +706,7 @@ Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk 
   \State{S = S - \{r\}}
   \State{c = \{r\}}
   	\While{$|c| < k$}
-	\State{$find_best_record(S,c)$}  
+	\State{r = find\_best\_record(S,c)}  
 	\State{S = S - \{r\}}
   	\State{c = c $\cup$ \{r\}}
   	\EndWhile
@@ -465,86 +715,64 @@ Algoritma greedy k-member clustering menghabiskan sebagian besar waktunya untuk 
   \While{$S \neq 0$}
   \State{r = a randomly picked record from S}
   \State{S = S - \{r\}}
-  \State{$find_best_cluster(result,r)$}
+  \State{c = find\_best\_cluster(result,r)}
   \State{c = c $\cup$ \{r\}}
   \EndWhile
   \State{return result}
   \end{algorithmic}
 \end{algorithm}
 
+Algoritma \ref{alg:3} menerima input himpunan data S dan nilai k. Algoritma ini mengeksekusi dua jenis fungsi yang berbeda yaitu fungsi find\_best\_cluster untuk mencari kluster dengan distance terkecil dan fungsi find\_best\_record untuk mencari data dengan distance terkecil. Output dari algoritma ini adalah himpunan data dari berbagai jenis kluster dengan nilai distance terkecil.
 
 
-\section{Hierarchy Based Generalization} 
-
-
-Hierarchy-based generalization adalah tahapan anonimisasi setelah data yang memiliki quasi-identifier yang sama dikelompokan ke dalam kelas yang sama. Hierarchy-based generalization menggunakan konsep generalisasi dan supresi dalam melakukan anonimisasi. Hierarchy-based generalization termasuk metode full-domain generalization. Full-domain generalization diusulkan oleh Samarati dan Sweeney untuk memetakan seluruh domain untuk masing-masing atribut quasi-identifier pada tabel ke domain yang lebih umum. Skema ini menjamin bahwa semua nilai atribut tertentu dalam V adalah milik domain yang sama. 
-
-\par Pendekatan dalam kelas ini mensyaratkan bahwa strategi generalisasi dari setiap atribut dalam quasi-identifier harus ditentukan sebelumnya oleh Domain Generalization Hierarchy (DGH), merupakan kumpulan domain yang sepenuhnya menunjukkan atribut yang sesuai harus digeneralisasi dalam beberapa langkah. Berdasarkan DGH, seseorang dapat memperoleh Value Generalization Hierarchy (VGH), merupakan partisi dari urutan himpunan nilai. Pada Gambar \ref{fig:hierarchybasedgeneralization1}, diberikan contoh perbedaan generalisasi menggunakan DGH dan VGH untuk atribut kode pos pada gambar (a) dan (b), jenis kelamin pada gambar (c) dan (d), dan usia pada gambar (e) dan (f).
-
-\par Masalah k-anonimisasi adalah menemukan cara generalisasi yang tepat untuk seluruh quasi-identifier, dengan memaksimalkan kualitas data (meminimalkan nilai Information Loss) yang diperoleh saat dilakukan proses data mining. Meskipun solusi optimal k-anonimisasi adalah eksponensial, penelitian sebelumnya telah menghasilkan algoritma yang efisien agar konsep k-anonimisasi dapat diterima karenan memiliki kompleksitas yang cukup baik. Pendekatan Hierarchy-based generalization memiliki beberapa batasan yang signifikan. Pertama, Hierarchy-based generalization menderita kehilangan informasi yang relatif tinggi karena melakukan generalisasi pada nilai atribut yang berbeda. Keterbatasan lain pada hierarchy-based generalization adalah bahwa utilitas data yang dianonimisasi sangat bergantung pada pemilihan kata. Hierarchy-based generalization bergantung pada pengetahuan pengguna terhadap pengertian kata dari domain tertentu, sehingga sulit untuk mendapat nilai utilitas data dengan hasil yang diharapkan.
-\\
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.5]{hierarchybasedgeneralization1}
-	\caption{Perbedaan DGH dan VGH}
-	\label{fig:hierarchybasedgeneralization1}
-\end{figure} 
 
 \section{Distance, Information Loss, Cost Function} 
-Konsep PPDM memberikan solusi untuk mengukur tingkat keamanan dan utilitas data berdasarkan data yang telah dianonimisasi menggunakan beberapa jenis metrik. Sebuah metrik tidak dapat mengukur performa algoritma, tingkat keamanan, dan utilitas data secara bersamaan. Untuk mengukur performa algoritma, tingkat keamanan, dan utilitas data secara bersamaan perlu menggunakan beberapa metrik. Beberapa metrik yang umum digunakan pada pengujian kualitas data yang telah dianonimisasi adalah distance,information loss, dan cost function.
-
-\par Perlindungan privasi seringkali menurunkan utilitas informasi dari sebuah data. Metrik dipakai untuk mengukur banyaknya utilitas data yang hilang terhadap data yang telah dianonimisasi. Secara umum, pengukuran dilakukan dengan membandingkan hasil anonimisasi dengan dataset sesungguhnya. Beberapa atribut yang dapat diukur untuk menyatakan utilitas sebuah data adalah akurasi, kelengkapan, dan konsistensi. Akurasi dapat mengukur seberapa dekat data setelah dilakukan transformasi terhadap data asli. Kelengkapan dapat mencari data yang hilang dalam dataset setelah dilakukan transformasi. Konsistensi dapat menghitung jumlah korelasi yang hilang dalam dataset setelah dilakukan anonimisasi.
+Konsep PPDM memberikan solusi untuk mengukur tingkat keamanan, fungsionalitas, dan utilitas data menggunakan beberapa jenis metrik.  Beberapa metrik yang umum digunakan pada pengujian kualitas data yang telah dianonimisasi adalah distance,information loss, dan cost function. Secara umum, pengukuran metrik dilakukan dengan membandingkan hasil anonimisasi dengan dataset sesungguhnya. 
 
 \subsection{Distance} 
-Distance adalah salah satu perhitungan untuk menyatakan akurasi terhadap utilitas sebuah data. Distance merupakan faktor yang paling penting untuk menentukan hasil pengelompokan data. Pemilihan distance yang baik dapat mencapai hasil klasifikasi dengan lebih optimal. Atribut numerik dapat dihitung secara langsung menggunakan  Euclidean distance dan Manhattan distance. Distance tidak mampu menangani atribut kategorikal yang bertipe String. 
-
-\par Perhitungan distance dipakai untuk mengukur tingkat perbedaan nilai antara dua jenis data yang berbeda. Perhitungan distance dilakukan berdasarkan pengelompokan tipe data numerik atau kategorikal. Karena masalah k-anonimitas menggunakan atribut numerik dan kategorikal, maka membutuhkan cara khusus untuk mengitung distance dari kedua jenis data pada saat yang sama. Distance ini dihitung berdasarkan representasi nilai numerik pada kelas ekivalensi yang sama. Dengan menggunakan metrik distance, seseorang dapat dengan mudah melakukan pembobotan dengan menambahkan bobot non-negatif untuk setiap atribut.
+Distance adalah salah satu perhitungan untuk menyatakan akurasi terhadap utilitas sebuah data. Distance merupakan faktor yang paling penting untuk menentukan hasil pengelompokan data. Pemilihan distance yang baik dapat mencapai hasil klasifikasi dengan lebih optimal. Perhitungan distance dilakukan berdasarkan pengelompokan tipe data numerik atau kategorikal. Karena masalah k-anonimitas menggunakan atribut numerik dan kategorikal, maka membutuhkan cara khusus untuk mengitung distance dari kedua jenis data pada saat yang sama. 
 
 \subsubsection{Distance Data Numerik}
-Untuk atribut numerik, perbedaan antara dua jenis data menggambarkan ketidaksamaan data. Ketika tupel dalam kelas ekivalensi yang sama digeneralisasi, quasi-identifier yang digeneralisasi harus merangkum semua nilai atribut dalam kelas ekivalensi. Generalisasi dua nilai x dan y dalam atribut numerik biasanya direpresentasikan sebagai rentang $[x,y]$ dimana $x < y$. Dengan demikian, perbedaan tersebut menangkap jumlah perbedaan yang disebabkan oleh proses generalisasi dari atribut masing-masing. Untuk menghitung distance pada atribut numerik, perlu mendefinisikan atribut |D|, dimana |D| adalah jumlah data pada sebuah domain berdasarkan satu atribut numerik. Distance atribut numerik yang sudah dinormalisasi berdasarkan nilai $vi, vj \in D$,  dapat dihitung menggunakan rumus dibawah ini:
+Distance data numerik direpresentasikan sebagai nilai rentang. Beberapa atribut pada distance numerik yaitu |D| adalah jumlah data pada sebuah domain berdasarkan satu atribut numerik, $v_1$, $v_2$ adalah nilai atribut numerik. Distance data numerik dihitung menggunakan rumus berikut:
 
 \begin{equation}
 \delta_n(v_1,v_2) = \frac{|v_1 - v_2|}{|D|} 
 \end{equation}
 
-\subsubsection{Distance Data Kategorial}
-Untuk atribut kategorikal, distance tidak lagi berlaku karena sebagian besar domain kategorikal tidak dapat disebutkan dalam urutan tertentu. Solusi paling mudah adalah mengasumsikan setiap nilai dalam domain yang sama saling berbeda satu sama lain, misalkan jarak antara dua nilai adalah 0 jika kedua nilai bernilai sama, dan 1 jika kedua nilai bernilai beda. Beberapa domain mungkin memiliki beberapa hubungan semantik di antara nilai-nilai tersebut. Dalam domain seperti itu, diinginkan untuk mendefinisikan fungsi jarak berdasarkan hubungan yang ada. Hubungan seperti itu dapat dengan mudah ditangkap di pohon taksonomi. Kami berasumsi bahwa pohon taksonomi suatu domain adalah pohon seimbang yang simpul daunnya mewakili semua nilai berbeda dalam domain tersebut. Untuk beberapa jenis atribut, tidak ada hubungan semantik yang dapat membantu proses klasifikasi nilai domain. Asumsikan bahwa setiap nilai dalam domain yang sama, nilainya saling berbeda satu sama lain. Untuk mengakomodasi semua kasus ini, kami mendefinisikan fungsi jarak untuk nilai kategori sebagai berikut. Untuk menghitung distance pada atribut kategorikal, perlu mendefinisikan atribut |D| dan TD.|D| adalah jumlah data pada domain kategorikal. TD adalah taxonomy tree untuk domain D. Distance atribut kategorial yang sudah dinormalisasi berdasarkan nilai $vi, vj \in D$,  dapat dihitung menggunakan rumus dibawah ini:
+\subsubsection{Distance Data Kategorikal}
+Distance data kategorikal direpresentasikan sebagai pohon taksonomi. Beberapa atribut pada distance kategorikal yaitu |D| adalah jumlah data pada domain kategorikal, TD adalah taxonomy tree untuk domain D,  $H(\Lambda(v_i,v_j))$ adalah jarak dari satu subtree ke subtree lain, $H(T_D)$ adalah tinggi dari taxonomy tree. Distance data kategorikal dihitung menggunakan rumus berikut:
 
 \begin{equation}
 \delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
 \end{equation}
 
+\subsubsection{Distance Record}
+Beberapa atribut pada distance record yaitu $r_1[N_i]$, $r_2[N_i]$ adalah nilai dari atribut numerik, $r_1[C_j]$, $r_2[C_j]$ adalah nilai dari atribut kategorikal, $\delta_N$ adalah distance data numerik, $\delta_C$ adalah distance data kategorikal. Distance record dihitung menggunakan rumus berikut:
+\begin{align}
+\Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
+\end{align}
+
 
 \subsection{Information Loss}
-Information Loss (IL) digunakan untuk mengevaluasi seberapa baik kinerja algoritma k- anonimisasi terhadap utilitas sebuah data. Algoritma K-anonimisasi menyebabkan hilangnya sebagian besar informasi pada dataset. Information Loss (IL) menghitung ketersediaan data setelah melalui tahap anonimisasi secara akurat.  
+Information Loss (IL) digunakan untuk mengevaluasi seberapa baik kinerja algoritma K-Anonymity terhadap utilitas sebuah data. Dalam menghitung Information Loss (IL), perlu mendefinisikan beberapa atribut seperti cluster $e = {r_1,\ldots,r_k}$  untuk quasi-identifier yang terdiri dari atribut numerik ${N1,\ldots, Nm}$ dan atribut kategorikal ${C_1,\ldots,C_n}$, $T_{C_i}$ adalah taxonomy tree untuk domain kategorikal $C_i$, $MIN_{N_i}$ dan $MAX_{N_i}$ adalah nilai minimum dan maksimum pada cluster $e$ untuk atribut Ni, $\cup_{C_i}$ adalah sekumpulan nilai pada cluster $e$ berdasarkan atribut $C_i$. \\
 
-\par Untuk menghitung Information Loss (IL), perlu mendefinisikan atribut: $e = {r_1,\ldots,r_k}$ adalah sebuah kluster dengan quasi-identifier yang terdiri dari atribut numerik {N1,. . . , Nm} dan atribut kategorikal ${C_1,\ldots,C_n}$. TCi adalah pohon taksonomi yang ditentukan untuk domain atribut kategorikal Ci. MINNi dan MAXNi adalah nilai minimum dan maksimum pada kluster e berdasarkan atribut Ni. $\cup C_i$ adalah sekumpulan nilai dalam kluster e berdasarkan atribut 
-$C_i$. Perhitungan nilai Information Loss (IL) terhadap generalisasi kluster e, dilambangkan dengan IL (e). Information loss didefinisikan dengan rumus sebagai berikut:
+\noindent Information loss dihitung dengan rumus sebagai berikut:
+\begin{align}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align}
 
-\begin{eqnarray}
-IL(e)&=& |e| \cdot D(e) \\
-D(e) &=& \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
-\end{eqnarray}
-
-\par Untuk menghitung total Information Loss,  E adalah set semua kelas ekivalensi kluster e pada tabel anonimisasi AT. Total Information Loss pada tabel AT dilambangkan dengan Total-IL(AT). Total Information Loss didefinisikan dengan rumus sebagai berikut:
-
-\begin{equation}
+\noindent Total Information Loss dihitung dengan rumus sebagai berikut:
+\begin{align}
 Total-IL(AT) = \sum_{e \in \varepsilon}^{}  IL(e)
-\end{equation}
+\end{align}
 
 
 \subsection{Cost Function} 
-Cost function menyangkut efisiensi dan skalabilitas dari algoritma yang diterapkan. Metrik ini umum digunakan untuk menyatakan kualitas sebuah algoritma. Untuk mengukur efisiensi, seseorang dapat menggunakan standar untuk menentukan kompleksitas sebuah algoritma berdasarkan faktor waktu dan ruang. Waktu dapat diukur berdasarkan biaya komputasi algoritma. Ruang dapat diukur berdasarkan jumlah pemakaian memori selama menjalankan algoritma dari awal sampai dengan akhir. Kualitas sistem terdistribusi dapat diukur melalui biaya komunikasi antar komputer berdasarkan waktu,  jumlah pesan yang dipertukarkan, dan konsumsi bandwidth. 
+Cost function menyangkut efisiensi dan skalabilitas algoritma. Efisiensi algoritma dapat dinilai berdasarkan faktor waktu dan ruang. Waktu dapat diukur berdasarkan biaya komputasi algoritma. Ruang dapat diukur berdasarkan jumlah pemakaian memori.
  
 \section{Sistem Terdistribusi}
-Sistem terdistribusi adalah kumpulan komputer berjalan secara independen, yang saling terhubung dan saling bekerja sama untuk mencapai satu tujuan yang sama. Menurut Nora Jones (Netflix), sistem terdistribusi berbicara tentang sistem yang sangat rumit, yang terdiri dari banyak bagian yang saling berkomunikasi untuk menghasilkan produk tunggal. Menurut Brendan Burns (Microsoft), "Meningkatnya kekritisan pada sistem kini mengakibatkan munculnya ide pembangunan sistem distribusi untuk mengatasi masalah redundansi, memberikan toleransi kesalahan, dan menjamin tingkat ketersediaan yang tinggi". Beberapa konsep penting terkait sistem terdistribusi adalah setiap komputer bekerja untuk satu tujuan yang sama, setiap komputer mengerjakan tugas yang berbeda dengan komputer lainnya, pembagian jumlah tugas dilakukan secara adil, setiap komputer memiliki jalur komunikasi yang sama untuk saling bertukar informasi.
-\\
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{sistemdistribusi1}
-	\caption{Sistem Terdistribusi}
-	\label{fig:rnaalgorithm}
-\end{figure}
+Sistem terdistribusi adalah kumpulan komputer berjalan secara independen, yang saling terhubung dan saling bekerja sama untuk mencapai satu tujuan yang sama. Konsep penting terkait sistem terdistribusi adalah setiap komputer bekerja untuk satu tujuan yang sama, setiap komputer mengerjakan tugas yang berbeda dengan komputer lainnya, pembagian jumlah tugas dilakukan secara adil, setiap komputer memiliki jalur komunikasi yang sama untuk saling bertukar informasi.
 
 \subsection{Manfaat Sistem Terdistribusi}
 Permasalahan sistem terdistribusi bukan difokuskan terhadap penggunaan sistem terdistribusi, melainkan alasan yang tepat untuk menggunakan sistem terdistribusi. Sistem terdistribusi dibutuhkan karena adanya peningkatan skala dalam pengolahan data dan munculnya sistem yang lebih handal untuk melakukan pemrosesan data. 
@@ -563,64 +791,84 @@ Sistem terdistribusi dapat menangani proses komputasi tugas secara efisien karen
 \end{itemize}
 
 \subsection{Tantangan Sistem Terdistribusi} 
-Manfaat penggunaan sistem terdistribusi adalah handal untuk pemrosesan data skala besar. Dalam perancangan sistem terdistribusi, sering ditemui kesulitan pada pemecahan masalah untuk kasus-kasus tertentu. 
+Tantangan penggunaan sistem terdistribusi adalah pemrosesan data skala besar dengan handal. Dalam perancangan sistem terdistribusi, sering ditemui kesulitan pada pemecahan masalah untuk kasus-kasus tertentu. 
 \\\\
 Berikut adalah tiga tantangan paling umum ditemui ketika merancang sistem terdistribusi:
 
 \begin{itemize}
 \item Penjadwalan\\
-Kekuatan komputasi ada batasnya, sistem terdistribusi harus dapat memutuskan pekerjaan mana yang harus dijadwalkan untuk dijalankan dan menentukan prioritas pekerjaan yang dikerjakan lebih dulu. 
+Kekuatan komputasi ada batasnya, sehingga sistem terdistribusi harus dapat memutuskan pekerjaan mana yang harus dikerjakan lebih dulu.
 \item Latensi\\
-Dengan pertukaran data yang semakin kompleks antara perangkat keras, perangkat lunak menggunakan jalur komunikasi jaringan, maka nilai latensi pada sistem tersebut menjadi sangat tinggi. Ketika volume data pada jaringan semakin meningkat, maka perlu dibuat partisi sementara untuk menyimpan data-data yang akan diolah. 
+Dengan pertukaran data antara perangkat keras dan perangkat lunak menggunakan jalur komunikasi jaringan, sehingga nilai latensi menjadi sangat tinggi. 
 \item Observasi\\
-Ketika sistem terdistribusi menjadi kompleks, kemampuan pengamatan untuk memahami kegagalan pada sistem terdistribusi merupakan tantangan besar. Pemantauan terhadap proses partisi data bermanfaat bagi sistem terdistribusi untuk menelusuri tingkat kegagalan proses pada setiap komputer. 
+Ketika sistem terdistribusi menjadi kompleks, kemampuan pengamatan untuk memahami kegagalan pada sistem terdistribusi merupakan tantangan besar.  komputer. 
 \end{itemize}
 
 \newpage
 \section{Big Data}
-Big data adalah data yang besar dan kompleks sehingga tidak mungkin sistem tradisional dapat memproses dan bekerja pada lingkungan data yang besar secara maksimal. Big data dihasilkan oleh mesin dan manusia. Big data dapat dikategorikan menjadi data terstruktur, semi terstruktur dan tidak terstruktur. Big data tidak memungkinkan untuk dianalisis menggunakan kueri pada sistem manajemen basis data tradisional, karena waktu pemrosesan data terlalu lama.
+Big data adalah data yang besar dan kompleks sehingga tidak mungkin sistem tradisional dapat memproses dan bekerja pada lingkungan data yang besar secara maksimal. Data dapat dikategorikan sebagai data besar berdasarkan berbagai faktor. Konsep utama yang umum dalam semua faktor  adalah jumlah data.
 \\\\
-Sekumpulan data dapat dikatakan big data jika memenuhi  kelima sifat di bawah ini. Berikut adalah penjelasan kelima sifat yang dimiliki oleh big data:
+Berikut adalah karakteristik 5V untuk Big data:
+
 \begin{itemize}
 \item Volume\\
-Volume menyajikan tantangan terbesar untuk melakukan analisis pada data yang besar. Banyak perusahaan memiliki sejumlah besar data yang diarsipkan, tetapi tidak memiliki kapasitas yang memadai untuk memproses data berukuran besar. Kemampuan memproses informasi pada data berukuran besar adalah daya tarik utama untuk menganalisis informasi untuk keperluan tertentu.
+Volume mengacu pada jumlah data yang sangat besar. Data tumbuh begitu besar sehingga sistem komputasi tradisional tidak lagi dapat menanganinya seperti yang kita inginkan.
+
 \item Velocity\\
-Velocity mengacu pada peningkatan kecepatan ketika data dalam ukuran besar dihasilkan, sehingga membutuhkan peningkatan kecepatan pemrosesan, penyimpanan, dan analisis. Velocity selalu dikaitkan pada kecepatan dimana data baru selalui dihasilkan sepanjang waktu dan kecepatan perpindahan data.
+Velocity mengacu pada kecepatan di mana data dihasilkan. Setiap hari, sejumlah besar data dihasilkan, disimpan, dan dianalisis. Data dihasilkan dengan kecepatan kilat di seluruh dunia. Teknologi Big Data memungkinkan untuk mengeksplorasi data, saat data itu dihasilkan.
+
 \item Variety\\
-Big data tidak selalu merupakan data terstruktur dan tidak mudah untuk mengolah data besar dengan format file yang beragan. Hal ini menunjukan bahwa keberagaman big data termasuk fakta yang sangat penting dan perlu diketahui untuk sebelum proses analisis data lebih lanjut. Berurusan dengan berbagai data terstruktur dan tidak terstruktur meningkatkan kompleksitas dalam menyimpan dan menganalisis big data. Sebagian besar data yang dihasilkan berbentuk data tidak terstruktur.
+Variety mengacu pada berbagai jenis data. Data terutama dikategorikan ke dalam data terstruktur dan tidak terstruktur. Faktanya, lebih dari 75 persen data dunia ada dalam bentuk yang tidak terstruktur. 
+
 \item Veracity\\
-Big data diperoleh dari berbagai macam sumber sehingga kebenaran sebuah data harus diuji. Kebenaran nilai sebuah data dapat teruji apabila mengambil sekumpulan data pada sumber yang terpecaya. Kualitas data yang ditangkap dapat sangat bervariasi. Sehingga keakuratan data yang dianalisis bergantung pada kebenaran nilai data berdasarkan sumber yang beragam.
+Veracity mengacu pada kualitas data. Ketika menyimpan beberapa data yang besar, apabila tidak ada gunanya di masa depan, maka membuang-buang sumber daya untuk menyimpan data tersebut. Jadi, kita harus memeriksa kepercayaan data sebelum menyimpannya. 
+
 \item Value\\
-Value adalah aspek terpenting dalam big data. Potensial nilai yang terkandung dalam big data sangat besar. Sangat baik apabila dapat mengakses data-data pada big data, tetapi semuanya itu menjadi tidak berguna apabila data yang diperoleh tidak dapat diubah menjadi sebuah informasi terhadap masalah yang ingin diselesaikan. Value menjadi informasi yang sangat mahal karena memerlukan modal yang cukup besar untuk mengolah dan menyimpan data yang berukuran besar.
+Value adalah bagian terpenting dari big data. Organisasi menggunakan data besar untuk menemukan nilai informasi baru. Menyimpan sejumlah besar data sampai pada ekstraksi informasi yang bermakna dari sekumpulan data tersebut.
 \end{itemize}
 
-\newpage
-\section{Analisis Big Data}
-Analisis Big Data adalah proses menggunakan algoritma analisis yang berjalan pada platform pendukung yang kuat untuk mengungkap potensi yang disembunyikan dalam data besar, seperti pola tersembunyi atau korelasi yang tidak diketahui. Menurut
-pemrosesan persyaratan waktu, analisis big data dapat dikategorikan ke dalam dua paradigma alternatif.
+\noindent Analisis big data adalah proses menggunakan algoritma analisis yang berjalan pada platform pendukung yang kuat untuk mengungkap potensi yang disembunyikan dalam data besar, seperti pola tersembunyi atau korelasi yang tidak diketahui. Analisis big data dapat dikategorikan ke dalam dua jenis pemrosesan.
 \\\\
 Berikut adalah jenis analisis pada big data:
 \begin{itemize}
 \item 
 Batch Processing\\
-Paradigma batch processing adalah sekumpulan data disimpan terlebih dahulu, lalu pada waktu tertentu data yang telah terkumpul akan dilakukan analisis. MapReduce telah menjadi model penerapan batch processing pada umumnya. Ide dari MapReduce adalah  data yang besar dibagi menjadi potongan data yang lebih kecil. Selanjutnya, potongan-potongan data ini diproses secara paralel dan secara terdistribusi untuk dianalisis lebih lanjut. Hasil akhir dari MapReduce diperoleh dengan menggabungkan semua hasil dari setiap node. MapReduce menjadwalkan sumber daya komputasi secara dekat dengan lokasi data itu disimpan, sehingga dapat menghindari overhead dalam transmisi data. Konsep MapReduce banyak diterapkan dalam bioinformatika, data mining website, dan machine learning.
+Batch processing adalah sekumpulan data disimpan terlebih dahulu, lalu pada waktu tertentu data yang telah terkumpul akan dilakukan analisis. MapReduce telah menjadi model penerapan batch processing pada umumnya. Ide dari MapReduce adalah  data yang besar dibagi menjadi potongan data yang lebih kecil. Selanjutnya, potongan-potongan data ini diproses secara paralel dan secara terdistribusi untuk dianalisis lebih lanjut. 
 
 \item
 Streaming Processing\\
-Paradigma streaming processing adalah diasumsikan bahwa nilai informasi data yang diperoleh bergantung kepada seberapa cepat data dapat diolah secara real time. Pengertian dari real time adalah data diolah secara langsung ketika data tersebut diperoleh. Dalam paradigma ini, data diambil melalui aliran data. Karena aliran data yang masuk sangat cepat dan membawa volume yang cukup besar, maka hanya sebagian kecil data yang dapat disimpan dan diolah dalam memori yang terbatas. Teknologi streaming processing telah dipelajari selama beberapa dekade ini. Sistem pengolahan big data secara open source yaitu Spark dapat menerapkan paradigma ini. Paradigma streaming processing biasanya digunakan untuk analisis aplikasi online dalam tingkat satuan detik maupun milidetik.
+Streaming processing mengasumsikan nilai informasi data yang diperoleh bergantung kepada seberapa cepat data dapat diolah secara real time. Pengertian dari real time adalah data diolah secara langsung ketika data tersebut diperoleh. Dalam paradigma ini, data diambil melalui aliran data. Karena aliran data yang masuk sangat cepat dan membawa volume yang cukup besar, maka hanya sebagian kecil data yang dapat disimpan dan diolah dalam memori yang terbatas. Paradigma streaming processing biasanya digunakan untuk analisis aplikasi online dalam tingkat satuan detik maupun milidetik.
 \end{itemize}
 
+\newpage
 \section{Hadoop}
-Hadoop adalah framework yang melakukan pemrosesan data dengan memanfaatkan sistem terdistribusi dari kumpulan data besar yang terbagi pada seluruh  komputer. Hadoop dikembangkan oleh Google untuk penelitian pada sekumpulan data berukuran besar. Hadoop menggunakan bahasa pemrograman Java. Hadoop dirancang untuk memproses data dalam jumlah yang sangat besar dengan memanfaatkan penyimpanan pada hardisk. Karena pemrosesan pada Hadoop dilakukan berdasarkan paradigma batch processing, sehingga memerlukan waktu pemrosesan data tidak langsung. Hadoop melakukan replikasi file pada masing-masing node untuk menjamin reliability, availability, and fault tolerance.
+Apache Hadoop bertujuan untuk memecahkan permasalahan pada data besar. Google menemukan metodologi baru untuk memproses data yang dikenal sebagai MapReduce. Doug Cutting dan anggota timnya mengembangkan proyek open-source dikenal sebagai Hadoop untuk menangani jumlah data yang sangat besar. Kekuatan terbesar Hadoop adalah skalabilitas. Artinya Hadoop bekerja pada satu node ke ribuan node. Hadoop menjalankan MapReduce di mana data akan diproses secara paralel. Hadoop adalah framework yang didasarkan pada bahasa pemrograman Java. Hadoop bekerja dari satu server ke ribuan komputer dengan menawarkan perhitungan dan penyimpanan lokal untuk setiap komputer. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{hadoop_intro}
+	\caption{Gambaran Umum Cara Kerja Hadoop}
+	\label{fig:hadoop_intro}
+\end{figure}
+
+\noindent Hadoop memiliki karakteristik sebagai berikut:
+\begin{itemize}
+\item Hadoop menyediakan penyimpanan HDFS dan menggunakan pemodelan MapReduce.
+\item Hadoop melakukan replikasi data sejenis pada beberapa komponen berbeda. 
+\item Hadoop fleksibel terhadap pengaturan jumlah komponen yang bekerja.
+\item Hadoop dioptimalkan untuk bekerja pada lingkungan big data.
+\item Hadoop menulis data sekali dan membaca data berulang kali.
+
+\end{itemize}
 
 \subsection{Ekosistem Hadoop}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{hadoop_ecosystem}
+	\includegraphics[scale=0.65]{hadoop_ecosystem}
 	\caption{Ekosistem Hadoop}
 	\label{fig:hadoop_ecosystem}
 \end{figure}
-Melalui Gambar \ref{fig:hadoop_ecosystem}, hadoop bekerja sama dengan teknologi lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan big data. Masing-masing warna pada Gambar \ref{fig:hadoop_ecosystem} mewakili tingkat kebutuhan yang berbeda-beda. Warna ungu mewakili komponen pada Hadoop. Warna oranye mewakili teknologi tambahan yang umum digunakan secara bersamaan dengan hadoop. Warna ungu mewakili teknologi khusus yang digunakan secara bersamaan dengan hadoop untuk kasus-kasus tertentu.
+Gambar \ref{fig:hadoop_ecosystem} menunjukan bahwa Hadoop dapat bekerja secara bersamaan dengan teknologi big data lainnya seperti Spark, HBase, Cassandra, STORM, dan lain-lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan dan analisis pada big data.
 
 \subsection{Arsitektur Hadoop}
 \begin{figure}[H]
@@ -629,43 +877,34 @@ Melalui Gambar \ref{fig:hadoop_ecosystem}, hadoop bekerja sama dengan teknologi 
 	\caption{Arsitektur Hadoop}
 	\label{fig:arsitektur_hadoop}
 \end{figure}
-Melalui Gambar \ref{fig:arsitektur_hadoop}, arsitektur Hadoop tersusun dari dua bagian utama yaitu MapReduce dan Hadoop Distributed File System (HDFS). Masing-masing bagian memiliki dua jenis node yaitu master node dan slave node. Master node mengatur jumlah pekerjaan yang diberikan kepada dirinya sendiri dan slave node. Slave node mengerjakan pekerjaan yang diberikan oleh master node.
-\\\\
-Hadoop terdiri dari empat elemen penting, yaitu:
-\begin{enumerate}
-\item NameNode
-\item DataNode
-\item JobTracker
-\item TaskTracker
-\end{enumerate}
+Gambar \ref{fig:arsitektur_hadoop} menunjukan arsitektur Hadoop yang tersusun atas MapReduce dan Hadoop Distributed File System (HDFS). Masing-masing bagian memiliki dua jenis node yaitu master node dan slave node. Master node mengatur jumlah pekerjaan yang diberikan kepada dirinya sendiri dan slave node. Slave node mengerjakan pekerjaan yang diberikan oleh master node.
+
 
 \subsection{HDFS}
-HDFS adalah sistem file terdistribusi pada Hadoop dengan menyediakan penyimpanan data yang handal, mendukung partisi, dan toleran terhadap kesalahan pada hardware. HDFS bekerja erat dengan MapReduce dengan mendistribusikan penyimpanan dan perhitungan di seluruh cluster dengan menggabungkan sumber daya penyimpanan yang dapat dipartisi tergantung kebutuhan. HDFS menerima data dalam format apa pun seperti teks, gambar, dan video. Keuntungan utama HDFS adalah memiliki toleransi terhadap kesalahan hardware. Dengan menyediakan transfer data cepat antara node dan memungkinkan Hadoop layanan yang cepat apabila terjadi kegagalan node, sehingga mengurangi risiko terhadao kegagalan komputasi. 
+HDFS adalah sistem file terdistribusi pada Hadoop dengan menyediakan penyimpanan data yang handal, mendukung partisi, dan toleran terhadap kesalahan pada hardware. HDFS bekerja erat dengan MapReduce dengan mendistribusikan penyimpanan dan perhitungan di seluruh cluster dengan menggabungkan sumber daya penyimpanan yang dapat dipartisi tergantung kebutuhan. 
 \\\\
 Lapisan penyimpanan HDFS terdiri dari dua elemen:
 
 \begin{itemize}
-\item NameNode adalah sebuah komputer yang bertindak sebagai master node, sedangkan DataNode adalah komputer-komputer dalam Hadoop Cluster yang bertugas sebagai slaves atau anak buah. NameNode bertanggungjawab menyimpan informasi tentang penempatan block-block data dalam Hadoop Cluster. Ia bertanggungjawab mengorganisir dan mengontrol block-block data yang disimpan tersebar dalam komputer-komputer yang menyusun Hadoop Cluster. Sedangkan DataNode bertugas menyimpan block-block data yang dialamatkan kepadanya, dan secara berkala melaporkan kondisinya kepada NameNode.
-\item DataNode bertugas menyimpan alamat block-block data, dan secara berkala melaporkan kondisinya kepada NameNode. DataNodes adalah elemen penyimpanan utama HDFS yang menyimpan blok data dan permintaan baca / tulis layanan pada file yang disimpan di HDFS. DataNode dikendalikan oleh NameNode. Blok yang disimpan dalam DataNodes direplikasi sesuai konfigurasi untuk memberikan keandalan dan ketersediaan tinggi. Blok yang direplikasi ini didistribusikan di seluruh cluster untuk memberikan perhitungan yang cepat.
+\item NameNode\\
+NameNode adalah sebuah komputer yang bertindak sebagai master node, sedangkan. NameNode bertanggungjawab menyimpan informasi tentang penempatan block-block data dalam Hadoop Cluster. Ia bertanggungjawab mengorganisir dan mengontrol block-block data yang disimpan tersebar dalam komputer-komputer yang menyusun Hadoop Cluster. 
+
+\item DataNode\\
+DataNode adalah elemen penyimpanan utama HDFS yang menyimpan blok data dan permintaan baca / tulis layanan pada file yang disimpan di HDFS. DataNode dikendalikan oleh NameNode. Blok yang disimpan dalam DataNodes direplikasi sesuai konfigurasi untuk memberikan keandalan dan ketersediaan tinggi. Blok yang direplikasi ini didistribusikan di seluruh cluster untuk memberikan perhitungan yang cepat.
 \end{itemize}
 
 \subsection{MapReduce}
-MapReduce adalah kerangka kerja pemrograman untuk komputasi terdistribusi yang dibuat oleh Google menggunakan membagi dan menaklukkan metode untuk memecah masalah data besar yang kompleks menjadi unit-unit kecil pekerjaan dan memprosesnya
-sejajar. Model pemrograman Map Reduce terdiri dari dua fungsi, yaitu Mapper dan Reducer. Pengguna dapat mengimplementasikan logika pemrosesan mereka sendiri dengan menentukan jenis atribut pada Mapper dan jenis pemrosesan untuk Reducer. Fungsi Mapper dibutuhkan
-untuk menghasilkan daftar pasangan key,value. MapReduce akan mengelompokkan semua pasangan key,value dan meneruskannya kepada fungsi Reducer untuk mengolah data.
-
-\newpage
-\par Fungsi Mapper menerima input data berupa blok data dan menghasilkan output data berupa pasangan key-value. Hadoop membuat fungsi mapper untuk setiap blok data HDFS. Jumlah pemanggilan fungsi mapper sama dengan jumlah blok. Fungsi Reducer menerima input data berupa pasangan key-list value dan menghasilkan output data berupa pasangan key-value baru. Pemanggilan fungsi mapper dan fungsi reducer tidak saling bergantung satu sama lain karena komputasi dilakukan secara paralel. Jumlah pemanggilan fungsi reducer dapat ditentukan sesuai kebutuhan.
+MapReduce adalah kerangka kerja pemrograman untuk komputasi terdistribusi yang dibuat oleh Google menggunakan membagi dan menaklukkan metode untuk memecah masalah data besar yang kompleks menjadi unit-unit kecil pekerjaan dan memprosesnya sejajar. Model pemrograman Map Reduce terdiri dari dua fungsi, yaitu Mapper dan Reducer. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{MapReduceImage}
+	\includegraphics[scale=0.4]{MapReduceImage}
 	\caption{Tahapan pada MapReduce}
 	\label{fig:MapReduceImage}
 \end{figure}
 
+\noindent Pada Gambar \ref{fig:MapReduceImage}, tahapan MapReduce dapat dibagi menjadi dua fungsi utama:
 
-Pada Gambar \ref{fig:MapReduceImage}, tahapan MapReduce dapat dibagi menjadi dua fungsi utama:
 \begin{itemize}
 \item Mapper\\
 Tugas fungsi Mapper adalah memetakan blok data kedalam pasangan <key,value>. Key,value pada Mapper tidak harus memiliki tipe data yang sama satu sama lain. Pasangan <key,value> yang mungkin terjadi pada fungsi Mapper adalah tidak memiliki pasangan atau memiliki banyak pasangan.
@@ -675,36 +914,40 @@ Reducer memiliki 3 fase utama: shuffle, sort dan reducer. Berikut adalah penjela
 
 \begin{enumerate}
 \item Shuffle \\
-Shuffle adalah fase pada data antara untuk menggabungkan semua nilai menjadi koleksi yang terkait dengan yang sama
-kunci. Setelah ini tidak akan ada kunci duplikat dalam data antara.
+Shuffle adalah fase pada data antara untuk menggabungkan semua nilai menjadi koleksi yang terkait dengan kunci yang sama.
 \item Sort \\
-Pasangan <key,value> pada satu node secara otomatis diurutkan oleh Hadoop sebelum diberikan kepada Reducer. Penyortiran dilakukan berdasarkan keterurutan nilai key. Fase shuffle dan sort terjadi secara bersamaan. Output dari shuffle and sort dari masing-masing node akan diambil dan digabung.	
+Pasangan <key,value> pada satu node secara otomatis diurutkan oleh Hadoop sebelum diberikan kepada Reducer. Penyortiran dilakukan berdasarkan keterurutan nilai key. 
 \item Reducer \\
-Data output mapper yang diacak dan diurutkan disediakan untuk Reducer. Pada fase ini mengurangi (Writable Metode Sebanding, Iterator, Kolektor Keluaran, Pelapor) dipanggil untuk setiap pasangan <key, (list of value)> dalam input yang dikelompokkan. 
+Data output mapper yang diacak dan diurutkan disediakan untuk Reducer. Tahap ini membuat pasangan <key, (list of value)> baru berdasarkan pengelompokan key.
 \end{enumerate}
 
 \end{itemize}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{mapreduce1}
-	\caption{JobTracker dan TaskTracker}
-	\label{fig:jobtracker}
-\end{figure}
-
-\noindent Pada Gambar \ref{fig:jobtracker}, pekerjaan pada MapReduce dikerjakan oleh dua elemen:
+\noindent Berikut adalah komponen yang mengatur pekerjaan pada MapReduce:
 
 \begin{itemize}
 \item JobTracker\\
-JobTracker berjalan pada master node untuk memonitor tugas-tugas MapReduce yang telah dijalankan oleh TaskTracker pada node salve. Tugas JobTracker adalah mengalokasikan pekerjaan yang sesuai untuk TaskTracker tertentu tergantung pada berapa banyak slot tugas yang tersedia. TaskTracker mengatur pelaksanaan setiap operasi MapReduce pada setiap node slave. 
+JobTracker berjalan pada master node untuk memonitor tugas-tugas MapReduce yang telah dijalankan oleh TaskTracker pada node salve. Tugas JobTracker adalah mengalokasikan pekerjaan yang sesuai untuk TaskTracker tertentu tergantung pada berapa banyak slot tugas yang tersedia. 
 \item TaskTracker\\
-TaskTracker berjalan pada masing-masing node slave. TaskTracker menerima pekerjaan dari JobTracker dan menjalankan operasi MapReduce. Setiap TaskTracker memiliki jumlah slot pekerjaan yang terbatas. Tugas masing-masing TaskTracker adalah memulai JVM untuk menjalankan operasi MapReduce secara paralel. 
+TaskTracker berjalan pada masing-masing node slave. TaskTracker menerima pekerjaan dari JobTracker dan menjalankan operasi MapReduce. Setiap TaskTracker memiliki jumlah slot pekerjaan yang terbatas. TaskTracker mengatur pelaksanaan setiap operasi MapReduce pada setiap node slave. 
 \end{itemize}
 
 \section{Spark} 
-Spark adalah teknologi komputasi cluster kilat-cepat, yang dirancang untuk komputasi cepat. Spark adalah paradigma pemrosesan data berukuran besar yang dikembangkan oleh para peneliti University of California di Berkeley. Spark adalah alternatif untuk Hadoop yang dirancang untuk mengatasi keterbatasan pemrosesan input output pada disk dan meningkatkan kinerja sistem sebelumnya. Fitur utama Spark yang membuatnya unik adalah kemampuannya untuk tampil dalam perhitungan memori. Ini memungkinkan data di-cache dalam memori, sehingga menghilangkan overhead disk Hadoop keterbatasan untuk tugas berulang. 
- 
-\par Spark dirancang untuk mencakup pembagian beban kerja secara adil dalam sistem terdistribusi yang terpisah. Dengan memanfaatkan sistem terdistribusi yang ada, Spark menjadi alternatif untuk melakukan komputasi secara paralel dalam analisis data sehingga proses yang besar dapat dilakukan dengan mudah dan murah. Spark bertanggung jawab untuk melakukan penjadwalan, distribusi, dan memonitor jalannya komputasi pada banyak komputer. Spark adalah mesin umum untuk pemrosesan data skala besar yang mendukung Java, Scala dan Python dan untuk tugas-tugas tertentu diuji hingga 100 kali lebih cepat dari Hadoop MapReduce ketika data dapat muat dalam memori dan hingga 10 kali lebih cepat ketika data berada pada disk.
+Spark adalah teknologi komputasi cluster kilat-cepat, yang dirancang untuk komputasi cepat. Spark adalah paradigma pemrosesan data berukuran besar yang dikembangkan oleh para peneliti University of California di Berkeley. Spark adalah alternatif dari Hadoop MapReduce untuk mengatasi keterbatasan pemrosesan input output yang tidak efisien pada disk, dengan menggunakan memori. Fitur utama Spark adalah melakukan komputasi di dalam memori sehingga waktu komputasi menjadi lebih singkat dibandingkan waktu komputasi di dalam disk.
+\\\\
+Berikut adalah karakteristik dari Spark:
+\begin{itemize}
+\item Kecepatan\\
+Spark adalah alat komputasi klaster tujuan umum. Ini menjalankan aplikasi hingga 100 kali lebih cepat dalam memori dan 10 kali lebih cepat pada disk daripada Hadoop. Spark mengurangi jumlah operasi baca/tulis pada disk dan menyimpan data dalam memori.
+
+
+\item Mudah untuk diatur\\	
+Spark dapat melakukan pemrosesan batch, analisis data secara interaktif, machine learning, dan streaming data. Semuanya pemrosesan tersebut dikerjakan pada satu komputer yang sama. Fungsi ini menjadikan Apache Spark sebagai mesin analisis data yang lengkap. 
+
+
+\item Analisis secara real-time\\
+Spark dapat dengan mudah memproses data waktu-nyata, misalnya streaming data secara real-time untuk ribuan peristiwa/detik. Contoh dari sumber streaming data adalah Twitter, Facebook, Instagram. Streaming data dapat diproses secara efisien oleh Spark.
+\end{itemize}
 
 \subsection{Ekosistem Spark}
 \begin{figure}[H]
@@ -713,125 +956,280 @@ Spark adalah teknologi komputasi cluster kilat-cepat, yang dirancang untuk kompu
 	\caption{Ekosistem Spark}
 	\label{fig:spark_ecosystem}
 \end{figure}
-Melalui Gambar \ref{fig:spark_ecosystem}, Spark bekerja sama dengan teknologi lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan big data. Masing-masing warna pada Gambar \ref{fig:spark_ecosystem} mewakili jenis teknologi yang dipakai pada Spark. Spark SQL, Spark Streaming, Spark MLlib adalah library tambahan pada Spark. Cassandra, Kafka, dan ElasticSearch adalah framework untuk melakukan pengumpulan data secara streaming. Sedangkan scala, java, dan python adalah bahasa pemrograman yang dapat digunakan pada Spark.
+Gambar \ref{fig:spark_ecosystem} menunjukan bahwa Spark bekerja sama dengan teknologi big data lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan big data. Masing-masing warna pada Gambar \ref{fig:spark_ecosystem} mewakili jenis teknologi yang dipakai pada Spark. Spark SQL, Spark Streaming, Spark MLlib adalah library tambahan pada Spark. Cassandra, Kafka, dan ElasticSearch adalah framework untuk melakukan pengumpulan data secara streaming. Sedangkan scala, java, dan python adalah bahasa pemrograman yang dapat digunakan pada Spark.
 
 \subsection{Arsitektur Spark}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{arsitektur_spark2}
+	\includegraphics[scale=0.5]{arsitektur_spark2}
 	\caption{Arsitektur Spark}
 	\label{fig:arsitektur_spark2}
 \end{figure}
+Berikut adalah cara kerja pada arsitektur Spark:
 
-\noindent Beberapa hal penting pada Gambar\ref{fig:arsitektur_spark2} terkait arsitektur Spark adalah sebagai berikut:
+\begin{enumerate}
 
-\begin{itemize}
-\item Driver Program\\
-Driver Program adalah komputer yang sedang menjalankan perintah-perintah pada Spark (perintah SparkContext). 
-\item Cluster Manager\\
-Cluster Manager disebut juga master node, bertugas untuk mengatur jumlah pekerjaan yang diberikan untuk masing node "worker" dan jumlah node "worker" yang diperlukan.
-\item Worker Node\\
-Worker Node adalah node yang akan mengerjakan seluruh tugas yang telah diberikan oleh cluster manager.
-\end{itemize}
+\item
+Program Driver memanggil program utama aplikasi dan membuat SparkContext dan Spark Driver. SparkContext terdiri dari semua fungsi dasar. Spark Driver berisi DAG Scheduler, Task Scheduler, Backend Scheduler, dan Block Manager.
+
+\item
+Spark Driver dan SparkContext secara kolektif mengawasi pelaksanaan pekerjaan di dalam cluster. Spark Driver bekerja sama dengan Cluster Manager untuk membagian pekerjaan ke setiap Worker Node. Setiap kali RDD dibuat dalam SparkContext, RDD akan didistribusikan di setiap Worker Node.
+
+\item
+Worker Node menjalankan tugas yang diberikan oleh Cluster Manager dan mengembalikannya ke Konteks Spark. Worker Node bertanggung jawab atas pelaksanaan tugas-tugas ini. Masa pakai pelaksana sama dengan masa hidup Aplikasi Spark. Jika ingin meningkatkan kinerja sistem, maka dapat meningkatkan jumlah pekerja sehingga pekerjaan dapat dibagi menjadi bagian kecil.
+
+\end{enumerate}
 
 
 \subsection{Jenis Instalasi pada Spark}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.9]{arsitektur_spark}
+	\includegraphics[scale=0.65]{arsitektur_spark}
 	\caption{Arsitektur Spark}
 	\label{fig:arsitektur_spark}
 \end{figure}
 
-Berdasarkan Gambar \ref{fig:arsitektur_spark}, berikut adalah tiga metode yang dapat dilakukan dalam  instalasi Spark:
+Berikut adalah penjelasan jenis instalasi Spark pada Gambar \ref{fig:arsitektur_spark} sebagai berikut:
 
 \begin{itemize}
 \item Standalone\\  
-Spark berdiri diatas HDFS Hadoop. Pada metode instalasi ini, Spark dan Hadoop akan berjalan bersamaan pada mesin yang sama. Selain itu, Spark memungkinkan untuk mengakses data pada HDFS Hadoop untuk membaca input dan menulis output.
+Spark berdiri diatas HDFS Hadoop. Spark memungkinkan untuk mengakses data pada HDFS Hadoop untuk membaca input dan menulis output.
 
-\item Hadoop Yarn adalah \\
-Hadoop Yarn berarti Spark bekerja pada Yarn tanpa memerlukan instalasi atau meminta hak akses root apapun. Hadoop Yarn membantu untuk mengintegrasikan Spark pada ekosistem Hadoop dan memungkinkan komponen lain berjalan di atas Spark.
+\item Hadoop Yarn\\
+Spark dapat berjalan pada Hadoop Yarn tanpa memerlukan instalasi atau meminta hak akses root apapun. Hadoop Yarn membantu integrasi Spark pada ekosistem Hadoop.
 
 \item Spark In MapReduce (SIMR)\\ 
-SIMR digunakan untuk menjalankan pekerjaan Spark secara independen. Pada metode instalasi ini, pengguna dapat memulai Spark menggunakan perintah "spark-shell" tanpa perlu ijin dari administrator. Pada versi Spark 2.0 keatas, metode instalasi ini sudah tidak dapat lagi dipakai.
+SIMR digunakan untuk menjalankan pekerjaan Spark secara independen. Jenis instalasi ini sudah tidak lagi berlaku untuk Spark versi 2.0
 \end{itemize}
 
-\subsection{RDD pada Spark}
-\par Spark menawarkan abstraksi Resilient distributed Datasets (RDD) untuk mendukung pemrosesan data secara efisien. RDD adalah kumpulan data yang didistribusikan. Dalam Spark semua pekerjaan dinyatakan dengan membuat RDD baru, mengubah RDD yang ada, atau memanggil operasi pada RDD untuk menghitung hasilnya. RDD mendukung dua jenis operasi yaitu transformation dan action. Spark secara otomatis mendistribusikan data dalam RDD di seluruh cluster komputasi dan melakukan komputasi secara paralel. RDD dapat disimpan dalam memori antara banyak kueri tanpa membutuhkan replikasi. RDD dapat membangun kembali data yang hilang pada kegagalan menggunakan riwayat pembentukan setiap RDD mengingat RDD dibangun dari kumpulan data lain (melalui fungsi transformasi seperti map, join, dan group By). RDD memungkinkan Spark untuk mengungguli model yang ada hingga 100x dalam menganalisis data. RDD dapat mendukung berbagai macam algoritma machine learning untuk melakukan teknik data mining secara interaktif dan menyediakan pemrograman SQL yang sangat efisien.
+\subsection{Resilient Distibuted Datasets (RDD)}
+\par RDD adalah unit data logis utama di Spark. Mereka adalah kumpulan objek terdistribusi, yang disimpan dalam memori atau pada disk dari berbagai mesin cluster. RDD dapat dibagi menjadi beberapa partisi data sehingga partisi ini dapat disimpan dan diproses pada komputer yang berbeda. RDD adalah struktur data yang immutable (hanya baca). Anda tidak dapat mengubah RDD asli, tetapi Anda dapat membuat RDD baru dengan melakukan operasi butiran kasar, seperti transformasi, pada RDD yang ada. RDD dalam Spark dapat di simpan dalam cache dan digunakan lagi untuk transformasi di masa depan. RDD dievaluasi secara lazy, artinya Spark menunda evaluasi sampai benar-benar diperlukan. Ini menghemat banyak waktu dan meningkatkan efisiensi.
 
-\newpage
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{rdd_intro}
+	\caption{Cara Kerja RDD}
+	\label{fig:rdd_intro}
+\end{figure}
+
+\subsubsection{Fitur pada RDD}
+\noindent Berikut adalah fitur RDD pada Spark:
+\begin{itemize}
+\item Resilience: RDD melacak informasi garis keturunan data untuk memulihkan data yang hilang, secara otomatis jika gagal. Ini juga disebut toleransi kesalahan.
+
+\item Distributed: Data yang ada dalam RDD berada di beberapa node. Ini didistribusikan di berbagai node cluster.
+
+\item Lazy evaluation: Data tidak dimuat dalam RDD bahkan jika Anda mendefinisikannya. Transformasi sebenarnya dihitung ketika Anda memanggil suatu tindakan, seperti menghitung atau mengumpulkan, atau menyimpan output ke sistem file
+
+\item Immutability: Data yang disimpan dalam RDD berada dalam mode read-only. RDD tidak dapat mengubah data didalamnya. Namun, RDD baru dapat dibuat dengan memanggil operasi transformasi pada RDD yang ada.
+
+\item In-memory computation: RDD menyimpan data langsung apa pun yang dihasilkan dalam memori (RAM) selain pada disk sehingga memberikan akses yang lebih cepat.
+
+\item Partitioning: Partisi dapat dilakukan pada RDD yang ada untuk membuat bagian logis yang bisa berubah. Anda dapat mencapai ini dengan menerapkan transformasi pada partisi yang tersedia.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{rdd_feature}
+	\caption{Fitur pada RDD}
+	\label{fig:rdd_feature}
+\end{figure}
+
+
+
+\subsubsection{Operasi pada RDD}
 \noindent Berikut adalah penjelasan singkat dan contoh dari jenis operasi pada RDD:
 
 \begin{itemize}
 \item Transformation\\
-Tranformation adalah operasi pada RDD untuk mengembalikan output berupa RDD baru. Transformatsi pada RDD dilakukan secara lazy, sehingga tranformasti hanya akan dikerjakan apabila dipanggil pada sebuah action. Contoh dari transformasi adalah map(), flatmap(), filter(), groupByKey(), lessByKey(), mapValues().
+Tranformation adalah operasi pada RDD untuk mengembalikan output berupa RDD baru. Transformasi pada RDD dilakukan secara lazy, sehingga tranformasti hanya akan dikerjakan apabila dipanggil pada sebuah action. Transformasi pada RDD akan dijelaskan pada tabel dibawah ini.\\
+
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Fungsi & Deskripsi \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} map()	 & Mengembalikan RDD baru dengan menerapkan fungsi pada setiap elemen data \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} filter() & Mengembalikan RDD baru yang dibentuk dengan memilih elemen-elemen sumber di mana fungsi mengembalikan true \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} reduceByKey() & Menggabungkan nilai-nilai kunci menggunakan fungsi \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} groupByKey() & Mengonversi pasangan (kunci, nilai) menjadi pasangan (kunci, <iterable value>) \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} union() & Mengembalikan RDD baru yang berisi semua elemen dan argumen dari RDD sumber \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} intersection() & Mengembalikan RDD baru yang berisi persimpangan elemen dalam dataset \\ 
+\hline 
+\end{tabular} 
 
 \item Action\\
-Action adalah operasi yang mengembalikan nilai output ke dalam terminal atau melakukan penulisan data pada sistem penyimpanan eksternal. Action memaksa evaluasi pada RDD yang akan dipanggil, untuk menghasilkan output. Contoh dari action adalah take(), count(), collect(), reduce(), takeOrdered(), top().
+Action adalah operasi yang mengembalikan nilai output ke dalam terminal atau melakukan penulisan data pada sistem penyimpanan eksternal. Action memaksa evaluasi pada RDD yang akan dipanggil, untuk menghasilkan output. Action pada RDD akan dijelaskan pada tabel dibawah ini.\\
+
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Fungsi & Deskripsi \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} count() & Mendapat jumlah elemen data dalam RDD \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} collect() & Mendapat semua elemen data dalam RDD sebagai array \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} reduce() & Agregat elemen data ke dalam RDD dengan mengambil dua argumen dan mengembalikan satu \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} take(n) & Mengambil n elemen pertama dari RDD \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} foreach(operation) & Menjalankan operasi untuk setiap elemen data dalam RDD \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} first() & Mengambil elemen data pertama dari RDD \\ 
+\hline 
+\end{tabular} 
 \end{itemize}
  
- 
-
 \subsection{Komponen Spark}
 Komponen Spark adalah library tambahan pada Spark untuk melakukan proses komputasi pada lingkungan big data berdasarkan jenis-jenis kebutuhan pengolahan data. Pada umumnya, Spark hanya membutuhkan library Spark Core saja untuk melakukan komputasi sederhana seperti pemrosesan pada MapReduce. Untuk kasus-kasus tambahan seperti implementasi kueri SQL dan teknik data mining digunakan library tambahan yaitu Spark Core dan Spark SQL. 
 \\\\
-Berikut adalah penjelasan singkat mengenai jenis library pada Spark:
+Berikut adalah penjelasan singkat mengenai komponen pada Spark:
 
 \begin{itemize}
 \item Spark Core \\
-Spark Core adalah library Spark yang berisi fungsionalitas dasar Spark, termasuk komponen untuk penjadwalan tugas, manajemen memori, pemulihan kesalahan, dan berinteraksi dengan sistem penyimpanan. Spark Core juga merupakan rumah bagi API yang mendefinisikan set data terdistribusi yaitu (RDD), yang merupakan abstraksi pemrograman utama Spark. RDD merupakan kumpulan item yang didistribusikan di banyak node komputasi yang dapat dimanipulasi secara paralel.
+Spark Core adalah library Spark yang berisi fungsionalitas dasar Spark, termasuk komponen untuk penjadwalan tugas, manajemen memori, pemulihan kesalahan, dan berinteraksi dengan sistem penyimpanan. Spark Core terdiri dari mesin eksekusi umum untuk platform Spark yang dibangun sesuai kebutuhan. Spark Core memberikan komputasi pada memori dan set data disimpan dalam sistem penyimpanan eksternal. Spark Core juga  menyediakan operasi action dan transformation pada RDD.
+
 \item Spark SQL  \\
-Spark SQL adalah library Spark untuk bekerja dengan data terstruktur. Spark SQL memungkinkan pemrosesan kueri SQL pada lingkungan big data. Selain itu, Spark SQL menyediakan antarmuka SQL untuk Spark. Hasil pemrosesan kueri pada Spark SQL dapat digabungkan dengan hasil manipulasi data oleh RDD, sehingga memungkinkan untuk melakukan analisis data dengan lebih variatif.
+Spark SQL adalah komponen di atas Spark Core yang memperkenalkan serangkaian abstraksi data baru yang disebut SchemaRDD. SchemaRDD menyediakan dukungan untuk data terstruktur dan semi-terstruktur. Spark SQL memungkinkan pemrosesan kueri SQL pada lingkungan big data. Spark SQl menyediakan fungsi untuk menghitung nilai statistik dasar seperti mean, median, modus, nilai maksimum dan nilai minimum.
+
+\item Spark Streaming \\
+Spark Streaming adalah salah satu komponen Apache Spark, yang memungkinkan Spark dapat memproses data streaming secara real-time. Spark Streaming menyediakan API untuk memanipulasi aliran data yang cocok dengan RDD. Hal ini memungkinkan analisis data untuk beralih melalui sumber aplikasi yang memberikan data secara real time. Mirip dengan Spark Core, Spark Streaming berusaha untuk membuat sistem toleran dan scalable
+
 \item
 Spark MLlib \\
-Spark MLlib adalah library Spark yang berisi fungsionalitas yang umum digunakan pada Machine Learning (ML). Untuk mengimplementasikan teknik data mining pada lingkungan big data dibutuhkan library Spark MLlib. Spark MLlib menyediakan berbagai jenis algoritma Machine Learning termasuk klasifikasi, regresi, pengelompokan/clustering, dan filter kolaboratif, dan fungsionalitas pendukung seperti evaluasi model dan impor data. Semua metode pada Spark MLlib ini dirancang untuk pemrosesan Machine Learning pada lingkungan big data.
+Spark MLlib adalah library Spark yang berisi fungsionalitas yang umum digunakan pada Machine Learning (ML). Untuk mengimplementasikan teknik data mining pada lingkungan big data dibutuhkan library Spark MLlib.  Spark MLlib menyediakan berbagai jenis algoritma Machine Learning termasuk klasifikasi, regresi, pengelompokan/clustering. Spark MLlib juga menyediakan fungsi untuk menghitung nilai statistik dasar seperti nilai maksimum, minimum, mean, dan variansi.
+
 \end{itemize}
 
-\newpage
-\subsection{Perbandingan Hadoop dan Spark}
-
-Berikut ini adalah studi perbandingan analisis data menggunakan Hadoop dan Spark:
+\section{Spark MLlib}
+Spark MLlib diciptakan untuk skalabilitas, dan integrasi yang mudah dengan komponen pada Spark. Dengan adanya kemudahan tersebut diharapkan penelitan dapat difokuskan pada masalah pada pemodelan data daripada menyelesaikan masalah kompleksitas data. Spark MLlib adalah library pembelajaran mesin berdasarkan komputasi secara paralel. MLlib terdiri dari algoritma pembelajaran umum seperti klasifikasi,  pengelompokan/clustering. Spark MLLib dapat terintegrasi dengan komponen Spark lainnya seperti Spark SQL dan Spark Streaming. Spark MLlib dapat digunakan pada bahasa pemrograman Java, Scala, dan Python. Secara garis besar, MLlib melakukan data preprocessing, pelatihan model, dan membuat prediksi.
 \\\\
-\begin{tabular}{|p{7.5cm}|p{7.5cm}|}
-\hline 
-Hadoop & Spark \\ 
-\hline 
-Hadoop tidak efisien untuk pengolahan data dengan berbagi data ke setiap kluster, karena memiliki latensi rendah. & Spark memungkinkan melakukan steream processing pada data yang besar  dengan memotong-motong data menjadi ukuran yang lebih kecil yang dapat ditampung oleh memori \\ 
-\hline 
-Lebih lambat karena hasil pengolahan data disimpan di
-hard disk. & Memiliki kecepatan 100 kali lebih cepat dibandingkan Hadoop, karena hasil pemrosesan data disimpan dalam memori. \\ 
-\hline 
-Kompatibel melakukan stream processing, machine learning, dan kueri basisdata. & Kompatibel terhadap Spark streaming, Spark MLLib untuk machine learning,  dan Spark SQL untuk melakukan kueri pada data terstruktur. \\ 
-\hline 
-Pemakaian memori yang lebih rendah. & Pemakaian memori lebih tinggi. Dapat melakukan degradasi dalam
-membagi pekerjaan apabila data tidak muat di memori. \\ 
-\hline 
-Output disimpan dalam disk. & Sistem operasi akan memutuskan apakah output data akan disimpan dalam memori atau disimpan dalam hard disk. \\ 
-\hline 
-\end{tabular} 
+Berikut adalah garis besar pekerjaan yang dilakukan oleh Spark MLlib:
+
+\begin{enumerate}
+\item Membuat RDD baru untuk merepresentasikan jenis fitur dalam dataset.
+\item Melakukan ekstraksi fitur pada sebuah vektor dan konversi menjadi data numerik.
+\item Menjalankan algoritma machine learning untuk menghasilkan pemodelan baru.
+\item Melakukan evaluasi model dengan memanggil fungsi evaluasi milik Spark MLlib.
+\end{enumerate}
+
+\noindent Berikut adalah contoh pemodelan Spark MLlib yang umum digunakan untuk prediksi:
+
+\begin{itemize}
+\item Naive Bayes (klasifikasi)
+\item K-Means (pengelompokan/clutering)
+\item Statistika dasar (mean, variansi, nilai maksimum dan minimum)
+\item Grafik (visualisasi data)
+\end{itemize}
+
+\subsection{Machine Learning pada Spark MLlib}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1.2]{machinelearningmllib}
+	\caption{Tahapan Pembelajaran Machine Learning}
+	\label{fig:machinelearningmllib}
+\end{figure}
+Algoritma pembelajaran mesin berupaya membuat prediksi atau keputusan berdasarkan data pelatihan. Ada beberapa jenis masalah pembelajaran termasuk klasifikasi, regresi, atau pengelompokan, yang memiliki tujuan yang berbeda. Semua algoritma pembelajaran membutuhkan pendefinisian sekumpulan fitur untuk setiap item, yang akan dimasukkan ke dalam fungsi pembelajaran. Sebagian besar algoritma didefinisikan hanya untuk fitur numerik (khususnya, vektor angka yang mewakili nilai untuk setiap fitur).
+\\\\
+\noindent Berikut adalah tahapan pembelajaran machine learning pada Spark MLlib sebagai berikut:
+
+\begin{enumerate}
+
+\item Featurization\\
+Setelah data telah dibersihkan dan dipilih untuk pelatihan, perlu diubah menjadi representasi numerik dalam bentuk vektor sebagai input untuk model. Proses ini disebut vektorisasi. Proses pemilihan fitur yang tepat berpengaruh terhadap hasil pelatihan.
+ 
+\item Training\\
+Pelatihan model merupakan salah satu tahapan yang paling memakan waktu dan padat karya dalam setiap alur kerja pembelajaran mesin. Terlebih lagi, perangkat keras dan infrastruktur yang digunakan untuk melatih model sangat bergantung pada jumlah parameter dalam model, ukuran dataset, metode pengoptimalan yang digunakan, dan pertimbangan lainnya.
+
+\item Model Evaluation\\
+Setiap model harus menjalani evaluasi kualitatif dan kuantitatif. Banyak data pelatihan yang memiliki hasil evaluasi yang sesuai terhadap kinerja model. Model tersebut harus diterapkan pada data baru. Seringkali, pemeriksaan kualitatif tentang kinerja model, diperoleh dengan referensi silang prediksi model dengan apa yang diharapkan secara intuitif, dapat berfungsi sebagai panduan apakah model bekerja sesuai harapan.
+\end{enumerate}
+
+\subsection{Tipe Data pada Spark MLlib}
+Spark MLlib terdiri dari beberapa jenis tipe data berdasarkan library bahasa pemrograman yang digunakan. Pada Java/Scala, library MLlib menggunakan istilah package. Pada Python, library MLlib menggunakan istilah pyspark.mllib. Tipe data Spark MLlib dibuat dengan cara menyimpan objek data RDD berdasarkan operasi tranformasi RDD pada dataset. \\\\
+
+\noindent Berikut adalah beberapa jenis tipe data pada Spark MLlib:
+
+\begin{itemize}
+\item Vektor\\
+Vektor terdiri dari dua jenis yaitu vektor dense dan vektor sparse. Perlu digaris bawahi bahwa elemen vektor dense dan vektor sparse disimpan dalam struktur data array bertipe double. Gambar \ref{fig:vectordenseandsparse} adalah contoh implementasi vektor dense dan vektor sparse pada Spark untuk bahasa pemrograman Scala. Kelas vektor berada pada package mllib.linalg.Vectors. 
+
+\noindent Berikut adalah penjelasan singkat dari vektor dense dan vektor sparse:
+
+\begin{itemize}
+
+\item Vektor dense\\
+Vektor dense adalah vektor yang menyimpan setiap nilai fitur dataset. Jumlah elemen pada vektor dense akan memiliki jumlah yang sama dengan jumlah fitur pada dataset. \\
+
+\item Vektor sparse\\
+Vektor sparse biasanya lebih disukai karena memiliki kelebihan dalam hal penggunaan memori dan kecepatan. Vektor sparse adalah vektor yang menyimpan setiap nilai fitur yang bukan nol pada dataset, sehingga jumlah elemen yang disimpan pada vektor sparse lebih sedikit dibandingkan dengan jumlah elemen yang disimpan pada vektor dense. 
+
+\end{itemize}
+
+\item LabeledPoint\\
+LabeledPoint digunakan pada algoritma supervised learning yaitu klasifikasi dan regresi. LabeledPoint terdiri dari vektor fitur dan label yang direpresentasikan dengan tipe data Double. LabeledPoint terletak pada package "mllib.regress".
+
+\item Various Model classes\\
+Various Model classes adalah tipe data yang dihasilkan dari penerapan algoritma machine learning. Tipe data ini memiliki fungsi predict() untuk menerapkan pemodelan yang ada ke dalam data baru.
+
+\end{itemize}
+
+\subsection{Jenis Pemodelan pada Spark MLlib}
+
+\subsubsection{Naive Bayes}
+
+Naive Bayes adalah algoritma klasifikasi multiclass sederhana dengan asumsi independensi antara setiap pasangan fitur. Naive Bayes dapat dilatih dengan sangat efisien. Naive Bayes menghitung distribusi probabilitas bersyarat dari setiap fitur yang diberikan label, kemudian menerapkan teorema Bayes untuk menghitung distribusi probabilitas bersyarat label yang diberikan pengamatan dan menggunakannya untuk prediksi. Naive Bayes membutuhkan RDD dari LabeledPoint. Pemodelan Naive Bayes dapat digunakan untuk evaluasi dan prediksi. Gambar \ref{fig:naive_bayes} adalah contoh implementasi dari pemodelan naive bayes.
+ 
+
+\subsubsection{K-Means}
+K-Means adalah salah satu algoritma pengelompokan yang paling umum digunakan untuk mengelompokkan titik-titik data menjadi sejumlah kelompok yang telah ditentukan. Gambar \ref{fig:k_means} adalah contoh implementasi dari pemodelan K-Means. K-Means memiliki parameter berikut:
+
+\begin{itemize}
+\item \textit{k} adalah jumlah cluster yang diinginkan. 
+\item \textit{maxIterations} adalah jumlah iterasi maksimum yang harus dijalankan.
+\item \textit{initializationMode} menentukan inisialisasi centroid secara acak.
+\item \textit{initializationSteps} menentukan jumlah langkah dalam algoritma k-means.
+\item \textit{initialModel} adalah menentukan nilai centroid saat inisialisasi.
+\end{itemize}
+
+
+\subsubsection{Statistika dasar}
+Statistik dasar adalah bagian penting dari analisis data, baik dalam eksplorasi ad hoc maupun memahami data untuk pembelajaran mesin. MLlib menawarkan beberapa statistik yang banyak digunakan fungsi yang bekerja langsung pada RDD, melalui metode di kelas mllib.stat.Statistics. Fungsi colStats() akan mengembalikan nilai maksimum, minimum, rata-rata, variansi. Gambar \ref{fig:basic_statistics} adalah contoh implementasi statistika dasar pada Spark MLlib.
 
 
 
 \section{Scala}
-Scala adalah bahasa pemrograman berbasi open source, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Apache Spark ditulis dalam Scala dan karena skalabilitasnya di JVM. Pemrograman scala adalah bahasa pemrograman yang paling banyak digunakan, oleh pengembang big data untuk mengerjakan proyek Spark.
+Scala adalah bahasa pemrograman berbasi open source, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Spark ditulis dalam Scala dan karena skalabilitasnya di JVM. Pemrograman scala adalah bahasa pemrograman yang paling banyak digunakan, oleh pengembang big data untuk mengerjakan proyek Spark. Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan big data pada Spark.
 
-\par Scala digunakan untuk mengakses dan mengimplementasikan fitur-fitur Spark dengan mudah. Kesamaan antara Scala dengan Java adalah memakai konsep object oriented dengan bahasa pemrograman yang lebih disederhanakan. Scala menyediakan jalur terbaik untuk membangun aplikasi big data untuk menangani permasalahan pada kompleksitas program. Scala mendukung konsep parallel dan concurrency untuk pemodelan MapReduce dan sangat cocok untuk implementasi pada pemrograman fungsional. Scala memiliki kelebihan pada concurrency dan library bawaan yang sangat beragam. 
-
-\par Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan big data pada Apache Spark.
 
 
 \section{Scala Swing} 
-Scala swing mengimplementasikan program dengan Graphical User Interface (GUI), berbeda dengan program Spark pada umumnya yang hanya melakukan eksekusi dengan menggunakan terminal. Penggunaan terminal terbatas pada penerimaan input dan penampilan output. Dengan menggunakan program berbasis GUI, diharapkan interaksi pada program menjadi lebih beragam. Perbedaan utama antara terminal dan GUI adalah program berbasis terminal menjalankan prosedur yang tetap, sedangkan program berbasis GUI menjalankan prosedur sesuai dengan kebutuhan penggunanya.
+Scala Swing adalah program berbasis Graphical User Interface (GUI) sehingga memiliki perbedaan dengan program Spark yang dieksekusi dengan terminal. Scala Swing bertujuan untuk memberi tampilan program sehingga hasil program diharapkan menjadi lebih interaktif. Scala menyediakan akses langsung terhadap kelas GUI pada Java menggunakan library Scala Swing.  Dengan menggunakan Scala, penggunaan Scala Swing dapat memenuhi kebutuhan perancangan User Interface melalui berbagai macam komponen GUI pada umumnya. Gambar \ref{fig:swing_example} adalah contoh implementasi GUI sederhana pada Scala Swing.
 
-\par Scala menyediakan akses langsung terhadap kelas GUI Java menggunakan library Scala Swing. Secara konseptual, library Scala Swing menyerupai library Java Swing pada Java. Akan tetapi, Scala Swing lebih menyembunyikan kerumitan kode dibandingkan library Java Swing. Dengan menggunakan Scala, penggunaan library Scala Swing memenuhi kebutuhan perancangan User Interface, dengan tersedianya berbagai macam fitur GUI pada umumnya.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{swing_example}
+	\caption{GUI Sederhana pada Scala Swing}
+	\label{fig:swing_example}
+\end{figure}
 
-\par Dasar untuk menyusun aplikasi GUI adalah membangun komponen GUI.  Library Scala Swing menyediakan komponen Frame, Panel, Label dan Button yang sama seperti komponen GUI pada umumnya. Komponen pada Scala Swing memiliki properti yang dapat diatur secara manual. Beberapa komponen pada Scala Swing dapat menangani handling event tertentu. Handling event adalah perkerjaan yang dilakukan sebuah komponen, ketika komponen tersebut menerima aksi secara langsung dari pengguna aplikasi.
+
+\subsection{Panel dan Layout}
+Panel adalah tempat untuk menampilkan semua komponen GUI dengan beberapa aturan tata letak yang harus dipenuhi. Salah satu bagian tersulit pada perancangan aplikasi berbasis GUI adalah mengatur penempatan layout dengan benar. Gambar \ref{fig:swing_panel} diberikan sebagai contoh penerapan konsep dasar untuk menyusun aplikasi GUI. Layout dibangun atas beberapa komponen GUI seperti Frame, Panel, Label atau Button. Komponen ini memiliki nilai properti (warna, ukuran, posisi) yang dapat diatur secara manual.
+
+\subsection{Handling Event}
+Handling event adalah perkerjaan yang dilakukan masing-masing komponen. Komponen akan menerima aksi langsung dari pengguna aplikasi. Mekanisme ini dikenal sebagai handling event, yang dieksekusi ketika suatu peristiwa terjadi. Handling event memiliki listener. Listener adalah sebuah komponen memberi tahu sebuah aksi kepada komponen tertentu. Listener harus dibuat untuk masing-masing objek handling event. Gambar \ref{fig:swing_handle_event} adalah contoh implementasi handling event pada Scala Swing.
 
 \section{Jenis Data Input}
-Spark menerima berbagai jenis data input dan menfasilitasi penulisan berbagai jenis data output, karena Spark dibangun di atas ekosistem Hadoop. Secara khusus, Spark dapat mengakses data melalui antarmuka format input dan output yang digunakan oleh Hadoop Map Reduce. Berberapa jenis data yang akan diolah memiliki format penulisan masing-masing, sehingga memiliki cara yang berbeda untuk mengambil sekumpulan data dalam format tersebut. Berikut adalah contoh format data yang akan digunakan pada proses pengolahan data.   
+Spark menerima berbagai jenis data input dan menfasilitasi penulisan berbagai jenis data output. Berberapa jenis data yang akan diolah memiliki format penulisan masing-masing, sehingga memiliki cara yang berbeda untuk mengambil dan menulis sekumpulan data dalam format tertentu. 
 
 \subsection{CSV}
-Comma Separated Value (CSV) berisi sejumlah jumlah atribut data untuk setiap baris dan dipisahkan oleh koma. CSV tidak memiliki format yang konsisten. Beberapa hal yang sering terjadi terkait penulisan format yang salah pada CSV adalah penggunaan karakter non-ASCII. CSV tidak dapat mengakses nilai atribut data secara langsung. Untuk mendapatkan nilai atribut secara spesifik, perlu dilakukan pemisahan koma untuk setiap baris data. Dalam beberapa tahun terakhir, penggunaan struktur CSV untuk penyimpanan data semakin meningkat. Semakin banyaknya kebutuhan pengolahan data berdasarkan format CSV, maka perlu mencari tahu teknik penyimpanan dan pengambilan data CSV pada Spark. Spark mampu melakukan proses manipulasi dan transformasi data CSV tanpa menggunakan library tambahan.
+Comma Separated Value (CSV) berisi sejumlah jumlah atribut data untuk setiap baris dan dipisahkan oleh koma. CSV tidak memiliki format yang konsisten. CSV tidak dapat mengakses nilai atribut data secara langsung. Untuk mendapatkan nilai atribut secara spesifik, perlu dilakukan pemisahan koma untuk setiap baris data. Spark mampu melakukan proses manipulasi dan transformasi CSV tanpa menggunakan library tambahan.
 
 \subsection{XML}
-XML menyediakan format penulisan data menggunakan tag pembuka dan penutup. Tag pembuka dan penutup pada XML ditulis dengan tujuan memberi tahu data-data apa saja yang merupakan cakupan dari elemen tag tersebut. Dalam beberapa tahun terakhir, pengolahan data dengan format XML semakin meningkat seiring berkembangnya pemakaian XML sebagai format penyimpanan data.  Oleh karena itu, perlu adanya cara untuk menyimpan dan mengambil nilai sebuah data pada file yang beformat XML. Berkembangan format penyimpanan XML menghadirkan tantangan baru bagi pengolahan big data, karena Spark tidak mampu melakukan proses manipulasi dan transformasi data XML tanpa menggunakan  library tambahan.
+XML menyediakan format penulisan data menggunakan tag pembuka dan penutup. Tag pembuka dan penutup pada XML ditulis dengan tujuan memberi tahu data-data apa saja yang merupakan cakupan dari elemen tag tersebut. Dalam beberapa tahun terakhir, pengolahan data dengan format XML semakin meningkat seiring berkembangnya pemakaian XML sebagai format penyimpanan data. Spark mampu melakukan proses manipulasi dan transformasi data XML dengan menggunakan library tambahan.
