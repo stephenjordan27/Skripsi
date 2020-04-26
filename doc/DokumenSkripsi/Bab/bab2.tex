@@ -1153,13 +1153,12 @@ Setiap model harus menjalani evaluasi kualitatif dan kuantitatif. Banyak data pe
 \subsection{Tipe Data pada Spark MLlib}
 Spark MLlib terdiri dari beberapa jenis tipe data berdasarkan library bahasa pemrograman yang digunakan. Pada Java/Scala, library MLlib menggunakan istilah package. Pada Python, library MLlib menggunakan istilah pyspark.mllib. Tipe data Spark MLlib dibuat dengan cara menyimpan objek data RDD berdasarkan operasi tranformasi RDD pada dataset. \\\\
 
+\newpage
 \noindent Berikut adalah beberapa jenis tipe data pada Spark MLlib:
 
 \begin{itemize}
 \item Vektor\\
-Vektor terdiri dari dua jenis yaitu vektor dense dan vektor sparse. Perlu digaris bawahi bahwa elemen vektor dense dan vektor sparse disimpan dalam struktur data array bertipe double. Gambar \ref{fig:vectordenseandsparse} adalah contoh implementasi vektor dense dan vektor sparse pada Spark untuk bahasa pemrograman Scala. Kelas vektor berada pada package mllib.linalg.Vectors. 
-
-\noindent Berikut adalah penjelasan singkat dari vektor dense dan vektor sparse:
+Vektor terdiri dari dua jenis yaitu vektor dense dan vektor sparse. Perlu digaris bawahi bahwa elemen vektor dense dan vektor sparse disimpan dalam struktur data array bertipe double. Kelas vektor berada pada package mllib.linalg.Vectors. Berikut adalah penjelasan singkat dari vektor dense dan vektor sparse:
 
 \begin{itemize}
 
@@ -1183,11 +1182,11 @@ Various Model classes adalah tipe data yang dihasilkan dari penerapan algoritma 
 
 \subsubsection{Naive Bayes}
 
-Naive Bayes adalah algoritma klasifikasi multiclass sederhana dengan asumsi independensi antara setiap pasangan fitur. Naive Bayes dapat dilatih dengan sangat efisien. Naive Bayes menghitung distribusi probabilitas bersyarat dari setiap fitur yang diberikan label, kemudian menerapkan teorema Bayes untuk menghitung distribusi probabilitas bersyarat label yang diberikan pengamatan dan menggunakannya untuk prediksi. Naive Bayes membutuhkan RDD dari LabeledPoint. Pemodelan Naive Bayes dapat digunakan untuk evaluasi dan prediksi. Gambar \ref{fig:naive_bayes} adalah contoh implementasi dari pemodelan naive bayes.
+Naive Bayes adalah algoritma klasifikasi multiclass sederhana dengan asumsi independensi antara setiap pasangan fitur. Naive Bayes dapat dilatih dengan sangat efisien. Naive Bayes menghitung distribusi probabilitas bersyarat dari setiap fitur yang diberikan label, kemudian menerapkan teorema Bayes untuk menghitung distribusi probabilitas bersyarat label yang diberikan pengamatan dan menggunakannya untuk prediksi. Naive Bayes membutuhkan RDD dari LabeledPoint. Pemodelan Naive Bayes dapat digunakan untuk evaluasi dan prediksi. 
  
 
 \subsubsection{K-Means}
-K-Means adalah salah satu algoritma pengelompokan yang paling umum digunakan untuk mengelompokkan titik-titik data menjadi sejumlah kelompok yang telah ditentukan. Gambar \ref{fig:k_means} adalah contoh implementasi dari pemodelan K-Means. K-Means memiliki parameter berikut:
+K-Means adalah salah satu algoritma pengelompokan yang paling umum digunakan untuk mengelompokkan titik-titik data menjadi sejumlah kelompok yang telah ditentukan. K-Means memiliki parameter masukan sebagai berikut:
 
 \begin{itemize}
 \item \textit{k} adalah jumlah cluster yang diinginkan. 
@@ -1197,16 +1196,8 @@ K-Means adalah salah satu algoritma pengelompokan yang paling umum digunakan unt
 \item \textit{initialModel} adalah menentukan nilai centroid saat inisialisasi.
 \end{itemize}
 
-
-\subsubsection{Statistika dasar}
-Statistik dasar adalah bagian penting dari analisis data, baik dalam eksplorasi ad hoc maupun memahami data untuk pembelajaran mesin. MLlib menawarkan beberapa statistik yang banyak digunakan fungsi yang bekerja langsung pada RDD, melalui metode di kelas mllib.stat.Statistics. Fungsi colStats() akan mengembalikan nilai maksimum, minimum, rata-rata, variansi. Gambar \ref{fig:basic_statistics} adalah contoh implementasi statistika dasar pada Spark MLlib.
-
-
-
 \section{Scala}
 Scala adalah bahasa pemrograman berbasi open source, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Spark ditulis dalam Scala dan karena skalabilitasnya di JVM. Pemrograman scala adalah bahasa pemrograman yang paling banyak digunakan, oleh pengembang big data untuk mengerjakan proyek Spark. Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan big data pada Spark.
-
-
 
 \section{Scala Swing} 
 Scala Swing adalah program berbasis Graphical User Interface (GUI) sehingga memiliki perbedaan dengan program Spark yang dieksekusi dengan terminal. Scala Swing bertujuan untuk memberi tampilan program sehingga hasil program diharapkan menjadi lebih interaktif. Scala menyediakan akses langsung terhadap kelas GUI pada Java menggunakan library Scala Swing.  Dengan menggunakan Scala, penggunaan Scala Swing dapat memenuhi kebutuhan perancangan User Interface melalui berbagai macam komponen GUI pada umumnya. Gambar \ref{fig:swing_example} adalah contoh implementasi GUI sederhana pada Scala Swing.

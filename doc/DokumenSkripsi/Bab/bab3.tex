@@ -1,4 +1,4 @@
-\chapter{ANALISIS MASALAH, EKSPLORASI, DAN STUDI KASUS}
+\chapter{ANALISIS}
 \section{Analisis Masalah}
 Berkembangnya penggunaan teknologi informasi menyebabkan data bertumbuh dengan sangat pesat. Istilah data yang memiliki ukuran yang besar dikenal sebagai big data. Data mining adalah cara untuk mengekstraksi sebuah informasi dari sekumpulan data untuk mendukung pengambilan keputusan atau pernyataan tertentu. Hasil data mining yang mengandung data konsumen apabila disebarkan kepada pihak lain untuk kebutuhan tertentu tanpa dilakukan perlindungan privasi terlebih dahulu maka dapat melanggar hak privasi seseorang. Apabila informasi pribadi seseorang dapat diketahui oleh orang lain, maka mengakibatkan munculnya tindak kejahatan yang mengatasnamakan privasi orang bersangkutan. Oleh karena itu, perlu adanya sebuah cara untuk melindungi privasi seseorang sebelum dilakukan distribusi data.
 
@@ -1223,7 +1223,6 @@ val schema = StructType(
 \item Mengubah data input CSV menjadi dataframe berdasarkan skema
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=ls_kepatuhan_1_1_1_logo_sharif_judge, caption=Main method]
-	
 val adult100k_df = spark.read
       .format("csv")
       .option("header", "false")
@@ -1232,13 +1231,11 @@ val adult100k_df = spark.read
       .load("input/adult100k.csv")
 
 adult100k_df.show()	
-	
 \end{lstlisting}
 
 \item Menggunakan fungsi stringIndexer untuk membuat kolom index dan fungsi oneHotEncoder untuk membuat kolom vektor.
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=ls_kepatuhan_1_1_1_logo_sharif_judge, caption=Main method]
-
 // Create vector based on stringIndexer and oneHotEncoder
 val cols = adult100k_df.columns
 val encodedFeatures = cols.flatMap{columnName =>
@@ -1251,23 +1248,19 @@ val encodedFeatures = cols.flatMap{columnName =>
 		.setDropLast(false)
 	Array(stringIndexer.setHandleInvalid("keep"),oneHotEncoder)
 }	
-	
 \end{lstlisting}
 
 \item Menambahkan kolom vektor dan kolom index pada dataframe
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=ls_kepatuhan_1_1_1_logo_sharif_judge, caption=Main method]
-	
 // Pipeline
 val pipeline = new Pipeline().setStages(encodedFeatures)
 val indexer_model = pipeline.fit(adult100k_df)
-	
 \end{lstlisting}
 
 \item Memilih jenis implementasi vektor yang akan digunakan.
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=ls_kepatuhan_1_1_1_logo_sharif_judge, caption=Main method]
-	
 // Sparse Vector
 val df_transformed = indexer_model.transform(adult100k_df)
 df_transformed.show()
@@ -1278,13 +1271,12 @@ val df_denseVectors = df_transformed
 		.withColumn("dense_workclass_vec",
 		sparseToDense(df_transformed("workclass_vec")))
 df_denseVectors.show()	
-	
 \end{lstlisting}
 
+\newpage
 \item Membuat vektor fitur untuk setiap baris data pada dataframe
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=ls_kepatuhan_1_1_1_logo_sharif_judge, caption=Main method]
-	
 // Final Result: Feature Vector
 val vecFeatures = df_transformed.columns.filter(_.contains("vec"))
 val vectorAssembler = new VectorAssembler()
@@ -1296,7 +1288,6 @@ val result_df = pipelineVectorAssembler
 		.fit(df_transformed)
 		.transform(df_transformed)
 result_df.show()
-	
 \end{lstlisting}
 
 \end{enumerate}
@@ -1339,12 +1330,12 @@ val accuracy = evaluator.evaluate(predictions)
 println("Test set accuracy = " + accuracy)
 
 \end{lstlisting}
-\vspace{0.5cm}
-\noindent Hasil dari pemodelan Naive Bayes adalah prediksi jenis cluster berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan Naive Bayes data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama (age = 17) memiliki kelompok cluster yang sama (prediction = 3.0).
+\newpage
+\par Hasil dari pemodelan Naive Bayes adalah prediksi jenis cluster berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan Naive Bayes data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama (age = 17) memiliki kelompok cluster yang sama (prediction = 3.0).
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{mllib_naivebayes}
+	\includegraphics[scale=1]{mllib_naivebayes}
 	\caption{Hasil Naive Bayes}
 	\label{fig:mllib_naivebayes}
 \end{figure}
@@ -1378,14 +1369,14 @@ predictDf.show(10)
 
 \end{lstlisting}
 
-\vspace{0.5cm}
-\noindent Hasil dari pemodelan K-Means adalah prediksi jenis cluster berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan K-Means, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok cluster yang sama. Pada Gambar \ref{fig:mllib_kmeans}, diketahui bahwa sebuah data yang bernilai (age = 39) memiliki kelompok cluster yang sama (prediction = 5) dengan data lain yang bernilai (age = 38).
+\newpage
+\par Hasil dari pemodelan K-Means adalah prediksi jenis cluster berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan K-Means, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok cluster yang sama. Pada Gambar \ref{fig:mllib_kmeans}, diketahui bahwa sebuah data yang bernilai (age = 39) memiliki kelompok cluster yang sama (prediction = 5) dengan data lain yang bernilai (age = 38).
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{mllib_kmeans}
-	\caption{Hasil Naive Bayes}
-	\label{fig:mllib_naivebayes}
+	\includegraphics[scale=1]{mllib_kmeans}
+	\caption{Hasil K-Means}
+	\label{fig:mllib_kmeans}
 \end{figure}
 
 \section{Gambaran Umum Perangkat Lunak}
@@ -1403,57 +1394,140 @@ Penelitian ini menghasilkan dua jenis perangkat lunak dengan tujuan yang berbeda
 Penelitian ini memiliki dua jenis diagram aktivitas,  yaitu diagram aktivitas untuk perangkat lunak anonimisasi data dan diagram aktivitas untuk perangkat lunak analisis data. Tujuan dari membuat dua jenis perangkat lunak antara lain untuk memisahkan perangkat lunak dari fungsionalitas yang berbeda. Fungsionalitas tersebut antara lain melakukan proses anonimisasi data pada dataset dan membandingkan hasil antara dataset asli dengan dataset yang telah dilakukan proses anonimisasi untuk mencari tahu seberapa baik kinerja algoritma Greedy K-Member Clustering untuk mendapatkan hasil yang informatif.
 
 \subsubsection{Perangkat Lunak Anonimisasi Data}
-Perangkat lunak ini bertujuan untuk melakukan proses anonimisasi pada dataset Adults menggunakan algoritma K-Anonymity. Diagram aktifitas dapat dilihat pada Listing \ref{lst:jenis_variabel}, berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan proses anonimisasi data:
+Perangkat lunak ini bertujuan untuk melakukan proses anonimisasi pada dataset Adults menggunakan algoritma K-Anonymity. Diagram aktifitas dapat dilihat pada Gambar \ref{fig:pl_anonimisasi}, berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan proses anonimisasi data:
 
 \begin{enumerate}
 
-\item Pengguna memberi masukan berupa data input CSV, lalu memilih beberapa atribut quasi-identifier pada data input tersebut, dan terakhir memberikan parameter masukan untuk algoritma Greedy K-Member Cluster seperti nilai k dan parameter masukan untuk objek DGH agar nilai quasi-identifier dapat dilakukan anonimisasi. 
+\item Pengguna memberi masukan dalam format file CSV dan beberapa jenis atribut quasi-identifier untuk menjadi tabel input pada proses anonimisasi.
 
-\item Perangkat lunak menampilkan data input pengguna pada tabel. Karena data input yang dipakai akan berukuran sangat besar maka data input hanya ditampilkan sebagian pada GUI. Tabel yang dibuat akan memiliki jumlah kolom yang sama dengan jumlah atribut dari dataset Adult. Atribut yang tidak memiliki nilai akan diisi dengan nilai null.
+\item Perangkat lunak menampilkan sebagian baris data dari tabel input karena baris data yang akan digunakan pada eksperimen akan berjumlah sangat banyak .
 
-\item Pengguna meninjau kembali apakah nilai yang ada dalam tabel sudah sesuai dengan jenis kolomnya. Selanjutnya pengguna akan meninjau kembali apakah jumlah kolom yang ditampilkan pada tabel sudah sesuai dengan jumlah atribut pada dataset Adult.
+\item Pengguna akan meninjau ulang apakah jumlah kolom yang ditampilkan sudah sesuai dengan jumlah atribut quasi-identifier yang akan dipakai.
 
-\item Pengguna memberi masukan jumlah nilai k yang diinginkan dengan rentang 2 < k < n. Nilai k merepresentasikan jumlah anggota maksimal pada sebuah cluster. Nilai k akan menjadi parameter masukan untuk menentukan pengelompokan data berdasarkan algoritma Greedy K-Member Clustering.
+\item Penggunakan memberikan parameter tambahan seperti rentang nilai k untuk menentukan jumlah anggota cluster dan objek DGH untuk proses anonimisasi.
 
-\item Perangkat lunak menerima parameter nilai k dari pengguna, selanjutnya perangkat lunak akan melakukan proses anonimisasi data dengan bantuan Spark. 
+\item Perangkat lunak akan melakukan proses anonimisasi dengan bantuan Spark pada tabel input berdasarkan paramater tambahan yang diberikan sebelumnya. 
 
-\item Perangkat lunak mengembalikan isi log eksekusi Spark kepada pengguna sehingga pengguna dapat mengetahui apabila terjadi error/bug saat dilakukan proses anonimisasi data
+\item Perangkat lunak mengembalikan seluruh isi log yang dihasilkan selama proses eksekusi Spark berlangsung kepada pengguna untuk deteksi error.
 
-\item Perangkat lunak menampilkan hasil anonimisasi data pada baris data yang hanya mengalami perubahan. Selain itu hasil anonimisasi data juga akan disimpan dalam format file CSV agar pengguna dapat membandingkan nilainya dengan data yang asli.
+\item Perangkat lunak hanya menampilkan baris data yang berubah akibat proses anonimisasi pada GUI dan hasil keseluruhannya dalam format file CSV.
 
-\item Perangkat lunak mengembalikan nilai information loss pada masing-masing cluster yang terbentuk dalam bentuk tabel. Nilai information loss dipakai untuk mencari nilai k yang tepat agar nilai information loss yang didapat seminimal mungkin
+\item Perangkat lunak mengembalikan nilai information loss pada masing-masing cluster yang terbentuk agar pengguna dapat mencari hasil yang optimal.
 
-\item Pengguna dapat meninjau kembali hasil anonimisasi data yang tersimpan dalam format CSV dengan data yang asli. Caranya adalah membandingkan nilai pada baris data yang mengalami perubahan dengan nilai pada baris data asli.
+\item Pengguna dapat membandingkan hasil anonimisasi antara baris data yang berubah akibat proses anonimisasi dengan baris data yang ada pada tabel asli.
 
-\item Pengguna dapat mengulangi eksperimen untuk mencari nilai k yang tepat agar menghasilkan nilai information loss yang seminimal mungkin dari metode anonimisasi.
+\item Pengguna dapat mengulangi eksperimen untuk mencari nilai k terbaik agar dihasilkan information loss seminimal mungkin pada proses anonimisasi.
 
 
  
 \end{enumerate}
 
 \subsubsection{Perangkat Lunak Analisis Data}
-Perangkat lunak ini bertujuan untuk mencari perbandingan hasil sebelum dan setelah data dilakukan proses anonimisasi dengan metode data mining. Diagram aktifitas dapat dilihat pada Listing \ref{lst:jenis_variabel}, berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan pemodelan data mining:
+Perangkat lunak ini bertujuan untuk mencari perbandingan hasil sebelum dan setelah data dilakukan proses anonimisasi dengan metode data mining. Diagram aktifitas dapat dilihat pada Gambar \ref{fig:pl_analisis}, berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan pemodelan data mining:
 
 \begin{enumerate}
 
-\item Pengguna memberi dua jenis masukan berupa data input CSV berdasarkan data asli dan data hasil anonimisasi, lalu dipilih beberapa atribut quasi-identifier pada data tersebut
+\item Pengguna memberi dua jenis masukan yaitu data asli dan data hasil anonimisasi dalam format file CSV untuk menjadi tabel input pada proses analisis data.
 
-\item Perangkat lunak menampilkan tabel dari data asli dan tabel dari data hasil anonimisasi. Karena data input yang dipakai berukuran sangat besar maka data input hanya ditampilkan sebagian saja pada GUI.
+\item Perangkat lunak hanya menampilkan sebagian baris data dari dua jenis tabel input karena input baris data pada eksperimen berjumlah sangat banyak 
 
-\item Pengguna meninjau kembali apakah nilai yang ada dalam tabel sudah sesuai dengan jenis kolomnya. Selanjutnya pengguna akan meninjau kembali apakah jumlah kolom yang ditampilkan pada tabel sudah sesuai dengan jumlah atribut pada hasil pengelompokan data.
+\item Pengguna meninjau kembali apakah jumlah kolom yang ditampilkan pada kedua jenis tabel memiliki jumlah kolom atribut yang sama.
 
-\item Pengguna memilih jenis pemodelan data mining yang tersedia yaitu Naive Bayes dan K-Means. 
+\item Pengguna memilih jenis pemodelan data mining yang tersedia pada eksperimen, yaitu klasifikasi dengan Naive Bayes atau pengelompokan/clustering dengan K-Means. 
 
-\item Pengguna mengisi parameter pada pemodelan yang dipilih. Contohnya pada pemodelan K-Means, pengguna perlu mengisi nilai k dan jenis atribut yang dipilih. Sedangkan pada pemodelan Naive Bayes, pengguna perlu mengisi persentase antara training, testing data dan jenis atribut yang dipilih.
+\item Pengguna mengisi parameter pada pemodelan yang dipilih. Contoh pada K-Means adalah nilai k dan satu jenis atribut. Sedangkan pada Naive Bayes adalah persentase training, testing data dan satu jenis atribut.
 
-\item Perangkat lunak menerima parameter dari pengguna, selanjutnya perangkat lunak akan melakukan proses pelatihan data pada Spark berdasarkan jenis pemodelan yang dipilih.
+\item Perangkat lunak akan melakukan proses pelatihan data pada Spark untuk menemukan klasifikasi/pengelompokan yang sesuai berdasarkan jenis pemodelan yang dipilih.
 
-\item Perangkat lunak mengembalikan isi log eksekusi Spark kepada pengguna sehingga pengguna dapat mengetahui apabila terjadi error/bug saat dilakukan proses pelatihan data
+\item Perangkat lunak mengembalikan seluruh isi log yang dihasilkan selama proses eksekusi Spark berlangsung kepada pengguna untuk deteksi error.
 
-\item Perangkat lunak akan menampilkan sebagian dari hasil prediksi cluster untuk masing-masing data pada tabel. Selain itu perangkat lunak juga akan menyimpan hasil keseluruhan prediksi kelompok data pada format file CSV.
+\item Perangkat lunak menampilkan sebagian hasil prediksi cluster untuk masing-masing data dan menyimpan hasil keseluruhannya dalam format file CSV.
 
-\item Pengguna melakukan analisis lebih lanjut terkait pengelompokan dan klasifikasi kelompok data yang sudah terbentuk dari proses pemodelan data mining.
+\item Pengguna melakukan analisis lebih lanjut terkait pengelompokan dan klasifikasi kelompok data yang terbentuk dari proses pemodelan data mining.
 \end{enumerate}
 
 \subsection{Diagram Kelas}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{diagram_kelas}
+	\caption{Diagram Kelas Anonimisasi Data}
+	\label{fig:diagram_kelas}
+\end{figure}
+
 Diagram kelas bertujuan untuk menggambarkan keterhubungan antar kelas. Pada penelitian ini digambarkan diagram kelas untuk perangkat lunak anonimisasi data. Karena perangkat lunak analisis data hanya memiliki satu kelas saja, maka keterhubungan antar kelas tidak perlu digambarkan dalam diagram kelas. Gambar 1.1 menggambarkan keterhubungan antar kelas pada perangkat lunak anonimisasi data. Berikut adalah penjelasan lengkap mengenai deskripsi kelas dan method pada perangkat lunak anonimisasi data:
+
+\begin{itemize}
+\item Kelas Anonymizer bertujuan untuk melakukan proses anonimisasi setelah data dikelompokan menjadi beberapa cluster. Kelas Anonymizer memiliki 2 jenis variabel, yaitu:
+
+\begin{itemize}
+
+\item GKMC adalah objek dari kelas GreedyKMemberClustering yang berisi tabel hasil pengelompokan data berdasarkan algoritma Greedy K-Member Clustering
+
+\item DGH adalah array 1 dimensi dari objek Tree yang berisi hasil anonimisasi untuk nilai quasi-identifier yang unik agar menjadi nilai yang lebih umum.
+
+\item anonymizeTable adalah array 2 dimensi dari kelas Object untuk menyimpan tabel hasil anonimisasi data.
+
+\end{itemize}
+
+\noindent Kelas Anonymizer memiliki 2 jenis method, yaitu:
+
+\begin{itemize}
+
+\item setAnonymizeTable() bertujuan untuk melakukan proses anonimisasi pada masing-masing baris data yang tergabung dalam sebuah cluster, berdasarkan perbedaan nilai dari beberapa quasi-identifier.
+
+\item getAnonymizeTable() bertujuan untuk mengambil nilai pada atribut anonymizeTable.
+
+\end{itemize}
+
+
+\item Kelas GreedyKMemberClustering bertujuan untuk melakukan pengelompokan data menjadi beberapa cluster berdasarkan sifat/nilai atribut yang dimiliki oleh masing-masing baris data. Kelas GreedyKMemberClustering memiliki 5 jenis variabel, yaitu:
+
+\begin{itemize}
+
+\item k adalah variabel bertipe Integer untuk membatasi jumlah anggota pada sebuah cluster agar memiliki jumlah yang tetap sebanyak jumlah tertentu.
+
+\item inputData adalah variabel untuk menyimpan seluruh baris data file CSV.
+
+\item quasiIdentifier adalah daftar dari nama-nama kolom yang akan dipilih untuk membuat tabel baru yang digunakan pada proses anonimisasi data
+
+\item originalTable adalah tabel yang menyimpan seluruh baris data pada file CSV berdasarkan jenis kolom yang terpilih pada quasiIdentifier.
+
+\item clusteringTable adalah tabel yang menyimpan hasil pengelompokan baris data dari algoritma Greedy K-Member Clustering.
+
+\end{itemize}
+
+\noindent Kelas GreedyKMemberClustering memiliki 4 jenis method, yaitu:
+
+\begin{itemize}
+\item findBestRecord() bertujuan mencari sebuah baris data yang memiliki nilai information loss yang paling minimal dengan baris data lainnya. 
+
+\item findBestCluster() bertujuan mencari sebuah cluster data yang memiliki nilai information loss yang paling minimal dengan cluster lainnya.
+
+\item setClusteringTable() bertujuan mengelompokkan data berdasarkan algoritma Greedy K-Member Clustering dan hasilnya disimpan pada variabel clusteringTable
+
+\item setOriginalTable() bertujuan mengubah hasil pembacaan data input CSV menjadi tabel baru dan hasilnya disimpan pada variabel originalTable
+
+\end{itemize}
+
+\item Kelas Tree bertujuan untuk membuat pohon generalisasi berdasarkan jenis atribut quasi-identfier yang dipilih.
+
+\item Kelas Node bertujuan untuk menyimpan seluruh nilai quasi-identifier yang unik untuk masing-masing baris data.
+
+\item Kelas Main bertujuan untuk membuat tahapan anonimisasi dari awal sampai akhir dengan memanfaatkan pemanggilan method dari masing-masing objek kelas.
+
+\end{itemize}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{pl_anonimisasi}
+	\caption{Diagram Aktifitas Anonimisasi Data}
+	\label{fig:pl_anonimisasi}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{pl_analisis}
+	\caption{Diagram Aktifitas Analisis Data}
+	\label{fig:pl_analisis}
+\end{figure}
