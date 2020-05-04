@@ -12,6 +12,11 @@
 \usepackage{amsmath}
 \setlength{\headsep}{30pt}
 \graphicspath{{./Gambar/}}% folder tempat gambar 
+\usepackage{amsthm}
+\newtheorem{theorem}{Teorema}
+\usepackage{algorithm,amsmath,algpseudocode}%pseudocode in latex
+\usepackage[skins]{tcolorbox}
+\usepackage{listings}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
 % \pagestyle{empty}
 
@@ -67,70 +72,44 @@ Tipe Laporan : {\bf \tipePR} -
 		}
 		
 \section{Latar Belakang}
-Perkembangan penggunaan internet dan teknologi informasi mengakibatkan pertumbuhan data yang sangat besar dan terjadi secara terus-menerus sehingga data sulit untuk dikelola, diproses, maupun dianalisis menggunakan teknologi pengolahan data biasa. Data yang terus bertumbuh menyebabkan basis data konvensional menjadi kurang efektif untuk mengolah data. Teknologi saat ini telah menemukan sebuah cara untuk mengurangi biaya penyimpanan dan komputasi data, sehingga kapasitas data dapat ditingkatkan dan data menjadi lebih mudah diolah.
+Berkembangnya penggunaan sistem informasi di jaman sekarang mengakibatkan data dihasilkan dalam jumlah yang sangat banyak. Data yang jumlahnya sangat banyak ini dikumpulkan dan disimpan dalam tabel basis data untuk keperluan analisis data di masa yang akan datang. Data yang dikumpulkan secara terus-menerus apabila tidak dilakukan analisis secara berkala, maka suatu saat nanti jika proses analisis data dilakukan, proses analisis tersebut berlangsung sangat lama karena ukuran datanya sudah terlanjur besar. Data yang terus bertumbuh menyebabkan basis data konvensional menjadi kurang efektif untuk mengolah data. Teknologi \textit{big data} digunakan untuk mengurangi biaya penyimpanan dan komputasi data, sehingga kapasitas data dapat ditingkatkan dan data berukuran besar menjadi lebih mudah untuk diolah.
 
-{\it Big data} adalah data dalam jumlah sangat besar dikumpulkan, disimpan, diolah, dan dianalisis agar menghasilkan informasi yang bermanfaat sebagai dasar pengambilan keputusan atau kebijakan. {\it Data mining} adalah teknik ekstraksi informasi terhadap sekumpulan data dalam jumlah besar. {\it Data mining} efektif menggantikan pemrosesan kueri pada basis data dengan data berukuran besar. Masalah yang umum terjadi adalah data yang tersimpan banyak mengandung data yang bersifat privasi sehingga perlu adanya perlindungan privasi pada data yang akan diolah.
+{\it Big data} adalah kumpulan data dalam jumlah data yang sangat besar disimpan, diolah, dan dianalisis untuk menghasilkan informasi yang bermanfaat sebagai dasar pengambilan keputusan atau kebijakan. Karena \textit{big data} memiliki ukuran data yang besar, sehingga untuk melakukan analisis pada \textit{big data}, data yang sudah terkumpul akan dibagi ke beberapa komputer untuk diolah secara paralel. Konsep ini disebut sistem terdistribusi. Sistem terdistribusi adalah solusi dari pengolahan \textit{big data} karena terbukti dapat mengurangi biaya penyimpanan dan komputasi data karena dilakukan secara paralel. Untuk melakukan analisis data, diperlukan teknik khusus untuk mencari tahu pola apa saja yang terbentuk dari sekumpulan data yang telah dikumpulkan. Oleh karena itu, diperlukan teknik \textit{data mining} untuk melakukan analisis data.
 
-Perlindungan privasi dicapai dengan metode enkripsi dan anonimisasi. Enkripsi adalah metode yang memanfaatkan pola atau kunci tertentu. Anonimisasi adalah metode yang menyamarkan satu atau lebih nilai atribut data. Pada kasus tertentu, keamanan enkripsi dapat ditembus melalui penalaran nilai atribut. Penalaran ini sangat berbahaya karena menghubungkan nilai atribut data secara tidak langsung, dapat mengungkapkan entitas pemilik data. Dengan menerapkan konsep anonimisasi diharapkan nilai keterhubungan antar atribut data dapat diperkecil.
 
-Dengan melakukan anonimisasi pada sebagian nilai atribut, bobot informasi yang diperoleh akan semakin kecil. Permasalahan {\it K-anonymity} adalah pencarian solusi untuk menyeimbangkan nilai informasi yang diperoleh dengan nilai informasi yang disamarkan. Permasalahan {\it K-anonymity} diuji dengan pendekatan generalisasi dan supresi. Hasilnya dinilai kurang efektif karena tingginya jumlah informasi yang hilang. Berdasarkan penelitian, permasalahan {\it K-anonymity} tercapai melalui penerapan {\it K-member clustering}. Penerapan {\it K-member clustering} pada algoritma {\it Greedy K-member clustering} dinilai baik karena dapat meminimalkan jumlah informasi yang hilang.
+{\it Data mining} adalah teknik yang diciptakan untuk melihat pola yang terbentuk dari sekumpulan data yang telah terkumpul dalam jumlah yang besar. {\it Data mining} terbukti efektif untuk menggantikan pemrosesan kueri pada basis data konvesional dalam kasus analisis \textit{big data}, karena basis data konvesional tidak menerapkan konsep sistem terdistribusi sehingga waktu komputasinya sangat lambat. Pemodelan data mining nantinya akan dijalankan pada sistem terdistribusi, sehingga waktu komputasi untuk analisis \textit{big data} dapat diminimalkan. Hasil \textit{data mining} nantinya akan dipakai untuk berbagai macam kebutuhan. Biasanya sebuah perusahaan akan meminta data dari perusahaan lain untuk kebutuhan analisis. Masalah yang umum terjadi adalah data hasil pengolahan \textit{data mining} banyak mengandung data yang bersifat privasi sehingga perlu adanya cara untuk menjamin perlindungan privasi pada data yang akan didistribusikan.
 
-Spark adalah {\it framework} yang tepat untuk memproses data dengan ukuran yang relatif besar seperti {\it big data}, dengan membagi data tersebut ke sistem terdistribusi. Penggunaan Spark menggeser penggunaan Map Reduce pada Hadoop yang dinilai cukup lambat. Kelebihannya adalah Spark memiliki proses komputasi yang lebih cepat karena sebagian besar pemrosesan Spark berada pada RAM. Selain itu, Spark mampu melakukan pemrosesan {\it data mining} menggunakan {\it library} tambahan Spark MLlib. Kekurangannya adalah Spark masih tetap bergantung pada mekanisme penyimpanan Hadoop, agar hasil pemrosesan data dapat tersimpan di dalam {\it hardisk} komputer.
+Perlindungan privasi untuk distribusi data dapat dicapai dengan menggunakan metode enkripsi dan anonimisasi pada hasil pengolahan data mining. Enkripsi adalah metode yang memanfaatkan pola atau kunci tertentu untuk melindungi data yang sifatnya sensitif. Anonimisasi adalah metode yang menyamarkan satu atau lebih nilai atribut data agar data seseorang tidak dapat saling dibedakan dengan data lainnya. Salah satu kekurangan dari metode enkripsi dibandingkan metode anonimisasi adalah keamanan enkripsi dapat diretas melalui penalaran hubungan nilai atribut yang unik untuk setiap baris data. Penalaran ini dicapai dengan menggabungkan seluruh nilai atribut yang unik pada masing-masing baris data untuk membentuk sebuah pola kelompok data. dPenalaran ini sangat berbahaya karena menghubungkan nilai atribut data yang secara tidak langsung dapat mengungkapkan entitas pemilik data. Dengan menerapkan konsep  anonimisasi diharapkan nilai keterhubungan antar atribut data diperkecil sehingga privasi dapat terlindungi
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat memproses data semi terstruktur menjadi data anonimisasi menggunakan konsep {\it K-anonimity}. Perangkat lunak ini berjalan di atas Spark untuk memudahkan proses anonimisasi pada lingkungan {\it big data}. Algoritma {\it Greedy K-member clustering} dinilai tepat untuk melakukan anonimisasi data karena meminimalkan jumlah informasi yang hilang saat proses {\it data mining} di penelitian sebelumnya. Penelitian ini bertujuan membandingkan hasil {\it data mining} sebelum dan setelah dilakukan anonimisasi.
+Dengan melakukan anonimisasi pada sebagian nilai atribut, bobot informasi yang diperoleh akan semakin kecil. Semakin kecil bobot informasi yang diperoleh maka pola untuk membentuk kelompok entitas data semakin kecil sehingga perlindungan privasi akan semakin aman. Akan tetapi dengan semakin kecil bobot informasi yang diperoleh maka nilai akurasi yang dihasilkan oleh metode anonimisasi akan semakin kecil. Oleh karena itu diperlukan cara untuk menyeimbangkan keamanan dan nilai akurasi informasi. Permasalahan {\it k-anonymity} adalah pencarian solusi untuk menyeimbangkan nilai akurasi informasi yang diperoleh dengan nilai informasi yang dilindungi. Permasalahan {\it k-anonymity} diuji dengan pendekatan generalisasi dan supresi. Hasilnya dinilai kurang efektif karena tingginya jumlah informasi yang hilang. Berdasarkan penelitian, permasalahan {\it k-anonymity} tercapai melalui penerapan {\it k-member clustering}. Penerapan {\it k-member clustering} pada algoritma {\it Greedy k-member clustering} dinilai baik karena dapat meminimalkan jumlah informasi yang hilang. Agar algoritma \textit{Greedy k-member clustering} dapat berjalan dengan waktu pemrosesan yang tidak terlalu lama, maka akan digunakan \textit{framework} Spark untuk mengatasi permasalahan \textit{big data}.
+
+Spark adalah {\it framework} yang tepat untuk melakukan proses anonimisasi data pada lingkungan \textit{big data}, karena pekerjaan pengolahan data yang besar dapat dibagi ke beberapa komputer pada sistem terdistribusi. Penggunaan Spark dipilih karena Hadoop memiliki waktu pemrosesan \textit{big data} yang lebih lama dari Spark dengan melakukan komputasi pada \textit{hardisk}, sedangkan Spark melakukan komputasi pada memori. Selain itu Spark memiliki jenis \textit{library} yang lebih beragam dibandingkan dengan Hadoop. Spark  mampu melakukan pemrosesan teknik {\it data mining} pada lingkungan \textit{big data} menggunakan {\it library} tambahan yaitu Spark MLlib. Spark MLlib menfasilitasi pemodelan \textit{data mining} yaitu klasifikasi dan pengelompokan/\textit{clustering}. Kekurangan dari Spark adalah tidak mempunyai penyimpanan yang tetap, sehingga membutuhkan  mekanisme penyimpanan Hadoop, agar hasil pemrosesan data dapat tersimpan di dalam {\it hardisk} komputer.
+
+Pada skripsi ini, akan dibuat dua jenis perangkat lunak yaitu perangkat lunak untuk anonimisasi data dan perangkat lunak untuk analisis data. Perangkat lunak anonimisasi data menggunakan konsep {\it k-anonimity} dengan implementasi algoritma \textit{Greedy k-member clustering} agar sebuah data tidak dapat dibedakan dengan $k-1$ data lainnya. Perangkat lunak anonimisasi data dibuat dengan bahasa Scala dan berjalan di atas Spark untuk meminimalkan waktu komputasi pada proses anonimisasi di lingkungan {\it big data}. Algoritma {\it Greedy k-member clustering} dinilai tepat untuk melakukan pengelompokan data karena meminimalkan jumlah informasi yang hilang saat proses {\it data mining} yang terbukti pada penelitian sebelumnya. Kedua jenis perangkat lunak ini menerima data input dalam format CSV. Untuk tampilannya, kedua jenis perangkat lunak akan dibuat menggunakan GUI dari \textit{library} Scala-swing. Penelitian ini memiliki tujuan utama yaitu membandingkan nilai akurasi dari hasil {\it data mining} sebelum dan setelah dilakukan anonimisasi.
 
 \section{Rumusan Masalah}
 Berdasarkan latar belakang di atas, rumusan masalah pada skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-\item Bagaimana cara kerja algoritma {\it Greedy K-member clustering} ?
-\item Bagaimana implementasi algoritma {\it Greedy K-member clustering} pada Spark?
+\item Bagaimana cara kerja algoritma {\it Greedy k-member clustering} ?
+\item Bagaimana implementasi algoritma {\it Greedy k-member clustering} pada Spark?
 \item Bagaimana hasil {\it data mining} sebelum dan setelah dilakukan anonimisasi?
 \end{enumerate}
 
+\newpage
 \section{Tujuan}
 Berdasarkan rumusan masalah di atas, tujuan pada skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-\item Mempelajari cara kerja algoritma {\it Greedy K-member clustering}.
-\item Mengimplementasikan algoritma {\it Greedy K-member clustering } pada Spark.
+\item Mempelajari cara kerja algoritma {\it Greedy k-member clustering}.
+\item Mengimplementasikan algoritma {\it Greedy k-member clustering } pada Spark.
 \item Menganalisis hasil {\it data mining} sebelum dan setelah dilakukan anonimisasi.
 \end{enumerate}
 
 \section{Detail Perkembangan Pengerjaan Skripsi}
 Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan terakhir:
 	\begin{enumerate}
-		\item \textbf{Melakukan studi literatur mengenai konsep privasi,  konsep PII, contoh informasi yang bersifat sensitif dan non-sensitif menurut standar PII}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Privasi adalah suatu keadaan dimana kehidupan pribadi seseorang atau sekelompok orang terbebas dari pengawasan atau gangguan orang lain. Privasi juga dapat berarti kemampuan satu atau sekelompok individu untuk menutupi atau melindungi kehidupan dan urusan personalnya dari publik dengan mengontrol sumber-sumber informasi mengenai diri mereka. Untuk melakukan publikasi data dari satu perusahaan ke perusahaan lain, digunakan teknik anonimisasi data untuk melindungi dan menyamarkan atribut sensitif untuk setiap data.
-		
-Personally Identifiable Information (PII) adalah standar yang digunakan untuk menentukan apakah informasi yang ada dapat melakukan identifikasi entitas individu secara lansung atau tidak langsung. PII menjelaskan bahwa identifikasi entitas secara langsung dapat dilakukan menggunakan atribut sensitif. Sedangkan identifikasi entitas secara tidak langsung dapat dilakukan menggunakan penggabungan beberapa atribut non-sensitif. PII adalah atribut  yang biasanya terjadi pelanggaran data dan pencurian identitas. Jika data perusahaan atau organisasi terungkap, maka sangat mungkin data pribadi seseorang akan terungkap. Informasi yang diketahui dapat dijual dan digunakan untuk melakukan pencurian identitas, menempatkan korban dalam risiko.
-\\\\
-Berikut adalah contoh informasi yang bersifat sensitif menurut standar PII:
-
-\begin{itemize}
-\item Identitas diri \\ 
-Nama lengkap, tempat tanggal lahir, alamat rumah, alamat email.
-\item Nomor identitas diri \\
-NIK, nomor passport, nomor SIM, nomor wajib pajak, nomor rekening, nomor telepon, dan nomor kartu kredit.
-\item Karakteristik pribadi  \\
-Foto diri, sidik jari, dan tulisan tangan.
-\item Data biometrik \\
-Pemindaian retina, jenis suara, dan geometri wajah.
-\item Aset informasi lainnya \\
-IP Address dan Media Access Control (MAC). 
-\end{itemize}
-
-\noindent Berikut adalah contoh informasi yang bersifat non-sensitif menurut standar PII:
-\begin{itemize}
-\item Rekaman medis
-\item Riwayat pendidikan
-\item Riwayat pekerjaan 
-\item Informasi finasial
-\item Letak geografis
-\end{itemize}
-
 		\item \textbf{Melakukan studi literatur mengenai teknik-teknik dasar data mining}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Data yang dikumpulkan bertambah banyak, sehingga perlu adanya cara untuk melakukan proses ekstraksi informasi pada sekumpulan data yang sangat banyak. Menurut Gartner, Data Mining adalah proses menemukan korelasi, pola, dan tren baru yang bermakna dengan menyaring sejumlah besar data yang disimpan menggunakan teknologi pengenalan pola serta teknik statistik dan matematika. Data mining merupakan bagian dari Knowledge Discovery in Databases (KDD). KDD adalah proses transformasi sekumpulan data yang disimpan pada basis data menjadi informasi yang berguna.\\
+		{\bf Hasil :} Data yang dikumpulkan bertambah banyak, sehingga perlu adanya cara untuk melakukan proses ekstraksi informasi pada sekumpulan data yang sangat banyak. Menurut Gartner, \textit{data mining} adalah proses menemukan korelasi, pola, dan tren baru yang bermakna dengan menyaring sejumlah besar data yang disimpan menggunakan teknologi pengenalan pola serta teknik statistik dan matematika. \textit{Data mining} merupakan bagian dari \textit{Knowledge Discovery in Databases} (KDD). KDD adalah proses transformasi sekumpulan data yang disimpan pada basis data menjadi informasi yang berguna.\\
 
 \begin{figure}[H]
 	\centering
@@ -139,15 +118,14 @@ IP Address dan Media Access Control (MAC).
 	\label{fig:datamining1}
 \end{figure}
 
-\newpage
 \noindent Berikut ini adalah penjelasan tahapan pada KDD pada Gambar \ref{fig:datamining1} sebagai berikut:
 
 \begin{enumerate}
-\item Selection: proses mengambil data yang relevan terhadap analisis.
-\item Preprocessing: proses pembersihan data dari data yang tidak konsisten dan integrasi data saat penggabungan data.
-\item Transformation: proses manipulasi data menggunakan konsep agregasi, generalisasi, normalisasi, dan reduksi untuk kebutuhan analisis.
-\item Data Mining: proses ekstraksi informasi menggunakan metode pengenalan pola seperti klasifikasi, pengelompokan/clustering.
-\item Interpretation/Evaluation: proses interpretasi hasil pengolahan data menjadi sebuah grafik yang dapat dimengerti.
+\item \textit{Selection}: proses mengambil data yang relevan terhadap analisis.
+\item \textit{Preprocessing}: proses pembersihan data dari data yang tidak konsisten dan integrasi data saat penggabungan data.
+\item \textit{Transformation}: proses manipulasi data menggunakan konsep agregasi, generalisasi, normalisasi, dan reduksi untuk kebutuhan analisis.
+\item \textit{Data mining}: proses ekstraksi informasi menggunakan metode pengenalan pola seperti klasifikasi, pengelompokan/\textit{clustering}.
+\item \textit{Interpretation/evaluation}: proses interpretasi hasil pengolahan data menjadi sebuah grafik yang dapat dimengerti.
 \end{enumerate}
 
 
@@ -155,408 +133,1730 @@ IP Address dan Media Access Control (MAC).
 
 \begin{itemize}
 
-\item Binary: tipe data alphabet/numerik yang hanya memiliki 2 kemungkinan nilai.\\
+\item \textit{Binary}: tipe data alphabet/numerik yang hanya memiliki 2 kemungkinan nilai.\\
 Contoh: diadakan survei evaluasi beberapa produk pakaian untuk mengetahui produk yang diminati dan tidak diminati. Penilaian produk dapat diwakilkan nilai True atau False. True atau False termasuk jenis binary.
 
-\item Nominal: tipe data alphabet/numerik yang memiliki lebih dari 2 kemungkinan nilai.\\
+\item \textit{Nominal}: tipe data alphabet/numerik yang memiliki lebih dari 2 kemungkinan nilai.\\
 Contoh: seseorang memilih beberapa bahan dari warna yang berbeda. Warna yang mungkin adalah kuning, hijau, hitam, merah. Warna termasuk jenis nominal.
 
 \end{itemize}
 
-\noindent Tujuan dari penggunaan teknik data mining adalah sebagai berikut:
+\noindent Tujuan dari penggunaan teknik \textit{data mining} adalah sebagai berikut:
 
 \begin{itemize}
 
 \item Prediksi: proses menggunakan nilai dari beberapa atribut yang sudah ada untuk memprediksi nilai atribut di masa yang akan datang. Contoh: klasifikasi.
 
-\item Deskripsi: proses menemukan pola yang dapat merepresentasikan kelompok dari sebuah data. Contoh: pengelompokan/clustering.
+\item Deskripsi: proses menemukan pola yang dapat merepresentasikan kelompok dari sebuah data. Contoh: pengelompokan/\textit{clustering}.
 
 \end{itemize}
 
-		\begin{enumerate}
-			\item \textit{Classification}
+
+
+\textbf{Klasifikasi}
 			
-			Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data. Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas. Ada dua tahap dalam proses klasifikasi yaitu tahap latihan dan tahap klasifikasi.
+Klasifikasi adalah proses menemukan model (atau fungsi) yang cocok untuk mendeskripsikan dan membedakan sebuah kelas data dengan kelas data lain. Dalam pembelajaran mesin, klasifikasi sering dianggap sebagai contoh dari metode pembelajaran yang diawasi, yaitu menyimpulkan fungsi dari data pelatihan berlabel.\\
 
-			Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
+\noindent Berikut adalah tahapan klasifikasi secara umum:
+\begin{enumerate}
 
-			Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{K-nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{K-nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{K-nearest Neighbors} saja.
+\item
+Pelatihan: proses konstruksi model klasifikasi menggunakan algoritma tertentu. Algoritma digunakan untuk membuat model belajar menggunakan set pelatihan data yang tersedia. Model dilatih untuk menghasilkan prediksi yang akurat.
 
-			Teknik \textit{K-nearest Neighbors} adalah teknik penambangan data klasifikasi yang mencari label terbanyak pada sejumlah tetangga terdekatnya. Teknik ini bergantung pada jarak Euclidean antara titik yang mana adalah data yang akan diprediksi dengan tetangga-tetangganya. Setiap rekord pada data dipetakan ke bidang Euclidean dengan beberapa atribut yang menentukan letaknya pada bidang Euclidean. 
+\item
+Klasifikasi: model yang digunakan untuk memprediksi label kelas dan menguji model yang dibangun pada data uji dan karenanya memperkirakan akurasi aturan klasifikasi.
+\end{enumerate}
+\vspace{0.3cm}
+\noindent Berikut adalah kategori pemodelan klasifikasi:
+\begin{itemize}
 
-			Berikut langkah kerja dari teknik \textit{K-nearest Neighbors}.
-			\begin{enumerate}
-				\item Tentukan nilai \(k\) yang menentukan seberapa banyak tetangga yang digunakan
-				\item Lakukan perulangan dengan iterasi sebanyak rekord yang ada selain rekord yang ingin diprediksi labelnya
-				\begin{enumerate}
-					\item Hitung jarak Euclidean antara rekord iterasi sekarang dengan rekord yang ingin diprediksi labelnya
-					\item Catat jarak Euclidean dari rekord yang ingin diprediksi dan indeks rekord iterasi sekarang
-				\end{enumerate}
-				\item Urutkan jarak Euclidean titik-titik yang sudah dihitung pada perulangan pada langkah sebelumnya secara menaik
-				\item Pilih rekord teratas (jarak Euclidean yang paling kecil) sebanyak \(k\) dari urutan pada langkah sebelumnya
-				\item Ambil label dari semua rekord yang terpilih pada langkah sebelumnya. Label terbanyak adalah hasil prediksi label pada rekord yang ingin diprediksi
-			\end{enumerate}
-			
-			\item \textit{Clustering}
-			
-			\textit{Clustering} adalah proses mengelompokan kumpulan objek ke dalam sebuah kelompok (\textit{cluster}) sedemikian rupa sehingga objek-objek dari suatu \textit{cluster} memiliki lebih banyak kemiripan dari pada objek-objek dari \textit{cluster} lainnya. 
+\item 
+\textit{Discriminative}: pemodelan paling mendasar untuk menentukan satu kelas untuk setiap baris data. Pemodelan ini bergantung pada data yang diamati dan sangat bergantung pada kualitas data daripada distribusi data.
 
-			Salah satu contoh teknik \textit{clustering} adalah \textit{K-means}. Teknik \textit{k-means} adalah adalah teknik penambangan data \textit{clustering} yang memanfaatkan jarak Euclidean antara titik-titik yang ada untuk menentukan titik mana saja yang masuk ke kluster mana.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{klasifikasi1}
+	\caption{Contoh Logistic Regression}
+	\label{fig:klasifikasi1}
+\end{figure}
 
-			Berikut langkah kerja dari teknik \textit{K-means}.
-			\begin{enumerate}
-				\item Tentukan nilai \(k\) yang menentukan seberapa banyak kluster yang diinginkan dan sebuah \textit{treshold} untuk menentukan batas perubahan nilai centroid
-				\item Tentukan secara acak sebuah centroid sebanyak \(k\)  untuk setiap kluster
-				\item Lakukan perulangan sampai nilai fitur-fitur semua centroid (titik tengah kluster) relatif tidak berubah atau dengan kata lain perubahannya kurang dari \textit{treshold}
-				\begin{enumerate}
-					\item Menghitung jarak Euclidean tiap titik dari centroid ke titik tersebut dengan menggunakan beberapa fitur yang dipilih
-					\item Kluster yang memiliki jarak Euclidean paling kecil dengan sebuah titik adalah kluster titik tersebut
-					\item Tentukan kembali centroid setiap kluster dengan cara menghitung rata-rata tiap fitur seluruh data pada kluster tersebut
-				\end{enumerate}
-			\end{enumerate}
-		\end{enumerate}
+Contoh: \textit{Logistic Regression}\\
+Gambar \ref{fig:klasifikasi1} adalah penerimaan siswa pada sebuah Universitas, untuk mempertimbangkan \textit{test score} dan \textit{grades} terhadap keputusan seorang siswa diterima/tidak diterima.
 
-		\item \textbf{Melakukan studi literatur mengenai \textit{privacy preserving data mining}}\\
+\item 
+\textit{Generative}: pemodelan ini memodelkan distribusi kelas individu dan mencoba mempelajari model yang menghasilkan data dengan memperkirakan asumsi dan distribusi model. Digunakan untuk memprediksi nilai data yang belum diketahui. \\\\
+Contoh: \textit{Naive Bayes} \\
+Mendeteksi email spam dengan melihat data sebelumnya. Misalkan dari 100 email yang ada dibagi menjadi kategori Kelas A: 25\% (Email spam) dan Kelas B: 75\% (Email Non-Spam). Ingin diperiksa apakah email berisi  spam atau bukan. Pada Kelas A, 20 dari 25 email adalah spam dan sisanya bukan spam. Pada Kelas B, 70 dari 75 email bukan spam dan sisanya adalah spam. Probabilitas email yang berisi spam termasuk pemodelan \textit{naive bayes}. \\
+\end{itemize}
+
+\noindent Berikut adalah contoh pemodelan yang umum digunakan:
+\begin{itemize}
+\item \textit{Decision Trees}
+\item \textit{Naive Bayes}
+\item \textit{Neural Networks}
+\item \textit{K-Nearest Neighbour}
+\item \textit{Linear Regression}
+\end{itemize}
+
+
+
+\textbf{Naive Bayes}
+\par \textit{Naive Bayes} menerapkan klasifikasi dengan menggunakan metode probabilitas dan statistik. Pemodelan ini mencari nilai probabilitas tertinggi pada masing-masing kelas menggunakan teorema \textit{Bayes}. Kelas dengan probabilitas tertinggi akan dipilih sebagai hasil akhir. \textit{Naive Bayes} mudah untuk dibangun dan memiliki komputasi yang lebih cepat daripada model klasifikasi lainnya.\\
+
+\noindent Teorema \textit{Bayes} menemukan probabilitas suatu peristiwa terjadi mengingat probabilitas peristiwa lain yang telah terjadi. Teorema \textit{Bayes} dinyatakan secara matematis melalui persamaan berikut:
+
+\begin{equation}
+P(H|D) = \frac{P(D|H) \cdot P(H)}{P(D)}
+\end{equation}
+
+\noindent
+Dari perhitungan probabilitas teorema Bayes, akan dicari kelas dengan probabilitas maksimum. Probabilitas maksimum dapat dinyatakan secara matematis melalui persamaan berikut:
+
+\begin{align}
+MAP(H) = max(P(H|D))
+\end{align}
+
+\noindent Keterangan:
+\begin{itemize}
+\item P(H|D) adalah probabilitas posterior apabila diberika hipotesis H dan diketahui data D. 
+\item P(D|H) adalah probabilitas posterior data D jika hipotesis h adalah benar.
+\item P(H) adalah probabilitas hipotesis h adalah benar 
+\item P(D) adalah probabilitas data.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\noindent Gambar \ref{fig:naive_bayes1} diberikan untuk menggambarkan kondisi cuaca saat bermain golf. Masing-masing data dikategorikan berdasarkan nilai atribut \textit{PlayGolf}, yaitu cocok (\textit{Yes}) atau tidak cocok (\textit{No}). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{naive_bayes1}
+	\caption{Dataset Kondisi Cuaca Bermain Golf}
+	\label{fig:naive_bayes1}
+\end{figure}
+
+\noindent Berikut adalah pengelompokan nilai berdasarkan dataset yang telah diberikan:
+
+\begin{itemize}
+
+\item 
+Vektor fitur\\
+Vektor fitur adalah vektor yang mewakili nilai fitur untuk setiap baris dataset. Vektor fitur dalam dataset ini tersusun dari nilai atribut \textit{Outlook, Temperature, Humidity, dan Windy}.
+
+\item
+Vektor respon\\
+Vektor respon adalah nilai prediksi kelas untuk setiap vektor fitur. Vektor Respon dalam dataset ini diwakili oleh nilai atribut \textit{PlayGolf}.
+
+\end{itemize}
+
+
+\noindent Secara singkat, langkah kerja algoritma \textit{Naive Bayes} dapat dijelaskan sebagai berikut:
+
+\begin{enumerate}
+\item Merepresentasikan teorema Bayes terhadap vektor fitur.\\
+Berdasarkan dataset, teorema Bayes dapat diubah seperti berikut:
+
+\begin{equation}
+P(y|X) = \frac{P(X|y) \cdot P(y)}{P(X)}
+\end{equation}
+
+Di mana y adalah variabel kelas dan X adalah vektor fitur (dengan ukuran n), dinyatakan melalui persamaan berikut:
+
+\begin{equation}
+X = (x_1, x_2, x_3, \ldots, x_n)
+\end{equation}
+
+Contoh: X = (Rainy, Hot, High, False), y = No
+\\\\
+Diasumsikan teorema \textit{Bayes} saling independen terhadap fitur-fiturnya. Berikut adalah persamaan teorema \textit{Bayes} baru, jika memakai lebih dari satu nilai atribut:
+
+\begin{equation}
+P(y|x_1,\ldots,x_n) = \frac{P(x_1|y) P(x_2|y) \ldots P(x_n|y) P(y)}{P(x_1) P(x_2) \ldots P(x_n)}
+\end{equation}
+
+
+\item Gambar \ref{fig:naive_bayes2} adalah contoh menghitung probabilitas masing-masing atribut.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{naive_bayes2}
+	\caption{Menghitung Probabilitas}
+	\label{fig:naive_bayes2}
+\end{figure}
+
+Contoh: menghitung $P(No)$ untuk nilai \textit{Sunny} pada atribut \textit{Outlook}
+\begin{equation}
+P(No) = \frac{frekuensi(Sunny \cap No)}{frekuensi(No)}
+\end{equation}
+
+Contoh: menghitung $P(Yes)$ untuk nilai \textit{Sunny} pada atribut \textit{Outlook}
+\begin{equation}
+P(Yes) = \frac{frekuensi(Sunny \cap Yes)}{frekuensi(Yes)}
+\end{equation}
+
+\item Menghitung probabilitas bersyarat jika diketahui nilai dari data baru. \\\\
+Contoh: \textit{today = (Sunny, Hot, Normal, False)}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.73]{naive_bayes3}
+	\label{fig:naive_bayes3}
+\end{figure}
+
+\begin{equation}
+P(Yes|today) = \frac{3}{5} \cdot \frac{2}{5} \cdot \frac{1}{5} \cdot \frac{2}{5} \cdot \frac{5}{14} = 0.0068
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.73]{naive_bayes4}
+	\label{fig:naive_bayes4}
+\end{figure}
+
+\begin{equation}
+P(Yes|today) = \frac{2}{9} \cdot \frac{2}{9} \cdot \frac{6}{9} \cdot \frac{6}{9} \cdot \frac{9}{14} = 0.0068
+\end{equation}
+
+\item Melakukan normalisasi terhadap probabilitas besyarat.\\
+
+Setelah probabilitas bersyarat dinormalisasi, akan menjadi seperti berikut:
+
+\begin{equation}
+P(Yes|today) = \frac{0.0141}{0.0141 + 0.0068} = 0.67
+\end{equation}
+
+\begin{equation}
+P(Yes|today) = \frac{0.0068}{0.0141 + 0.0068} = 0.33
+\end{equation}
+
+Sehingga memiliki probabilitas total seperti berikut:
+
+\begin{equation}
+P(Yes|today) + P(No|today) = 1
+\end{equation}
+
+\item Mencari probabilitas tertinggi.\\
+
+Berdasarkan pernyataan berikut:
+\begin{equation}
+P(Yes|today) > P(No|today)
+\end{equation}
+
+\noindent Dapat disimpulkan bahwa, jika diberikan data dengan nilai \textit{(Sunny, Hot, Normal, False)} klasifikasi yang tepat untuk atribut \textit{PlayGolf} adalah \textit{Yes}.
+
+\end{enumerate}
+
+\textbf{Pengelompokan/Clustering} 
+
+\textit{Clustering} adalah salah satu teknik analisis data yang paling umum digunakan untuk mendapatkan kemiripan antar data. \textit{Clustering} dapat didefinisikan sebagai sebuah tugas untuk mengidentifikasi subkelompok dalam data sedemikian rupa sehingga titik data dalam subkelompok/\textit{cluster} yang sama sangat mirip sedangkan titik data dalam kelompok berbeda sangat berbeda. Contoh pemodelan \textit{clustering} adalah \textit{K-Means}.
+
+\textbf{K-Means} 
+
+\textit Algoritma \textit{k-means} adalah algoritma pembelajaran mesin \textit{unsupervised learning} untuk menentukan objek tersebut benar-benar milik kelompok data tertentu. \textit{Unsupervised learning} artinya tidak ada label yang ditentukan dalam data. Gagasan utama \textit{k-means} adalah menetapkan setiap data ke dalam cluster dengan mean terdekat (centroid). Mencari titik terdekat dilakukan dengan cara menghitung distance antara dua data menggunakan Euclidean distance, lalu membandingkat titik yang memiliki jarang paling dekat dengan titik lainnya. \\
+
+\noindent Berikut adalah persamaan untuk menghitung \textit{Euclidean distance}:
+\begin{equation}
+EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
+\end{equation}
+
+\noindent Gambar \ref{fig:kmeans_1} adalah skor A dan B untuk masing-masing individu:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_1}
+	\caption{Contoh Dataset K-Means}
+	\label{fig:kmeans_1}
+\end{figure}
+
+\newpage
+\noindent Secara singkat, langkah kerja algoritma \textit{k-means} dapat dijelaskan sebagai berikut:
+\begin{enumerate}
+
+\item Gambar \ref{fig:kmeans_2} adalah hasil pengelompokan awal untuk k = 2. Untuk menentukan titik centroid awal, akan dicari nilai A dan B terjauh dengan data lainnya menggunakan Euclidean distance.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_2}
+	\caption{Hasil Pengelompokan Awal}
+	\label{fig:kmeans_2}
+\end{figure}
+
+\item Data yang tersisa akan diperiksa secara berurutan dan dialokasikan pada cluster yang paling dekat dengan \textit{centroid} awal menggunakan \textit{Euclidean distance}. Gambar \ref{fig:kmeans_3} menunjukan vektor rata-rata (centroid) akan dihitung ulang setiap kali anggota baru ditambahkan.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_3}
+	\caption{Mencari Centroid Kelompok}
+	\label{fig:kmeans_3}
+\end{figure}
+
+\item Menentukan titik \textit{centroid} baru pada \textit{cluster} yang baru terbentuk dari tahap sebelumnya.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_4}
+	\caption{Hasil Pengelompokan Baru}
+	\label{fig:kmeans_4}
+\end{figure}
+
+\item Belum bisa dipastikan bahwa setiap individu telah dialokasikan pada cluster yang tepat. Oleh karena itu, perlu membandingkan \textit{distance} masing-masing data dengan \textit{centroid} baru pada masing-masing kelompok. Gambar \ref{fig:kmeans_5} adalah tabel hasil perbandingan \textit{distance} yang dihitung menggunakan rumus \textit{Euclidian distance}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_5}
+	\caption{Euclidean Distance Cluster 1, Cluster 2}
+	\label{fig:kmeans_5}
+\end{figure}
+
+\item Dapat disimpulkan bahwa, hanya individu 3 yang jaraknya lebih dekat dengan \textit{centroid Cluster 2} dari pada \textit{centroid Cluster 1}. Dengan kata lain, distance masing-masing individu ke centroid kelompoknya sendiri harus lebih kecil daripada rata-rata kelompok lain. Dengan demikian, individu 3 harus dialokasikan ke \textit{Cluster 2}. Gambar \ref{fig:kmeans_6} adalah hasil pengelompokan akhir yang dihasilkan oleh pemodelan \textit{k-means}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{kmeans_6}
+	\caption{Hasil Pengelompokan Akhir}
+	\label{fig:kmeans_6}
+\end{figure}
+
+\end{enumerate}
+		
+		\item \textbf{Melakukan studi literatur mengenai algoritma Greedy k-member clustering}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Aktivitas penambangan data melibatkan jumlah data yang sangat masif. Data-data yang digunakan memiliki privasi banyak individu di dalamnya. Hal ini berpotensi menyebabkan pelanggaran privasi dalam kasus tidak adanya proteksi yang cukup dan penyalahgunaan privasi data untuk tujuan lain. Faktor utama pelanggaran privasi pada penambangan data adalah penyalahgunaan data sehingga hal ini dapat merugikan seorang individu maupun sebuah organisasi. Oleh karena itu, ada kebutuhan untuk menghindari penyebaran informasi pribadi yang rahasia maupun pengetahuan lainnya yang dapat diambil dari data yang digunakan untuk aktivitas penambangan data.
-		
-		Konsep privasi sering kali lebih kompleks dari pada yang dibayangkan. Dalam kasus penambangan data, definisi dari menjaga privasi masih tidak jelas. Ada sebuah paper yang mendefinisikan \textit{privacy preserving data mining} sebagai “getting valid data mining results without learning the underlying data values”, mendapatkan hasil penambangan data yang valid tanpa  nilai pada data. Tetapi pada saat ini setiap teknik \textit{privacy preserving data mining} yang ada memiliki definisi privasinya masing-masing. 
-		
-		Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Berbagai macam pendekatan modifikasi data untuk \textit{privacy preserving data mining} telah dikembangkan antara lain \textit{Perturbation Approach} dan \textit{Anonymization Approach}, selengkapnya dapat dilihat pada Gambar~\ref{fig:ppdm}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap dapat ditambang. Sedangkan pada \textit{Anonymization Approach}, data diterapkan de-identifikasi di mana dataset mentah disebarluaskan setelah menghapus inti dari identitas setiap rekord.
-		
-		\textit{Perturbation Approach} dapat dibagi menjadi dua jenis lagi yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}. \textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu. Sedangkan \textit{Dimension Reduction-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sekaligus mengurangi dimensi dari data asli.
-		
-		Hal yang sering kali diperhatikan pada teknik-teknik \textit{Perturbation Approach} adalah perbandingan antara jumlah privasi yang hilang dan jumlah informasi yang hilang. Idealnya teknik \textit{Perturbation Approach} yang baik adalah teknik yang fokus meminimalkan jumlah privasi yang hilang dan jumlah informasi yang hilang sehingga hasil penambangan dan akurasinya sama baiknya dengan tanpa menerapkan teknik \textit{Perturbation Approach}. Setiap teknik penambangan data memakai properti yang berbeda-beda pada data yang ditambang. Oleh karena itu, properti yang terjaga pun sebaiknya berdasarkan properti yang digunakan pada teknik penambangan data yang digunakan. Pada saat ini, teknik modifikasi data yang ada sering kali memiliki perbedaan pada properti-properti yang terjaga. Teknik-teknik modifikasi data tertentu sering kali memiliki fungsi yang berbeda atau teknik penambangan data yang dapat digunakan berbeda karena properti yang terjaga pada teknik-teknik tersebut berbeda juga.
+		{\bf Hasil :} Penelitian menunjukkan bahwa sebagian besar metode \textit{k-anonymity} didasarkan pada generalisasi dan teknik penekanan sehingga menderita dari kehilangan informasi yang signifikan. Masalah pengelompokan dapat meminimalkan kehilangan informasi melalui algoritma \textit{k-member clustering}. Akan tetapi algoritma \textit{k-member clustering} berpotensi memiliki kompleksitas yang eksponensial. Untuk menurunkan kompleksitas tersebut, maka permasalahan algoritma \textit{k-member clustering} dapat didefinisikan sebagai permasalahan algoritma \textit{Greedy}. Algoritma \textit{Greedy k-Member clustering} bertujuan untuk membagi seluruh tuple pada dataset ke masing-masing \textit{cluster} dengan kompleksitas yang lebih baik dan mendukung informasi yang lebih banyak dibandingkan algoritma \textit{clustering} yang lain.
 
-		\item \textbf{Melakukan studi literatur mengenai metode \textit{Randomization}}\\
+\begin{theorem}
+Masalah pengambilan keputusan pada \textit{k-member clustering} adalah \textit{NP-Hard}, artinya memiliki kompleksitas yang eksponensial.
+\end{theorem}
+
+\begin{proof}
+Melalui pengamatan Aggarwal et al, permasalahan \textit{k-member clustering} dapat diselesaikan dengan kompleksitas polinomial.
+\end{proof}
+
+\begin{theorem}
+N adalah total data dan k adalah parameter untuk anonimisasi. Setiap \textit{cluster} yang ditemukan oleh algoritma \textit{Greedy k-member clustering} memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k - 1$.
+\end{theorem}
+
+\begin{proof}
+S adalah himpunan data. Algoritma ini menemukan \textit{cluster} selama jumlah data yang tersisa sama dengan atau lebih besar dari k, setiap \textit{cluster} berisi k data. Jika total data pada S kurang dari k, maka sisa data akan dikelompokan pada  \textit{cluster} yang sudah ada. Oleh karena itu, ukuran maksimum sebuah \textit{cluster} adalah $2k - 1$.
+\end{proof}
+
+\begin{theorem}
+N adalah jumlah data dan k menjadi parameter anonimisasi yang ditentukan. Jika $n > k$, kompleksitas algoritma \textit{Greedy k-member clustering} adalah $O(n^2)$.
+\end{theorem}
+
+\begin{proof}
+Algoritma \textit{Greedy k-member clustering} menghabiskan sebagian besar waktunya untuk memilih data dari S satu per satu hingga mencapai $|S| = k$. Karena ukuran set input berkurang satu pada setiap iterasi, total waktu eksekusi adalah O $(n^2)$.
+\end{proof}
+
+\noindent Beberapa hal penting terkait algoritma \textit{Greedy k-means clustering}:
+
+\begin{itemize}
+\item Menetapkan tabel S  
+\item Menetapkan nilai k
+\item Menetapkan jumlah cluster (m) yang ingin dibuat
+\begin{align}
+m = \left \lfloor \frac{n}{k} \right \rfloor - 1
+\end{align}
+\end{itemize}
+
+
+\noindent Berikut adalah langkah kerja algoritma \textit{Greedy k-means clustering} secara lengkap:
+
+\begin{enumerate}
+\item Melakukan inisialisasi variabel result dengan himpunan kosong dan variabel r dengan memilih data secara acak dari tabel S
+
+\item Pada kondisi $|S| \geq k$, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data baru pada variabel r berdasarkan perbedaaan distance tertinggi dari nilai r sebelumnya. Perbedaan distance dapat dicari menggunakan rumus berikut:
+\begin{align*}
+\Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
+\end{align*}
+
+\noindent Berikut adalah rumus menghitung distance antar data numerik:
+\begin{align*}
+\delta_n(v_1,v_2) = \frac{|v_1 - v_2|}{|D|} 
+\end{align*}
+
+\vspace{0.4cm}
+
+\noindent Berikut adalah rumus menghitung distance antar data kategorikal:
+
+\begin{align*}
+\delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
+\end{align*}
+
+\vspace{0.4cm}
+
+\item Membuang himpunan data variabel r pada variabel S
+
+\item Mengisi data dari variabel r pada variabel c.
+
+\item Pada kondisi $|c| \geq k$, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data baru terbaik untuk variabel r berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
+
+\begin{align*}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align*}
+
+\item Membuang himpunan data dari variabel r pada variabel S
+
+\item Menambahkan himpunan data dari variabel r pada variabel c.
+
+\item Menambahkan himpunan data dari variabel c pada variabel result
+
+\end{enumerate}
+
+\end{enumerate}
+
+\item Pada kondisi $|S| \neq  0$, artinya jika masih terdapat data yang belum dimasukkan pada sebuah \textit{cluster} dari tabel S, lakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Memilih data secara acak dari tabel S untuk disimpan pada variabel r
+
+\item Membuang himpunan data dari variabel r pada variabel S
+
+\item Memilih \textit{cluster} terbaik untuk variabel c berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
+
+\begin{align*}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align*}
+
+\item Menambahkan himpunan data dari variabel r pada variabel c.
+
+\end{enumerate}
+
+\item Algoritma ini mengembalikan himpunan data berdasarkan jenis \textit{cluster} yang berbeda-beda melalui variabel \textit{result}.
+
+\end{enumerate}
+
+\noindent Berikut adalah pseudocode secara lengkap dari algoritma \textit{Greedy k-member clustering}:
+\begin{tcolorbox}[blanker,width=(\linewidth-0.5cm)]
+\begin{algorithm}[H]
+  \caption{Find Best Record}\label{alg:1}
+  \begin{algorithmic}[1]
+  %-------------- Input & Output -----------------
+  \State \textbf{Function} \texttt{find\_best\_record(S,c)}
+  \State \textbf{Input:} a set of records S and a cluster c.
+  \State \textbf{Output:} a record r $\in$ S such that $IL(c \cup \{r\})$ is minimal
+  \\
+  %-------------- Baris 1-3 -----------------
+  \State{$n = |S|$}
+  \State{$min = \infty$}
+  \State{$best = null$}
+  \For{$i = 1 \ldots n$}
+  \State{r = i-th record in S}
+  \State{diff = $IL(c \cup \{r\}) - IL(c)$}
+  \If{diff < min}
+  \State{min = diff}
+  \State{best = r}
+  \EndIf
+  \EndFor
+  \State{return best}
+  \end{algorithmic}
+\end{algorithm}
+\end{tcolorbox}
+
+Algoritma \ref{alg:1} menerima input himpunan data dataset dan sebuah data dengan nilai distance tertinggi dari data terpilih acak. Algoritma ini menghitung selisih \textit{distance} dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan \textit{distance}, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari \textit{kluster}. Output algoritma ini adalah sebuah data dengan nilai terbaik, yaitu data ke-i dari dataset S dengan nilai \textit{distance} paling kecil.
+\begin{tcolorbox}[blanker,width=(\linewidth-0.5cm)]
+\begin{algorithm}[H]
+  \caption{Find Best Cluster}\label{alg:2}
+  \begin{algorithmic}[1]
+  %-------------- Input & Output -----------------
+  \State \textbf{Function} \texttt{find\_best\_cluster(C,r)}
+  \State \textbf{Input:} a set of cluster C and a record r.
+  \State \textbf{Output:} a cluster c $\in$ C such that $IL(c \cup \{r\})$ is minimal
+  \\
+  %-------------- Baris 1-3 -----------------
+  \State{$n = |C|$}
+  \State{$min = \infty$}
+  \State{$best = null$}
+  \For{$i = 1 \ldots n$}
+  \State{c = i-th cluster in C}
+  \State{diff = $IL(c \cup \{r\}) - IL(c)$}
+  \If{diff < min}
+  \State{min = diff}
+  \State{best = c}
+  \EndIf
+  \EndFor
+  \State{return best}
+  \end{algorithmic}
+\end{algorithm}
+\end{tcolorbox}
+
+Algoritma \ref{alg:2} menerima input himpunan data \textit{cluster} dan sebuah data dengan nilai \textit{distance} tertinggi dari data terpilih acak. Algoritma ini menghitung selisih distance dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan distance, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari {cluster}. Output algoritma ini adalah data dengan nilai \textit{cluster} terbaik, yaitu data ke-i dari dataset S dengan nilai \textit{distance} paling kecil.
+\begin{tcolorbox}[blanker,width=(\linewidth-0.5cm)]
+\begin{algorithm}[H]
+  \caption{Greedy K-Member Clustering}		 \label{alg:3}
+  \begin{algorithmic}[1]
+  %-------------- Input & Output -----------------
+  \State \textbf{Function} \texttt{greedy\_k\_member\_clustering(S,k)}
+  \State \textbf{Input:} a set of records S and a threshold value k
+  \State \textbf{Output:} a set of clusters each of which contains at least k records.
+  \\
+  %-------------- Baris 1-3 -----------------
+  \If{$S \leq k$} 
+  \State{return S}
+  \EndIf
+  \\
+  \State{$result = \phi$}
+  \State{r = a randomly picked record from S}
+  \While{$|S| \geq k$}
+  \State{r = the furthest record from r}
+  \State{S = S - \{r\}}
+  \State{c = \{r\}}
+  	\While{$|c| < k$}
+	\State{r = find\_best\_record(S,c)}  
+	\State{S = S - \{r\}}
+  	\State{c = c $\cup$ \{r\}}
+  	\EndWhile
+  	\State{result = result $\cup$ \{c\}}
+  \EndWhile
+  \While{$S \neq 0$}
+  \State{r = a randomly picked record from S}
+  \State{S = S - \{r\}}
+  \State{c = find\_best\_cluster(result,r)}
+  \State{c = c $\cup$ \{r\}}
+  \EndWhile
+  \State{return result}
+  \end{algorithmic}
+\end{algorithm}
+\end{tcolorbox}
+
+Algoritma \ref{alg:3} menerima input himpunan data S dan nilai k. Algoritma ini mengeksekusi dua jenis fungsi yang berbeda yaitu fungsi \textit{find\_best\_cluster} untuk mencari \textit{cluster} dengan \textit{distance} terkecil dan fungsi \textit{find\_best\_record} untuk mencari data dengan \textit{distance} terkecil. Output dari algoritma ini adalah himpunan data dari berbagai jenis \textit{cluster} dengan nilai \textit{distance} terkecil.
+		
+\textbf{Distance} 
+
+\textit{Distance} adalah salah satu perhitungan untuk menyatakan akurasi terhadap utilitas sebuah data. \textit{Distance} merupakan faktor yang paling penting untuk menentukan hasil pengelompokan data. Pemilihan \textit{distance} yang baik dapat mencapai hasil klasifikasi dengan lebih optimal. Perhitungan \textit{distance} dilakukan berdasarkan pengelompokan tipe data numerik atau kategorikal. Karena masalah \textit{k-anonymity} menggunakan atribut numerik dan kategorikal, maka membutuhkan cara khusus untuk mengitung \textit{distance} dari kedua jenis data pada saat yang sama. 
+
+\textit{Distance} Data Numerik
+\textit{Distance} data numerik direpresentasikan sebagai nilai rentang. Beberapa atribut pada \textit{distance} numerik yaitu |D| adalah jumlah data pada sebuah domain berdasarkan satu atribut numerik, $v_1$, $v_2$ adalah nilai atribut numerik. \textit{Distance} data numerik dihitung menggunakan rumus berikut:
+
+\begin{equation}
+\delta_n(v_1,v_2) = \frac{|v_1 - v_2|}{|D|} 
+\end{equation}
+
+\textit{Distance} Data Kategorikal
+\textit{Distance} data kategorikal direpresentasikan sebagai \textit{taxonomy tree}. Beberapa atribut pada distance kategorikal yaitu |D| adalah jumlah data pada domain kategorikal, TD adalah \textit{taxonomy tree} untuk domain D,  $H(\Lambda(v_i,v_j))$ adalah jarak dari satu \textit{subtree} ke \textit{subtree} lain, $H(T_D)$ adalah tinggi dari \textit{taxonomy tree}. \textit{Distance} data kategorikal dihitung menggunakan rumus berikut:
+
+\begin{equation}
+\delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
+\end{equation}
+
+\textit{Distance} Antar Record
+Beberapa atribut pada \textit{distance record} yaitu $r_1[N_i]$, $r_2[N_i]$ adalah nilai dari atribut numerik, $r_1[C_j]$, $r_2[C_j]$ adalah nilai dari atribut kategorikal, $\delta_N$ adalah \textit{distance} data numerik, $\delta_C$ adalah \textit{distance} data kategorikal. \textit{Distance} record dihitung menggunakan rumus berikut:
+\begin{align}
+\Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
+\end{align}
+
+
+\textbf{Information Loss}
+
+\textit{Information Loss} (IL) digunakan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. Dalam menghitung \textit{Information Loss} (IL), perlu mendefinisikan beberapa atribut seperti \textit{cluster} $e = {r_1,\ldots,r_k}$  untuk \textit{quasi-identifier} yang terdiri dari atribut numerik ${N1,\ldots, Nm}$ dan atribut kategorikal ${C_1,\ldots,C_n}$, $T_{C_i}$ adalah \textit{taxonomy tree} untuk domain kategorikal $C_i$, $MIN_{N_i}$ dan $MAX_{N_i}$ adalah nilai minimum dan maksimum pada cluster $e$ untuk atribut $N_i$, $\cup_{C_i}$ adalah sekumpulan nilai pada \textit{cluster} $e$ berdasarkan atribut $C_i$. \\
+
+\noindent \textit{Information loss} dihitung dengan rumus sebagai berikut:
+\begin{align}
+IL(e)&= |e| \cdot D(e) \\
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
+\end{align}
+
+\noindent Total \textit{Information Loss} dihitung dengan rumus sebagai berikut:
+\begin{align}
+Total-IL(AT) = \sum_{e \in \varepsilon}^{}  IL(e)
+\end{align}
+
+\noindent Semakin besar total \textit{information loss} yang dihasilkan maka informasi yang dihasilkan semakin kurang akurat. Oleh karena itu perlu dilakukan beberapa eksperimen terhadap penentuan nilai k pada algoritma \textit{Greedy k-member clustering} agar dihasilkan total \textit{information loss} seminimal mungkin sehingga hasil \textit{clustering} dan klasifikasi dengan nilai akurasi yang tinggi.	
+		
+		
+		\item \textbf{Melakukan studi literatur mengenai konsep Hadoop, Spark, dan Spark MLlib}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar~\ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
+		{\bf Hasil :} Hadoop adalah \textit{framework} yang memanfaatkan beberapa komputer untuk menyelesaikan masalah yang melibatkan volume data sangat besar. Pada Gambar \ref{fig:hadoop_intro}, Hadoop memecah input dari pengguna menjadi beberapa blok data dan masing-masing blok data diproses menggunakan konsep \textit{MapReduce} di mana data akan diproses secara paralel pada sistem terdistribusi. Hadoop adalah \textit{framework} yang dibangun dengan bahasa Java. Hadoop bekerja dari satu komputer utama ke ribuan komputer dengan melakukan perhitungan dan penyimpanan lokal pada setiap komputer. 
 
-		Berbagai macam teknik dengan metode randomisasi umumnya menerapkan perusakan nilai pada data. Salah satu teknik yang pertama kali menggunakan metode randomisasi untuk \textit{privacy preserving data mining} adalah teknik \textit{Random Noise Addition} yang dikemukakan oleh Agrawal dan Srikant pada paper berikut. Teknik \textit{Random Noise Addition} ini dilakukan dengan cara menambahkan nilai random (\textit{noise}) pada data. Nilai random tersebut diambil dari sebuah distribusi. Untuk menambang data yang telah ditambahkan \textit{noise} ini perlu dilakukan rekonstruksi distribusi untuk mendapatkan distribusi yang asli. Oleh karena itu, teknik \textit{Random Noise Addition} ini hanya menjaga distribusi data asli sehingga hanya teknik penambangan data yang bergantung pada distribusi data saja yang dapat digunakan. Penyesuaian pada algoritma penambangan data yang digunakan pun perlu dilakukan agar teknik \textit{Random Noise Addition} ini dapat digunakan dan mendapatkan hasil penambangan data yang hampir sama dengan tanpa menggunakan teknik \textit{Random Noise Addition}.
-		
-		Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik lain pun dikembangkan terinspirasi dari teknik \textit{Random Noise Addition} ini. Teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} adalah teknik adalah salah satunya, tetapi teknik tersebut tidak dilakukan dengan cara menambahkan \textit{noise} melainkan mengkalikan data asli dengan nilai random. Bagaimanapun juga, inti dari teknik-teknik randomisasi yang telah disebutkan di atas masih sama yaitu merusak data sehingga data yang dirilis bukanlah data asli melainkan data yang sudah rusak sehingga data yang dirilis tidak mengandung privasi dan privasi pun terjaga.
-		
-		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Noise Addition}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi tetapi tidak dilanjutkan.\\
-		{\bf Hasil :} Ide utama dari teknik \textit{Random Noise Addition} adalah mendistorsi nilai pada data dengan cara menambahkan \textit{random noise} yang diambil dari distribusi \textit{Uniform} atau \textit{Gaussian} dan memiliki rata-rata bernilai 0. Tetapi menurut penelitian yang telah dilakukan, distribusi \textit{Gaussian} lebih baik digunakan untuk teknik ini. \textit{Random noise} yang digunakan memiliki nilai yang berbeda untuk setiap nilai pada data.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{hadoop_intro}
+	\caption{Gambaran Umum Cara Kerja Hadoop}
+	\label{fig:hadoop_intro}
+\end{figure}
 
-		Dengan teknik \textit{Random Noise Addition}, dari data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Gambar~\ref{fig:rnaalgorithm}.
+\noindent Hadoop memiliki karakteristik sebagai berikut:
+\begin{itemize}
+\item Hadoop menyediakan penyimpanan HDFS dan menggunakan pemodelan \textit{MapReduce}.
+\item Hadoop melakukan replikasi data sejenis pada beberapa komponen berbeda. 
+\item Hadoop fleksibel terhadap pengaturan jumlah komponen yang bekerja.
+\item Hadoop dioptimalkan untuk bekerja pada lingkungan \textit{big data}.
+\item Hadoop menulis data sekali dan membaca data berulang kali.
+
+\end{itemize}
+
+\textbf{Ekosistem Hadoop}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{hadoop_ecosystem}
+	\caption{Ekosistem Hadoop}
+	\label{fig:hadoop_ecosystem}
+\end{figure}
+Gambar \ref{fig:hadoop_ecosystem} menunjukan bahwa Hadoop dapat bekerja secara bersamaan dengan teknologi \textit{big data} lainnya seperti Spark, HBase, Cassandra, STORM, dan lain-lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan dan analisis pada \textit{big data}.
+
+\textbf{Arsitektur Hadoop}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.65]{arsitektur_hadoop}
+	\caption{Arsitektur Hadoop}
+	\label{fig:arsitektur_hadoop}
+\end{figure}
+Gambar \ref{fig:arsitektur_hadoop} menunjukan arsitektur Hadoop yang tersusun atas \textit{MapReduce} dan \textit{Hadoop Distributed File System} (HDFS). Masing-masing bagian memiliki dua jenis node yaitu \textit{master node} dan \textit{slave node}. \textit{Master node} mengatur jumlah pekerjaan yang diberikan kepada dirinya sendiri dan \textit{slave node}. \textit{Slave node} mengerjakan pekerjaan yang diberikan oleh \textit{master node}.
+
+
+\textbf{Hadoop HDFS}
+
+HDFS adalah sistem \textit{file} terdistribusi pada Hadoop dengan menyediakan penyimpanan data yang handal, mendukung partisi, dan toleran terhadap kesalahan pada hardware. HDFS bekerja erat dengan MapReduce dengan mendistribusikan penyimpanan dan perhitungan di seluruh \textit{cluster} dengan menggabungkan sumber daya penyimpanan yang dapat dipartisi tergantung kebutuhan. 
+\\\\
+HDFS terdiri dari beberapa komponen, yaitu:
+
+\begin{itemize}
+\item \textit{NameNode}\\
+\textit{NameNode} adalah sebuah komputer yang bertindak sebagai \textit{master node}, sedangkan. \textit{NameNode} bertanggungjawab menyimpan informasi tentang penempatan blok-blok data dalam \textit{Hadoop cluster}. Ia bertanggungjawab mengorganisir dan mengontrol blok-blok data yang disimpan tersebar dalam komputer-komputer yang menyusun \textit{Hadoop cluster}. 
+
+\item \textit{DataNode}\\
+\textit{DataNode} adalah elemen penyimpanan utama HDFS yang menyimpan blok data dan permintaan baca / tulis layanan pada \textit{file} yang disimpan di HDFS. \textit{DataNode} dikendalikan oleh \textit{NameNode}. Blok yang disimpan dalam \textit{DataNode} direplikasi sesuai konfigurasi untuk memberikan keandalan dan ketersediaan tinggi. Blok yang direplikasi ini didistribusikan di seluruh cluster untuk memberikan perhitungan yang cepat.
+\end{itemize}
+
+\textbf{Hadoop MapReduce}
+
+\textit{MapReduce} adalah kerangka kerja pemrograman untuk komputasi terdistribusi yang dibuat oleh Google menggunakan membagi dan menaklukkan metode untuk memecah masalah data besar yang kompleks menjadi unit-unit kecil pekerjaan dan memprosesnya sejajar. Pemodelan \textit{MapReduce} terdiri dari dua fungsi, yaitu \textit{Mapper} dan \textit{Reducer}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.36]{MapReduceImage}
+	\caption{Tahapan pada MapReduce}
+	\label{fig:MapReduceImage}
+\end{figure}
+
+\noindent Pada Gambar \ref{fig:MapReduceImage}, tahapan \textit{MapReduce} dapat dibagi menjadi dua fungsi utama:
+
+\begin{itemize}
+\item \textit{Mapper}\\
+Tugas fungsi \textit{Mapper} adalah memetakan blok data kedalam pasangan <\textit{key},\textit{value}>. \textit{Key,value} pada \textit{Mapper} tidak harus memiliki tipe data yang sama satu sama lain. Pasangan <\textit{key},\textit{value}> yang mungkin terjadi pada fungsi \textit{Mapper} adalah tidak memiliki pasangan atau memiliki banyak pasangan.
+
+\item Reducer\\
+Reducer memiliki 3 fase utama: \textit{shuffle, sort} dan \textit{reducer}. Berikut adalah penjelasan dari tahapan yang dilakukan oleh fungsi \textit{Reducer}:
+
+\begin{enumerate}
+\item Shuffle \\
+\textit{Shuffle} adalah fase pada data antara untuk menggabungkan semua nilai menjadi koleksi yang terkait dengan kunci yang sama.
+\item \textit{Sort} \\
+Pasangan <\textit{key},\textit{value}> pada satu node secara otomatis diurutkan oleh Hadoop sebelum diberikan kepada \textit{reducer}. Penyortiran dilakukan berdasarkan keterurutan nilai \textit{key}. 
+\item \textit{Reducer} \\
+Hasil \textit{mapper} yang diacak dan diurutkan disediakan untuk \textit{Reducer}. Tahap ini membuat pasangan <\textit{key}, \textit{(list of value)}> baru berdasarkan pengelompokan \textit{key}.
+\end{enumerate}
+
+\end{itemize}
+
+\noindent \textit{MapReduce} memiliki beberapa komponen, yaitu:
+
+\begin{itemize}
+\item \textit{JobTracker}\\
+\textit{JobTracker} berjalan pada master node untuk memonitor tugas-tugas \textit{MapReduce} yang telah dijalankan oleh \textit{TaskTracker} pada node salve. Tugas \textit{JobTracker} adalah mengalokasikan pekerjaan yang sesuai untuk \textit{TaskTracker} tertentu tergantung pada berapa banyak slot tugas yang tersedia. 
+\item \textit{TaskTracker}\\
+\textit{TaskTracker} berjalan pada masing-masing node \textit{slave}. \textit{TaskTracker} menerima pekerjaan dari \textit{JobTracker} dan menjalankan operasi \textit{MapReduce}. Setiap \textit{TaskTracker} memiliki jumlah slot pekerjaan yang terbatas. \textit{TaskTracker} mengatur pelaksanaan setiap operasi \textit{MapReduce} pada setiap node \textit{slave}. 
+\end{itemize}
 		
+\textbf{Spark}
+
+Spark adalah teknologi komputasi \textit{cluster} yang dirancang untuk komputasi cepat. Spark adalah paradigma pemrosesan data berukuran besar yang dikembangkan oleh para peneliti University of California di Berkeley. Spark adalah alternatif dari Hadoop MapReduce untuk mengatasi keterbatasan pemrosesan input output yang tidak efisien pada disk, dengan menggunakan memori. Fitur utama Spark adalah melakukan komputasi di dalam memori sehingga waktu komputasi menjadi lebih singkat dibandingkan waktu komputasi di dalam disk.
+\\\\
+Berikut adalah karakteristik dari Spark:
+\begin{itemize}
+\item Kecepatan\\
+Spark adalah alat komputasi klaster tujuan umum. Ini menjalankan aplikasi hingga 100 kali lebih cepat dalam memori dan 10 kali lebih cepat pada disk daripada Hadoop. Spark mengurangi jumlah operasi baca/tulis pada disk dan menyimpan data dalam memori.
+
+
+\item Mudah untuk diatur\\	
+Spark dapat melakukan pemrosesan batch, analisis data secara interaktif, machine learning, dan streaming data. Semuanya pemrosesan tersebut dikerjakan pada satu komputer yang sama. Fungsi ini menjadikan Apache Spark sebagai mesin analisis data yang lengkap. 
+
+
+\item Analisis secara real-time\\
+Spark dapat dengan mudah memproses data \textit{real-time}, misalnya \textit{streaming} data secara \textit{real-time} untuk ribuan peristiwa/detik. Contoh dari sumber \textit{streaming} data adalah Twitter, Facebook, Instagram. \textit{Streaming} data dapat diproses secara efisien oleh Spark.
+\end{itemize}
+
+\textbf{Ekosistem Spark}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.18]{spark_ecosystem}
+	\caption{Ekosistem Spark}
+	\label{fig:spark_ecosystem}
+\end{figure}
+Gambar \ref{fig:spark_ecosystem} menunjukan bahwa Spark bekerja sama dengan teknologi \textit{big data} lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan \textit{big data}. Masing-masing warna pada Gambar \ref{fig:spark_ecosystem} mewakili jenis teknologi yang dipakai pada Spark. Spark SQL, Spark Streaming, Spark MLlib adalah library tambahan pada Spark. Cassandra, Kafka, dan ElasticSearch adalah \textit{framework} untuk melakukan pengumpulan data secara \textit{streaming}. Sedangkan scala, java, dan python adalah bahasa pemrograman yang dapat digunakan pada Spark.
+
+\textbf{Arsitektur Spark}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.78]{arsitektur_spark2}
+	\caption{Arsitektur Spark}
+	\label{fig:arsitektur_spark2}
+\end{figure}
+Berdasarkan Gambar \ref{fig:arsitektur_spark2}, berikut adalah tahapan kerja pada arsitektur Spark:
+
+\begin{enumerate}
+
+\item
+\textit{Program Driver} memanggil program utama aplikasi dan membuat \textit{SparkContext} dan \textit{Spark Driver}. \textit{SparkContext} terdiri dari semua fungsi dasar. \textit{Spark Driver} berisi \textit{DAG Scheduler, Task Scheduler, Backend Scheduler}, dan \textit{Block Manager}.
+
+\item
+\textit{Spark Driver} dan \textit{SparkContext} secara kolektif mengawasi pelaksanaan pekerjaan di dalam \textit{cluster}. \textit{Spark Driver} bekerja sama dengan \textit{Cluster Manager} untuk membagian pekerjaan ke setiap \textit{Worker Node}. 
+
+\item
+\textit{Worker Node} menjalankan tugas yang diberikan oleh \textit{Cluster Manager} dan mengembalikannya ke \textit{SparkContext}. \textit{Worker Node} bertanggung jawab atas pelaksanaan tugas yang diberikan. 
+
+\end{enumerate}
+
+
+\textbf{Jenis Instalasi Spark}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{arsitektur_spark}
+	\caption{Arsitektur Spark}
+	\label{fig:arsitektur_spark}
+\end{figure}
+
+Berdasarkan Gambar \ref{fig:arsitektur_spark}, berikut adalah jenis-jenis instalasi pada Spark:
+
+\begin{itemize}
+\item \textit{Standalone}\\  
+Spark berdiri diatas HDFS Hadoop. Spark memungkinkan untuk mengakses data pada HDFS Hadoop untuk membaca input dan menulis output.
+
+\item \textit{Hadoop Yarn}\\
+Spark dapat berjalan pada Hadoop Yarn tanpa memerlukan instalasi atau meminta hak akses root apapun. Hadoop Yarn membantu integrasi Spark pada ekosistem Hadoop.
+
+\item \textit{Spark In MapReduce} (SIMR)\\ 
+SIMR digunakan untuk menjalankan pekerjaan Spark secara independen. Jenis instalasi ini sudah tidak lagi berlaku untuk Spark versi 2.0
+\end{itemize}
+
+\textbf{Spark RDD}
+
+\par RDD adalah kumpulan objek terdistribusi yang disimpan dalam memori atau \textit{disk} pada beberapa \textit{cluster}. Gambar \ref{fig:rdd_intro} menunjukan bahwa RDD tersebar menjadi beberapa partisi sehingga partisi tersebut dapat disimpan dan diproses pada komputer yang berbeda. RDD adalah struktur data yang \textit{immutable}, artinya data tersebut hanya dapat dibaca dan tidak dapat diubah nilainya. RDD dalam Spark dapat di simpan dalam \textit{cache} dan digunakan lagi untuk kebutuhan di masa depan. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{rdd_intro}
+	\caption{Cara Kerja RDD}
+	\label{fig:rdd_intro}
+\end{figure}
+
+\textbf{Spark DataFrame}
+
+\textit{DataFrame} adalah kumpulan data yang didistribusikan, disusun dalam baris dan kolom. Setiap kolom dalam \textit{DataFrame} memiliki nama dan tipe terkait. \textit{DataFrame} mirip dengan tabel database tradisional, yang terstruktur dan ringkas. \textit{DataFrame} adalah basis data relasional dengan teknik optimisasi yang lebih baik. Dengan \textit{DataFrame}, kueri SQL dapat diimplementasi pada lingkungan \textit{big data}. 
+\vspace{0.5cm}
+
+\textbf{Spark MLlib}
+
+Spark MLlib adalah library pembelajaran mesin berdasarkan komputasi secara paralel. MLlib terdiri dari algoritma pembelajaran umum seperti klasifikasi, pengelompokan/\textit{clustering}. Secara garis besar, MLlib melakukan data \textit{preprocessing}, pelatihan model, dan membuat prediksi.
+
+\newpage
+Berikut adalah tahapan yang terjadi pada Spark MLlib:
+
+\begin{enumerate}
+\item Membuat RDD baru untuk merepresentasikan jenis fitur dalam dataset.
+\item Melakukan ekstraksi fitur pada sebuah vektor dan konversi menjadi data numerik.
+\item Menjalankan algoritma \textit{machine learning} untuk menghasilkan pemodelan baru.
+\item Melakukan evaluasi model dengan memanggil fungsi evaluasi milik Spark MLlib.
+\end{enumerate}
+
+\noindent Berikut adalah contoh pemodelan pada Spark MLlib:
+
+\begin{itemize}
+\item \textit{Naive Bayes} (klasifikasi)
+\item \textit{K-Means} (pengelompokan/\textit{clustering})
+\end{itemize}
+
+\textbf{Machine Learning pada Spark MLlib}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{machinelearningmllib}
+	\caption{Tahapan Pembelajaran Machine Learning}
+	\label{fig:machinelearningmllib}
+\end{figure}
+\textit{Machine learning} berupaya untuk membuat prediksi label/kelompok data berdasarkan jenis data pelatihan yang diberikan terhadap model yang dipakai. Pemodelan \textit{machine learning} termasuk ke dalam pemodelan \textit{data mining}. Jenis pemodelan machine learning terdiri dari klasifikasi, regresi, dan pengelompokan/\textit{clustering}. Seluruh jenis pemodelan \textit{machine learning} membutuhkan input berupa vektor fitur. Vektor fitur adalah nilai masing-masing atribut yang digunakan pada pelatihan data. Sebagian besar pemodelan \textit{machine learning} hanya menerima input vektor berupa data numerik untuk mewakili vektor fitur pada setiap baris data.
+\\\\
+\noindent Gambar \ref{fig:machinelearningmllib} adalah tahapan \textit{machine learnin}g pada Spark MLlib, berikut adalah penjelasan singkat dari masing-masing tahapan:
+
+\begin{enumerate}
+
+\item \textit{Featurization}\\
+Setelah data telah dibersihkan dan dipilih untuk pelatihan, perlu diubah menjadi representasi numerik dalam bentuk vektor sebagai input untuk model. Proses ini disebut vektorisasi. Proses pemilihan fitur yang tepat berpengaruh terhadap hasil pelatihan.
+ 
+\item \textit{Training}\\
+Pelatihan model merupakan salah satu tahapan yang paling memakan waktu dan padat karya dalam setiap alur kerja \textit{machine learning}. Terlebih lagi, perangkat keras dan infrastruktur yang digunakan untuk melatih model sangat bergantung pada jumlah parameter dalam model, ukuran dataset, metode pengoptimalan yang digunakan, dan pertimbangan lainnya.
+
+\item \textit{Model Evaluation}\\
+Setiap model harus menjalani evaluasi kualitatif dan kuantitatif. Banyak data pelatihan yang memiliki hasil evaluasi yang sesuai terhadap kinerja model. Model tersebut harus diterapkan pada data baru. Seringkali, pemeriksaan kualitatif tentang kinerja model, diperoleh dengan referensi silang prediksi model dengan apa yang diharapkan secara intuitif, dapat berfungsi sebagai panduan apakah model bekerja sesuai harapan.
+\end{enumerate}
+
+\textbf{Struktur Data pada Spark MLlib}
+
+Seperti yang sudah dijelaskan pada bagian sebelumnya, pemodelan \textit{machine learning} menerima input berupa vektor fitur. Struktur data yang disediakan pada Spark MLlib terdiri dari beberapa jenis yaitu vektor, \textit{labeledpoint}, dan \textit{various model class}. Masing-masing tipe data pada Spark MLlib ditentukan berdasarkan jenis pemodelan yang dipilih. Contoh apabila menggunakan pemodelan \textit{clustering} akan digunakan tipe data vektor, sedangkan untuk pemodelan klasifikasi akan digunakan struktur data \textit{labeledpoint}. Berikut adalah struktur data pada Spark MLlib:
+
+\begin{itemize}
+\item Vektor\\
+Vektor terdiri dari dua jenis yaitu vektor dense dan vektor sparse. Kelas vektor berada pada package mllib.linalg.Vectors. Berikut penjelasan singkat vektor dense dan vektor sparse:
+
+\begin{itemize}
+
+\item Vektor dense\\
+Vektor dense adalah vektor yang menyimpan setiap nilai fitur dataset. Jumlah elemen pada vektor dense akan memiliki jumlah yang sama dengan jumlah fitur pada dataset. 
+
+\item Vektor sparse\\
+Vektor sparse adalah vektor yang menyimpan setiap nilai fitur yang bukan nol pada dataset, sehingga jumlah elemen yang disimpan pada vektor sparse lebih sedikit dibandingkan dengan jumlah elemen yang disimpan pada vektor dense. 
+
+\end{itemize}
+
+\item \textit{LabeledPoint}\\
+\textit{LabeledPoint} digunakan pada algoritma \textit{supervised learning} yaitu klasifikasi dan regresi. LabeledPoint terdiri dari vektor fitur dan label yang direpresentasikan dengan tipe data Double. Kelas \textit{LabeledPoint} terletak pada package mllib.regress.
+
+\end{itemize}
+
+\textbf{Data Mining pada Spark MLlib}
+
+Data mining pada Spark MLlib menggunakan tahapan pemodelan pada \textit{machine learning} yang dijelaskan pada bagian sebelumnya untuk menghasilkan tabel hasil pengelompokan dan klasifikasi. Pada bagian ini akan dijelaskan parameter dari pemodelan Spark MLlib. Berikut adalah jenis pemodelan pada Spark MLlib:
+
+\begin{enumerate}
+
+\item \textit{Naive Bayes}
+
+\textit{Naive Bayes} menjadi pemodelan klasifikasi yang umum digunakan. \textit{Naive Bayes} dapat dilatih dengan sangat efisien karena prosesnya hanya menghitung probabilitas bersyarat masing-masing atribut dan mencari probabilitas tertinggi. \textit{Naive Bayes} memiliki parameter masukan sebagai berikut:
+ 
+\begin{itemize}
+\item \textit{randomSplit} adalah membagi \textit{training} dan \textit{test} data berdasarkan persentase.
+\item \textit{setModelType} adalah memilih model yang tersedia (\textit{multinomial/bernoulli})
+\item \textit{setLabelCol} adalah memilih jenis atribut yang menjadi label kelas.
+\end{itemize}
+
+\item \textit{K-Means}
+
+\textit{K-means} menjadi pemodelan pengelompokan/\textit{clustering} yang paling umum digunakan untuk mengelompokkan titik-titik data menjadi sejumlah kelompok yang telah ditentukan. \textit{K-means} memiliki parameter masukan sebagai berikut:
+
+\begin{itemize}
+\item \textit{k} adalah jumlah \textit{cluster} yang diinginkan. 
+\item \textit{maxIterations} adalah jumlah iterasi maksimum yang harus dijalankan.
+\item \textit{initializationMode} menentukan inisialisasi centroid secara acak.
+\item \textit{initializationSteps} menentukan jumlah langkah dalam pemodelan \textit{k-means}.
+\item \textit{initialModel} adalah menentukan nilai \textit{centroid} saat dilakukan inisialisasi.
+\end{itemize}
+
+\end{enumerate}
+
+\item \textbf{Melakukan instalasi dan konfigurasi Spark pada cluster Hadoop}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Spark berjalan pada sistem operasi Windows, Linux, dan Mac OS. Spark dapat dijalankan secara lokal menggunakan satu komputer, meskipun Spark tetap membutuhkan beberapa komputer untuk pemrosesan data yang besar. Jenis instalasi Spark telah dijelaskan pada bagian sebelumnya. Pada penelitian ini digunakan jenis instalasi \textit{Standalone} untuk Spark versi 2.4.5 pada sistem operasi Windows. Sebelum melakukan instalasi Spark, ada beberapa hal yang harus diperhatikan dan dipenuhi. \\
+
+\noindent Berikut adalah beberapa hal yang harus diperhatikan:
+
+\begin{itemize}
+\item Java 7, Python 2.6 telah dihilangkan pada implementasi Spark 2.2.0
+\item Scala 2.10 sudah tidak dapat dipakai, Scala 2.11 sudah terlalu usang untuk dipakai pada Spark 2.4.1 dan akan dihilangkan pada Spark 3.0
+\item Hadoop 2.6.5 telah dihilangkan pada implementasi Spark 2.2.0 
+\end{itemize}
+
+\noindent Berikut adalah beberapa hal yang harus dipenuhi:
+
+\begin{itemize}
+\item Spark 2.4.5 berjalan di Java 8, Python 2.7+/3.4+ dan R 3.1+ 
+\item Spark 2.4.5 menggunakan Scala 2.12
+\item Spark 2.4.5 menggunakan Hadoop 2.7
+\end{itemize}
+
+\noindent Berikut adalah tahapan instalasi Spark 2.4.5 secara umum:
+
+\begin{enumerate}
+\item Melakukan instalasi Java 8.
+\item Melakukan instalasi Spark 2.4.5
+\item Melakukan instalasi IntelIJ untuk Scala sbt.
+\end{enumerate}
+
+\textbf{Instalasi Java 8}
+
+\noindent Berikut adalah tahapan instalasi Java 8 secara lengkap:
+
+\begin{enumerate}
+
+\item Download Java SE Development Kit 8u31 pada link berikut \\
+\textsf{https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html}
+ 
+\item Lakukan instalasi Java SE Development Kit 8u31 seperti biasa.
+
+\item Pilih menu \textit{Edit the system environment variables}.
+
+\item Buat \textit{environment variables} baru seperti Gambar \ref{fig:instal_java_5}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{instal_java_5}
+	\caption{Environment Variables}
+	\label{fig:instal_java_5}
+\end{figure}
+
+
+\item Tambahkan \textsf{\%JAVA\_HOME\%\textbackslash bin}  pada Path di System variables seperti Gambar \ref{fig:spark_instal_5}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{spark_instal_5}
+	\caption{Penambahan Variable Value}
+	\label{fig:spark_instal_5}
+\end{figure}
+
+
+\end{enumerate}
+
+\noindent Berikut adalah tahapan verifikasi terhadap instalasi Java 8:
+
+\begin{enumerate}
+
+\item Pilih menu Command Prompt.
+
+\item Jalankan perintah java -version pada Command Prompt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{instalasi_java}
+	\caption{Perintah java -version}
+	\label{fig:instalasi_java}
+\end{figure}
+
+\item Apabila sistem tidak menampilkan pesan error, maka Java 8 sudah terpasang dengan baik.
+
+\end{enumerate}
+
+\textbf{Instalasi Spark 2.4.5}
+
+Berikut adalah tahapan instalasi Spark 2.4.5 secara lengkap:
+
+\begin{enumerate}
+\item Download winutils.exe dari link \textsf{https://github.com/steveloughran/winutils/tree/master/hadoop-2.7.1/bin}, tempatkan winutils.exe pada \textsf{C:/winutils/bin}
+
+\item Download Spark 2.4.5 dari link \textsf{https://downloads.apache.org/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop2.7.tgz}
+
+\item Buat folder sebagai berikut \textsf{C:\textbackslash spark-2.4.4} dan ekstraksi \textit{file} \textsf{spark-2.4.5-bin-hadoop2.7.tgz} di dalam folder tersebut.
+
+\item Buat \textit{environment variables} baru seperti Gambar \ref{fig:spark_instal_3}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{spark_instal_3}
+	\caption{Environment Variable}
+	\label{fig:spark_instal_3}
+\end{figure}
+
+\item Tambahkan \textsf{\%SPARK\_HOME\%\textbackslash bin} pada Path di System variables sepertin Gambar \ref{fig:spark_instal_5}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{spark_instal_5}
+	\caption{Penambahan Variable Value}
+	\label{fig:spark_instal_5}
+\end{figure}
+
+\end{enumerate}
+
+\noindent Berikut adalah tahapan verifikasi terhadap instalasi Spark 2.4.5:
+\begin{enumerate}
+\item Jalankan perintah \textsf{spark-shell} pada Command Prompt.
+
+\item Apabila terminal menampilkan tampilan seperti pada Gambar \ref{fig:spark_instal_7}, artinya Spark 2.4.5 sudah dapat berjalan dengan baik pada komputer tersebut.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{spark_instal_7}
+	\caption{Spark 2.4.5}
+	\label{fig:spark_instal_7}
+\end{figure}
+
+\end{enumerate}
+
+\textbf{Instalasi IntelIJ untuk Scala SBT}
+
+Berikut adalah tahapan instalasi IntelIJ:
+
+\begin{enumerate}
+\item Download IntelIJ melalui link berikut \\
+\textsf{https://www.jetbrains.com/idea/download/\# section=windows}
+
+\item Lakukan instalasi IntelIJ seperti biasa.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{intelij_install}
+	\caption{Instalasi IntelIJ}
+	\label{fig:intelij_install}
+\end{figure}
+
+\end{enumerate}
+
+\noindent Berikut adalah tahapan pemasangan \textit{plugin} Scala pada IntelIJ.
+
+\begin{enumerate}
+
+\item Pilih menu \textit{Configure} pada IntelIJ, lalu pilih menu \textit{Plugins}.
+
+\item Telusuri \textit{plugin} Scala pada kolom pencarian seperti Gambar \ref{fig:intelij_2}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{intelij_2}
+	\caption{Plugins Scala}
+	\label{fig:intelij_2}
+\end{figure}
+
+\item Klik tombol \textit{install}
+
+\end{enumerate}
+
+		
+		\item \textbf{Melakukan studi literatur mengenai bahasa pemrograman Scala pada \textit{framework} Spark}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Scala adalah bahasa pemrograman berbasi open source, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Spark ditulis dalam Scala dan karena skalabilitasnya di JVM. Pemrograman Scala adalah bahasa pemrograman yang paling banyak digunakan oleh pengembang \textit{big data} untuk mengerjakan proyek Spark. Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode Java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan \textit{big data} pada Spark.
+
+\textbf{Eksperimen Scala}
+
+Scala digunakan pada penelitian ini karena sintaks yang sederhana untuk mengimplementasi beberapa baris kode pada bahasa pemrograman Java. Berikut adalah beberapa contoh ekperimen yang dilakukan pada bahasa Scala. Berikut adalah jenis eksperimen yang dilakukan pada Scala:
+
+\textbf{Menentukan Jenis Variabel pada Scala}
+
+Scala memiliki dua jenis varibel yaitu \textit{immutable} variabel dan mutable variabel. \textit{Immutable} variabel adalah variabel yang nilainya tidak dapat diubah, sedangkan \textit{mutable} variabel adalah variabel yang nilainya dapat diubah. Implementasi \textit{immutable} dan \textit{mutable} memiliki implementasi sintaks yang berbeda. \textit{Immutable} variabel menggunakan sintaks val, sedangkan \textit{mutable} variabel menggunakan sintaks var. Kode program dapat dilihat pada Listing \ref{lst:jenis_variabel} mengenai jenis variabel pada Scala. 
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:jenis_variabel, caption=Menentukan Jenis Variabel pada Scala]
+// Immutable Variabel
+val donutsToBuy: Int = 5
+donutsToBuy = 10
+
+// Mutable Variabel
+var favoriteDonut: String = "Glazed Donut"
+favoriteDonut = "Vanilla Donut"
+
+
+\end{lstlisting}
+
+\textbf{Menentukan Jenis Tipe Data pada Scala}
+
+Scala memiliki jenis tipe data yang mirip dengan tipe data pada bahasa pemrograman Java. Scala dapat menangani tipe data \textit{Int, Long, Short, Double, Float, String, Byte, Char} dan \textit{Unit}. Kode program dapat dilihat pada Listing \ref{lst:jenis_tipe_data} mengenai jenis tipe data pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:jenis_tipe_data, caption=Menentukan Jenis Tipe Data pada Scala]
+val donutsBought: Int = 5
+val bigNumberOfDonuts: Long = 100000000L
+val smallNumberOfDonuts: Short = 1
+val priceOfDonut: Double = 2.50
+val donutPrice: Float = 2.50f
+val donutStoreName: String = "allaboutscala Donut Store"
+val donutByte: Byte = 0xa
+val donutFirstLetter: Char = 'D'
+val nothing: Unit = ()
+
+\end{lstlisting}
+
+\textbf{Menentukan Struktur Data pada Scala}
+
+Scala memiliki dua jenis struktur data yaitu \textit{immutable} dan \textit{mutable collection}. \textit{Immutable collection} adalah struktur data yang nilainya tidak dapat diubah, sedangkan \textit{mutable collection} adalah struktur data yang nilainya dapat diubah. Implementasi \textit{immutable} dan \textit{mutable collection} memiliki jenis struktur data yang berbeda satu sama lain. Kode program dapat dilihat pada Listing \ref{lst:immutable_collection} mengenai \textit{immutable collection} pada Scala dan Listing \ref{lst:mutable_collection} mengenai \textit{mutable collection} pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:immutable_collection, caption=Membuat immutable collection pada Scala]
+
+// List
+val list1: List[String] = List("Plain Donut","Strawberry Donut","Chocolate Donut")
+println(s"Elements of list1 = $list1")
+
+// Map
+val map1: Map[String, String] = Map(("PD","Plain Donut"),("SD","Strawberry Donut"),("CD","Chocolate Donut"))
+println(s"Elements of map1 = $map1")
+\end{lstlisting}
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:mutable_collection, caption=Membuat mutable collection pada Scala]
+// Array
+val array1: Array[String] = Array("Plain Donut","Strawberry Donut","Chocolate Donut")
+println(s"Elements of array1 = ${array1.mkString(", ")}")
+
+// Map
+val map1: Map[String, String] = Map(("PD","Plain Donut"),("SD","Strawberry Donut"),("CD","Chocolate Donut"))
+println(s"Elements of map1 = $map1")
+\end{lstlisting}
+
+\textbf{Membuat Kelas Object pada Scala}
+
+Scala menggunakan kelas \textit{Object} untuk menempatkan berbagai macam fungsi dan variabel yang saling berkaitan pada satu kelas yang sama. Kode program dapat dilihat pada Listing \ref{lst:kelas_object} mengenai kelas \textit{object} pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kelas_object, caption=Membuat Kelas Object pada Scala]
+object DonutShoppingCartCalculator {
+ val discount: Double = 0.01
+ def calculateTotalCost(donuts: List[String]): Double = {
+  return 1
+ }
+}
+\end{lstlisting}
+
+\textbf{Membuat Fungsi Sederhana pada Scala}
+
+Scala menggunakan fungsi untuk menempatkan kode program berdasarkan tujuan masing-masing. Perlu diperhatikan bahwa hasil akhir dari fungsi langsung dikembalikan tanpa memanggil perintah \textit{return}, seperti pada Java. Kode program dapat dilihat pada Listing \ref{lst:fungsi_sederhana} mengenai pembuatan fungsi pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:fungsi_sederhana, caption=Membuat Fungsi Sedehana pada Scala]
+def calculateDonutCost(donutName: String, quantity: Int): Double = {
+  println(s"Calculating cost for $donutName, quantity = $quantity")
+  2.50 * quantity
+}
+\end{lstlisting}
+
+
+\textbf{Membuat Main Method}
+
+Scala menggunakan main method untuk melakukan eksekusi program. Kode program dapat dilihat pada Listing \ref{lst:main_method} mengenai pembuatan main method pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:main_method, caption=Membuat Main Method pada Scala]
 	
+object HelloWorld {
+	def main(args: Array[String] {
+		println("Hellow, world!")
+	}
+}
+	
+\end{lstlisting}
 
-		Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena teknik \textit{Random Noise Addition} hanya menjaga distribusi pada data maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
+\textbf{Membuat Fungsi Percabangan}
 
-		Modifikasi pada algoritma penambangan data yang digunakan pun perlu dilakukan. Contohnya apabila algoritma pohon keputusan digunakan, maka perlu modifikasi pada algoritma pohon keputusan tersebut. Hal ini menimbulkan masalah pada aplikasi pada dunia nyata karena tidak efisien dan memakan waktu untuk memodifikasi setiap algoritma yang ingin digunakan untuk menyesuaikan dengan teknik \textit{Random Noise Addition}. Masalah mengenai algoritma yang dapat digunakan pun menjadi perhatian karena teknik \textit{Random Noise Addition} hanya dapat digunakan untuk algoritma yang bergantung pada distribusi saja sedangkan teknik randomisasi lain tidak menjaga distribusi pada data. Ada juga penelitian yang mengatakan bahwa teknik \textit{Random Noise Addition} ini memiliki kualitas yang kurang baik dalam menjaga privasi data karena banyaknya celah yang dapat diserang pada teknik ini. Oleh karena masalah-masalah tersebut, akhirnya teknik ini pun tidak akan digunakan untuk diuji kualitas hasilnya. Teknik \textit{Random Projection Perturbation} akan digunakan untuk menggantikan teknik \textit{Random Noise Addition}.
+Scala memiliki jenis implementasi percabangan yang sama dengan Java. Percabangan digunakan untuk melakukan eksekusi pada baris \textit{statement} yang sesuai berdasarkan kondisi tertentu. Kode program dapat dilihat pada Listing \ref{lst:percabangan} mengenai percabangan pada Scala.
 
-		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Rotation Perturbation}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari dataset X didefinisikan sebagai berikut.
-		\begin{equation}
-			G(X) = X_{n \times d} R_{d \times d}
-		\end{equation}
-		Dimana \(R_{d \times d}\) adalah \textit{random rotation matrix}. \textit{Random rotation matrix} berukuran \(d\) dimensi dapat dibuat dengan cara membuat matriks \textit{special orthogonal} acak karena matriks rotasi memiliki sifat {special orthogonal}. Matriks \textit{special orthogonal} adalah matriks yang memiliki sifat \textit{orthogonal} dan determinannya bernilai +1, yang mana matriks \textit{orthogonal} adalah matriks yang menghasilkan matriks identitas apabila dikalikan dengan transposenya sendiri. Matriks rotasi ini dapat dibuat secara efisien mengikuti distribusi Haar. Dari definisi di atas dapat disimpulkan tranformasi rotasi tersebut menjaga jarak Euclidean.
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:percabangan, caption=Membuat Fungsi Percabangan pada Scala]
+
+# If-Else statement
+if(numberOfPeople > 10) { 
+  println(s"Number of donuts to buy = ${numberOfPeople * donutsPerPerson}")
+}
+else if (numberOfPeople == 0) {
+  println("Number of people is zero.")
+  println("No need to buy donuts.")
+} 
+else {
+  println(s"Number of donuts to buy = $defaultDonutsToBuy")
+}
+	
+\end{lstlisting}
+
+\textbf{Membuat Fungsi Perulangan pada Scala}
+
+Scala memiliki jenis implementasi perulangan yang sama dengan Java. Perulangan digunakan untuk mengulangi eksekusi pada baris statement yang sama berdasarkan kondisi tertentu. Kode program dapat dilihat pada Listing \ref{lst:perulangan} mengenai perulangan pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:perulangan, caption=Membuat Fungsi Perulangan pada Scala]
+	
+# For loop
+for(numberOfDonuts <- 1 to 5){
+  println(s"Number of donuts to buy = $numberOfDonuts")
+}
+
+# While loop
+while (numberOfDonutsToBake > 0) {
+  println(s"Remaining donuts to be baked = $numberOfDonutsToBake")
+  numberOfDonutsToBake -= 1
+}
+
+# Do-while loop
+do {
+  numberOfDonutsBaked += 1
+  println(s"Number of donuts baked = $numberOfDonutsBaked")
+} 
+while (numberOfDonutsBaked < 5)
+
+\end{lstlisting}
 		
-		Teknik ini menjaga beberapa properti pada data antara lain yaitu jarak Euclidean, \textit{inner product}, dan \textit{geometric shape hyper} pada bidang multi-dimensi. Oleh karena itu, beberapa teknik penambangan data tidak berpengaruh (dapat digunakan) terhadap teknik \textit{Random Rotation Perturbation} antara lain yaitu \textit{K-nearest Neighbors}, \textit{Support Vector Machines}, dan \textit{Perceptrons}. Teknik ini dipercaya dapat memberikan hasil penambangan yang maksimal, hasil penambangan data yang telah dirusak persis sama dengan hasil penambangan data aslinya. Sehingga jumlah informasi yang hilang tidak ada, tetapi jumlah privasi yang hilangnya tinggi. Walaupun demikian ada beberapa penelitian yang mengatakan bahwa karena teknik \textit{Random Rotation Perturbation} ini memiliki sifat demikian sehigga teknik ini dikatakan tidak aman dan dapat diserang dengan beberapa teknik untuk mendapatkan data asli yang lengkap.
+		\item \textbf{Melakukan studi dan eksplorasi teknik-teknik dasar data mining pada Spark MLlib.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Pada bagian sebelumnya telah dijelaskan mengenai konsep dan contoh pemodelan pada Spark MLlib. Pada penelitian ini akan digunakan pemodelan \textit{Naive Bayes} untuk permasalahan klasifikasi dan \textit{k-means} untuk permasalahan clustering.
+
+\textbf{Naive Bayes}
+
+\noindent Berikut adalah tahapan eksperimen pada Listing \ref{lst:naivebayes_mllib} untuk pemodelan \textit{Naive Bayes}:
+\begin{enumerate}
+\item Membagi data input CSV menjadi training data dan test data.
+\item Melakukan pelatihan data pada pemodelan Naive Bayes.
+\item Mengembalikan hasil klasifikasi dalam bentuk tabel.
+\item Menghitung akurasi dari klasifikasi label kelas.
+\end{enumerate}	
+
+\par Hasil dari pemodelan \textit{Naive Bayes} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{Naive Bayes} data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama yaitu (\textit{age} = 17) memiliki kelompok cluster yang sama (\textit{prediction} = 3.0).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{mllib_naivebayes}
+	\caption{Hasil Naive Bayes Spark MLlib}
+	\label{fig:mllib_naivebayes}
+\end{figure}
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:naivebayes_mllib, caption=Eksperimen Naive Bayes Spark MLlib]
+// Split data into training (70%) and test (30%).
+val Array(training, test) = result_df.randomSplit(Array(0.7, 0.3))
+
+// Naive Bayes
+val model = new NaiveBayes().setModelType("multinomial")
+			.setLabelCol("workclass_Index").fit(training)
+			
+// Predict model
+val predictions = model.transform(test)
+predictions.show()
+
+// Accuracy
+val evaluator = new MulticlassClassificationEvaluator()
+	.setLabelCol("workclass_Index")
+	.setPredictionCol("prediction")
+	.setMetricName("accuracy")
+val accuracy = evaluator.evaluate(predictions)
+
+\end{lstlisting}
+
+
+\textbf{K-Means}
+
+\noindent Berikut adalah tahapan eksperimen pada Listing \ref{lst:kmeans_mllib} untuk pemodelan \textit{k-means}:
+\begin{enumerate}
+\item Membuat model \textit{k-means} menggunakan Spark MLlib
+\item Menentukan jumlah cluster (k) untuk pemodelan \textit{k-means}.
+\item Melakukan pelatihan data pada pemodelan \textit{k-means}.
+\item Mencari nilai \textit{centroid} dari masing-masing \textit{cluster}.
+\item Mengembalikan hasil \textit{clustering} dalam bentuk tabel.
+
+\end{enumerate}	
+
+
+\par Hasil dari pemodelan \textit{k-means} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{k-means}, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok \textit{cluster} yang sama. Pada Gambar \ref{fig:mllib_kmeans}, diketahui bahwa sebuah data yang bernilai (\textit{age} = 39) memiliki kelompok \textit{cluster} yang sama (\textit{prediction} = 5) dengan data lain yang bernilai (\textit{age} = 38).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{mllib_kmeans}
+	\caption{Hasil K-Means Spark MLlib}
+	\label{fig:mllib_kmeans}
+\end{figure}
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kmeans_mllib, caption=Eksperimen K-Means Spark MLlib]
+	
+// KMeans with 8 clusters
+val kmeans = new KMeans()
+      .setK(8)
+      .setFeaturesCol("features")
+      .setPredictionCol("prediction")
+
+val kmeansModel = kmeans.fit(result_df)
+kmeansModel.clusterCenters.foreach(println)
+
+// Predict model
+val predictDf = kmeansModel.transform(result_df)
+predictDf.show(10)
+
+\end{lstlisting}
 		
-		Transformasi translasi juga perlu dilakukan agar rotasi yang dilakukan merusak data secara menyeluruh. Apabila tidak dilakukan translasi, nilai pada data yang mendekati nilai nol akan menghasilkan nilai yang mendekati nol juga setelah dirotasi. Implikasi dari hal tersebut adalah lemahnya dalam menjaga privasi. Translasi dapat dilakukan dengan cara membuat matriks translasi yang acak lalu kalikan dengan matriks data asli. Translasi dapat dilakukan karena translasi tidak mengubah properti geometris dari matriks yang ditranslasi sehingga jarak Euclidean dan properti lainnya pun terjaga dan hasil penambangan data pun tetap sama.
+		\item \textbf{Mencari dan mengumpulkan data studi kasus}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Dataset yang dipakai adalah \textit{Adult}. Dataset ini diperoleh dari website Kaggle. Dataset ini disimpan dalam format CSV. Format CSV memisahkan nilai atribut data melalui simbol koma. Dataset \textit{Adult} dipilih, karena pernah digunakan sebelumnya untuk eksperimen algoritma \textit{k-anonymity}. Dataset ini berisi sampel sensus penduduk di Amerika Serikat pada tahun 1990. Penelitian ini melibatkan 10 juta baris data dengan ukuran data sebesar 1.2 GB. 
 
-		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Projection Perturbation}} \\
-		{\bf Status :} Ditambahkan untuk menggantikan teknik \textit{Random Noise Addition}.\\
-		{\bf Hasil :} Ide utama dari teknik \textit{Random Projection Perturbation} adalah mereduksi dimensi dari representasi matriks data asli dengan syarat dimensi matriks tersebut cukup besar. Dasar dari teknik \textit{Random Projection Perturbation} berdiri pada \textit{Johnson-Lindenstrauss Lemma}. 
-		\newtheorem{theorem}{Lemma}
-		\begin{theorem}[\textit{JOHNSON-LINDENSTRAUSS LEMMA}]
-			For any \(0 < \epsilon < 1\) and any integer \(s\), let \(k\) be a positive integer such that \(k\) \(\geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\). Then, for any set \(S\) of \(s = |S|\) data points in \({\rm I\!R}^{m}\), there is a map \(f : {\rm I\!R}^{m} \rightarrow {\rm I\!R}^{k}\) such that, for all \(x, y \in S\), \((1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}\), where \(||.||\) denotes the vector 2-norm.
-		\end{theorem}
-		Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\), sedemikian rupa sehingga jarak antara dua titik tetap konsisten dengan \textit{error} yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya \textit{error} yang muncul, properti-properti pada data pun relatif sedikit berubah dan hal ini menyebabkan akurasi pada model yang dibuat dengan data tersebut berkurang dibandingkan data aslinya.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.47]{dataset1}
+	\caption{Dataset Adults}
+	\label{fig:dataset1}
+\end{figure}
+
+\noindent Berikut adalah kemungkinan nilai untuk masing-masing jenis atribut dalam dataset:
+
+\begin{itemize}
+\item Age: numerik
+
+\item Workclass: \textit{Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.}
+
+\item Education: \textit{Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool.}
+
+\item Years of education: numerik
+
+\item Marital status: 
+\textit{Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, MarriedAF-spouse}
+
+\item Occupation: \textit{Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspect, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, ArmedForces.}
+
+\item Relationship: \textit{Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried}
+
+\item Race: \textit{White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black}
+
+\item Sex: \textit{Male, Female}
+
+\item Capital gain: numerik
+
+\item Capital loss: numerik
+
+\item Hours per week: numerik
+
+\item Native country: \textit{United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US, India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinidad and Tobago, Peru, Hong, HollandNetherlands}
+
+\item Income: $\leq$50K, $>$50K
+\end{itemize}
+
+\textbf{Studi Kasus Personally Identifiable Information}
+
+PII digunakan untuk mengelompokkan nilai atribut berdasarkan kategori atribut yang digunakan pada proses anonimisasi data. Berdasarkan penjelasan pada bagian sebelumnya, atribut pada proses anonimisasi dapat dikategorikan sebagai \textit{identifier, quasi-identifier}, dan \textit{sensitive attribute}. 
+\par Atribut \textit{identifier} adalah atribut yang dapat mengidentifikasi individu secara langsung. Contoh dari atribut identifier pada dataset \textit{Adult} adalah nama, tempat tanggal lahir, alamat rumah, nomor KTP. Atribut \textit{quasi-identifier} adalah atribut yang dapat mengidentifikasi seseorang apabila nilai sebuah atribut digabung dengan nilai atribut lain pada baris data yang sama. Contoh \textit{quasi-identifier} pada dataset \textit{Adult} adalah \textit{age, zip, education, years of education, occupation, race, sex, native country}. \textit{Sensitive attribute} adalah nilai yang ingin dirahasiakan. Contoh sensitive attribute pada dataset \textit{Adult} adalah \textit{workclass, marital status, relationship, income}.
+\par Atribut \textit{identifier} nantinya akan dihilangkan sebelum dilakukan proses anonimisasi, karena nilai dari atribut \textit{identifier} dapat langsung mengidentifikasi seseorang. Sedangkan \textit{sensitive attribute} nilainya tidak akan dihapus karena akan melalui proses anonimisasi bersamaan dengan nilai dari \textit{quasi-identifier} sehingga \textit{sensitive attribute} milik individu tidak dapat dibedakan satu sama lain pada hasil tabel akhir anonimisasi sehingga keamanan  distribusi data terjamin.
+
+\textbf{Studi Kasus Distance, Information Loss}
+
+Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{distance} dan \textit{information loss}. \textit{Distance} dan \textit{Information Loss} digunakan oleh algoritma \textit{Greedy k-member clustering} untuk mencari kelompok data terbaik sehingga menghasilkan pengelompokkan data yang tepat. Berikut adalah contoh dari masing-masing jenis perhitungan metrik:
+
+\begin{enumerate}
+
+\item \textit{Distance}
+
+\textit{Distance} bertujuan untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Pemilihan distance yang baik dapat mencapai hasil klasifikasi yang lebih optimal.
+\\\\
+\noindent Akan diambil 2 sampel data dari dataset \textit{Adult} sebagai berikut:
+\begin{enumerate}
+\item 39, State-gov, 77516, Bachelors, 13, Never-married, Adm-clerical, Not-in-family, White, Male, 2174, 0, 40, United-States, <=50K
+\item 50, Self-emp-not-inc, 83311, Bachelors, 13, Married-civ-spouse, Exec-managerial, Husband, White, Male, 0, 0, 13, United-States, <=50K
+\end{enumerate}
+
+\noindent \textit{Distance} atribut numerik dapat dihitung sebagai berikut berdasarkan umur data pertama ($v_1$)= 39, umur data kedua ($v_2$)= 50, dan jumlah data ($D$)= 10.000.000 data.
+
+
+\begin{align*}
+\delta_n(v_1,v_2) &= \frac{|v_1 - v_2|}{|D|}
+= \frac{|39 - 50|}{10.000.000}\vspace{0.2cm}
+= \frac{11}{10.000.000}\vspace{0.2cm}
+= 0.0000011
+\end{align*}
+
+\noindent \textit{Distance} atribut kategorikal dapat dihitung sebagai berikut berdasarkan \textit{workclass} data pertama ($v_1$)= \textit{State-gov, workclass} data kedua ($v_2$)= \textit{Self-emp-not-inc}, jumlah subtree ($H(\Lambda(v_i,v_j))$)= 1, dan tinggi taxonomy tree ($H(T_D)$)= 1  seperti pada Gambar \ref{fig:TD}.
+
+\begin{align*}
+\delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
+= \frac{1}{1}
+= 1
+\end{align*}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{TD}
+	\caption{Taxonomy Tree (Workclass)}
+	\label{fig:TD}
+\end{figure}
+
+\newpage
+\item \textit{Information Loss}
+
+\textit{Information Loss} (IL) bertujuan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. \textit{Information Loss} (IL) juga dipakai untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Jika diberikan tabel data yang sudah dikelompokkan berdasarkan \textit{cluster}, maka nilai \textit{Information Loss} (IL) dapat dihitung. Tabel  \ref{table:informationloss} adalah contoh hasil pengelompokan data pada \textit{cluster 1} untuk dataset \textit{Adult}:
+
+\begin{table}[H]
+\centering
+\caption{Tabel Hasil Clustering Data pada Cluster 1}
+\begin{tabular}{c c c c c c c c}
+\hline 
+Age & Workclass & Education & Occupation & Sex & Income & Cluster Name \\ 
+\hline 
+39 & State-gov & Bachelors & Adm-clerical & Male & <=50K & Cluster 1 \\ 
+50 & Self-emp-not-inc & Bachelors & Exec-managerial & Male & <=50K & Cluster 1 \\ 
+38 & Private & HS-grad & Handlers-cleaners & Male & <=50K & Cluster 1 \\ 
+53 & Private & 11th & Handlers-cleaners & Male & <=50K & Cluster 1 \\ 
+28 & Private & Bachelors & Prof-specialty & Female & <=50K & Cluster 1 \\ 
+\hline 
+\end{tabular} 
+\label{table:informationloss}
+\end{table}
+
+\noindent \textit{Information Loss} (IL) dapat dihitung sebagai berikut berdasarkan atribut numerik yaitu jumlah anggota \textit{cluster} ($e$)= 5, $MAX_{Age}$= 53, $MIN_{Age}$= 28, $N_Age$= 5 mencakup atribut \textit{Age} dan atribut kategorikal yaitu $H(\Lambda(\cup_{C_j}))$= 1, $H(T_{C_j})$= 1 mencakup atribut \textit{Workclass, Education, Occupation, Sex, dan Income}.
+
+\begin{align*}
+D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}\\
+&= \frac{(53 - 28)}{5} + \frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1} = 10\\\\
+IL(e) &= |e| \cdot D(e)\\
+&= 5 \cdot 10 = 50
+\end{align*}
+
+\noindent Total \textit{Information Loss} dihitung dari jumlah \textit{Information Loss} masing-masing \textit{cluster}.
+
+\begin{align*}
+Total-IL(AT) &= \sum_{e \in \varepsilon}^{}  IL(e)\\
+&= IL(cluster1)+IL(cluster2)+\ldots+IL(clusterN)
+\end{align*}
+
+\end{enumerate}
 		
-		\textit{Projection perturbation} dari dataset X didefinisikan sebagai berikut.
-		\begin{equation}
-			G(X) = X_{n \times d} R_{d \times k}
-		\end{equation}
-		Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah atribut \(d\), yang mana \(d\) akan menjadi dimensi matriks. Oleh karena yang ingin dilakukan adalah reduksi dimensi maka \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
+\textbf{Studi Kasus Algoritma Greedy k-member clustering}
+
+ Algoritma \textit{Greedy k-member clustering} telah dijelaskan pada bagian sebelumnya. Algoritma ini bertujuan untuk membagi seluruh data pada tabel terhadap masing-masing \textit{cluster} untuk kompleksitas yang lebih baik dan mendukung nilai utilitas informasi yang lebih baik dibandingkan algoritma \textit{clustering} lain. Pada bagian ini, akan dilakukan eksperimen sederhana untuk mencari tahu langkah kerja algoritma \textit{Greedy k-member clustering} secara konseptual.
+ 
+\begin{table}[H]
+\centering
+\caption{Tabel Dataset Adults}
+\begin{tabular}{c c c c c c c c}
+\hline 
+ID & Age & Workclass & Education & Occupation & Sex & Income\\ 
+\hline 
+t1 & 39 & State-gov & Bachelors & Adm-clerical & Male & <=50K \\ 
+
+t2 & 50 & Self-emp-not-inc & Bachelors & Exec-managerial & Male & <=50K  \\ 
+
+t3 & 38 & Private & HS-grad & Handlers-cleaners & Male & <=50K  \\ 
+
+t4 & 53 & Private & 11th & Handlers-cleaners & Male & <=50K  \\ 
+ 
+t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\ 
+\hline 
+\end{tabular} 
+\label{table:adults}
+\end{table}
+
+\par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma \textit{Greedy k-member clustering} siap ditelusuri lebih lanjut.\\
+
+\noindent Berikut adalah tahapan yang terjadi pada algoritma \textit{Greedy k-member clustering}:
+
+\begin{enumerate}
+\item Nilai awal result = $\emptyset$
+\item Nilai awal r = \{t1\}
+\item Nilai awal |S| = 5, k = 2
+\item Karena kondisi $|S| \geq k$ terpenuhi, maka dilakukan perulangan sebagai berikut:
+\begin{enumerate}
+\item Nilai r diubah menjadi r = \{t3\}, karena terbukti data t3 memiliki $\Delta(t1,t3)=1.7189$ yang paling tinggi dari seluruh \textit{distance} lain. Berikut adalah contoh perhitungannya:
+\begin{align*}
+\Delta (t_1,t_2) = 1.715\\
+\Delta (t_1,t_3) = 2.431\\
+\Delta (t_1,t_4) = 2.122\\
+\Delta (t_1,t_5) = 1.621 
+\end{align*}
+\item Nilai awal S = \{t1, t2, t4, t5\}
+\item Nilai awal c = \{t3\}, |c| = 1
+\item Karena kondisi |c| < k terpenuhi, maka dilakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Nilai r diubah menjadi r = \{t3,t4\}, karena terbukti data t4 memiliki $IL(t3 \cup t4)=0.330$ yang paling rendah dari seluruh data lain. Berikut adalah contoh perhitungannya:
+\begin{align*}
+IL(t3 \cup t1) = 0.479 \\
+IL(t3 \cup t2) = 0.515 \\
+IL(t3 \cup t4) = 0.330 \\
+IL(t3 \cup t5) = 0.367 
+\end{align*}
+\item Nilai S diubah menjadi S = \{t1, t2, t5\}, |S| = 4
+\item Nilai c ditambahkan menjadi c = \{t3, t4\}, |c| = 2
+
+\end{enumerate}
+\item Karena kondisi |c| < k sudah tidak terpenuhi lagi, maka perulangan ini akan berhenti
+\item Nilai \textit{result} akan ditambahkan menjadi result = \{t3, t4\}
+\item Karena kondisi $|S| \geq k$ masih terpenuhi, maka perulangan akan tetap berlanjut sampai pada kondisi dimana $|S| < k$ sehingga hasil akhirnya adalah \textit{result} = \{\{t3, t4\}, \{t2, t5\}\}, S = \{t1\}, |S| = 1
+
+\end{enumerate}
+
+\item Karena kondisi $S \neq 0$ terpenuhi, maka dilakukan perulangan sebagai berikut:
+
+\begin{enumerate}
+\item Nilai r diubah menjadi r = \{t1\}
+\item Nilai S diubah menjadi S = $\{\phi\}$, |S| = 0
+\item Nilai c diubah menjadi c = \{t3, t4\} karena terbukti \textit{cluster} c memiliki $IL(\{t3,t4\} \cup t1)=0.279$ yang paling rendah dari seluruh \textit{cluster} lain. Berikut adalah contoh perhitungannya:
+\begin{align*}
+IL(\{t3,t4\} \cup t1) = 0.279 \\
+IL(\{t2,t5\}\cup t1) = 0.515 
+\end{align*}
+\item Nilai c ditambahkan menjadi c = \{t1, t3, t4\}
+\item Nilai c pada perulangan ini tidak akan ditambahkan pada \textit{result}, karena telah ditetapkan k = 2 sedangkan jumlah datanya ganjil, sehingga sisa data tersebut tidak akan dicatat pada variabel \textit{result} agar menjaga masing-masing \textit{cluster} hanya memiliki 2 anggota saja.
+\item Karena kondisi $S \neq 0$ sudah tidak terpenuhi lagi, maka perulangan ini akan berhenti.
+
+\end{enumerate}
+
+\item Hasil akhirnya adalah result = \{\{t3, t4\}, \{t2, t5\}\} dikembalikan sebagai output untuk algoritma \textit{Greedy k-member clustering} seperti pada Tabel \ref{table:greedykmember} sebagai berikut:
+\begin{table}[H]
+\centering
+\caption{Tabel Hasil Greedy K-Member Clustering}
+\begin{tabular}{c c c c c c c c}
+\hline 
+ID & Age & Workclass & Education & Occupation & Sex & Income\\ 
+\hline 
+t3 & 38 & Private & HS-grad & Handlers-cleaners & Male & <=50K  \\ 
+t4 & 53 & Private & 11th & Handlers-cleaners & Male & <=50K  \\ 
+\hline 
+t2 & 50 & Self-emp-not-inc & Bachelors & Exec-managerial & Male & <=50K  \\ 
+t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\ 
+\hline 
+\end{tabular} 
+\label{table:greedykmember}
+\end{table}
+
+\end{enumerate}
+
+\textbf{Studi Kasus Domain Generalization Hierarchy}
+
+Pada bagian sebelumnya, telah dijelaskan konsep mengenai \textit{Hierarchy Based Generalization}. DGH adalah contoh penerapan dari \textit{Hierarchy Based Generalization}. DGH bertujuan untuk melindungi data dengan cara menerapkan metode generalisasi terhadap nilai atribut data yang bersifat unik, agar menjadi nilai yang lebih umum. Berikut adalah penerapan DGH terhadap dataset \textit{Adult}. \\
+
+\noindent Diketahui kemungkinan nilai unik atribut pada dataset \textit{Adult} sebagai berikut:
+
+\begin{itemize}
+\item Age = \{33,36,38,40,42,43,46,49\}
+\item ZIP = \{77516,77517,77526,77527\}
+\item Sex = \{Male,Female\}
+\end{itemize}
+
+\noindent Untuk atribut ZIP, akan dibangun tiga jenis domain sebagai berikut:
+
+\begin{itemize}
+\item Domain dengan nilai kurang spesifik\\
+Domain ini dipilih apabila tujuannya adalah lebih mengutamakan hasil informasi yang diperoleh dengan cara melakukan sedikit anonimisasi pada nilai data. Contohnya atribut ZIP akan diubah menjadi \{7751*,7752*\} apabila satu digit terakhir memiliki nilai yang berbeda dan digit sisanya memiliki nilai yang sama.
+\item Domain dengan nilai yang lebih umum\\
+Domain ini dipilih apabila tujuannya adalah menyeimbangkan nilai informasi yang diperoleh dengan tingkat perlindungan data yang didapat dengan cara meningkatkan level anonimisasi nilai data. Contohnya atribut ZIP akan diubah menjadi \{775**\} apabila kedua digit terakhir memiliki nilai yang berbeda dan digit sisanya memiliki nilai yang sama.
+\item Domain dengan nilai yang umum.
+Domain ini dipilih apabila tujuannya adalah mengutamakan perlindungan data. Biasanya jenis domain ini jarang dipilih, karena hasil anonimisasinya tidak dapat digunakan untuk proses data mining (memiliki nilai akurasi yang rendah apabila dilakukan pemodelan \textit{data mining}). Contohnya atribut ZIP akan diubah menjadi \{*****\}
+
+\end{itemize}
+
+\noindent Untuk atribut \textit{Age} dan \textit{Sex} akan dibangun berdasarkan ketentuan berikut: 
+\begin{itemize}
+\item Nilai atribut \textit{Age} akan diubah menjadi rentang nilai. Contohnya nilai 33  diubah menjadi [30-39], karena 33 termasuk pada rentang nilai tersebut.
+\item Nilai atribut \textit{Sex} termasuk nilai kategorikal, sehingga akan diubah menjadi nilai yang lebih umum. Contohnya nilai \textit{Male/Female} diubah menjadi \textit{Person} (bentuk umum).
+\end{itemize}
 		
-		Jika \textit{random projection matrix} yang digunakan dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi memiliki kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
-		
-		Menurut \textit{Johnson-Lindenstrauss Lemma}, reduksi dimensi pada matriks berdimensi tinggi minimal berdimensi \(k\), yang mana \(k\) didefinisikan sebagai berikut.
-		\begin{equation}
-			k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}
-		\end{equation}
-		Sebuah matriks yang akan diproyeksikan ke dimensi yang lebih kecil akan memiliki nilai \textit{error} pada jarak Euclidean yang dimiliki oleh titik-titik (setiap elemen dari matriks) pada bidang Euclidean tersebut. Nilai \textit{error} tersebut ditentukan oleh variabel \(\epsilon\), yang mana \(\epsilon\) menjadi ukuran seberapa baik proyeksi dilakukan. Semakin kecil nilai \(\epsilon\) maka semakin besar \(k\), yang mana \(k\) adalah dimensi minimal matriks yang dihasilkan. Semakin titik-titik pada bidang Euclidean diproyeksikan ke dimensi lebih kecil, semakin besar kerusakan yang timbul pada jarak Euclidean titik-titik tersebut.
-		
-		Persamaan berikut menyatakan rentang error yang terjadi pada \textit{Random Projection Perturbation} dengan \(\epsilon\) (eps) yang ditentukan berada pada rentang (0, 1). 
-		\begin{equation}
-			(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
-		\end{equation}
-		Pada hasil proyeksi, jarak Euclidean antara suatu titik dengan suatu titik lainnya dapat dipastikan berada pada rentang tersebut dan tidak akan melebihi \textit{error} yang ditentukan.		
+\textbf{Studi Kasus Penerapan Anonimisasi}
 
-		\item \textbf{Melakukan analisis terhadap \textit{privacy preserving data mining} dan metode randomisasi}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Privasi yang perlu dijaga antara lain mengenai identitas seseorang atau hal yang dapat dikaitkan terhadap identitas seseorang. Pada data yang digunakan untuk penambangan data sangat banyak sekali data privasi tersebut sehingga perlu adanya cara untuk menjaga privasi tersebut. Metode randomisasi dapat digunakan untuk menghilangkan privasi pada data tetapi masih dapat dilakukan penambangan data. Metode yang dipilih untuk diimplementasikan adalah teknik \textit{Random Rotation Perturbation} dan  \textit{Random Projection Perturbation}. Tetapi ada kekurangan pada kedua teknik tersebut. kekurangan tersebut adalah nilai setiap fitur yang ada pada data harus bersifat numerik dan kedua teknik tersebut hanya menjaga jarak Euclidean sehingga hanya teknik penambangan data yang bergantung pada jarak Euclidean saja yang dapat digunakan.
+Pada bagian sebelumnya, telah dijelaskan konsep anonimisasi. Anonimisasi bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. 
+\begin{table}[H]
+\centering
+\caption{Tabel Hasil Clustering}
+\begin{tabular}{c c c c c c c c}
+\hline 
+ID & Age & Workclass & Education & ZIP & Sex & Hours/week & Cluster Name\\ 
+\hline 
+t3 & 32 & Private & HS-grad & 77516 & Male & 30 & Cluster 1 \\ 
+t4 & 32 & Private & 11th & 77541 & Female & 30 & Cluster 1 \\ 
+\hline 
+t2 & 34 & Self-emp-not-inc & Bachelors & 77526 & Male & 34 & Cluster 2 \\ 
+t5 & 50 & Private & Bachelors & 77526 & Male & 37	& Cluster 2\\ 
+\hline 
+t1 & 47 & Local-gov & Bachelors & 77581 & Male & 54 & Cluster 3\\ 
+t6 & 50 & Federal-gov & HS-grad & 77532 & Male & 57 & Cluster 3\\ 
+\hline 
+\end{tabular} 
+\label{table:clustering}
+\end{table}
+\vspace{0.4cm}
 
-		\item \textbf{Melakukan analisis terhadap teknik \textit{Random Rotation Perturbation}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Algoritma \textit{Random Rotation Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
-		\begin{enumerate}
-			\item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
-			\item Buatlah matriks translasi acak yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0, 100] berdimensi \((d+1)\times(d+1)\)
-			\item Untuk keperluan transformasi translasi, matriks dataset perlu ditambahkan sebuah kolom dengan nilai 1 pada seluruh barisnya.
-			\item Lakukan transformasi translasi dengan cara mengkalikan matriks dataset dengan matriks translasi yang telah dibuat pada langkah kedua
-			\item Oleh karena keperluan transformasi translasi, hasil translasi akan berupa matriks berdimensi \(n\times(d+1)\) dengan kolom terakhir berisi nilai 1 pada setiap barisnya. Oleh karena itu, kolom tersebut perlu dibuang agar dimensi matriks dataset kembali sesuai aslinya
-			\item Buatlah \textit{random rotation matrix} dengan membuat matriks \textit{orthogonal} acak. Matriks \textit{orthogonal} memiliki sifat yaitu determinannya sebesar 1 dan hasil perkalian matriks tersebut dengan transposenya adalah matriks identitas
-			\item Lakukan transformasi rotasi dengan cara mengkalikan matriks dataset dengan random rotation matrix yang telah dibuat pada langkah keenam
-			\item Hasil matriks yang telah dirotasi sudah dapat langsung digunakan untuk penambangan data
-		\end{enumerate}
+\noindent Diketahui bentuk generalisasi berdasarkan \textit{Domain Generalization Hierarchy} sebagai berikut:
+\begin{align*}
+Age &= \{[20-30], [40-50]\}\\
+ZIP &= \{775**\}\\
+Sex &= \{Person\}\\
+Hours/week &=\{[12-18], [33-37], [53-61]\}
+\end{align*} 
 
-		\item \textbf{Melakukan analisis terhadap teknik \textit{Random Projection Perturbation}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Algoritma \textit{Random Projection Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
-		\begin{enumerate}
-			\item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
-			\item Tentukan nilai \(\epsilon\) (epsilon) yang diinginkan dan berada pada rentang (0, 1)
-			\item Hitung nilai \(k\) (dimensi minimal) dengan rumus berikut \(k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\)
-			\item Tentukan nilai \(k\) yang diinginkan atau tentukan secara acak dengan persyaratan pada langkah ketiga terpenuhi dan \(k\) harus lebih kecil dari \(d\)
-			\item Buatlah matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\)
-			\item Lakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah kelima
-			\item Hasil matriks yang telah diproyeksi sudah dapat langsung digunakan untuk penambangan data
-		\end{enumerate}
+\noindent Berikut adalah tahapan yang terjadi pada proses anonimisasi:
+\begin{enumerate}
 
-		\item \textbf{Melakukan studi kasus terhadap teknik \textit{Random Rotation Perturbation}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Rotation Perturbation}, studi kasus dilakukan pada dataset \textit{iris}, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai hanya sebagian kecil saja dari seluruh data pada dataset \textit{iris}. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. Dataset \textit{iris} adalah dataset yang berisi data tentang korelasi antara ukuran bunga dengan spesiesnya. Dataset ini memiliki empat buah fitur dan satu buah label. Fitur-fitur pada dataset \textit{iris} adalah kolom \textit{sepal\textunderscore length}, \textit{sepal\textunderscore width}, \textit{petal\textunderscore length}, dan \textit{petal\textunderscore width}. Label pada dataset \textit{iris} adalah kolom \textit{species}
+\item Diketahui \textit{quasi-identifier} sebagai berikut QI = \{\textit{Age, ZIP, Sex, Hours/week}\} dan \textit{sensitive attribute} sebagai berikut SA = \{\textit{Workclass, Education}\}
 
-		\begin{table}
-			\centering
-			\caption{Tabel dataset \textit{iris} yang digunakan sebagai contoh kasus}
-			\begin{tabular}{lllll}
-				\hline
-				\multicolumn{1}{c}{\textbf{sepal\textunderscore length}} & \multicolumn{1}{c}{\textbf{sepal\textunderscore width}} & \multicolumn{1}{c}{\textbf{petal\textunderscore length}} & \multicolumn{1}{c}{\textbf{petal\textunderscore width}} & \multicolumn{1}{c}{\textbf{species}} \\ \hline
-				5.1                            & 3.5                                 & 1.4                                       & 0.2                                 & setosa \\
-				4.9                            & 3                                   & 1.4                                       & 0.2                                 & setosa \\
-				4.7                            & 3.2                                 & 1.3                                       & 0.2                                 & setosa \\
-				4.6                            & 3.1                                 & 1.5                                       & 0.2                                 & setosa \\
-				5                              & 3.6                                 & 1.4                                       & 0.2                                 & setosa \\
-				5.4                            & 3.9                                 & 1.7                                       & 0.4                                 & setosa \\
-				4.6                            & 3.4                                 & 1.4                                       & 0.3                                 & setosa \\
-				5                              & 3.4                                 & 1.5                                       & 0.2                                 & setosa \\
-				4.4                            & 2.9                                 & 1.4                                       & 0.2                                 & setosa \\
-			\end{tabular}
-			\label{table:iris_table}
-		\end{table}
+\item Mencari nilai \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Sebagai contoh, \textit{cluster 2} memiliki nilai \textit{quasi-identifier} yang unik sebagai berikut QI = \{\textit{Age, Hours/week}\}
 
-		Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diaplikasikan pada dataset \textit{iris} pada Tabel~\ref{table:iris_table}.
-		\begin{enumerate}
-			\item Fitur-fitur pada dataset tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
-			\[
-				\begin{bmatrix}
-				5.1		&		3.5		&		1.4		&		0.2	\\
-				4.9		&		3		&		1.4		&		0.2	\\
-				4.7		&		3.2		&		1.3		&		0.2	\\
-				4.6		&		3.1		&		1.5		&		0.2	\\
-				5		&		3.6		&		1.4		&		0.2	\\
-				5.4		&		3.9		&		1.7		&		0.4	\\
-				4.6		&		3.4		&		1.4		&		0.3	\\
-				5		&		3.4		&		1.5		&		0.2	\\
-				4.4		&		2.9		&		1.4		&		0.2 
-				\end{bmatrix}_{9\times 4}
-			\]
-			\item Membuat matriks translasi yang diambil mengikuti distribusi uniform dengan rentang [0,100] dengan dimensi sesuai dimensi matriks dataset
-			\[
-				\begin{bmatrix}
-					1				&		0				&		0				&		0			&		0 \\
-					0				&		1				&		0				&		0			&		0 \\
-					0				&		0				&		1				&		0			&		0 \\
-					0				&		0				&		0				&		1 			&		0 \\
-					71.35281261		&		93.96479736		&		77.16763568		&		27.88189356 &		1 \\
-				\end{bmatrix}_{5\times 5}
-			\]
-			\item Untuk keperluan translasi, matriks dataset ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya
-			\[
-				\begin{bmatrix}
-					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
-					4.9		&		3		&		1.4		&		0.2		&		1 \\
-					4.7		&		3.2		&		1.3		&		0.2		&		1 \\
-					4.6		&		3.1		&		1.5		&		0.2		&		1 \\
-					5		&		3.6		&		1.4		&		0.2		&		1 \\
-					5.4		&		3.9		&		1.7		&		0.4		&		1 \\
-					4.6		&		3.4		&		1.4		&		0.3		&		1 \\
-					5		&		3.4		&		1.5		&		0.2		&		1 \\
-					4.4		&		2.9		&		1.4		&		0.2		&		1
-				\end{bmatrix}_{9\times 5}
-			\]
-			\item Dilakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks translasi
-			\[
-				\begin{bmatrix}
-					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
-					4.9		&		3		&		1.4		&		0.2		&		1 \\
-					4.7		&		3.2		&		1.3		&		0.2		&		1 \\
-					4.6		&		3.1		&		1.5		&		0.2		&		1 \\
-					5		&		3.6		&		1.4		&		0.2		&		1 \\
-					5.4		&		3.9		&		1.7		&		0.4		&		1 \\
-					4.6		&		3.4		&		1.4		&		0.3		&		1 \\
-					5		&		3.4		&		1.5		&		0.2		&		1 \\
-					4.4		&		2.9		&		1.4		&		0.2		&		1
-				\end{bmatrix} 
-				\times
-				\begin{bmatrix}
-					1				&		0				&		0				&		0				&		0 \\
-					0				&		1				&		0				&		0				&		0 \\
-					0				&		0				&		1				&		0				&		0 \\
-					0				&		0				&		0				&		1				&		0 \\
-					71.35281261		&		93.96479736		&		77.16763568		&		27.88189356		&		1 \\
-				\end{bmatrix} 
-			\]
-			\item Berikut adalah hasil translasi pada matriks dataset
-			\[
-				\begin{bmatrix}
-					76.45281261  & 97.46479736 &  78.56763568 &  28.08189356 & 1 \\
-					76.25281261  & 96.96479736 &  78.56763568 &  28.08189356 & 1 \\
-					76.05281261  & 97.16479736 &  78.46763568 &  28.08189356 & 1 \\
-					75.95281261  & 97.06479736 &  78.66763568 &  28.08189356 & 1 \\
-					76.35281261  & 97.56479736 &  78.56763568 &  28.08189356 & 1 \\
-					76.75281261  & 97.86479736 &  78.86763568 &  28.28189356 & 1 \\
-					75.95281261  & 97.36479736 &  78.56763568 &  28.18189356 & 1 \\
-					76.35281261  & 97.36479736 &  78.66763568 &  28.08189356 & 1 \\
-					75.75281261  & 96.86479736 &  78.56763568 &  28.08189356 & 1 \\
-				\end{bmatrix}_{9\times 5}
-			\]
-			\item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial orthogonal yang berdimensi sesuai dimensi matriks dataset. Matriks rotasi berikut dibuat dengan \textit{library} Scipy pada bahasa pemograman Python
-			\[
-				\begin{bmatrix}
-					-0.45126938		&		-0.70425922		&		 0.32389616		&		0.44211556 \\
-					-0.43989334		&		 0.70728617		&		 0.39249528		&		0.39011226 \\
-					-0.17797534		&		 0.06110969		&		-0.83056872		&		0.52416218 \\
-					 0.75576092		&		 0.00555185		&		 0.22626167		&		0.61449187 \\
-				\end{bmatrix}_{4\times 4}
-			\]
-			\item Dilakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks rotasi
-			\item Berikut adalah hasil rotasi pada matriks dataset. Hasil teknik \textit{Random Rotation Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
-			\[
-				\begin{bmatrix}
-				-70.13483265  &  20.05005561  &   4.11528068  & 130.26146931 \\
-				-69.8246321   &  19.83726437  &   3.85425381 &  129.97799007 \\
-				-69.80455936  &  20.11346248  &   3.95103051 &  129.91517319 \\
-				-69.75103816  &  20.12538172  &   3.71327762 &  129.93678284 \\
-				-70.13369505  &  20.19121015  &   4.12214059 &  130.25626898 \\
-				-70.34841122  &  20.14113559  &   4.16552936  & 130.83029591 \\
-				-69.78963253 &   20.33201179  &   3.93670924 &  130.06284949 \\
-				-70.06351391 &   20.05586388   &  3.96058467 &  130.23066274 \\
-				-69.55500808  &  20.11866536  &   3.65305621  & 129.71792106 \\
-				\end{bmatrix}_{9\times 4}
-			\]
-		\end{enumerate} 
+\item Melakukan generalisasi DGH pada nilai \textit{quasi-identifier} yang unik menjadi bentuk generalisasi. Sebagai contoh, QI = \{\textit{Age, Hours/week}\} memiliki nilai yang unik, sehingga diubah menjadi \textit{Age} = \{[40-50]\}, \textit{Hours/week} = \{[33-37]\}
 
-		\item \textbf{Melakukan studi kasus terhadap teknik \textit{Random Projection Perturbation}}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Projection Perturbation}, studi kasus dilakukan pada dataset \textit{iris}. Teknik \textit{Random Projection Perturbation} memiliki persyaratan pada dataset agar teknik ini menghasilkan hasil yang baik yaitu dataset tersebut harus memiliki dimensi yang cukup besar. Sebetulnya dataset \textit{iris} tersebut tidak memenuhi persyaratan untuk mendapatkan hasil yang baik, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai adalah dataset \textit{iris} yang memiliki dimensi yang kecil dan hanya sebagian kecil saja data yang dipakai. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. Dalam menghitung nilai \(k\) juga, pada studi kasus ini menggunakan jumlah rekord dan atribut yang tidak sesuai dengan dataset \textit{iris} untuk keperluan kemudahan dalam melakukan studi kasus dan juga agar memenuhi persyaratan teknik \textit{Random Projection Perturbation}. Jumlah rekordnya adalah 1000 dan jumlah atributnya adalah 500.
+\item \textit{Sensitive attribute} tidak akan dilakukan generalisasi, karena \textit{quasi-identifier} sudah dilakukan generalisasi sehingga seseorang akan sulit untuk menebak kepemilikan dari \textit{sensitive attribute}.
 
-		Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diaplikasikan pada dataset \textit{iris} pada Tabel~\ref{table:iris_table}.
-		\begin{enumerate}
-			\item Fitur-fitur pada dataset tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
-			\[
-				\begin{bmatrix}
-				5.1		&		3.5		&		1.4		&		0.2	\\
-				4.9		&		3		&		1.4		&		0.2	\\
-				4.7		&		3.2		&		1.3		&		0.2	\\
-				4.6		&		3.1		&		1.5		&		0.2	\\
-				5		&		3.6		&		1.4		&		0.2	\\
-				5.4		&		3.9		&		1.7		&		0.4	\\
-				4.6		&		3.4		&		1.4		&		0.3	\\
-				5		&		3.4		&		1.5		&		0.2	\\
-				4.4		&		2.9		&		1.4		&		0.2 
-				\end{bmatrix}_{9\times 4}
-			\]
-			\item Ditentukan nilai \(\epsilon\) (epsilon) yang diinginkan adalah 0.5
-			\item Nilai \(k\) (dimensi minimal) dihitung dengan rumus berikut
-			\begin{align*}
-				k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
-				&= \frac{4\ln{1000}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
-				&= \frac{27.63}{0.125-0.041666} \\
-				&= 331.57
-			\end{align*}
-			\item Nilai \(k\) dipilih sesuai keinginan, dalam kasus ini dipilih nilai \(k\) sebesar 332
-			\item Membuat matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\). Untuk keperluan kemudahan dalam melakukan studi kasus, dataset \textit{iris} akan direduksi dimensinya menjadi 3 dimensi
-			\[
-				\begin{bmatrix}
-				0.11483014 &  -0.10167359  &  0.06652355 \\
-				0.0638684 &   -0.1499892   &  0.10146435 \\
-				-0.10429573 &   0.03839861 &   0.04955419 \\
-				-0.0315941  &  -0.06905021  & -0.17782438 \\
-				\end{bmatrix}_{4\times 3}
-			\]
-			\item Dilakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya
-			\[
-				\begin{bmatrix}
-				5.1		&		3.5		&		1.4		&		0.2	\\
-				4.9		&		3		&		1.4		&		0.2	\\
-				4.7		&		3.2		&		1.3		&		0.2	\\
-				4.6		&		3.1		&		1.5		&		0.2	\\
-				5		&		3.6		&		1.4		&		0.2	\\
-				5.4		&		3.9		&		1.7		&		0.4	\\
-				4.6		&		3.4		&		1.4		&		0.3	\\
-				5		&		3.4		&		1.5		&		0.2	\\
-				4.4		&		2.9		&		1.4		&		0.2 
-				\end{bmatrix}
-				\times
-				\begin{bmatrix}
-				0.11483014 &  -0.10167359  &  0.06652355 \\
-				0.0638684 &   -0.1499892   &  0.10146435 \\
-				-0.10429573 &   0.03839861 &   0.04955419 \\
-				-0.0315941  &  -0.06905021  & -0.17782438 \\
-				\end{bmatrix}
-			\]
-			\item Berikut adalah hasil matriks yang telah diproyeksi. Hasil dari teknik \textit{Random Projection Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
-			\[
-				\begin{bmatrix}
-				0.65684027 &  -1.0035495   &  0.72820632 \\
-				0.60194004 &  -0.90822018  &  0.66416944 \\
-				0.60217727  & -0.92172316  &  0.66620218 \\
-				0.56344827 &  -0.88887716  &  0.65931422 \\
-				0.6517441   & -1.00838106  &  0.7317004  \\
-				0.67922914  & -1.09633771  &  0.76805051 \\
-				0.58987895  & -0.9446188   &  0.66701567 \\
-				0.62854085  & -0.97454336  &  0.71636295 \\
-				0.53813813  & -0.84238446  &  0.62076123 \\
-				\end{bmatrix}_{9\times 3}
-			\]
-		\end{enumerate}
+\item Ulangi hal yang sama pada langkah sebelumnya untuk setiap \textit{cluster}. Hasil akhir dari proses anonimisasi ada pada Tabel \ref{table:anonimisasi} sebagai berikut: 
+\begin{table}[H]
+\centering
+\caption{Tabel Hasil Anonimisasi}
+\begin{tabular}{c c c c c c c c}
+\hline 
+ID & Age & Workclass & Education & ZIP & Sex & Hours/week & Cluster Name\\ 
+\hline 
+t3 & 32 & Private & HS-grad & 775** & Person & 30 & Cluster 1 \\ 
+t4 & 32 & Private & 11th & 775** & Person & 30 & Cluster 1 \\ 
+\hline 
+t2 & [40-50] & Self-emp-not-inc & Bachelors & 77526 & Male & [33-37] & Cluster 2 \\ 
+t5 & [40-50] & Private & Bachelors & 77526 & Male & [33-37]	& Cluster 2\\ 
+\hline 
+t1 & [40-50] & Local-gov & Bachelors & 775** & Male & [53-61] & Cluster 3\\ 
+t6 & [40-50] & Federal-gov & HS-grad & 775** & Male & [53-61] & Cluster 3\\ 
+\hline 
+\end{tabular} 
+\label{table:anonimisasi}
+\end{table}
 
-		\item \textbf{Melakukan analisis dan merancang diagram aktivitas perangkat lunak randomisasi}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifikasi data dengan metode randomisasi. Perangkat lunak ini akan memiliki fungsi untuk mengubah nilai setiap data yang dimasukan agar privasinya terjaga tetapi masih dapat dilakukan penambangan data. Algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} akan diimplementasikan pada perangkat lunak ini untuk fungsi utama yaitu mengubah nilai pada setiap data. Dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua teknik tersebut, perangkat lunak akan memiliki berbagai pilihan dan parameter yang pengguna harus masukan dan juga ada beberapa persyaratan atau batasan agar perangkat lunak ini berjalan dengan semestinya. Diagram aktivitas untuk perangkat lunak randomisasi dapat dilihat pada Gambar~\ref{fig:activitydiagram}. Detail dari diagram aktivitas tersebut adalah sebagai berikut.
-		\begin{enumerate}
-			\item Pengguna memberikan masukan berupa dataset yang berupa dokumen berjenis \textit{comma-separated values} (CSV). dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam dokumen tersebut
-			\item Perangkat lunak akan membersihkan dokumen yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
-			\item Pengguna memilih teknik randomisasi yang ingin digunakan antara \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Jika \textit{Random Projection Perturbation} yang dipiilih maka akan ada beberapa langkah yang harus dipenuhi yaitu sebagai berikut.
-			\begin{enumerate}
-				\item Pengguna memberi masukan nilai Epsilon yang diinginkan
-				\item Perangkat lunak memeriksa persyaratan yang harus dipenuhi oleh matriks dataset dengan menghitung menggunakan algoritma tertentu. Pengecekan ini adalah pengecekan jumlah kolom pada matriks dataset apakah cukup untuk matriks tersebut direduksi dimensinya. Jika persyaratan terpenuhi maka langkah selanjutnya adalah perangkat lunak mengaplikasikan teknik yang dipilih
-				\item Jika persyaratan tidak terpenuhi maka pengguna harus memilih untuk mengganti datasetnya atau mengganti nilai Epsilon
-			\end{enumerate}
-			\item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks
-			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah dokumen CSV yang berisi dataset yang sudah diaplikasikan teknik randomisasi
-			\item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
-		\end{enumerate}
-
-
-		\item \textbf{Melakukan analisis dan merancang diagram kelas perangkat lunak randomisasi}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Perancangan diagram kelas didasarkan pada analisis terhadap algoritma yang ingin diimplementasikan yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}, serta berdasarkan pada diagram aktivitas yang telah dibuat, dan dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua algoritma randomisasi yang ingin diimplementasikan. Detail dari diagram kelas perangkat lunak randomisasi pada Gambar~\ref{fig:classdiagram} adalah sebagai berikut.
+\end{enumerate}
 		
 
-		\item \textbf{Menulis dokumen skripsi}\\
+\item \textbf{Membuat diagram kelas perangkat lunak anonimisasi}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Penulisan dokumen skripsi telah dilakukan sampai hasilnya sekarang sudah ada bab 1 yang berisi pendahuluan, bab 2 yang berisi dasar teori, dan bab 3 yang berisi analisis masalah. Tetapi masih belum 100\% selesai, perlu adanya proses finalisasi.
+		{\bf Hasil :} Diagram kelas bertujuan untuk menggambarkan keterhubungan antar kelas. Pada penelitian ini digambarkan diagram kelas untuk perangkat lunak anonimisasi data. Karena perangkat lunak analisis data hanya memiliki satu kelas saja, maka keterhubungan antar kelas tidak perlu digambarkan dalam diagram kelas. Gambar \ref{fig:diagram_kelas} menggambarkan keterhubungan antar kelas pada perangkat lunak anonimisasi data. Berikut adalah penjelasan lengkap mengenai deskripsi kelas dan method pada perangkat lunak anonimisasi data:
 		
-	\end{enumerate}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{diagram_kelas}
+	\caption{Diagram Kelas Anonimisasi Data}
+	\label{fig:diagram_kelas}
+\end{figure}
+
+\begin{itemize}
+\item Kelas \textit{Anonymizer} bertujuan untuk melakukan proses anonimisasi setelah data dikelompokan menjadi beberapa \textit{cluster}. Kelas \textit{Anonymizer} memiliki 2 jenis variabel, yaitu:
+
+\begin{itemize}
+
+\item \textit{GKMC} adalah objek dari kelas \textit{GreedyKMemberClustering} yang berisi tabel hasil pengelompokan data berdasarkan algoritma \textit{Greedy k-member clustering}.
+
+\item \textit{DGH} adalah array 1 dimensi dari objek \textit{Tree} yang berisi hasil anonimisasi untuk nilai quasi-identifier yang unik agar menjadi nilai yang lebih umum.
+
+\item \textit{anonymizeTable} adalah array 2 dimensi dari kelas Object untuk menyimpan tabel hasil anonimisasi data.
+
+\end{itemize}
+
+\noindent Kelas \textit{Anonymizer} memiliki 2 jenis method, yaitu:
+
+\begin{itemize}
+
+\item \textit{setAnonymizeTable()} bertujuan untuk melakukan proses anonimisasi pada masing-masing baris data yang tergabung dalam sebuah \textit{cluster}, berdasarkan perbedaan nilai dari beberapa \textit{quasi-identifier}.
+
+\item \textit{getAnonymizeTable()} bertujuan untuk mengambil nilai pada atribut \textit{anonymizeTable}.
+
+\end{itemize}
+
+\item Kelas \textit{GreedyKMemberClustering} bertujuan untuk melakukan pengelompokan data menjadi beberapa \textit{cluster} berdasarkan sifat/nilai atribut yang dimiliki oleh masing-masing baris data. Kelas \textit{GreedyKMemberClustering} memiliki 5 jenis variabel, yaitu:
+
+\begin{itemize}
+
+\item \textit{k} adalah variabel bertipe \textit{Integer} untuk membatasi jumlah anggota pada sebuah \textit{cluster} agar memiliki jumlah yang tetap sebanyak jumlah tertentu.
+
+\item \textit{inputData} adalah variabel untuk menyimpan seluruh baris data \textit{file} CSV.
+
+\item \textit{quasiIdentifier} adalah daftar dari nama-nama kolom yang akan dipilih untuk membuat tabel baru yang digunakan pada proses anonimisasi data
+
+\item \textit{originalTable} adalah tabel yang menyimpan seluruh baris data pada file CSV berdasarkan jenis kolom yang terpilih pada variabel \textit{quasiIdentifier}.
+
+\item \textit{clusteringTable} adalah tabel yang menyimpan hasil pengelompokan baris data dari algoritma \textit{Greedy k-member clustering}.
+
+\end{itemize}
+
+\noindent Kelas \textit{GreedyKMemberClustering} memiliki 4 jenis method, yaitu:
+
+\begin{itemize}
+\item \textit{findBestRecord()} bertujuan mencari sebuah baris data yang memiliki nilai \textit{information loss} yang paling minimal dengan baris data lainnya. 
+
+\item \textit{findBestCluster()} bertujuan mencari sebuah \textit{cluster} data yang memiliki nilai \textit{information loss} yang paling minimal dengan \textit{cluster} lainnya.
+
+\item \textit{setClusteringTable()} bertujuan mengelompokkan data berdasarkan algoritma \textit{Greedy k-member clustering} dan hasilnya disimpan pada variabel \textit{clusteringTable}.
+
+\item \textit{setOriginalTable()} bertujuan mengubah hasil pembacaan data input CSV menjadi tabel baru dan hasilnya disimpan pada variabel \textit{originalTable}.
+
+\end{itemize}
+
+\item Kelas \textit{Tree} bertujuan untuk membuat pohon generalisasi berdasarkan jenis atribut \textit{quasi-identifier} yang dipilih.
+
+\item Kelas \textit{Node} bertujuan untuk menyimpan seluruh nilai \textit{quasi-identifier} yang unik untuk masing-masing baris data.
+
+\item Kelas \textit{Main} bertujuan untuk membuat tahapan anonimisasi dari awal sampai akhir dengan memanfaatkan pemanggilan \textit{method} dari masing-masing objek kelas.
+
+\end{itemize}
+		
+		\item \textbf{Membuat diagram aktivitas perangkat lunak anonimisasi dan analisis}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Penelitian ini memiliki dua jenis diagram aktivitas,  yaitu diagram aktivitas untuk perangkat lunak anonimisasi data dan diagram aktivitas untuk perangkat lunak analisis data. Tujuan dari membuat dua jenis perangkat lunak antara lain untuk memisahkan perangkat lunak berdasarkan tujuan fungsionalitas yang berbeda. 
+
+\textbf{Perangkat Lunak Anonimisasi Data}
+
+Perangkat lunak anonimisasi adalah perangkat lunak yang digunakan untuk menyamarkan nilai data menggunakan metode anonimisasi. Perangkat lunak ini akan memiliki fungsi untuk menyamarkan beberapa nilai data agar sebuah data tidak dapat dibedakan dengan $k-1$ data lainnya berdasarkan konsep \textit{k-anonymity}. Algoritma \textit{Greedy k-member clustering} akan diimplementasikan pada Spark dengan fungsi utama yaitu menyamarkan nilai atribut data pada kelompok data yang sejenis. Berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan proses anonimisasi data:
+
+\begin{enumerate}
+
+\item Pengguna memberi masukan dalam format file CSV dan beberapa jenis atribut \textit{quasi-identifier} untuk menjadi tabel input pada proses anonimisasi.
+
+\item Perangkat lunak menampilkan sebagian baris data dari tabel input karena baris data yang akan digunakan pada eksperimen akan berjumlah sangat banyak .
+
+\item Pengguna akan meninjau ulang apakah jumlah kolom yang ditampilkan sudah sesuai dengan jumlah atribut \textit{quasi-identifier} yang akan dipakai.
+
+\item Penggunakan memberikan parameter tambahan seperti rentang nilai k untuk menentukan jumlah anggota \textit{cluster} dan objek DGH untuk proses anonimisasi.
+
+\item Perangkat lunak akan melakukan proses anonimisasi dengan bantuan Spark pada tabel input berdasarkan paramater tambahan yang diberikan sebelumnya. 
+
+\item Perangkat lunak mengembalikan seluruh isi \textit{log} yang dihasilkan selama proses eksekusi Spark berlangsung kepada pengguna untuk deteksi \textit{error}.
+
+\item Perangkat lunak hanya menampilkan baris data yang berubah akibat proses anonimisasi pada GUI dan hasil keseluruhannya dalam format \textit{file} CSV.
+
+\item Perangkat lunak mengembalikan nilai \textit{information loss} pada masing-masing \textit{cluster} yang terbentuk agar pengguna dapat mencari hasil yang optimal.
+
+\item Pengguna dapat membandingkan hasil anonimisasi antara baris data yang berubah akibat proses anonimisasi dengan baris data yang ada pada tabel asli.
+
+\item Pengguna dapat mengulangi eksperimen untuk mencari nilai k terbaik agar dihasilkan \textit{information loss} seminimal mungkin pada proses anonimisasi.
+
+
+ 
+\end{enumerate}
+
+\textbf{Perangkat Lunak Analisis Data}
+
+Perangkat lunak analisis data adalah perangkat lunak yang digunakan untuk melakukan pengujian \textit{data mining} untuk pemodelan klasifikasi dan \textit{clustering}. Perangkat lunak ini akan memiliki fungsi untuk mencari label kelas berdasarkan pemodelan klasifikasi dan mengelompokan data berdasarkan pemodelan \textit{clustering}. Pemodelan \textit{naive bayes} dan \textit{k-means} akan diimplementasikan pada Spark dengan fungsi utama yaitu memprediksi kelompok data. Berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan pemodelan \textit{data mining}:
+
+\begin{enumerate}
+
+\item Pengguna memberi dua jenis masukan yaitu data asli dan data hasil anonimisasi dalam format \textit{file} CSV untuk menjadi tabel input pada proses analisis data.
+
+\item Perangkat lunak hanya menampilkan sebagian baris data dari dua jenis tabel input karena input baris data pada eksperimen berjumlah sangat banyak 
+
+\item Pengguna meninjau kembali apakah jumlah kolom yang ditampilkan pada kedua jenis tabel memiliki jumlah kolom atribut yang sama.
+
+\item Pengguna memilih jenis pemodelan data mining yang tersedia pada eksperimen, yaitu klasifikasi dengan \textit{Naive Bayes} atau pengelompokan/\textit{clustering} dengan \textit{k-means}. 
+
+\item Pengguna mengisi parameter pada pemodelan yang dipilih. Contoh pada \textit{k-means} adalah nilai k dan satu jenis atribut. Sedangkan pada \textit{Naive Bayes} adalah persentase \textit{training, testing} data dan satu jenis atribut.
+
+\item Perangkat lunak akan melakukan proses pelatihan data pada Spark untuk menemukan klasifikasi/pengelompokan yang sesuai berdasarkan jenis pemodelan yang dipilih.
+
+\item Perangkat lunak mengembalikan seluruh isi \textit{log} yang dihasilkan selama proses eksekusi Spark berlangsung kepada pengguna untuk deteksi \textit{error}.
+
+\item Perangkat lunak menampilkan sebagian hasil prediksi \textit{cluster} untuk masing-masing data dan menyimpan hasil keseluruhannya dalam format \textit{file} CSV.
+
+\item Pengguna melakukan analisis lebih lanjut terkait pengelompokan dan klasifikasi kelompok data yang terbentuk dari proses pemodelan \textit{data mining}.
+
+\end{enumerate}
+
+\item \textbf{Menulis dokumen skripsi}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Penulisan dokumen skripsi sampai saat ini masih dalam tahap pengerjaan. Penyusunan bab yang telah dibuat pada skripsi ini tersusun dari bab 1 yang berisi pendahuluan, bab 2 yang berisi dasar teori, dan bab 3 yang berisi analisis masalah. Seluruh pengerjaan dari bab 1 sampai dengan bab 3 telah selesai dikerjakan dengan baik. 
+
+\newpage
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{pl_anonimisasi}
+	\caption{Diagram Aktifitas Anonimisasi Data}
+	\label{fig:pl_anonimisasi}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{pl_analisis}
+	\caption{Diagram Aktifitas Analisis Data}
+	\label{fig:pl_analisis}
+\end{figure}
+		
+		
+		
+\end{enumerate}
 
 \section{Pencapaian Rencana Kerja}
 Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Mempelajari dasar-dasar privasi data
-	\item Mempelajari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk \textit{privacy preserving data mining}
-	\item Mempelajari teknik penambangan data yang akan digunakan
-	\item Melakukan analisis terhadap teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
-	\item Menulis dokumen skripsi bab 1, 2, dan 3
+\item Mempelajari teknik-teknik dasar {\it data mining}.
+\item Mempelajari algoritma {\it Greedy K-member clustering}.
+\item Mempelajari konsep Hadoop, Spark, dan Spark MLlib. 
+\item Melakukan instalasi dan konfigurasi Spark pada {\it cluster} Hadoop.
+\item Mempelajari bahasa pemrograman Scala pada {\it framework} Spark.
+\item Melakukan studi dan eksplorasi teknik-teknik dasar {\it data mining} pada Spark MLlib.
+\item Mencari dan mengumpulkan data studi kasus.
+\item Menulis dokumen skripsi.
 \end{enumerate}
 
 
@@ -565,11 +1865,9 @@ Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah seba
 %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
 Kendala - kendala yang dihadapi selama mengerjakan skripsi :
 \begin{itemize}
-	\item Kesibukan lain yang menghabiskan banyak waktu seperti kuliah, kerja praktek, tugas-tugas mata kuliah lain, masalah pribadi dan hal-hal lainnya
-	\item Kesulitan dalam melakukan studi literatur dengan membaca paper yang berbahasa Inggris dan penuh dengan rumus matematika
-	\item Kesulitan dalam memahami konsep matematika yang ada pada teknik-teknik yang digunakan
-	\item Kesulitan dalam mengetahui apa saja yang perlu ada di dokumen skripsi dan apa saja analisis yang harus dilakukan
-	\item Kesulitan dalam menjaga mental untuk tetap semangat mengerjakan skripsi di kala masa-masa sulit
+	\item Spark tidak dapat menangani data input XML.
+	\item Skripsi ditempuh bersamaan dengan matakuliah lain.
+	\item Pandemi COVID-19 di Indonesia mengganggu fokus pengerjaan skripsi.
 \end{itemize}
 
 \vspace{1cm}
