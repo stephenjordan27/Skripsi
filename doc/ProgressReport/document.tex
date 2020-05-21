@@ -18,6 +18,7 @@
 \usepackage[skins]{tcolorbox}
 \usepackage{listings}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
+\usepackage{changepage}
 % \pagestyle{empty}
 
 \makeatletter
@@ -313,7 +314,7 @@ P(Yes|today) = \frac{3}{5} \cdot \frac{2}{5} \cdot \frac{1}{5} \cdot \frac{2}{5}
 \end{figure}
 
 \begin{equation}
-P(Yes|today) = \frac{2}{9} \cdot \frac{2}{9} \cdot \frac{6}{9} \cdot \frac{6}{9} \cdot \frac{9}{14} = 0.0068
+P(No|today) = \frac{2}{9} \cdot \frac{2}{9} \cdot \frac{6}{9} \cdot \frac{6}{9} \cdot \frac{9}{14} = 0.0068
 \end{equation}
 
 \item Melakukan normalisasi terhadap probabilitas besyarat.\\
@@ -325,7 +326,7 @@ P(Yes|today) = \frac{0.0141}{0.0141 + 0.0068} = 0.67
 \end{equation}
 
 \begin{equation}
-P(Yes|today) = \frac{0.0068}{0.0141 + 0.0068} = 0.33
+P(No|today) = \frac{0.0068}{0.0141 + 0.0068} = 0.33
 \end{equation}
 
 Sehingga memiliki probabilitas total seperti berikut:
@@ -431,11 +432,11 @@ Melalui pengamatan Aggarwal et al, permasalahan \textit{k-member clustering} dap
 \end{proof}
 
 \begin{theorem}
-N adalah total data dan k adalah parameter untuk anonimisasi. Setiap \textit{cluster} yang ditemukan oleh algoritma \textit{Greedy k-member clustering} memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k - 1$.
+N adalah total data dan k adalah parameter untuk anonimisasi. Setiap \textit{cluster} yang ditemukan oleh algoritma \textit{Greedy k-member clustering} memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k-1$.
 \end{theorem}
 
 \begin{proof}
-S adalah himpunan data. Algoritma ini menemukan \textit{cluster} selama jumlah data yang tersisa sama dengan atau lebih besar dari k, setiap \textit{cluster} berisi k data. Jika total data pada S kurang dari k, maka sisa data akan dikelompokan pada  \textit{cluster} yang sudah ada. Oleh karena itu, ukuran maksimum sebuah \textit{cluster} adalah $2k - 1$.
+S adalah himpunan data. Algoritma ini menemukan \textit{cluster} selama jumlah data yang tersisa sama dengan atau lebih besar dari k, setiap \textit{cluster} berisi k data. Jika total data pada S kurang dari k, maka sisa data akan dikelompokan pada  \textit{cluster} yang sudah ada. Oleh karena itu, ukuran maksimum sebuah \textit{cluster} adalah $2k-1$.
 \end{proof}
 
 \begin{theorem}
@@ -631,22 +632,19 @@ Algoritma \ref{alg:3} menerima input himpunan data S dan nilai k. Algoritma ini 
 
 \textit{Distance} adalah salah satu perhitungan untuk menyatakan akurasi terhadap utilitas sebuah data. \textit{Distance} merupakan faktor yang paling penting untuk menentukan hasil pengelompokan data. Pemilihan \textit{distance} yang baik dapat mencapai hasil klasifikasi dengan lebih optimal. Perhitungan \textit{distance} dilakukan berdasarkan pengelompokan tipe data numerik atau kategorikal. Karena masalah \textit{k-anonymity} menggunakan atribut numerik dan kategorikal, maka membutuhkan cara khusus untuk mengitung \textit{distance} dari kedua jenis data pada saat yang sama. 
 
-\textit{Distance} Data Numerik
-\textit{Distance} data numerik direpresentasikan sebagai nilai rentang. Beberapa atribut pada \textit{distance} numerik yaitu |D| adalah jumlah data pada sebuah domain berdasarkan satu atribut numerik, $v_1$, $v_2$ adalah nilai atribut numerik. \textit{Distance} data numerik dihitung menggunakan rumus berikut:
+\textit{Distance} data numerik direpresentasikan sebagai nilai rentang. Beberapa atribut pada \textit{distance} numerik yaitu $|D|$ adalah jumlah data pada sebuah domain berdasarkan satu atribut numerik, $v_1$, $v_2$ adalah nilai atribut numerik. \textit{Distance} data numerik dihitung menggunakan rumus berikut:
 
 \begin{equation}
 \delta_n(v_1,v_2) = \frac{|v_1 - v_2|}{|D|} 
 \end{equation}
 
-\textit{Distance} Data Kategorikal
-\textit{Distance} data kategorikal direpresentasikan sebagai \textit{taxonomy tree}. Beberapa atribut pada distance kategorikal yaitu |D| adalah jumlah data pada domain kategorikal, TD adalah \textit{taxonomy tree} untuk domain D,  $H(\Lambda(v_i,v_j))$ adalah jarak dari satu \textit{subtree} ke \textit{subtree} lain, $H(T_D)$ adalah tinggi dari \textit{taxonomy tree}. \textit{Distance} data kategorikal dihitung menggunakan rumus berikut:
+\textit{Distance} data kategorikal direpresentasikan sebagai \textit{taxonomy tree}. Beberapa atribut pada distance kategorikal yaitu $|D|$ adalah jumlah data pada domain kategorikal, $TD$ adalah \textit{taxonomy tree} untuk domain $D$,  $H(\Lambda(v_i,v_j))$ adalah jarak dari satu \textit{subtree} ke \textit{subtree} lain, $H(T_D)$ adalah tinggi dari \textit{taxonomy tree}. \textit{Distance} data kategorikal dihitung menggunakan rumus berikut:
 
 \begin{equation}
 \delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
 \end{equation}
 
-\textit{Distance} Antar Record
-Beberapa atribut pada \textit{distance record} yaitu $r_1[N_i]$, $r_2[N_i]$ adalah nilai dari atribut numerik, $r_1[C_j]$, $r_2[C_j]$ adalah nilai dari atribut kategorikal, $\delta_N$ adalah \textit{distance} data numerik, $\delta_C$ adalah \textit{distance} data kategorikal. \textit{Distance} record dihitung menggunakan rumus berikut:
+\textit{Distance} antar \textit{record} adalah gabungan dari \textit{distance} numerik dan kategorikal. Beberapa atribut \textit{distance} antar \textit{record} yaitu $r_1[N_i]$, $r_2[N_i]$ adalah nilai dari atribut numerik, $r_1[C_j]$, $r_2[C_j]$ adalah nilai dari atribut kategorikal, $\delta_N$ adalah \textit{distance} data numerik, $\delta_C$ adalah \textit{distance} data kategorikal. \textit{Distance} record dihitung menggunakan rumus berikut:
 \begin{align}
 \Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
 \end{align}
@@ -672,7 +670,7 @@ Total-IL(AT) = \sum_{e \in \varepsilon}^{}  IL(e)
 		
 		\item \textbf{Melakukan studi literatur mengenai konsep Hadoop, Spark, dan Spark MLlib}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Hadoop adalah \textit{framework} yang memanfaatkan beberapa komputer untuk menyelesaikan masalah yang melibatkan volume data sangat besar. Pada Gambar \ref{fig:hadoop_intro}, Hadoop memecah input dari pengguna menjadi beberapa blok data dan masing-masing blok data diproses menggunakan konsep \textit{MapReduce} di mana data akan diproses secara paralel pada sistem terdistribusi. Hadoop adalah \textit{framework} yang dibangun dengan bahasa Java. Hadoop bekerja dari satu komputer utama ke ribuan komputer dengan melakukan perhitungan dan penyimpanan lokal pada setiap komputer. 
+		{\bf Hasil :} Hadoop adalah \textit{framework} yang memanfaatkan beberapa komputer untuk menyelesaikan masalah yang melibatkan volume data sangat besar. Pada Gambar \ref{fig:hadoop_intro}, Hadoop memecah input dari pengguna menjadi beberapa blok data dan masing-masing blok data diproses menggunakan konsep \textit{MapReduce} di mana data akan diproses secara paralel pada sistem terdistribusi. 
 
 \begin{figure}[H]
 	\centering
@@ -1236,7 +1234,6 @@ Scala memiliki jenis implementasi percabangan yang sama dengan Java. Percabangan
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:percabangan, caption=Membuat Fungsi Percabangan pada Scala]
-
 # If-Else statement
 if(numberOfPeople > 10) { 
   println(s"Number of donuts to buy = ${numberOfPeople * donutsPerPerson}")
@@ -1248,7 +1245,6 @@ else if (numberOfPeople == 0) {
 else {
   println(s"Number of donuts to buy = $defaultDonutsToBuy")
 }
-	
 \end{lstlisting}
 
 \textbf{Membuat Fungsi Perulangan pada Scala}
@@ -1257,7 +1253,6 @@ Scala memiliki jenis implementasi perulangan yang sama dengan Java. Perulangan d
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:perulangan, caption=Membuat Fungsi Perulangan pada Scala]
-	
 # For loop
 for(numberOfDonuts <- 1 to 5){
   println(s"Number of donuts to buy = $numberOfDonuts")
@@ -1275,13 +1270,13 @@ do {
   println(s"Number of donuts baked = $numberOfDonutsBaked")
 } 
 while (numberOfDonutsBaked < 5)
-
 \end{lstlisting}
 		
 		\item \textbf{Melakukan studi dan eksplorasi teknik-teknik dasar data mining pada Spark MLlib.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Pada bagian sebelumnya telah dijelaskan mengenai konsep dan contoh pemodelan pada Spark MLlib. Pada penelitian ini akan digunakan pemodelan \textit{Naive Bayes} untuk permasalahan klasifikasi dan \textit{k-means} untuk permasalahan clustering.
 
+\newpage
 \textbf{Naive Bayes}
 
 \noindent Berikut adalah tahapan eksperimen pada Listing \ref{lst:naivebayes_mllib} untuk pemodelan \textit{Naive Bayes}:
@@ -1323,7 +1318,7 @@ val accuracy = evaluator.evaluate(predictions)
 
 \end{lstlisting}
 
-
+\newpage
 \textbf{K-Means}
 
 \noindent Berikut adalah tahapan eksperimen pada Listing \ref{lst:kmeans_mllib} untuk pemodelan \textit{k-means}:
@@ -1337,18 +1332,17 @@ val accuracy = evaluator.evaluate(predictions)
 \end{enumerate}	
 
 
-\par Hasil dari pemodelan \textit{k-means} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{k-means}, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok \textit{cluster} yang sama. Pada Gambar \ref{fig:mllib_kmeans}, diketahui bahwa sebuah data yang bernilai (\textit{age} = 39) memiliki kelompok \textit{cluster} yang sama (\textit{prediction} = 5) dengan data lain yang bernilai (\textit{age} = 38).
+\par Hasil dari pemodelan \textit{k-means} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya hasil pemodelan \textit{k-means}, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok \textit{cluster} yang sama. Pada Gambar \ref{fig:mllib_kmeans}, data yang bernilai (\textit{age} = 39) memiliki kelompok \textit{cluster} yang sama (\textit{prediction} = 5) dengan data lain yang bernilai (\textit{age} = 38).
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{mllib_kmeans}
+	\includegraphics[scale=0.65]{mllib_kmeans}
 	\caption{Hasil K-Means Spark MLlib}
 	\label{fig:mllib_kmeans}
 \end{figure}
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kmeans_mllib, caption=Eksperimen K-Means Spark MLlib]
-	
 // KMeans with 8 clusters
 val kmeans = new KMeans()
       .setK(8)
@@ -1361,19 +1355,20 @@ kmeansModel.clusterCenters.foreach(println)
 // Predict model
 val predictDf = kmeansModel.transform(result_df)
 predictDf.show(10)
-
 \end{lstlisting}
 		
 		\item \textbf{Mencari dan mengumpulkan data studi kasus}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Dataset yang dipakai adalah \textit{Adult}. Dataset ini diperoleh dari website Kaggle. Dataset ini disimpan dalam format CSV. Format CSV memisahkan nilai atribut data melalui simbol koma. Dataset \textit{Adult} dipilih, karena pernah digunakan sebelumnya untuk eksperimen algoritma \textit{k-anonymity}. Dataset ini berisi sampel sensus penduduk di Amerika Serikat pada tahun 1990. Penelitian ini melibatkan 10 juta baris data dengan ukuran data sebesar 1.2 GB. 
 
+\begin{adjustwidth}{2.2cm}{0cm}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.47]{dataset1}
+	\includegraphics[scale=0.48]{dataset1}
 	\caption{Dataset Adults}
 	\label{fig:dataset1}
 \end{figure}
+\end{adjustwidth}
 
 \noindent Berikut adalah kemungkinan nilai untuk masing-masing jenis atribut dalam dataset:
 
@@ -1450,7 +1445,7 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{dist
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{TD}
+	\includegraphics[scale=0.43]{TD}
 	\caption{Taxonomy Tree (Workclass)}
 	\label{fig:TD}
 \end{figure}
@@ -1463,6 +1458,7 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{dist
 \begin{table}[H]
 \centering
 \caption{Tabel Hasil Clustering Data pada Cluster 1}
+\begin{adjustwidth}{1.7cm}{0cm}
 \begin{tabular}{c c c c c c c c}
 \hline 
 Age & Workclass & Education & Occupation & Sex & Income & Cluster Name \\ 
@@ -1474,6 +1470,7 @@ Age & Workclass & Education & Occupation & Sex & Income & Cluster Name \\
 28 & Private & Bachelors & Prof-specialty & Female & <=50K & Cluster 1 \\ 
 \hline 
 \end{tabular} 
+\end{adjustwidth}
 \label{table:informationloss}
 \end{table}
 
@@ -1672,6 +1669,7 @@ Hours/week &=\{[12-18], [33-37], [53-61]\}
 \begin{table}[H]
 \centering
 \caption{Tabel Hasil Anonimisasi}
+\begin{adjustwidth}{1.7cm}{0cm}
 \begin{tabular}{c c c c c c c c}
 \hline 
 ID & Age & Workclass & Education & ZIP & Sex & Hours/week & Cluster Name\\ 
@@ -1686,6 +1684,7 @@ t1 & [40-50] & Local-gov & Bachelors & 775** & Male & [53-61] & Cluster 3\\
 t6 & [40-50] & Federal-gov & HS-grad & 775** & Male & [53-61] & Cluster 3\\ 
 \hline 
 \end{tabular} 
+\end{adjustwidth}
 \label{table:anonimisasi}
 \end{table}
 
@@ -1799,7 +1798,7 @@ Perangkat lunak anonimisasi adalah perangkat lunak yang digunakan untuk menyamar
 
 \textbf{Perangkat Lunak Analisis Data}
 
-Perangkat lunak analisis data adalah perangkat lunak yang digunakan untuk melakukan pengujian \textit{data mining} untuk pemodelan klasifikasi dan \textit{clustering}. Perangkat lunak ini akan memiliki fungsi untuk mencari label kelas berdasarkan pemodelan klasifikasi dan mengelompokan data berdasarkan pemodelan \textit{clustering}. Pemodelan \textit{naive bayes} dan \textit{k-means} akan diimplementasikan pada Spark dengan fungsi utama yaitu memprediksi kelompok data. Berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan pemodelan \textit{data mining}:
+Perangkat lunak analisis data adalah perangkat lunak yang digunakan untuk melakukan pengujian \textit{data mining} pada pemodelan klasifikasi dan \textit{clustering}. Perangkat lunak ini akan memiliki fungsi untuk mencari label kelas berdasarkan pemodelan klasifikasi dan mengelompokan data berdasarkan pemodelan \textit{clustering}. Pemodelan \textit{naive bayes} dan \textit{k-means} akan diimplementasikan pada Spark dengan fungsi utama yaitu memprediksi kelompok data. Berikut adalah tahapan yang terjadi pada perangkat lunak saat melakukan pemodelan \textit{data mining}:
 
 \begin{enumerate}
 

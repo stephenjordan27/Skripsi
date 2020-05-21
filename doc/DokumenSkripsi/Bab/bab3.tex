@@ -67,8 +67,6 @@ Pada bagian \ref{theory:dist,il,cf}, telah dijelaskan konsep mengenai penggunaan
 \end{enumerate}
 
 \noindent \textit{Distance} atribut numerik dapat dihitung sebagai berikut berdasarkan umur data pertama ($v_1$)= 39, umur data kedua ($v_2$)= 50, dan jumlah data ($D$)= 10.000.000 data.
-
-
 \begin{align*}
 \delta_n(v_1,v_2) &= \frac{|v_1 - v_2|}{|D|}
 = \frac{|39 - 50|}{10.000.000}\vspace{0.2cm}
@@ -77,7 +75,6 @@ Pada bagian \ref{theory:dist,il,cf}, telah dijelaskan konsep mengenai penggunaan
 \end{align*}
 
 \noindent \textit{Distance} atribut kategorikal dapat dihitung sebagai berikut berdasarkan \textit{workclass} data pertama ($v_1$)= \textit{State-gov, workclass} data kedua ($v_2$)= \textit{Self-emp-not-inc}, jumlah subtree ($H(\Lambda(v_i,v_j))$)= 1, dan tinggi taxonomy tree ($H(T_D)$)= 1  seperti pada Gambar \ref{fig:TD}.
-
 \begin{align*}
 \delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
 = \frac{1}{1}
@@ -86,13 +83,13 @@ Pada bagian \ref{theory:dist,il,cf}, telah dijelaskan konsep mengenai penggunaan
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{TD}
+	\includegraphics[scale=0.4]{TD}
 	\caption{Taxonomy Tree (Workclass)}
 	\label{fig:TD}
 \end{figure}
 
 \subsubsection{Information Loss}
-\textit{Information Loss} (IL) bertujuan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. \textit{Information Loss} (IL) juga dipakai untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Jika diberikan tabel data yang sudah dikelompokkan berdasarkan \textit{cluster}, maka nilai \textit{Information Loss} (IL) dapat dihitung. Tabel  \ref{table:informationloss} adalah contoh hasil pengelompokan data pada \textit{cluster 1} untuk dataset \textit{Adult}:
+\textit{Information Loss} (IL) bertujuan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap nilai informasi sebuah data. Tabel  \ref{table:informationloss} adalah contoh hasil pengelompokan data pada dataset \textit{Adult}:
 
 \begin{table}[H]
 \centering
@@ -111,8 +108,7 @@ Age & Workclass & Education & Occupation & Sex & Income & Cluster Name \\
 \label{table:informationloss}
 \end{table}
 
-\noindent \textit{Information Loss} (IL) dapat dihitung sebagai berikut berdasarkan atribut numerik yaitu jumlah anggota \textit{cluster} ($e$)= 5, $MAX_{Age}$= 53, $MIN_{Age}$= 28, $N_Age$= 5 mencakup atribut \textit{Age} dan atribut kategorikal yaitu $H(\Lambda(\cup_{C_j}))$= 1, $H(T_{C_j})$= 1 mencakup atribut \textit{Workclass, Education, Occupation, Sex, dan Income}.
-
+\noindent \textit{Information Loss} (IL) dapat dihitung sebagai berikut berdasarkan atribut numerik yaitu jumlah anggota \textit{cluster} ($e$)= 5, $MAX_{Age}$= 53, $MIN_{Age}$= 28, $N_Age$= 5 mencakup atribut \textit{Age} dan atribut kategorikal yaitu $H(\Lambda(\cup_{C_j}))$= 1, $H(T_{C_j})$= 1.
 \begin{align*}
 D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}\\
 &= \frac{(53 - 28)}{5} + \frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1} = 10\\\\
@@ -121,7 +117,6 @@ IL(e) &= |e| \cdot D(e)\\
 \end{align*}
 
 \noindent Total \textit{Information Loss} dihitung dari jumlah \textit{Information Loss} masing-masing \textit{cluster}.
-
 \begin{align*}
 Total-IL(AT) &= \sum_{e \in \varepsilon}^{}  IL(e)\\
 &= IL(cluster1)+IL(cluster2)+\ldots+IL(clusterN)
@@ -129,9 +124,12 @@ Total-IL(AT) &= \sum_{e \in \varepsilon}^{}  IL(e)\\
 
 \subsection{Greedy K-Member Clustering}
 Algoritma \textit{Greedy k-member clustering} telah dijelaskan pada bagian \ref{sec:greedyclustering}. Algoritma ini bertujuan untuk membagi seluruh data pada tabel terhadap masing-masing \textit{cluster} untuk kompleksitas yang lebih baik dan mendukung nilai utilitas informasi yang lebih baik dibandingkan algoritma \textit{clustering} lain. Pada bagian ini, akan dilakukan eksperimen sederhana untuk mencari tahu langkah kerja algoritma \textit{Greedy k-member clustering} secara konseptual.
+
+\par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma ini siap ditelusuri lebih lanjut.
+
 \begin{table}[H]
 \centering
-\caption{Tabel Dataset Adults}
+\caption{Dataset Adults}
 \begin{tabular}{c c c c c c c c}
 \hline 
 ID & Age & Workclass & Education & Occupation & Sex & Income\\ 
@@ -150,14 +148,10 @@ t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\
 \label{table:adults}
 \end{table}
 
-\par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma \textit{Greedy k-member clustering} siap ditelusuri lebih lanjut.\\
-
 \noindent Berikut adalah tahapan yang terjadi pada algoritma \textit{Greedy k-member clustering}:
 
 \begin{enumerate}
-\item Nilai awal result = $\emptyset$
-\item Nilai awal r = \{t1\}
-\item Nilai awal |S| = 5, k = 2
+\item Nilai awal result = $\emptyset$, $r = \{t1\}$, $|S|$ = 5, $k = 2$
 \item Karena kondisi $|S| \geq k$ terpenuhi, maka dilakukan perulangan sebagai berikut:
 \begin{enumerate}
 \item Nilai r diubah menjadi r = \{t3\}, karena terbukti data t3 memiliki $\Delta(t1,t3)=1.7189$ yang paling tinggi dari seluruh \textit{distance} lain. Berikut adalah contoh perhitungannya:
@@ -236,7 +230,7 @@ Pada bagian \ref{theory:hierarchy_generalization}, telah dijelaskan konsep menge
 \item Sex = \{Male,Female\}
 \end{itemize}
 
-\noindent Untuk atribut ZIP, akan dibangun tiga jenis domain sebagai berikut:
+\noindent Nilai atribut ZIP, akan dibangun tiga jenis domain sebagai berikut:
 
 \begin{itemize}
 \item Domain dengan nilai kurang spesifik\\
@@ -248,18 +242,29 @@ Domain ini dipilih apabila tujuannya adalah mengutamakan perlindungan data. Bias
 
 \end{itemize}
 
-\noindent Untuk atribut \textit{Age} dan \textit{Sex} akan dibangun berdasarkan ketentuan berikut: 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{DGH1}
+	\caption{DGH dan VGH pada atribut ZIP}
+	\label{fig:DGH1}
+\end{figure}
+
+\noindent Nilai atribut \textit{Age} akan dibangun berdasarkan ketentuan berikut: 
+
 \begin{itemize}
 \item Nilai atribut \textit{Age} akan diubah menjadi rentang nilai. Contohnya nilai 33  diubah menjadi [30-39], karena 33 termasuk pada rentang nilai tersebut.
+\end{itemize}
+
+\noindent Nilai atribut \textit{Age} dan \textit{Sex} akan dibangun berdasarkan ketentuan berikut: 
+
+\begin{itemize}
 \item Nilai atribut \textit{Sex} termasuk nilai kategorikal, sehingga akan diubah menjadi nilai yang lebih umum. Contohnya nilai \textit{Male/Female} diubah menjadi \textit{Person} (bentuk umum).
 \end{itemize}
 
 
-
-
-
-\subsection{Anonimisasi}
-Pada bagian \ref{sec:anonimisasi}, dijelaskan konsep anonimisasi. Anonimisasi bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. 
+\newpage
+\subsection{K-Anonymity}
+Pada bagian \ref{sec:anonimisasi}, dijelaskan konsep anonimisasi. \textit{K-anonymity} bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. 
 \begin{table}[H]
 \centering
 \caption{Tabel Hasil Clustering}
@@ -289,7 +294,8 @@ Sex &= \{Person\}\\
 Hours/week &=\{[12-18], [33-37], [53-61]\}
 \end{align*} 
 
-\noindent Berikut adalah tahapan yang terjadi pada proses anonimisasi:
+\vspace{0.2cm}
+\noindent Berikut adalah tahapan proses anonimisasi dengan model \textit{k-anonymity}:
 \begin{enumerate}
 
 \item Diketahui \textit{quasi-identifier} sebagai berikut QI = \{\textit{Age, ZIP, Sex, Hours/week}\} dan \textit{sensitive attribute} sebagai berikut SA = \{\textit{Workclass, Education}\}
@@ -349,17 +355,17 @@ Spark berjalan pada sistem operasi Windows, Linux, dan Mac OS. Spark dapat dijal
 \noindent Berikut adalah beberapa hal yang harus diperhatikan:
 
 \begin{itemize}
-\item Java 7, Python 2.6 telah dihilangkan pada implementasi Spark 2.2.0
-\item Scala 2.10 sudah tidak dapat dipakai, Scala 2.11 sudah terlalu usang untuk dipakai pada Spark 2.4.1 dan akan dihilangkan pada Spark 3.0
-\item Hadoop 2.6.5 telah dihilangkan pada implementasi Spark 2.2.0 
+\item Java 7, Python 2.6 telah dihilangkan pada implementasi Spark 2.2.0 ke atas.
+\item Scala 2.10 sudah usang apabila dipakai pada Spark 2.4.1 ke atas.
+\item Hadoop 2.6.5 telah dihilangkan pada implementasi Spark 2.2.0 ke atas.
 \end{itemize}
 
 \noindent Berikut adalah beberapa hal yang harus dipenuhi:
 
 \begin{itemize}
-\item Spark 2.4.5 berjalan di Java 8, Python 2.7+/3.4+ dan R 3.1+ 
-\item Spark 2.4.5 menggunakan Scala 2.12
-\item Spark 2.4.5 menggunakan Hadoop 2.7
+\item Spark 2.4.5 dapat berjalan di Java 8, Python 2.7+/3.4+ dan R 3.1+ 
+\item Spark 2.4.5 dapat menggunakan Scala 2.12
+\item Spark 2.4.5 dapat menggunakan Hadoop 2.7
 \end{itemize}
 
 \noindent Berikut adalah tahapan instalasi Spark 2.4.5 secara umum:
@@ -408,7 +414,7 @@ Spark berjalan pada sistem operasi Windows, Linux, dan Mac OS. Spark dapat dijal
 
 \begin{enumerate}
 
-\item Pilih menu Command Prompt.
+\item Pilih menu \textit{command prompt}.
 
 \item Jalankan perintah java -version pada Command Prompt.
 
@@ -457,7 +463,7 @@ Berikut adalah tahapan instalasi Spark 2.4.5 secara lengkap:
 
 \noindent Berikut adalah tahapan verifikasi terhadap instalasi Spark 2.4.5:
 \begin{enumerate}
-\item Jalankan perintah \path{spark-shell} pada Command Prompt.
+\item Jalankan perintah \path{spark-shell} pada \textit{command prompt}.
 
 \item Apabila terminal menampilkan tampilan seperti pada Gambar \ref{fig:spark_instal_7}, artinya Spark 2.4.5 sudah dapat berjalan dengan baik pada komputer tersebut.
 
@@ -580,7 +586,7 @@ object Main {
 \subsection{Membuat File JAR pada Command Prompt}
 Sebelum menjalankan program Spark pada Hadoop Cluster, program Spark yang sudah jadi harus dibuat menjadi file JAR terlebih dahulu. Hal ini disebabkan karena perintah Spark hanya menerima input berupa kode program dalam format (.jar).\\
 
-\noindent Berikut adalah tahapan untuk membuat JAR:
+\noindent Berikut adalah tahapan untuk membuat File JAR:
 \begin{enumerate}
 \item Membuka folder pengerjaan \textit{project} Spark \path{\IdeaProjects\NamaProject}
 \item Membuka command prompt pada folder \textit{project}.
@@ -589,14 +595,15 @@ Sebelum menjalankan program Spark pada Hadoop Cluster, program Spark yang sudah 
 \item File JAR yang telah dibuat akan tersimpan pada \path{NamaProject\target\scala-2.11} 
 \end{enumerate}
 
-\subsection{Menjalankan Program Spark pada Command Prompt}
-Apabila ukuran data input eksperimen kecil, maka program Spark dapat dijalankan pada komputer lokal menggunakan perintah dari Command Prompt. \\
+\subsection{Menjalankan Program Spark pada Komputer Lokal}
+Apabila ukuran data input eksperimen kecil, maka program Spark dapat dijalankan pada komputer lokal menggunakan perintah dari Command Prompt. Waktu komputasi pada komputer lokal akan jauh lebih lama dibandingkan dijalankan pada server Hadoop Cluster. \\
 
-\noindent Berikut adalah tahapan menjalankan program Spark pada Command Prompt:
+\noindent Berikut adalah tahapan menjalankan program Spark pada komputer lokal:
 \begin{enumerate}
-\item Membuka command prompt pada komputer lokal.
+\item Membuka \textit{command prompt} pada komputer lokal.
 \item Menjalankan perintah eksekusi Spark sebagai berikut \textsf{spark-submit --class NamaMainClass --master local[*] \path{lokasi_jar\nama_jar.jar}} pada command prompt
 \item Menunggu proses eksekusi file JAR oleh komputer lokal, apabila terminal tidak menampilkan pesan error maka program Spark berhasil dijalankan dengan baik.
+\item Output yang dihasilkan oleh program Spark akan ditampilkan pada terminal \textit{command prompt}.
 \end{enumerate}
 
 \subsection{Menjalankan Program Spark pada Hadoop Cluster}
@@ -604,7 +611,7 @@ Karena ukuran data input eksperimen terbilang besar yaitu mencapai 1GB, maka aka
 
 \noindent Berikut adalah tahapan menjalankan program Spark pada Hadoop cluster:
 \begin{enumerate}
-\item Membuka command prompt pada komputer lokal.
+\item Membuka \textit{command prompt} pada komputer lokal.
 \item Menyambungkan jaringan komputer lokal dengan server Hadoop cluster menggunakan perintah \textsf{ssh hduser@10.100.69.101} pada command prompt.
 \item Melakukan \textit{upload file} JAR dari komputer lokal ke folder Hadoop cluster menggunakan perintah \textsf{scp \path{nama_jar.jar} hduser
 $@$10.100.69.101:\path{nama_folder}} pada command prompt.
