@@ -129,76 +129,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 \item \textit{Interpretation/evaluation}: proses interpretasi hasil pengolahan data menjadi sebuah grafik yang dapat dimengerti.
 \end{enumerate}
 
-
-\noindent Berikut adalah beberapa jenis tipe data terkait teknik data mining:
-
-\begin{itemize}
-
-\item \textit{Binary}: tipe data alphabet/numerik yang hanya memiliki 2 kemungkinan nilai.\\
-Contoh: diadakan survei evaluasi beberapa produk pakaian untuk mengetahui produk yang diminati dan tidak diminati. Penilaian produk dapat diwakilkan nilai True atau False. True atau False termasuk jenis binary.
-
-\item \textit{Nominal}: tipe data alphabet/numerik yang memiliki lebih dari 2 kemungkinan nilai.\\
-Contoh: seseorang memilih beberapa bahan dari warna yang berbeda. Warna yang mungkin adalah kuning, hijau, hitam, merah. Warna termasuk jenis nominal.
-
-\end{itemize}
-
-\noindent Tujuan dari penggunaan teknik \textit{data mining} adalah sebagai berikut:
-
-\begin{itemize}
-
-\item Prediksi: proses menggunakan nilai dari beberapa atribut yang sudah ada untuk memprediksi nilai atribut di masa yang akan datang. Contoh: klasifikasi.
-
-\item Deskripsi: proses menemukan pola yang dapat merepresentasikan kelompok dari sebuah data. Contoh: pengelompokan/\textit{clustering}.
-
-\end{itemize}
-
-
-
 \textbf{Klasifikasi}
 			
 Klasifikasi adalah proses menemukan model (atau fungsi) yang cocok untuk mendeskripsikan dan membedakan sebuah kelas data dengan kelas data lain. Dalam pembelajaran mesin, klasifikasi sering dianggap sebagai contoh dari metode pembelajaran yang diawasi, yaitu menyimpulkan fungsi dari data pelatihan berlabel.\\
-
-\noindent Berikut adalah tahapan klasifikasi secara umum:
-\begin{enumerate}
-
-\item
-Pelatihan: proses konstruksi model klasifikasi menggunakan algoritma tertentu. Algoritma digunakan untuk membuat model belajar menggunakan set pelatihan data yang tersedia. Model dilatih untuk menghasilkan prediksi yang akurat.
-
-\item
-Klasifikasi: model yang digunakan untuk memprediksi label kelas dan menguji model yang dibangun pada data uji dan karenanya memperkirakan akurasi aturan klasifikasi.
-\end{enumerate}
-\vspace{0.3cm}
-\noindent Berikut adalah kategori pemodelan klasifikasi:
-\begin{itemize}
-
-\item 
-\textit{Discriminative}: pemodelan paling mendasar untuk menentukan satu kelas untuk setiap baris data. Pemodelan ini bergantung pada data yang diamati dan sangat bergantung pada kualitas data daripada distribusi data.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.6]{klasifikasi1}
-	\caption{Contoh Logistic Regression}
-	\label{fig:klasifikasi1}
-\end{figure}
-
-Contoh: \textit{Logistic Regression}\\
-Gambar \ref{fig:klasifikasi1} adalah penerimaan siswa pada sebuah Universitas, untuk mempertimbangkan \textit{test score} dan \textit{grades} terhadap keputusan seorang siswa diterima/tidak diterima.
-
-\item 
-\textit{Generative}: pemodelan ini memodelkan distribusi kelas individu dan mencoba mempelajari model yang menghasilkan data dengan memperkirakan asumsi dan distribusi model. Digunakan untuk memprediksi nilai data yang belum diketahui. \\\\
-Contoh: \textit{Naive Bayes} \\
-Mendeteksi email spam dengan melihat data sebelumnya. Misalkan dari 100 email yang ada dibagi menjadi kategori Kelas A: 25\% (Email spam) dan Kelas B: 75\% (Email Non-Spam). Ingin diperiksa apakah email berisi  spam atau bukan. Pada Kelas A, 20 dari 25 email adalah spam dan sisanya bukan spam. Pada Kelas B, 70 dari 75 email bukan spam dan sisanya adalah spam. Probabilitas email yang berisi spam termasuk pemodelan \textit{naive bayes}. \\
-\end{itemize}
-
-\noindent Berikut adalah contoh pemodelan yang umum digunakan:
-\begin{itemize}
-\item \textit{Decision Trees}
-\item \textit{Naive Bayes}
-\item \textit{Neural Networks}
-\item \textit{K-Nearest Neighbour}
-\item \textit{Linear Regression}
-\end{itemize}
-
 
 
 \textbf{Naive Bayes}
@@ -219,10 +152,10 @@ MAP(H) = max(P(H|D))
 
 \noindent Keterangan:
 \begin{itemize}
-\item P(H|D) adalah probabilitas posterior apabila diberika hipotesis H dan diketahui data D. 
-\item P(D|H) adalah probabilitas posterior data D jika hipotesis h adalah benar.
-\item P(H) adalah probabilitas hipotesis h adalah benar 
-\item P(D) adalah probabilitas data.
+\item $P(H|D)$ adalah probabilitas posterior apabila diberika hipotesis H dan diketahui data D. 
+\item $P(D|H$) adalah probabilitas posterior data D jika hipotesis h adalah benar.
+\item $P(H)$ adalah probabilitas hipotesis h adalah benar 
+\item $P(D)$ adalah probabilitas data.
 \end{itemize}
 
 \vspace{0.3cm}
@@ -231,7 +164,7 @@ MAP(H) = max(P(H|D))
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.75]{naive_bayes1}
+	\includegraphics[scale=0.6]{naive_bayes1}
 	\caption{Dataset Kondisi Cuaca Bermain Golf}
 	\label{fig:naive_bayes1}
 \end{figure}
@@ -267,7 +200,7 @@ Di mana y adalah variabel kelas dan X adalah vektor fitur (dengan ukuran n), din
 X = (x_1, x_2, x_3, \ldots, x_n)
 \end{equation}
 
-Contoh: X = (Rainy, Hot, High, False), y = No
+Contoh: $X = (Rainy, Hot, High, False)$, $y = No$
 \\\\
 Diasumsikan teorema \textit{Bayes} saling independen terhadap fitur-fiturnya. Berikut adalah persamaan teorema \textit{Bayes} baru, jika memakai lebih dari satu nilai atribut:
 
@@ -346,6 +279,7 @@ P(Yes|today) > P(No|today)
 
 \end{enumerate}
 
+\newpage
 \textbf{Pengelompokan/Clustering} 
 
 \textit{Clustering} adalah salah satu teknik analisis data yang paling umum digunakan untuk mendapatkan kemiripan antar data. \textit{Clustering} dapat didefinisikan sebagai sebuah tugas untuk mengidentifikasi subkelompok dalam data sedemikian rupa sehingga titik data dalam subkelompok/\textit{cluster} yang sama sangat mirip sedangkan titik data dalam kelompok berbeda sangat berbeda. Contoh pemodelan \textit{clustering} adalah \textit{K-Means}.
@@ -368,11 +302,10 @@ EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
 	\label{fig:kmeans_1}
 \end{figure}
 
-\newpage
 \noindent Secara singkat, langkah kerja algoritma \textit{k-means} dapat dijelaskan sebagai berikut:
 \begin{enumerate}
 
-\item Gambar \ref{fig:kmeans_2} adalah hasil pengelompokan awal untuk k = 2. Untuk menentukan titik centroid awal, akan dicari nilai A dan B terjauh dengan data lainnya menggunakan Euclidean distance.
+\item Gambar \ref{fig:kmeans_2} adalah hasil pengelompokan awal untuk $k = 2$. Untuk menentukan titik \textit{centroid} awal, akan dicari nilai A dan B terjauh dengan data lainnya menggunakan \textit{Euclidean distance}.
 
 \begin{figure}[H]
 	\centering
@@ -381,7 +314,7 @@ EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
 	\label{fig:kmeans_2}
 \end{figure}
 
-\item Data yang tersisa akan diperiksa secara berurutan dan dialokasikan pada cluster yang paling dekat dengan \textit{centroid} awal menggunakan \textit{Euclidean distance}. Gambar \ref{fig:kmeans_3} menunjukan vektor rata-rata (centroid) akan dihitung ulang setiap kali anggota baru ditambahkan.
+\item Data yang tersisa akan diperiksa secara berurutan dan dialokasikan pada \textit{cluster} yang paling dekat dengan \textit{centroid} awal menggunakan \textit{Euclidean distance}. Gambar \ref{fig:kmeans_3} menunjukan vektor rata-rata (\textit{centroid}) akan dihitung ulang setiap kali anggota baru ditambahkan.
 
 \begin{figure}[H]
 	\centering
@@ -408,7 +341,7 @@ EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
 	\label{fig:kmeans_5}
 \end{figure}
 
-\item Dapat disimpulkan bahwa, hanya individu 3 yang jaraknya lebih dekat dengan \textit{centroid Cluster 2} dari pada \textit{centroid Cluster 1}. Dengan kata lain, distance masing-masing individu ke centroid kelompoknya sendiri harus lebih kecil daripada rata-rata kelompok lain. Dengan demikian, individu 3 harus dialokasikan ke \textit{Cluster 2}. Gambar \ref{fig:kmeans_6} adalah hasil pengelompokan akhir yang dihasilkan oleh pemodelan \textit{k-means}.
+\item Dapat disimpulkan bahwa, hanya individu 3 yang jaraknya lebih dekat dengan \textit{centroid Cluster 2} dari pada \textit{centroid Cluster 1}. Dengan kata lain, distance masing-masing individu ke \textit{centroid} kelompoknya sendiri harus lebih kecil daripada rata-rata kelompok lain. Dengan demikian, individu 3 harus dialokasikan ke \textit{Cluster 2}. Gambar \ref{fig:kmeans_6} adalah hasil pengelompokan akhir yang dihasilkan oleh pemodelan \textit{k-means}.
 
 \begin{figure}[H]
 	\centering
@@ -419,9 +352,10 @@ EuclidDist(p_i,C_i) = \sqrt[]{(p_1-C_1)^2+(p_2-C_2)^2+\ldots +(p_n-C_n)^2}
 
 \end{enumerate}
 		
+\newpage
 		\item \textbf{Melakukan studi literatur mengenai algoritma Greedy k-member clustering}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Penelitian menunjukkan bahwa sebagian besar metode \textit{k-anonymity} didasarkan pada generalisasi dan teknik penekanan sehingga menderita dari kehilangan informasi yang signifikan. Masalah pengelompokan dapat meminimalkan kehilangan informasi melalui algoritma \textit{k-member clustering}. Akan tetapi algoritma \textit{k-member clustering} berpotensi memiliki kompleksitas yang eksponensial. Untuk menurunkan kompleksitas tersebut, maka permasalahan algoritma \textit{k-member clustering} dapat didefinisikan sebagai permasalahan algoritma \textit{Greedy}. Algoritma \textit{Greedy k-Member clustering} bertujuan untuk membagi seluruh tuple pada dataset ke masing-masing \textit{cluster} dengan kompleksitas yang lebih baik dan mendukung informasi yang lebih banyak dibandingkan algoritma \textit{clustering} yang lain.
+		{\bf Hasil :} Penelitian menunjukkan bahwa sebagian besar metode \textit{k-anonymity} didasarkan pada generalisasi dan teknik penekanan sehingga menderita dari kehilangan informasi yang signifikan. Masalah pengelompokan dapat meminimalkan kehilangan informasi melalui algoritma \textit{k-member clustering}. Akan tetapi algoritma \textit{k-member clustering} berpotensi memiliki kompleksitas yang eksponensial. Untuk menurunkan kompleksitas tersebut, maka permasalahan algoritma \textit{k-member clustering} dapat didefinisikan sebagai permasalahan algoritma \textit{Greedy}. Algoritma \textit{Greedy k-Member clustering} bertujuan untuk membagi seluruh data pada dataset ke masing-masing \textit{cluster} dengan kompleksitas yang lebih baik dan mendukung informasi yang lebih banyak dibandingkan algoritma \textit{clustering} yang lain.
 
 \begin{theorem}
 Masalah pengambilan keputusan pada \textit{k-member clustering} adalah \textit{NP-Hard}, artinya memiliki kompleksitas yang eksponensial.
@@ -432,15 +366,15 @@ Melalui pengamatan Aggarwal et al, permasalahan \textit{k-member clustering} dap
 \end{proof}
 
 \begin{theorem}
-N adalah total data dan k adalah parameter untuk anonimisasi. Setiap \textit{cluster} yang ditemukan oleh algoritma \textit{Greedy k-member clustering} memiliki jumlah tuple minimal sebanyak k, dan jumlah tuple tidak melebihi $2k-1$.
+$N$ adalah total data dan $k$ adalah parameter untuk anonimisasi. Setiap \textit{cluster} yang ditemukan oleh algoritma \textit{Greedy k-member clustering} memiliki jumlah tuple minimal sebanyak $k$, dan jumlah tuple tidak melebihi $2k-1$.
 \end{theorem}
 
 \begin{proof}
-S adalah himpunan data. Algoritma ini menemukan \textit{cluster} selama jumlah data yang tersisa sama dengan atau lebih besar dari k, setiap \textit{cluster} berisi k data. Jika total data pada S kurang dari k, maka sisa data akan dikelompokan pada  \textit{cluster} yang sudah ada. Oleh karena itu, ukuran maksimum sebuah \textit{cluster} adalah $2k-1$.
+$S$ adalah himpunan data. Algoritma ini menemukan \textit{cluster} selama jumlah data yang tersisa sama dengan atau lebih besar dari $k$, setiap \textit{cluster} berisi $k$ data. Jika total data pada $S$ kurang dari $k$, maka sisa data akan dikelompokan pada  \textit{cluster} yang sudah ada. Oleh karena itu, ukuran maksimum sebuah \textit{cluster} adalah $2k-1$.
 \end{proof}
 
 \begin{theorem}
-N adalah jumlah data dan k menjadi parameter anonimisasi yang ditentukan. Jika $n > k$, kompleksitas algoritma \textit{Greedy k-member clustering} adalah $O(n^2)$.
+$N$ adalah jumlah data dan $k$ menjadi parameter anonimisasi yang ditentukan. Jika $n > k$, kompleksitas algoritma \textit{Greedy k-member clustering} adalah $O(n^2)$.
 \end{theorem}
 
 \begin{proof}
@@ -450,9 +384,9 @@ Algoritma \textit{Greedy k-member clustering} menghabiskan sebagian besar waktun
 \noindent Beberapa hal penting terkait algoritma \textit{Greedy k-means clustering}:
 
 \begin{itemize}
-\item Menetapkan tabel S  
-\item Menetapkan nilai k
-\item Menetapkan jumlah cluster (m) yang ingin dibuat
+\item Menetapkan tabel $S$  
+\item Menetapkan nilai $k$
+\item Menetapkan jumlah \textit{cluster} ($m$) yang ingin dibuat
 \begin{align}
 m = \left \lfloor \frac{n}{k} \right \rfloor - 1
 \end{align}
@@ -462,12 +396,12 @@ m = \left \lfloor \frac{n}{k} \right \rfloor - 1
 \noindent Berikut adalah langkah kerja algoritma \textit{Greedy k-means clustering} secara lengkap:
 
 \begin{enumerate}
-\item Melakukan inisialisasi variabel result dengan himpunan kosong dan variabel r dengan memilih data secara acak dari tabel S
+\item Melakukan inisialisasi variabel result dengan himpunan kosong dan variabel $r$ dengan memilih data secara acak dari tabel $S$
 
 \item Pada kondisi $|S| \geq k$, lakukan perulangan sebagai berikut:
 
 \begin{enumerate}
-\item Memilih data baru pada variabel r berdasarkan perbedaaan distance tertinggi dari nilai r sebelumnya. Perbedaan distance dapat dicari menggunakan rumus berikut:
+\item Memilih data baru pada variabel $r$ berdasarkan perbedaaan distance tertinggi dari nilai $r$ sebelumnya. Perbedaan distance dapat dicari menggunakan rumus berikut:
 \begin{align*}
 \Delta (r_1,r_2) = \sum_{i=1}^{m} \delta_N(r_1[N_i],r_2	[N_i]) +  \sum_{j=1}^{n} \delta_C(r_1[C_j],r_2[C_j])
 \end{align*}
@@ -487,45 +421,45 @@ m = \left \lfloor \frac{n}{k} \right \rfloor - 1
 
 \vspace{0.4cm}
 
-\item Membuang himpunan data variabel r pada variabel S
+\item Membuang himpunan data variabel $r$ pada variabel $S$
 
-\item Mengisi data dari variabel r pada variabel c.
+\item Mengisi data dari variabel $r$ pada variabel $c$.
 
 \item Pada kondisi $|c| \geq k$, lakukan perulangan sebagai berikut:
 
 \begin{enumerate}
-\item Memilih data baru terbaik untuk variabel r berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
+\item Memilih data baru terbaik untuk variabel $r$ berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
 
 \begin{align*}
 IL(e)&= |e| \cdot D(e) \\
 D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
 \end{align*}
 
-\item Membuang himpunan data dari variabel r pada variabel S
+\item Membuang himpunan data dari variabel $r$ pada variabel $S$
 
-\item Menambahkan himpunan data dari variabel r pada variabel c.
+\item Menambahkan himpunan data dari variabel $r$ pada variabel $c$.
 
-\item Menambahkan himpunan data dari variabel c pada variabel result
-
-\end{enumerate}
+\item Menambahkan himpunan data dari variabel $c$ pada variabel $result$
 
 \end{enumerate}
 
-\item Pada kondisi $|S| \neq  0$, artinya jika masih terdapat data yang belum dimasukkan pada sebuah \textit{cluster} dari tabel S, lakukan perulangan sebagai berikut:
+\end{enumerate}
+
+\item Pada kondisi $|S| \neq  0$, artinya jika masih terdapat data yang belum dimasukkan pada sebuah \textit{cluster} dari tabel $S$, lakukan perulangan sebagai berikut:
 
 \begin{enumerate}
-\item Memilih data secara acak dari tabel S untuk disimpan pada variabel r
+\item Memilih data secara acak dari tabel $S$ untuk disimpan pada variabel $r$.
 
-\item Membuang himpunan data dari variabel r pada variabel S
+\item Membuang himpunan data dari variabel $r$ pada variabel $S$.
 
-\item Memilih \textit{cluster} terbaik untuk variabel c berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
+\item Memilih \textit{cluster} terbaik untuk variabel $c$ berdasarkan nilai \textit{Information Loss} (IL) yang paling rendah. \textit{Information Loss} (IL) dapat dicari menggunakan rumus berikut:
 
 \begin{align*}
 IL(e)&= |e| \cdot D(e) \\
 D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}
 \end{align*}
 
-\item Menambahkan himpunan data dari variabel r pada variabel c.
+\item Menambahkan himpunan data dari variabel $r$ pada variabel $c$.
 
 \end{enumerate}
 
@@ -560,7 +494,8 @@ D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\fr
 \end{algorithm}
 \end{tcolorbox}
 
-Algoritma \ref{alg:1} menerima input himpunan data dataset dan sebuah data dengan nilai distance tertinggi dari data terpilih acak. Algoritma ini menghitung selisih \textit{distance} dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan \textit{distance}, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari \textit{kluster}. Output algoritma ini adalah sebuah data dengan nilai terbaik, yaitu data ke-i dari dataset S dengan nilai \textit{distance} paling kecil.
+Algoritma \ref{alg:1} menerima input himpunan data dataset dan sebuah data dengan nilai \textit{distance} tertinggi dari data terpilih acak. Algoritma ini menghitung selisih \textit{distance} dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan \textit{distance}, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari \textit{kluster}. Output algoritma ini adalah sebuah data dengan nilai terbaik, yaitu data ke-i dari dataset $S$ dengan nilai \textit{distance} paling kecil.
+
 \begin{tcolorbox}[blanker,width=(\linewidth-0.5cm)]
 \begin{algorithm}[H]
   \caption{Find Best Cluster}\label{alg:2}
@@ -587,7 +522,8 @@ Algoritma \ref{alg:1} menerima input himpunan data dataset dan sebuah data denga
 \end{algorithm}
 \end{tcolorbox}
 
-Algoritma \ref{alg:2} menerima input himpunan data \textit{cluster} dan sebuah data dengan nilai \textit{distance} tertinggi dari data terpilih acak. Algoritma ini menghitung selisih distance dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan distance, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari {cluster}. Output algoritma ini adalah data dengan nilai \textit{cluster} terbaik, yaitu data ke-i dari dataset S dengan nilai \textit{distance} paling kecil.
+Algoritma \ref{alg:2} menerima input himpunan data \textit{cluster} dan sebuah data dengan nilai \textit{distance} tertinggi dari data terpilih acak. Algoritma ini menghitung selisih distance dari dua jenis data yang berbeda. Variabel \textit{diff} pada algoritma ini adalah perbedaan \textit{distance}, dicari dengan penjumlahan \textit{information loss} pada sebuah \textit{cluster} dengan \textit{information loss} pada data ke-i, lalu hasil penjumlahan tersebut dikurangi dengan \textit{information loss} dari {cluster}. Output algoritma ini adalah data dengan nilai \textit{cluster} terbaik, yaitu data ke-i dari dataset S dengan nilai \textit{distance} paling kecil.
+
 \begin{tcolorbox}[blanker,width=(\linewidth-0.5cm)]
 \begin{algorithm}[H]
   \caption{Greedy K-Member Clustering}		 \label{alg:3}
@@ -626,7 +562,7 @@ Algoritma \ref{alg:2} menerima input himpunan data \textit{cluster} dan sebuah d
 \end{algorithm}
 \end{tcolorbox}
 
-Algoritma \ref{alg:3} menerima input himpunan data S dan nilai k. Algoritma ini mengeksekusi dua jenis fungsi yang berbeda yaitu fungsi \textit{find\_best\_cluster} untuk mencari \textit{cluster} dengan \textit{distance} terkecil dan fungsi \textit{find\_best\_record} untuk mencari data dengan \textit{distance} terkecil. Output dari algoritma ini adalah himpunan data dari berbagai jenis \textit{cluster} dengan nilai \textit{distance} terkecil.
+Algoritma \ref{alg:3} menerima input himpunan data $S$ dan nilai $k$. Algoritma ini mengeksekusi dua jenis fungsi yang berbeda yaitu fungsi \textit{find\_best\_cluster} untuk mencari \textit{cluster} dengan \textit{distance} terkecil dan fungsi \textit{find\_best\_record} untuk mencari data dengan \textit{distance} terkecil. Output dari algoritma ini adalah himpunan data dari berbagai jenis \textit{cluster} dengan nilai \textit{distance} terkecil.
 		
 \textbf{Distance} 
 
@@ -652,7 +588,7 @@ Algoritma \ref{alg:3} menerima input himpunan data S dan nilai k. Algoritma ini 
 
 \textbf{Information Loss}
 
-\textit{Information Loss} (IL) digunakan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. Dalam menghitung \textit{Information Loss} (IL), perlu mendefinisikan beberapa atribut seperti \textit{cluster} $e = {r_1,\ldots,r_k}$  untuk \textit{quasi-identifier} yang terdiri dari atribut numerik ${N1,\ldots, Nm}$ dan atribut kategorikal ${C_1,\ldots,C_n}$, $T_{C_i}$ adalah \textit{taxonomy tree} untuk domain kategorikal $C_i$, $MIN_{N_i}$ dan $MAX_{N_i}$ adalah nilai minimum dan maksimum pada cluster $e$ untuk atribut $N_i$, $\cup_{C_i}$ adalah sekumpulan nilai pada \textit{cluster} $e$ berdasarkan atribut $C_i$. \\
+\textit{Information Loss} (IL) digunakan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. Dalam menghitung \textit{Information Loss} (IL), perlu mendefinisikan beberapa atribut seperti \textit{cluster} $e = {r_1,\ldots,r_k}$  untuk \textit{quasi-identifier} yang terdiri dari atribut numerik ${N1,\ldots, Nm}$ dan atribut kategorikal ${C_1,\ldots,C_n}$, $T_{C_i}$ adalah \textit{taxonomy tree} untuk domain kategorikal $C_i$, $MIN_{N_i}$ dan $MAX_{N_i}$ adalah nilai minimum dan maksimum pada \textit{cluster} $e$ untuk atribut $N_i$, $\cup_{C_i}$ adalah sekumpulan nilai pada \textit{cluster} $e$ berdasarkan atribut $C_i$. \\
 
 \noindent \textit{Information loss} dihitung dengan rumus sebagai berikut:
 \begin{align}
@@ -665,117 +601,73 @@ D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\fr
 Total-IL(AT) = \sum_{e \in \varepsilon}^{}  IL(e)
 \end{align}
 
-\noindent Semakin besar total \textit{information loss} yang dihasilkan maka informasi yang dihasilkan semakin kurang akurat. Oleh karena itu perlu dilakukan beberapa eksperimen terhadap penentuan nilai k pada algoritma \textit{Greedy k-member clustering} agar dihasilkan total \textit{information loss} seminimal mungkin sehingga hasil \textit{clustering} dan klasifikasi dengan nilai akurasi yang tinggi.	
+\noindent Semakin besar total \textit{information loss} yang dihasilkan maka informasi yang dihasilkan semakin kurang akurat. Oleh karena itu perlu dilakukan beberapa eksperimen terhadap penentuan nilai $k$ pada algoritma \textit{Greedy k-member clustering} agar dihasilkan total \textit{information loss} seminimal mungkin sehingga hasil \textit{clustering} dan klasifikasi dengan nilai akurasi yang tinggi.	
 		
 		
 		\item \textbf{Melakukan studi literatur mengenai konsep Hadoop, Spark, dan Spark MLlib}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Hadoop adalah \textit{framework} yang memanfaatkan beberapa komputer untuk menyelesaikan masalah yang melibatkan volume data sangat besar. Pada Gambar \ref{fig:hadoop_intro}, Hadoop memecah input dari pengguna menjadi beberapa blok data dan masing-masing blok data diproses menggunakan konsep \textit{MapReduce} di mana data akan diproses secara paralel pada sistem terdistribusi. 
+		{\bf Hasil :} Hadoop adalah \textit{framework} yang memanfaatkan beberapa komputer untuk menyelesaikan masalah yang melibatkan volume data sangat besar. Hadoop terdiri dari dua komponen penting, yaitu HDFS dan MapReduce. Kedua komponen ini saling berkaitan satu sama lain dalam pemrosesan data. Berikut adalah penjelasan singkat dari kedua komponen penting pada Hadoop:
+
+\vspace{0.3cm}
+\textbf{HDFS}
+
+HDFS adalah sistem \textit{file} terdistribusi pada Hadoop dengan menyediakan penyimpanan data yang handal, mendukung partisi, dan toleran terhadap kesalahan pada hardware. HDFS bekerja erat dengan MapReduce dengan mendistribusikan penyimpanan dan perhitungan di seluruh \textit{cluster} dengan menggabungkan sumber daya penyimpanan yang dapat dipartisi tergantung kebutuhan. \\
+
+\newpage
+\textbf{MapReduce}
+
+\textit{MapReduce} adalah kerangka kerja pemrosesan \textit{big data} pada sistem terdistribusi Hadoop dengan cara membagi dan memecah data yang berukuran besar menjadi blok-blok data dengan ukurang yang lebih kecil dengan memanfaatkan pemrosesan data secara paralel pada masing-masing \textit{cluster}. Pemodelan \textit{MapReduce} terdiri dari dua fungsi, yaitu \textit{Mapper} dan \textit{Reducer}. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{hadoop_intro}
-	\caption{Gambaran Umum Cara Kerja Hadoop}
-	\label{fig:hadoop_intro}
-\end{figure}
-
-\noindent Hadoop memiliki karakteristik sebagai berikut:
-\begin{itemize}
-\item Hadoop menyediakan penyimpanan HDFS dan menggunakan pemodelan \textit{MapReduce}.
-\item Hadoop melakukan replikasi data sejenis pada beberapa komponen berbeda. 
-\item Hadoop fleksibel terhadap pengaturan jumlah komponen yang bekerja.
-\item Hadoop dioptimalkan untuk bekerja pada lingkungan \textit{big data}.
-\item Hadoop menulis data sekali dan membaca data berulang kali.
-
-\end{itemize}
-
-\textbf{Ekosistem Hadoop}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.55]{hadoop_ecosystem}
-	\caption{Ekosistem Hadoop}
-	\label{fig:hadoop_ecosystem}
-\end{figure}
-Gambar \ref{fig:hadoop_ecosystem} menunjukan bahwa Hadoop dapat bekerja secara bersamaan dengan teknologi \textit{big data} lainnya seperti Spark, HBase, Cassandra, STORM, dan lain-lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan dan analisis pada \textit{big data}.
-
-\textbf{Arsitektur Hadoop}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.65]{arsitektur_hadoop}
-	\caption{Arsitektur Hadoop}
-	\label{fig:arsitektur_hadoop}
-\end{figure}
-Gambar \ref{fig:arsitektur_hadoop} menunjukan arsitektur Hadoop yang tersusun atas \textit{MapReduce} dan \textit{Hadoop Distributed File System} (HDFS). Masing-masing bagian memiliki dua jenis node yaitu \textit{master node} dan \textit{slave node}. \textit{Master node} mengatur jumlah pekerjaan yang diberikan kepada dirinya sendiri dan \textit{slave node}. \textit{Slave node} mengerjakan pekerjaan yang diberikan oleh \textit{master node}.
-
-
-\textbf{Hadoop HDFS}
-
-HDFS adalah sistem \textit{file} terdistribusi pada Hadoop dengan menyediakan penyimpanan data yang handal, mendukung partisi, dan toleran terhadap kesalahan pada hardware. HDFS bekerja erat dengan MapReduce dengan mendistribusikan penyimpanan dan perhitungan di seluruh \textit{cluster} dengan menggabungkan sumber daya penyimpanan yang dapat dipartisi tergantung kebutuhan. 
-\\\\
-HDFS terdiri dari beberapa komponen, yaitu:
-
-\begin{itemize}
-\item \textit{NameNode}\\
-\textit{NameNode} adalah sebuah komputer yang bertindak sebagai \textit{master node}, sedangkan. \textit{NameNode} bertanggungjawab menyimpan informasi tentang penempatan blok-blok data dalam \textit{Hadoop cluster}. Ia bertanggungjawab mengorganisir dan mengontrol blok-blok data yang disimpan tersebar dalam komputer-komputer yang menyusun \textit{Hadoop cluster}. 
-
-\item \textit{DataNode}\\
-\textit{DataNode} adalah elemen penyimpanan utama HDFS yang menyimpan blok data dan permintaan baca / tulis layanan pada \textit{file} yang disimpan di HDFS. \textit{DataNode} dikendalikan oleh \textit{NameNode}. Blok yang disimpan dalam \textit{DataNode} direplikasi sesuai konfigurasi untuk memberikan keandalan dan ketersediaan tinggi. Blok yang direplikasi ini didistribusikan di seluruh cluster untuk memberikan perhitungan yang cepat.
-\end{itemize}
-
-\textbf{Hadoop MapReduce}
-
-\textit{MapReduce} adalah kerangka kerja pemrograman untuk komputasi terdistribusi yang dibuat oleh Google menggunakan membagi dan menaklukkan metode untuk memecah masalah data besar yang kompleks menjadi unit-unit kecil pekerjaan dan memprosesnya sejajar. Pemodelan \textit{MapReduce} terdiri dari dua fungsi, yaitu \textit{Mapper} dan \textit{Reducer}. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.36]{MapReduceImage}
+	\includegraphics[scale=0.4]{MapReduceImage}
 	\caption{Tahapan pada MapReduce}
 	\label{fig:MapReduceImage}
 \end{figure}
 
-\noindent Pada Gambar \ref{fig:MapReduceImage}, tahapan \textit{MapReduce} dapat dibagi menjadi dua fungsi utama:
+\noindent Gambar \ref{fig:MapReduceImage} adalah tahapan pada \textit{MapReduce}, berikut adalah penjelasannya:
 
 \begin{itemize}
+\item Input\\
+Input yang diterima pada pemodelan ini adalah blok-blok data yang telah tersebar pada seluruh \textit{cluster}. Selanjutnya blok-blok data ini akan menjadi parameter input untuk fungsi \textit{Mapper} di tahap selanjutnya.
+
 \item \textit{Mapper}\\
-Tugas fungsi \textit{Mapper} adalah memetakan blok data kedalam pasangan <\textit{key},\textit{value}>. \textit{Key,value} pada \textit{Mapper} tidak harus memiliki tipe data yang sama satu sama lain. Pasangan <\textit{key},\textit{value}> yang mungkin terjadi pada fungsi \textit{Mapper} adalah tidak memiliki pasangan atau memiliki banyak pasangan.
+\textit{Mapper} memiliki fungsi untuk memetakan blok-blok data ke dalam pasangan <\textit{key},\textit{value}>. Pemetaan ini dilakukan agar pada tahap selanjutnya pasangan tersebut dapat diurutkan dan digabungkan berdasarkan nilai \textit{key}.
 
 \item Reducer\\
-Reducer memiliki 3 fase utama: \textit{shuffle, sort} dan \textit{reducer}. Berikut adalah penjelasan dari tahapan yang dilakukan oleh fungsi \textit{Reducer}:
+\textit{Reducer} memiliki fungsi untuk mengurangi jumlah pasangan data dan membuat pasangan baru terkait jenis komputasi yang dilakukan. Berikut adalah tahapan yang dilakukan oleh \textit{Reducer}:
 
 \begin{enumerate}
-\item Shuffle \\
-\textit{Shuffle} adalah fase pada data antara untuk menggabungkan semua nilai menjadi koleksi yang terkait dengan kunci yang sama.
+
+\item \textit{Shuffle} \\
+\textit{Shuffle} adalah tahapan untuk pengelompokan pasangan <\textit{key},\textit{value}> pada beberapa kelompok berdasarkan nilai \textit{key} yang sama.
+
+
 \item \textit{Sort} \\
-Pasangan <\textit{key},\textit{value}> pada satu node secara otomatis diurutkan oleh Hadoop sebelum diberikan kepada \textit{reducer}. Penyortiran dilakukan berdasarkan keterurutan nilai \textit{key}. 
+Pasangan <\textit{key},\textit{value}> yang sudah dikelompokan, selanjutnya akan diurutkan. Keterurutan akan dilakukan berdasarkan nilai \textit{key}, dari terendah hingga tertinggi. 
+
+
 \item \textit{Reducer} \\
-Hasil \textit{mapper} yang diacak dan diurutkan disediakan untuk \textit{Reducer}. Tahap ini membuat pasangan <\textit{key}, \textit{(list of value)}> baru berdasarkan pengelompokan \textit{key}.
+Pasangan data yang sudah dikelompokan dan diurutkan, selanjutnya akan dikurangi jumlah pasangannya berdasarkan komputasi tertentu. Pasangan <\textit{key},  \textit{(list of value)}> baru akan dihasilkan pada tahap ini dan dikembalikan sebagai output.
 \end{enumerate}
 
+\item Output\\
+Output yang dihasilkan adalah pasangan <\textit{key}, \textit{(list of value)}> baru berdasarkan jenis komputasi tertentu. Output ini akan dikumpulkan terlebih dahulu pada komputer \textit{master}. Selanjutnya, output ini akan ditulis ke sebuah \textit{file} oleh Reducer.
 \end{itemize}
-
-\noindent \textit{MapReduce} memiliki beberapa komponen, yaitu:
-
-\begin{itemize}
-\item \textit{JobTracker}\\
-\textit{JobTracker} berjalan pada master node untuk memonitor tugas-tugas \textit{MapReduce} yang telah dijalankan oleh \textit{TaskTracker} pada node salve. Tugas \textit{JobTracker} adalah mengalokasikan pekerjaan yang sesuai untuk \textit{TaskTracker} tertentu tergantung pada berapa banyak slot tugas yang tersedia. 
-\item \textit{TaskTracker}\\
-\textit{TaskTracker} berjalan pada masing-masing node \textit{slave}. \textit{TaskTracker} menerima pekerjaan dari \textit{JobTracker} dan menjalankan operasi \textit{MapReduce}. Setiap \textit{TaskTracker} memiliki jumlah slot pekerjaan yang terbatas. \textit{TaskTracker} mengatur pelaksanaan setiap operasi \textit{MapReduce} pada setiap node \textit{slave}. 
-\end{itemize}
-		
+	
+\newpage	
 \textbf{Spark}
 
-Spark adalah teknologi komputasi \textit{cluster} yang dirancang untuk komputasi cepat. Spark adalah paradigma pemrosesan data berukuran besar yang dikembangkan oleh para peneliti University of California di Berkeley. Spark adalah alternatif dari Hadoop MapReduce untuk mengatasi keterbatasan pemrosesan input output yang tidak efisien pada disk, dengan menggunakan memori. Fitur utama Spark adalah melakukan komputasi di dalam memori sehingga waktu komputasi menjadi lebih singkat dibandingkan waktu komputasi di dalam disk.
+Spark adalah teknologi komputasi \textit{cluster} yang dirancang untuk komputasi cepat. Spark adalah paradigma pemrosesan data berukuran besar yang dikembangkan oleh para peneliti \textit{University of California} di \textit{Berkeley}. Spark adalah alternatif dari Hadoop MapReduce untuk mengatasi keterbatasan pemrosesan input output yang tidak efisien pada \textit{disk}, dengan menggunakan memori. Fitur utama Spark adalah melakukan komputasi di dalam memori sehingga waktu komputasi menjadi lebih singkat dibandingkan waktu komputasi di dalam \textit{disk}.
 \\\\
 Berikut adalah karakteristik dari Spark:
 \begin{itemize}
 \item Kecepatan\\
-Spark adalah alat komputasi klaster tujuan umum. Ini menjalankan aplikasi hingga 100 kali lebih cepat dalam memori dan 10 kali lebih cepat pada disk daripada Hadoop. Spark mengurangi jumlah operasi baca/tulis pada disk dan menyimpan data dalam memori.
+Spark adalah alat komputasi \textit{cluster} tujuan umum. Ini menjalankan aplikasi hingga 100 kali lebih cepat dalam memori dan 10 kali lebih cepat pada \textit{disk} daripada Hadoop. Spark mengurangi jumlah operasi baca/tulis pada \textit{disk} dan menyimpan data dalam memori.
 
 
 \item Mudah untuk diatur\\	
-Spark dapat melakukan pemrosesan batch, analisis data secara interaktif, machine learning, dan streaming data. Semuanya pemrosesan tersebut dikerjakan pada satu komputer yang sama. Fungsi ini menjadikan Apache Spark sebagai mesin analisis data yang lengkap. 
+Spark dapat melakukan pemrosesan \textit{batch}, analisis data secara interaktif, \textit{machine learning}, dan \textit{streaming} data. Semuanya pemrosesan tersebut dikerjakan pada satu komputer yang sama. Fungsi ini menjadikan Spark sebagai mesin analisis data yang lengkap. 
 
 
 \item Analisis secara real-time\\
@@ -789,8 +681,9 @@ Spark dapat dengan mudah memproses data \textit{real-time}, misalnya \textit{str
 	\caption{Ekosistem Spark}
 	\label{fig:spark_ecosystem}
 \end{figure}
-Gambar \ref{fig:spark_ecosystem} menunjukan bahwa Spark bekerja sama dengan teknologi \textit{big data} lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan \textit{big data}. Masing-masing warna pada Gambar \ref{fig:spark_ecosystem} mewakili jenis teknologi yang dipakai pada Spark. Spark SQL, Spark Streaming, Spark MLlib adalah library tambahan pada Spark. Cassandra, Kafka, dan ElasticSearch adalah \textit{framework} untuk melakukan pengumpulan data secara \textit{streaming}. Sedangkan scala, java, dan python adalah bahasa pemrograman yang dapat digunakan pada Spark.
+Gambar \ref{fig:spark_ecosystem} menunjukan bahwa Spark bekerja sama dengan teknologi \textit{big data} lain untuk memenuhi berbagai macam kebutuhan dalam pengolahan \textit{big data}. Masing-masing warna pada Gambar \ref{fig:spark_ecosystem} mewakili jenis teknologi yang dipakai pada Spark. Spark SQL, Spark Streaming, Spark MLlib adalah library tambahan pada Spark. Cassandra, Kafka, dan ElasticSearch adalah \textit{framework} untuk melakukan pengumpulan data secara \textit{streaming}. Sedangkan Scala, Java, dan Python adalah bahasa pemrograman yang dapat digunakan pada Spark.
 
+\newpage
 \textbf{Arsitektur Spark}
 
 \begin{figure}[H]
@@ -804,22 +697,22 @@ Berdasarkan Gambar \ref{fig:arsitektur_spark2}, berikut adalah tahapan kerja pad
 \begin{enumerate}
 
 \item
-\textit{Program Driver} memanggil program utama aplikasi dan membuat \textit{SparkContext} dan \textit{Spark Driver}. \textit{SparkContext} terdiri dari semua fungsi dasar. \textit{Spark Driver} berisi \textit{DAG Scheduler, Task Scheduler, Backend Scheduler}, dan \textit{Block Manager}.
+\textit{Program Driver} membuat \textit{Spark Context}. \textit{Spark Context} bertugas memberikan pekerjaan kepada \textit{Cluster Manager}. \textit{Spark Context} juga mencatat histori pekerjaan yang dilakukan oleh masing-masing \textit{Worker Node}, termasuk pesan error.
 
 \item
-\textit{Spark Driver} dan \textit{SparkContext} secara kolektif mengawasi pelaksanaan pekerjaan di dalam \textit{cluster}. \textit{Spark Driver} bekerja sama dengan \textit{Cluster Manager} untuk membagian pekerjaan ke setiap \textit{Worker Node}. 
+\textit{Cluster Manager} menerima pekerjaan dari \textit{Spark Context} dan memecah pekerjaan tersebut menjadi beberapa blok data untuk diberikan kepada masing-masing \textit{Worker Node} yang aktif.
 
 \item
-\textit{Worker Node} menjalankan tugas yang diberikan oleh \textit{Cluster Manager} dan mengembalikannya ke \textit{SparkContext}. \textit{Worker Node} bertanggung jawab atas pelaksanaan tugas yang diberikan. 
+\textit{Worker Node} menjalankan tugas yang diberikan oleh \textit{Cluster Manager} dan mengembalikannya ke \textit{SparkContext}. \textit{Worker Node} bertanggung jawab untuk mengerjakan tugas yang diberikan. 
 
 \end{enumerate}
 
-
+\vspace{0.2cm}
 \textbf{Jenis Instalasi Spark}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{arsitektur_spark}
+	\includegraphics[scale=0.78]{arsitektur_spark}
 	\caption{Arsitektur Spark}
 	\label{fig:arsitektur_spark}
 \end{figure}
@@ -837,89 +730,34 @@ Spark dapat berjalan pada Hadoop Yarn tanpa memerlukan instalasi atau meminta ha
 SIMR digunakan untuk menjalankan pekerjaan Spark secara independen. Jenis instalasi ini sudah tidak lagi berlaku untuk Spark versi 2.0
 \end{itemize}
 
-\textbf{Spark RDD}
-
-\par RDD adalah kumpulan objek terdistribusi yang disimpan dalam memori atau \textit{disk} pada beberapa \textit{cluster}. Gambar \ref{fig:rdd_intro} menunjukan bahwa RDD tersebar menjadi beberapa partisi sehingga partisi tersebut dapat disimpan dan diproses pada komputer yang berbeda. RDD adalah struktur data yang \textit{immutable}, artinya data tersebut hanya dapat dibaca dan tidak dapat diubah nilainya. RDD dalam Spark dapat di simpan dalam \textit{cache} dan digunakan lagi untuk kebutuhan di masa depan. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{rdd_intro}
-	\caption{Cara Kerja RDD}
-	\label{fig:rdd_intro}
-\end{figure}
-
-\textbf{Spark DataFrame}
-
-\textit{DataFrame} adalah kumpulan data yang didistribusikan, disusun dalam baris dan kolom. Setiap kolom dalam \textit{DataFrame} memiliki nama dan tipe terkait. \textit{DataFrame} mirip dengan tabel database tradisional, yang terstruktur dan ringkas. \textit{DataFrame} adalah basis data relasional dengan teknik optimisasi yang lebih baik. Dengan \textit{DataFrame}, kueri SQL dapat diimplementasi pada lingkungan \textit{big data}. 
-\vspace{0.5cm}
-
+\newpage
 \textbf{Spark MLlib}
 
-Spark MLlib adalah library pembelajaran mesin berdasarkan komputasi secara paralel. MLlib terdiri dari algoritma pembelajaran umum seperti klasifikasi, pengelompokan/\textit{clustering}. Secara garis besar, MLlib melakukan data \textit{preprocessing}, pelatihan model, dan membuat prediksi.
-
-\newpage
-Berikut adalah tahapan yang terjadi pada Spark MLlib:
-
-\begin{enumerate}
-\item Membuat RDD baru untuk merepresentasikan jenis fitur dalam dataset.
-\item Melakukan ekstraksi fitur pada sebuah vektor dan konversi menjadi data numerik.
-\item Menjalankan algoritma \textit{machine learning} untuk menghasilkan pemodelan baru.
-\item Melakukan evaluasi model dengan memanggil fungsi evaluasi milik Spark MLlib.
-\end{enumerate}
-
-\noindent Berikut adalah contoh pemodelan pada Spark MLlib:
-
-\begin{itemize}
-\item \textit{Naive Bayes} (klasifikasi)
-\item \textit{K-Means} (pengelompokan/\textit{clustering})
-\end{itemize}
+Spark MLlib adalah library pembelajaran mesin berdasarkan komputasi secara paralel. MLlib terdiri dari algoritma pembelajaran umum seperti klasifikasi, pengelompokan/\textit{clustering}. Secara garis besar, MLlib melakukan \textit{data preprocessing}, pelatihan model, dan membuat prediksi.\\
 
 \textbf{Machine Learning pada Spark MLlib}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.75]{machinelearningmllib}
+	\includegraphics[scale=1]{machinelearningmllib}
 	\caption{Tahapan Pembelajaran Machine Learning}
 	\label{fig:machinelearningmllib}
 \end{figure}
-\textit{Machine learning} berupaya untuk membuat prediksi label/kelompok data berdasarkan jenis data pelatihan yang diberikan terhadap model yang dipakai. Pemodelan \textit{machine learning} termasuk ke dalam pemodelan \textit{data mining}. Jenis pemodelan machine learning terdiri dari klasifikasi, regresi, dan pengelompokan/\textit{clustering}. Seluruh jenis pemodelan \textit{machine learning} membutuhkan input berupa vektor fitur. Vektor fitur adalah nilai masing-masing atribut yang digunakan pada pelatihan data. Sebagian besar pemodelan \textit{machine learning} hanya menerima input vektor berupa data numerik untuk mewakili vektor fitur pada setiap baris data.
-\\\\
+\textit{Machine learning} bertujuan membuat prediksi label/kelompok data berdasarkan jenis pemodelan \textit{data mining}. Pemodelan \textit{machine learning} membutuhkan input berupa vektor fitur. Vektor fitur adalah nilai masing-masing atribut yang digunakan pada pelatihan data. \\
+
 \noindent Gambar \ref{fig:machinelearningmllib} adalah tahapan \textit{machine learnin}g pada Spark MLlib, berikut adalah penjelasan singkat dari masing-masing tahapan:
 
 \begin{enumerate}
 
 \item \textit{Featurization}\\
-Setelah data telah dibersihkan dan dipilih untuk pelatihan, perlu diubah menjadi representasi numerik dalam bentuk vektor sebagai input untuk model. Proses ini disebut vektorisasi. Proses pemilihan fitur yang tepat berpengaruh terhadap hasil pelatihan.
+Pemodelan machine learning hanya dapat menerima input berupa vektor. Oleh karena itu, nilai atribut pada tabel akan diubah ke representasi numerik dalam bentuk vektor. 
  
 \item \textit{Training}\\
-Pelatihan model merupakan salah satu tahapan yang paling memakan waktu dan padat karya dalam setiap alur kerja \textit{machine learning}. Terlebih lagi, perangkat keras dan infrastruktur yang digunakan untuk melatih model sangat bergantung pada jumlah parameter dalam model, ukuran dataset, metode pengoptimalan yang digunakan, dan pertimbangan lainnya.
+Pemodelan machine learning melakukan pelatihan agar model yang dipakai memberikan hasil yang tepat untuk menentukan label atau kelompok data. Oleh karena itu, pemodelan machine memerlukan pelatihan model beberapa kali untuk mendapatkan model terbaik.
 
 \item \textit{Model Evaluation}\\
-Setiap model harus menjalani evaluasi kualitatif dan kuantitatif. Banyak data pelatihan yang memiliki hasil evaluasi yang sesuai terhadap kinerja model. Model tersebut harus diterapkan pada data baru. Seringkali, pemeriksaan kualitatif tentang kinerja model, diperoleh dengan referensi silang prediksi model dengan apa yang diharapkan secara intuitif, dapat berfungsi sebagai panduan apakah model bekerja sesuai harapan.
+Pada akhir pelatihan, model yang terbentuk dapat diputuskan baik atau tidak melalui perhitungan nilai akurasi. Semakin besar nilai akurasi, maka model dapat digunakan untuk memprediksi nilai label atau kelompok data secara tepat.
 \end{enumerate}
-
-\textbf{Struktur Data pada Spark MLlib}
-
-Seperti yang sudah dijelaskan pada bagian sebelumnya, pemodelan \textit{machine learning} menerima input berupa vektor fitur. Struktur data yang disediakan pada Spark MLlib terdiri dari beberapa jenis yaitu vektor, \textit{labeledpoint}, dan \textit{various model class}. Masing-masing tipe data pada Spark MLlib ditentukan berdasarkan jenis pemodelan yang dipilih. Contoh apabila menggunakan pemodelan \textit{clustering} akan digunakan tipe data vektor, sedangkan untuk pemodelan klasifikasi akan digunakan struktur data \textit{labeledpoint}. Berikut adalah struktur data pada Spark MLlib:
-
-\begin{itemize}
-\item Vektor\\
-Vektor terdiri dari dua jenis yaitu vektor dense dan vektor sparse. Kelas vektor berada pada package mllib.linalg.Vectors. Berikut penjelasan singkat vektor dense dan vektor sparse:
-
-\begin{itemize}
-
-\item Vektor dense\\
-Vektor dense adalah vektor yang menyimpan setiap nilai fitur dataset. Jumlah elemen pada vektor dense akan memiliki jumlah yang sama dengan jumlah fitur pada dataset. 
-
-\item Vektor sparse\\
-Vektor sparse adalah vektor yang menyimpan setiap nilai fitur yang bukan nol pada dataset, sehingga jumlah elemen yang disimpan pada vektor sparse lebih sedikit dibandingkan dengan jumlah elemen yang disimpan pada vektor dense. 
-
-\end{itemize}
-
-\item \textit{LabeledPoint}\\
-\textit{LabeledPoint} digunakan pada algoritma \textit{supervised learning} yaitu klasifikasi dan regresi. LabeledPoint terdiri dari vektor fitur dan label yang direpresentasikan dengan tipe data Double. Kelas \textit{LabeledPoint} terletak pada package mllib.regress.
-
-\end{itemize}
 
 \textbf{Data Mining pada Spark MLlib}
 
@@ -929,7 +767,7 @@ Data mining pada Spark MLlib menggunakan tahapan pemodelan pada \textit{machine 
 
 \item \textit{Naive Bayes}
 
-\textit{Naive Bayes} menjadi pemodelan klasifikasi yang umum digunakan. \textit{Naive Bayes} dapat dilatih dengan sangat efisien karena prosesnya hanya menghitung probabilitas bersyarat masing-masing atribut dan mencari probabilitas tertinggi. \textit{Naive Bayes} memiliki parameter masukan sebagai berikut:
+\textit{Naive Bayes} menjadi pemodelan klasifikasi yang umum digunakan. \textit{Naive Bayes} dapat dilatih dengan sangat efisien karena prosesnya hanya menghitung probabilitas bersyarat masing-masing atribut dan mencari probabilitas tertinggi. \textit{Naive Bayes} memiliki parameter sebagai berikut:
  
 \begin{itemize}
 \item \textit{randomSplit} adalah membagi \textit{training} dan \textit{test} data berdasarkan persentase.
@@ -951,24 +789,61 @@ Data mining pada Spark MLlib menggunakan tahapan pemodelan pada \textit{machine 
 
 \end{enumerate}
 
+\textbf{Tipe Data pada Spark MLlib}
+
+Seperti yang sudah dijelaskan pada bagian sebelumnya, pemodelan \textit{machine learning} menerima input berupa vektor fitur. Tipe data yang disediakan pada Spark MLlib terdiri dari beberapa jenis yaitu vektor, \textit{labeledpoint}, dan \textit{various model class}. \\
+
+\noindent Berikut adalah penjelasan jenis tipe data pada Spark MLlib:
+
+\begin{itemize}
+\item Vektor\\
+Vektor terdiri dari dua jenis yaitu vektor \textit{dense} dan vektor \textit{sparse}. Kelas vektor berada pada \textit{package} mllib.linalg.Vectors. Gambar \ref{fig:vektor} adalah contoh vektor \textit{dense} dan vektor \textit{sparse}:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{vektor}
+	\caption{Contoh Vektor Dense dan Sparse}
+	\label{fig:vektor}
+\end{figure}
+
+\begin{itemize}
+
+\item Vektor \textit{dense}\\
+Vektor \textit{dense} adalah vektor yang menyimpan setiap nilai fitur dataset. Jumlah elemen pada vektor \textit{dense} akan memiliki jumlah yang sama dengan jumlah fitur pada dataset.
+
+\item Vektor sparse\\
+Vektor \textit{sparse} adalah vektor yang menyimpan setiap nilai fitur yang bukan nol pada dataset, sehingga jumlah elemen yang disimpan pada vektor \textit{sparse} lebih sedikit dibandingkan dengan jumlah elemen yang disimpan pada vektor \textit{dense}. 
+
+\end{itemize}
+
+\item \textit{LabeledPoint}\\
+\textit{LabeledPoint} digunakan pada algoritma \textit{supervised learning} yaitu klasifikasi dan regresi. Kelas \textit{LabeledPoint} terletak pada \textit{package} mllib.regress.
+
+\item \textit{Various Model class}\\
+\textit{Various Model classes} adalah tipe data yang dihasilkan dari pemodelan \textit{machine learning}. Tipe data ini memiliki fungsi predict() untuk melakukan prediksi label dan kelompok data.
+
+\end{itemize}
+
+
+
 \item \textbf{Melakukan instalasi dan konfigurasi Spark pada cluster Hadoop}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Spark berjalan pada sistem operasi Windows, Linux, dan Mac OS. Spark dapat dijalankan secara lokal menggunakan satu komputer, meskipun Spark tetap membutuhkan beberapa komputer untuk pemrosesan data yang besar. Jenis instalasi Spark telah dijelaskan pada bagian sebelumnya. Pada penelitian ini digunakan jenis instalasi \textit{Standalone} untuk Spark versi 2.4.5 pada sistem operasi Windows. Sebelum melakukan instalasi Spark, ada beberapa hal yang harus diperhatikan dan dipenuhi. \\
+		{\bf Hasil :} Spark berjalan pada sistem operasi Windows, Linux, dan Mac OS. Spark dapat dijalankan secara lokal menggunakan satu komputer, meskipun Spark tetap membutuhkan beberapa komputer untuk pemrosesan data yang besar. Jenis instalasi Spark dijelaskan pada bagian \ref{sec:instalasi_spark}. Pada penelitian ini digunakan jenis instalasi Standalone untuk Spark versi 2.4.5 pada sistem operasi Windows. Sebelum melakukan instalasi Spark, ada beberapa hal yang harus diperhatikan dan dipenuhi.\\
 
 \noindent Berikut adalah beberapa hal yang harus diperhatikan:
 
 \begin{itemize}
-\item Java 7, Python 2.6 telah dihilangkan pada implementasi Spark 2.2.0
-\item Scala 2.10 sudah tidak dapat dipakai, Scala 2.11 sudah terlalu usang untuk dipakai pada Spark 2.4.1 dan akan dihilangkan pada Spark 3.0
-\item Hadoop 2.6.5 telah dihilangkan pada implementasi Spark 2.2.0 
+\item Java 7, Python 2.6 telah dihilangkan pada implementasi Spark 2.2.0 ke atas.
+\item Scala 2.10 sudah usang apabila dipakai pada Spark 2.4.1 ke atas.
+\item Hadoop 2.6.5 telah dihilangkan pada implementasi Spark 2.2.0 ke atas.
 \end{itemize}
 
 \noindent Berikut adalah beberapa hal yang harus dipenuhi:
 
 \begin{itemize}
-\item Spark 2.4.5 berjalan di Java 8, Python 2.7+/3.4+ dan R 3.1+ 
-\item Spark 2.4.5 menggunakan Scala 2.12
-\item Spark 2.4.5 menggunakan Hadoop 2.7
+\item Spark 2.4.5 dapat berjalan di Java 8, Python 2.7+/3.4+ dan R 3.1+ 
+\item Spark 2.4.5 dapat menggunakan Scala 2.12
+\item Spark 2.4.5 dapat menggunakan Hadoop 2.7
 \end{itemize}
 
 \noindent Berikut adalah tahapan instalasi Spark 2.4.5 secara umum:
@@ -996,13 +871,13 @@ Data mining pada Spark MLlib menggunakan tahapan pemodelan pada \textit{machine 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{instal_java_5}
+	\includegraphics[scale=0.85]{instal_java_5}
 	\caption{Environment Variables}
 	\label{fig:instal_java_5}
 \end{figure}
 
-
-\item Tambahkan \textsf{\%JAVA\_HOME\%\textbackslash bin}  pada Path di System variables seperti Gambar \ref{fig:spark_instal_5}.
+\newpage
+\item Tambahkan \textsf{\%JAVA\_HOME\%\textbackslash bin} pada Path di \textit{System variables} seperti Gambar \ref{fig:spark_instal_5}.
 
 \begin{figure}[H]
 	\centering
@@ -1020,16 +895,16 @@ Data mining pada Spark MLlib menggunakan tahapan pemodelan pada \textit{machine 
 
 \item Pilih menu Command Prompt.
 
-\item Jalankan perintah java -version pada Command Prompt.
+\item Jalankan perintah java -version pada \textit{command prompt}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{instalasi_java}
+	\includegraphics[scale=1]{instalasi_java}
 	\caption{Perintah java -version}
 	\label{fig:instalasi_java}
 \end{figure}
 
-\item Apabila sistem tidak menampilkan pesan error, maka Java 8 sudah terpasang dengan baik.
+\item Apabila sistem tidak menampilkan pesan \textit{error}, maka Java 8 sudah terpasang dengan baik.
 
 \end{enumerate}
 
@@ -1042,13 +917,13 @@ Berikut adalah tahapan instalasi Spark 2.4.5 secara lengkap:
 
 \item Download Spark 2.4.5 dari link \textsf{https://downloads.apache.org/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop2.7.tgz}
 
-\item Buat folder sebagai berikut \textsf{C:\textbackslash spark-2.4.4} dan ekstraksi \textit{file} \textsf{spark-2.4.5-bin-hadoop2.7.tgz} di dalam folder tersebut.
+\item Buat folder sebagai berikut \textsf{C:\textbackslash spark-2.4.5} dan ekstraksi \textit{file} \textsf{spark-2.4.5-bin-hadoop2.7.tgz} di dalam folder tersebut.
 
 \item Buat \textit{environment variables} baru seperti Gambar \ref{fig:spark_instal_3}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{spark_instal_3}
+	\includegraphics[scale=0.75]{spark_instal_3}
 	\caption{Environment Variable}
 	\label{fig:spark_instal_3}
 \end{figure}
@@ -1057,7 +932,7 @@ Berikut adalah tahapan instalasi Spark 2.4.5 secara lengkap:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{spark_instal_5}
+	\includegraphics[scale=0.75]{spark_instal_5}
 	\caption{Penambahan Variable Value}
 	\label{fig:spark_instal_5}
 \end{figure}
@@ -1066,19 +941,29 @@ Berikut adalah tahapan instalasi Spark 2.4.5 secara lengkap:
 
 \noindent Berikut adalah tahapan verifikasi terhadap instalasi Spark 2.4.5:
 \begin{enumerate}
-\item Jalankan perintah \textsf{spark-shell} pada Command Prompt.
+\item Jalankan perintah \textsf{spark-shell} pada \textit{command prompt}.
 
 \item Apabila terminal menampilkan tampilan seperti pada Gambar \ref{fig:spark_instal_7}, artinya Spark 2.4.5 sudah dapat berjalan dengan baik pada komputer tersebut.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{spark_instal_7}
+	\includegraphics[scale=0.65]{spark_instal_7}
 	\caption{Spark 2.4.5}
 	\label{fig:spark_instal_7}
 \end{figure}
 
+\item Membuka tampilan Spark UI dengan mencantumkan alamat \textsf{localhost:4040/}  pada \textit{browser}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.65]{spark_ui}
+	\caption{Spark UI}
+	\label{fig:spark_ui}
+\end{figure}
+
 \end{enumerate}
 
+\newpage
 \textbf{Instalasi IntelIJ untuk Scala SBT}
 
 Berikut adalah tahapan instalasi IntelIJ:
@@ -1106,7 +991,7 @@ Berikut adalah tahapan instalasi IntelIJ:
 \item Telusuri \textit{plugin} Scala pada kolom pencarian seperti Gambar \ref{fig:intelij_2}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{intelij_2}
+	\includegraphics[scale=0.5]{intelij_2}
 	\caption{Plugins Scala}
 	\label{fig:intelij_2}
 \end{figure}
@@ -1115,10 +1000,20 @@ Berikut adalah tahapan instalasi IntelIJ:
 
 \end{enumerate}
 
-		
+\newpage
 		\item \textbf{Melakukan studi literatur mengenai bahasa pemrograman Scala pada \textit{framework} Spark}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Scala adalah bahasa pemrograman berbasi open source, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Spark ditulis dalam Scala dan karena skalabilitasnya di JVM. Pemrograman Scala adalah bahasa pemrograman yang paling banyak digunakan oleh pengembang \textit{big data} untuk mengerjakan proyek Spark. Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode Java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan \textit{big data} pada Spark.
+		{\bf Hasil :} Scala adalah bahasa pemrograman berbasis \textit{open source}, dibuat oleh Profesor Martin Odersky. Scala adalah bahasa pemrograman multi-paradigma dan mendukung paradigma fungsional serta berorientasi objek. Untuk pengembangan Spark, penulisan sintaks Scala dianggap produktif untuk mengimplementasikan kode program. Pemrograman pada Scala mempertahankan prinsip keseimbangan antara produktivitas pengembangan program dan kinerja program. Pemrograman pada Scala tidak serumit pemrograman pada Java. Satu baris kode program pada Scala dapat menggantikan 20 hingga 25 baris kode Java. Karena alasan terbut, Scala menjadi bahasa pemrograman yang sangat diminati untuk melakukan pemrosesan \textit{big data} pada Spark.\\
+
+\textbf{Scala Swing}\\
+Scala Swing adalah program berbasis \textit{Graphical User Interface} (GUI) sehingga memiliki perbedaan dengan program Spark yang dieksekusi dengan terminal. Scala Swing bertujuan untuk memberi tampilan program sehingga hasil program diharapkan menjadi lebih interaktif. Scala menyediakan akses langsung terhadap kelas GUI pada Java menggunakan \textit{library} Scala Swing.  Dengan menggunakan Scala, penggunaan Scala Swing dapat memenuhi kebutuhan perancangan \textit{User Interface} melalui berbagai macam komponen GUI pada umumnya. Gambar \ref{fig:swing_example} adalah contoh implementasi GUI sederhana pada Scala Swing.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{swing_example}
+	\caption{GUI Sederhana pada Scala Swing}
+	\label{fig:swing_example}
+\end{figure}
 
 \textbf{Eksperimen Scala}
 
@@ -1126,7 +1021,7 @@ Scala digunakan pada penelitian ini karena sintaks yang sederhana untuk mengimpl
 
 \textbf{Menentukan Jenis Variabel pada Scala}
 
-Scala memiliki dua jenis varibel yaitu \textit{immutable} variabel dan mutable variabel. \textit{Immutable} variabel adalah variabel yang nilainya tidak dapat diubah, sedangkan \textit{mutable} variabel adalah variabel yang nilainya dapat diubah. Implementasi \textit{immutable} dan \textit{mutable} memiliki implementasi sintaks yang berbeda. \textit{Immutable} variabel menggunakan sintaks val, sedangkan \textit{mutable} variabel menggunakan sintaks var. Kode program dapat dilihat pada Listing \ref{lst:jenis_variabel} mengenai jenis variabel pada Scala. 
+Scala memiliki dua jenis varibel yaitu \textit{immutable} variabel dan \textit{mutable} variabel. \textit{Immutable} variabel adalah variabel yang nilainya tidak dapat diubah, sedangkan \textit{mutable} variabel adalah variabel yang nilainya dapat diubah. Implementasi \textit{immutable} dan \textit{mutable} memiliki implementasi sintaks yang berbeda. \textit{Immutable} variabel menggunakan sintaks val, sedangkan \textit{mutable} variabel menggunakan sintaks var. Kode program dapat dilihat pada Listing \ref{lst:jenis_variabel} mengenai jenis variabel pada Scala. 
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:jenis_variabel, caption=Menentukan Jenis Variabel pada Scala]
@@ -1186,18 +1081,21 @@ val map1: Map[String, String] = Map(("PD","Plain Donut"),("SD","Strawberry Donut
 println(s"Elements of map1 = $map1")
 \end{lstlisting}
 
+\newpage
 \textbf{Membuat Kelas Object pada Scala}
 
 Scala menggunakan kelas \textit{Object} untuk menempatkan berbagai macam fungsi dan variabel yang saling berkaitan pada satu kelas yang sama. Kode program dapat dilihat pada Listing \ref{lst:kelas_object} mengenai kelas \textit{object} pada Scala.
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kelas_object, caption=Membuat Kelas Object pada Scala]
+
 object DonutShoppingCartCalculator {
  val discount: Double = 0.01
  def calculateTotalCost(donuts: List[String]): Double = {
   return 1
  }
 }
+
 \end{lstlisting}
 
 \textbf{Membuat Fungsi Sederhana pada Scala}
@@ -1206,16 +1104,18 @@ Scala menggunakan fungsi untuk menempatkan kode program berdasarkan tujuan masin
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:fungsi_sederhana, caption=Membuat Fungsi Sedehana pada Scala]
+
 def calculateDonutCost(donutName: String, quantity: Int): Double = {
   println(s"Calculating cost for $donutName, quantity = $quantity")
   2.50 * quantity
 }
+
 \end{lstlisting}
 
 
 \textbf{Membuat Main Method}
 
-Scala menggunakan main method untuk melakukan eksekusi program. Kode program dapat dilihat pada Listing \ref{lst:main_method} mengenai pembuatan main method pada Scala.
+Scala menggunakan \textit{main method} untuk melakukan eksekusi program. Kode program dapat dilihat pada Listing \ref{lst:main_method} mengenai pembuatan \textit{main method} pada Scala.
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:main_method, caption=Membuat Main Method pada Scala]
@@ -1232,8 +1132,10 @@ object HelloWorld {
 
 Scala memiliki jenis implementasi percabangan yang sama dengan Java. Percabangan digunakan untuk melakukan eksekusi pada baris \textit{statement} yang sesuai berdasarkan kondisi tertentu. Kode program dapat dilihat pada Listing \ref{lst:percabangan} mengenai percabangan pada Scala.
 
+\newpage
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:percabangan, caption=Membuat Fungsi Percabangan pada Scala]
+
 # If-Else statement
 if(numberOfPeople > 10) { 
   println(s"Number of donuts to buy = ${numberOfPeople * donutsPerPerson}")
@@ -1245,14 +1147,16 @@ else if (numberOfPeople == 0) {
 else {
   println(s"Number of donuts to buy = $defaultDonutsToBuy")
 }
+
 \end{lstlisting}
 
 \textbf{Membuat Fungsi Perulangan pada Scala}
 
-Scala memiliki jenis implementasi perulangan yang sama dengan Java. Perulangan digunakan untuk mengulangi eksekusi pada baris statement yang sama berdasarkan kondisi tertentu. Kode program dapat dilihat pada Listing \ref{lst:perulangan} mengenai perulangan pada Scala.
+Scala memiliki jenis implementasi perulangan yang sama dengan Java. Perulangan digunakan untuk mengulangi eksekusi pada baris \textit{statement} yang sama berdasarkan kondisi tertentu. Kode program dapat dilihat pada Listing \ref{lst:perulangan} mengenai perulangan pada Scala.
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:perulangan, caption=Membuat Fungsi Perulangan pada Scala]
+
 # For loop
 for(numberOfDonuts <- 1 to 5){
   println(s"Number of donuts to buy = $numberOfDonuts")
@@ -1270,11 +1174,13 @@ do {
   println(s"Number of donuts baked = $numberOfDonutsBaked")
 } 
 while (numberOfDonutsBaked < 5)
+
 \end{lstlisting}
 		
+\vspace{0.5cm}		
 		\item \textbf{Melakukan studi dan eksplorasi teknik-teknik dasar data mining pada Spark MLlib.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Pada bagian sebelumnya telah dijelaskan mengenai konsep dan contoh pemodelan pada Spark MLlib. Pada penelitian ini akan digunakan pemodelan \textit{Naive Bayes} untuk permasalahan klasifikasi dan \textit{k-means} untuk permasalahan clustering.
+		{\bf Hasil :} Pada bagian sebelumnya telah dijelaskan mengenai konsep dan contoh pemodelan pada Spark MLlib. Pada penelitian ini akan digunakan pemodelan \textit{Naive Bayes} untuk permasalahan klasifikasi dan \textit{k-means} untuk permasalahan \textit{clustering}.
 
 \newpage
 \textbf{Naive Bayes}
@@ -1287,7 +1193,7 @@ while (numberOfDonutsBaked < 5)
 \item Menghitung akurasi dari klasifikasi label kelas.
 \end{enumerate}	
 
-\par Hasil dari pemodelan \textit{Naive Bayes} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{Naive Bayes} data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama yaitu (\textit{age} = 17) memiliki kelompok cluster yang sama (\textit{prediction} = 3.0).
+\par Hasil dari pemodelan \textit{Naive Bayes} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{Naive Bayes} data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama yaitu (\textit{age} = 17) memiliki kelompok \textit{cluster} yang sama (\textit{prediction} = 3.0).
 
 \begin{figure}[H]
 	\centering
@@ -1406,8 +1312,10 @@ predictDf.show(10)
 \textbf{Studi Kasus Personally Identifiable Information}
 
 PII digunakan untuk mengelompokkan nilai atribut berdasarkan kategori atribut yang digunakan pada proses anonimisasi data. Berdasarkan penjelasan pada bagian sebelumnya, atribut pada proses anonimisasi dapat dikategorikan sebagai \textit{identifier, quasi-identifier}, dan \textit{sensitive attribute}. 
-\par Atribut \textit{identifier} adalah atribut yang dapat mengidentifikasi individu secara langsung. Contoh dari atribut identifier pada dataset \textit{Adult} adalah nama, tempat tanggal lahir, alamat rumah, nomor KTP. Atribut \textit{quasi-identifier} adalah atribut yang dapat mengidentifikasi seseorang apabila nilai sebuah atribut digabung dengan nilai atribut lain pada baris data yang sama. Contoh \textit{quasi-identifier} pada dataset \textit{Adult} adalah \textit{age, zip, education, years of education, occupation, race, sex, native country}. \textit{Sensitive attribute} adalah nilai yang ingin dirahasiakan. Contoh sensitive attribute pada dataset \textit{Adult} adalah \textit{workclass, marital status, relationship, income}.
-\par Atribut \textit{identifier} nantinya akan dihilangkan sebelum dilakukan proses anonimisasi, karena nilai dari atribut \textit{identifier} dapat langsung mengidentifikasi seseorang. Sedangkan \textit{sensitive attribute} nilainya tidak akan dihapus karena akan melalui proses anonimisasi bersamaan dengan nilai dari \textit{quasi-identifier} sehingga \textit{sensitive attribute} milik individu tidak dapat dibedakan satu sama lain pada hasil tabel akhir anonimisasi sehingga keamanan  distribusi data terjamin.
+
+\par Atribut \textit{identifier} adalah atribut yang dapat mengidentifikasi individu secara langsung. Contoh dari atribut \textit{identifier} pada dataset \textit{Adult} adalah nama, tempat tanggal lahir, alamat rumah, nomor KTP. Atribut \textit{quasi-identifier} adalah atribut yang dapat mengidentifikasi seseorang apabila nilai sebuah atribut digabung dengan nilai atribut lain pada baris data yang sama. Contoh \textit{quasi-identifier} pada dataset \textit{Adult} adalah \textit{age, zip, education, years of education, occupation, race, sex, native country}. \textit{Sensitive attribute} adalah nilai yang ingin dirahasiakan. Contoh \textit{sensitive attribute} pada dataset \textit{Adult} adalah \textit{workclass, marital status, relationship, income}.
+
+\par Atribut \textit{identifier} nantinya akan dihilangkan sebelum dilakukan proses anonimisasi, karena nilai dari atribut \textit{identifier} dapat langsung mengidentifikasi seseorang. Sedangkan \textit{sensitive attribute} nilainya tidak akan dihapus karena akan melalui proses anonimisasi bersamaan dengan nilai dari \textit{quasi-identifier} sehingga \textit{sensitive attribute} milik individu tidak dapat dibedakan satu sama lain pada hasil tabel akhir anonimisasi sehingga keamanan  distribusi data terjamin.\\
 
 \textbf{Studi Kasus Distance, Information Loss}
 
@@ -1415,7 +1323,7 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{dist
 
 \begin{enumerate}
 
-\item \textit{Distance}
+\item \textit{Distance} pada Greedy k-member clustering
 
 \textit{Distance} bertujuan untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Pemilihan distance yang baik dapat mencapai hasil klasifikasi yang lebih optimal.
 \\\\
@@ -1425,17 +1333,17 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{dist
 \item 50, Self-emp-not-inc, 83311, Bachelors, 13, Married-civ-spouse, Exec-managerial, Husband, White, Male, 0, 0, 13, United-States, <=50K
 \end{enumerate}
 
-\noindent \textit{Distance} atribut numerik dapat dihitung sebagai berikut berdasarkan umur data pertama ($v_1$)= 39, umur data kedua ($v_2$)= 50, dan jumlah data ($D$)= 10.000.000 data.
+\noindent \textit{Distance} atribut numerik dapat dihitung sebagai berikut berdasarkan umur data pertama ($v_1$)= 39, umur data kedua ($v_2$)= 50, dan jumlah data ($D$)= 5 data.
 
 
 \begin{align*}
 \delta_n(v_1,v_2) &= \frac{|v_1 - v_2|}{|D|}
-= \frac{|39 - 50|}{10.000.000}\vspace{0.2cm}
-= \frac{11}{10.000.000}\vspace{0.2cm}
-= 0.0000011
+= \frac{|39 - 50|}{5}\vspace{0.2cm}
+= \frac{11}{5}\vspace{0.2cm}
+= 2.431
 \end{align*}
 
-\noindent \textit{Distance} atribut kategorikal dapat dihitung sebagai berikut berdasarkan \textit{workclass} data pertama ($v_1$)= \textit{State-gov, workclass} data kedua ($v_2$)= \textit{Self-emp-not-inc}, jumlah subtree ($H(\Lambda(v_i,v_j))$)= 1, dan tinggi taxonomy tree ($H(T_D)$)= 1  seperti pada Gambar \ref{fig:TD}.
+\noindent \textit{Distance} atribut kategorikal dapat dihitung sebagai berikut berdasarkan \textit{workclass} data pertama ($v_1$)= \textit{State-gov, workclass} data kedua ($v_2$)= \textit{Self-emp-not-inc}, jumlah subtree ($H(\Lambda(v_i,v_j))$)= 1, dan tinggi \textit{taxonomy tree} ($H(T_D)$)= 1  seperti pada Gambar \ref{fig:TD}.
 
 \begin{align*}
 \delta_C(v_1,v_2) = \frac{H(\Lambda(v_i,v_j))}{H(T_D)} 
@@ -1451,7 +1359,7 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai penggunaan \textit{dist
 \end{figure}
 
 \newpage
-\item \textit{Information Loss}
+\item \textit{Information Loss} pada Greedy k-member clustering
 
 \textit{Information Loss} (IL) bertujuan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap utilitas sebuah data. \textit{Information Loss} (IL) juga dipakai untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Jika diberikan tabel data yang sudah dikelompokkan berdasarkan \textit{cluster}, maka nilai \textit{Information Loss} (IL) dapat dihitung. Tabel  \ref{table:informationloss} adalah contoh hasil pengelompokan data pada \textit{cluster 1} untuk dataset \textit{Adult}:
 
@@ -1474,13 +1382,13 @@ Age & Workclass & Education & Occupation & Sex & Income & Cluster Name \\
 \label{table:informationloss}
 \end{table}
 
-\noindent \textit{Information Loss} (IL) dapat dihitung sebagai berikut berdasarkan atribut numerik yaitu jumlah anggota \textit{cluster} ($e$)= 5, $MAX_{Age}$= 53, $MIN_{Age}$= 28, $N_Age$= 5 mencakup atribut \textit{Age} dan atribut kategorikal yaitu $H(\Lambda(\cup_{C_j}))$= 1, $H(T_{C_j})$= 1 mencakup atribut \textit{Workclass, Education, Occupation, Sex, dan Income}.
+\noindent \textit{Information Loss} (IL) dapat dihitung sebagai berikut berdasarkan atribut numerik yaitu jumlah anggota \textit{cluster} ($e$)= 2, $MAX_{Age}$= 53, $MIN_{Age}$= 28, $N_Age$= 5 mencakup atribut \textit{Age} dan atribut kategorikal yaitu $H(\Lambda(\cup_{C_j}))$= 1, $H(T_{C_j})$= 1 mencakup atribut \textit{Workclass, Education, Occupation, Sex, dan Income}.
 
 \begin{align*}
 D(e) &= \sum_{i=1}^{m} \frac{(MAX_{N_i} - MIN_{N_i})}{|N_i|} + \sum_{j=1}^{n}\frac{H(\Lambda(\cup_{C_j}))}{H(T_{C_j})}\\
 &= \frac{(53 - 28)}{5} + \frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1}+\frac{1}{1} = 10\\\\
 IL(e) &= |e| \cdot D(e)\\
-&= 5 \cdot 10 = 50
+&= 2 \cdot 10 = 20
 \end{align*}
 
 \noindent Total \textit{Information Loss} dihitung dari jumlah \textit{Information Loss} masing-masing \textit{cluster}.
@@ -1494,11 +1402,13 @@ Total-IL(AT) &= \sum_{e \in \varepsilon}^{}  IL(e)\\
 		
 \textbf{Studi Kasus Algoritma Greedy k-member clustering}
 
- Algoritma \textit{Greedy k-member clustering} telah dijelaskan pada bagian sebelumnya. Algoritma ini bertujuan untuk membagi seluruh data pada tabel terhadap masing-masing \textit{cluster} untuk kompleksitas yang lebih baik dan mendukung nilai utilitas informasi yang lebih baik dibandingkan algoritma \textit{clustering} lain. Pada bagian ini, akan dilakukan eksperimen sederhana untuk mencari tahu langkah kerja algoritma \textit{Greedy k-member clustering} secara konseptual.
- 
+Algoritma \textit{Greedy k-member clustering} telah dijelaskan pada bagian \ref{sec:greedyclustering}. Algoritma ini bertujuan untuk membagi seluruh data pada tabel terhadap masing-masing \textit{cluster} untuk kompleksitas yang lebih baik dan mendukung nilai utilitas informasi yang lebih baik dibandingkan algoritma \textit{clustering} lain. Pada bagian ini, akan dilakukan eksperimen sederhana untuk mencari tahu langkah kerja algoritma \textit{Greedy k-member clustering} secara konseptual.
+
+\par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma ini siap ditelusuri lebih lanjut.
+
 \begin{table}[H]
 \centering
-\caption{Tabel Dataset Adults}
+\caption{Dataset Adults}
 \begin{tabular}{c c c c c c c c}
 \hline 
 ID & Age & Workclass & Education & Occupation & Sex & Income\\ 
@@ -1517,14 +1427,10 @@ t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\
 \label{table:adults}
 \end{table}
 
-\par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma \textit{Greedy k-member clustering} siap ditelusuri lebih lanjut.\\
-
 \noindent Berikut adalah tahapan yang terjadi pada algoritma \textit{Greedy k-member clustering}:
 
 \begin{enumerate}
-\item Nilai awal result = $\emptyset$
-\item Nilai awal r = \{t1\}
-\item Nilai awal |S| = 5, k = 2
+\item Nilai awal result = $\emptyset$, $r = \{t1\}$, $|S|$ = 5, $k = 2$
 \item Karena kondisi $|S| \geq k$ terpenuhi, maka dilakukan perulangan sebagai berikut:
 \begin{enumerate}
 \item Nilai r diubah menjadi r = \{t3\}, karena terbukti data t3 memiliki $\Delta(t1,t3)=1.7189$ yang paling tinggi dari seluruh \textit{distance} lain. Berikut adalah contoh perhitungannya:
@@ -1534,45 +1440,50 @@ t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\
 \Delta (t_1,t_4) = 2.122\\
 \Delta (t_1,t_5) = 1.621 
 \end{align*}
-\item Nilai awal S = \{t1, t2, t4, t5\}
-\item Nilai awal c = \{t3\}, |c| = 1
-\item Karena kondisi |c| < k terpenuhi, maka dilakukan perulangan sebagai berikut:
+\item Nilai awal $S = \{t1, t2, t4, t5\}$
+\item Nilai awal $c = \{t3\}, |c| = 1$
+\item Karena kondisi $|c| < k$ terpenuhi, maka dilakukan perulangan sebagai berikut:
 
 \begin{enumerate}
-\item Nilai r diubah menjadi r = \{t3,t4\}, karena terbukti data t4 memiliki $IL(t3 \cup t4)=0.330$ yang paling rendah dari seluruh data lain. Berikut adalah contoh perhitungannya:
+\item Nilai $r$ diubah menjadi $r = \{t3,t4\}$, karena terbukti data $t4$ memiliki $IL(t3 \cup t4)=0.330$ yang paling rendah dari seluruh data lain. Berikut adalah contoh perhitungannya:
 \begin{align*}
 IL(t3 \cup t1) = 0.479 \\
 IL(t3 \cup t2) = 0.515 \\
 IL(t3 \cup t4) = 0.330 \\
 IL(t3 \cup t5) = 0.367 
 \end{align*}
-\item Nilai S diubah menjadi S = \{t1, t2, t5\}, |S| = 4
-\item Nilai c ditambahkan menjadi c = \{t3, t4\}, |c| = 2
+\item Nilai $S$ diubah menjadi $S = \{t1, t2, t5\}$, $|S| = 4$
+\item Nilai $c$ ditambahkan menjadi $c = \{t3, t4\}$, $|c| = 2$
 
 \end{enumerate}
-\item Karena kondisi |c| < k sudah tidak terpenuhi lagi, maka perulangan ini akan berhenti
-\item Nilai \textit{result} akan ditambahkan menjadi result = \{t3, t4\}
-\item Karena kondisi $|S| \geq k$ masih terpenuhi, maka perulangan akan tetap berlanjut sampai pada kondisi dimana $|S| < k$ sehingga hasil akhirnya adalah \textit{result} = \{\{t3, t4\}, \{t2, t5\}\}, S = \{t1\}, |S| = 1
+\item Karena kondisi $|c| < k$ sudah tidak terpenuhi lagi, maka perulangan ini akan berhenti
+\item Nilai \textit{result} akan ditambahkan menjadi $result = \{t3, t4\}$
+\item Karena kondisi $|S| \geq k$ masih terpenuhi, maka perulangan akan tetap berlanjut sampai pada kondisi dimana $|S| < k$ sehingga hasil akhirnya adalah $result = \{\{t3, t4\}, \{t2, t5\}\}$, $S = \{t1\}$, $|S| = 1$.
 
 \end{enumerate}
 
 \item Karena kondisi $S \neq 0$ terpenuhi, maka dilakukan perulangan sebagai berikut:
 
 \begin{enumerate}
-\item Nilai r diubah menjadi r = \{t1\}
-\item Nilai S diubah menjadi S = $\{\phi\}$, |S| = 0
-\item Nilai c diubah menjadi c = \{t3, t4\} karena terbukti \textit{cluster} c memiliki $IL(\{t3,t4\} \cup t1)=0.279$ yang paling rendah dari seluruh \textit{cluster} lain. Berikut adalah contoh perhitungannya:
+\item Nilai $r$ diubah menjadi $r = \{t1\}$
+
+\item Nilai $S$ diubah menjadi S = $\{\phi\}$, |S| = 0
+
+\item Nilai $c$ diubah menjadi c = \{t3, t4\} karena terbukti \textit{cluster} $c$ memiliki $IL(\{t3,t4\} \cup t1)=0.279$ yang paling rendah dari seluruh \textit{cluster} lain. Berikut adalah contoh perhitungannya:
 \begin{align*}
 IL(\{t3,t4\} \cup t1) = 0.279 \\
 IL(\{t2,t5\}\cup t1) = 0.515 
 \end{align*}
-\item Nilai c ditambahkan menjadi c = \{t1, t3, t4\}
-\item Nilai c pada perulangan ini tidak akan ditambahkan pada \textit{result}, karena telah ditetapkan k = 2 sedangkan jumlah datanya ganjil, sehingga sisa data tersebut tidak akan dicatat pada variabel \textit{result} agar menjaga masing-masing \textit{cluster} hanya memiliki 2 anggota saja.
+
+\item Nilai $c$ ditambahkan menjadi $c = \{t1, t3, t4\}$
+
+\item Nilai $c$ pada perulangan ini tidak ditambahkan pada \textit{result}, karena  ditetapkan $k = 2$ sedangkan jumlah datanya ganjil, sehingga sisa data tersebut tidak akan dicatat.
+
 \item Karena kondisi $S \neq 0$ sudah tidak terpenuhi lagi, maka perulangan ini akan berhenti.
 
 \end{enumerate}
 
-\item Hasil akhirnya adalah result = \{\{t3, t4\}, \{t2, t5\}\} dikembalikan sebagai output untuk algoritma \textit{Greedy k-member clustering} seperti pada Tabel \ref{table:greedykmember} sebagai berikut:
+\item Hasil akhirnya adalah $result = \{\{t3, t4\}, \{t2, t5\}\}$ dikembalikan sebagai output untuk algoritma \textit{Greedy k-member clustering} seperti pada Tabel \ref{table:greedykmember} sebagai berikut:
 \begin{table}[H]
 \centering
 \caption{Tabel Hasil Greedy K-Member Clustering}
@@ -1594,7 +1505,7 @@ t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\
 
 \textbf{Studi Kasus Domain Generalization Hierarchy}
 
-Pada bagian sebelumnya, telah dijelaskan konsep mengenai \textit{Hierarchy Based Generalization}. DGH adalah contoh penerapan dari \textit{Hierarchy Based Generalization}. DGH bertujuan untuk melindungi data dengan cara menerapkan metode generalisasi terhadap nilai atribut data yang bersifat unik, agar menjadi nilai yang lebih umum. Berikut adalah penerapan DGH terhadap dataset \textit{Adult}. \\
+DGH bertujuan  melindungi data dengan menerapkan metode generalisasi terhadap nilai atribut yang unik menjadi nilai yang lebih umum. Berikut adalah penerapan DGH terhadap dataset \textit{Adult}. 
 
 \noindent Diketahui kemungkinan nilai unik atribut pada dataset \textit{Adult} sebagai berikut:
 
@@ -1609,22 +1520,31 @@ Pada bagian sebelumnya, telah dijelaskan konsep mengenai \textit{Hierarchy Based
 \begin{itemize}
 \item Domain dengan nilai kurang spesifik\\
 Domain ini dipilih apabila tujuannya adalah lebih mengutamakan hasil informasi yang diperoleh dengan cara melakukan sedikit anonimisasi pada nilai data. Contohnya atribut ZIP akan diubah menjadi \{7751*,7752*\} apabila satu digit terakhir memiliki nilai yang berbeda dan digit sisanya memiliki nilai yang sama.
+
 \item Domain dengan nilai yang lebih umum\\
 Domain ini dipilih apabila tujuannya adalah menyeimbangkan nilai informasi yang diperoleh dengan tingkat perlindungan data yang didapat dengan cara meningkatkan level anonimisasi nilai data. Contohnya atribut ZIP akan diubah menjadi \{775**\} apabila kedua digit terakhir memiliki nilai yang berbeda dan digit sisanya memiliki nilai yang sama.
-\item Domain dengan nilai yang umum.
+
+\item Domain dengan nilai yang umum.\\
 Domain ini dipilih apabila tujuannya adalah mengutamakan perlindungan data. Biasanya jenis domain ini jarang dipilih, karena hasil anonimisasinya tidak dapat digunakan untuk proses data mining (memiliki nilai akurasi yang rendah apabila dilakukan pemodelan \textit{data mining}). Contohnya atribut ZIP akan diubah menjadi \{*****\}
 
 \end{itemize}
 
-\noindent Untuk atribut \textit{Age} dan \textit{Sex} akan dibangun berdasarkan ketentuan berikut: 
+\noindent Nilai atribut \textit{Age} akan dibangun berdasarkan ketentuan berikut: 
+
 \begin{itemize}
 \item Nilai atribut \textit{Age} akan diubah menjadi rentang nilai. Contohnya nilai 33  diubah menjadi [30-39], karena 33 termasuk pada rentang nilai tersebut.
+\end{itemize}
+
+\noindent Nilai atribut\textit{Sex} akan dibangun berdasarkan ketentuan berikut: 
+
+\begin{itemize}
 \item Nilai atribut \textit{Sex} termasuk nilai kategorikal, sehingga akan diubah menjadi nilai yang lebih umum. Contohnya nilai \textit{Male/Female} diubah menjadi \textit{Person} (bentuk umum).
 \end{itemize}
 		
-\textbf{Studi Kasus Penerapan Anonimisasi}
+\textbf{Studi Kasus K-Anonymity}
 
-Pada bagian sebelumnya, telah dijelaskan konsep anonimisasi. Anonimisasi bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. 
+\textit{K-anonymity} bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. Setelah data dikelompokan, maka data siap untuk dilakukan anonimisasi
+
 \begin{table}[H]
 \centering
 \caption{Tabel Hasil Clustering}
@@ -1690,7 +1610,7 @@ t6 & [40-50] & Federal-gov & HS-grad & 775** & Male & [53-61] & Cluster 3\\
 
 \end{enumerate}
 		
-
+\newpage
 \item \textbf{Membuat diagram kelas perangkat lunak anonimisasi}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Diagram kelas bertujuan untuk menggambarkan keterhubungan antar kelas. Pada penelitian ini digambarkan diagram kelas untuk perangkat lunak anonimisasi data. Karena perangkat lunak analisis data hanya memiliki satu kelas saja, maka keterhubungan antar kelas tidak perlu digambarkan dalam diagram kelas. Gambar \ref{fig:diagram_kelas} menggambarkan keterhubungan antar kelas pada perangkat lunak anonimisasi data. Berikut adalah penjelasan lengkap mengenai deskripsi kelas dan method pada perangkat lunak anonimisasi data:
