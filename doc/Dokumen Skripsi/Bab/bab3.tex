@@ -1,18 +1,23 @@
 \chapter{ANALISIS}
+Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis ini meliputi analisis masalah, eksplorasi spark, studi kasus, dan gambaran umum perangkat lunak.
+
 \section{Analisis Masalah}
 Berkembangnya penggunaan teknologi informasi menyebabkan data bertumbuh dengan sangat pesat. Istilah data yang memiliki ukuran yang besar dikenal sebagai \textit{big data}. \textit{Data mining} adalah cara untuk mengekstraksi sebuah informasi dari sekumpulan data untuk mendukung pengambilan keputusan atau pernyataan tertentu. Hasil \textit{data mining} yang mengandung data individu apabila disebarkan kepada pihak lain untuk kebutuhan tertentu tanpa dilakukan perlindungan privasi terlebih dahulu maka dapat melanggar hak privasi seseorang. Apabila informasi pribadi seseorang dapat diketahui oleh orang lain, maka mengakibatkan munculnya tindak kejahatan yang mengatasnamakan privasi orang bersangkutan. Oleh karena itu, perlu adanya sebuah cara untuk melindungi privasi seseorang sebelum dilakukan distribusi data.
 
 \par Solusi yang tepat untuk menjamin perlindungan data sebelum dilakukan distribusi data adalah anonimisasi. Anonimisasi bertujuan untuk menyamarkan sebagian nilai atribut data yang unik terhadap atribut data lain, khususnya untuk atribut yang termasuk dalam kategori atribut privasi menurut PII. \textit{Privacy-preserving data mining} adalah sebuah cara untuk melindungi data sebelum dilakukan data mining agar privasi dari hasil data mining dapat terlindungi. \textit{K-anonymity} adalah salah satu metode agar \textit{privacy-preserving data mining} dapat dicapai dengan menyamarkan beberapa nilai atribut data. Tujuan utama dari penelitian ini adalah mempelajari, menganalisis, melakukan eksperimen, membuat perangkat lunak terkait anonimisasi pada lingkungan big data, dan menguji hasilnya agar privasi data dapat terjaga. Berikut beberapa kajian yang akan dianalisis terkait teknik anonimisasi pada lingkungan \textit{big data}.
 
-\subsection{Dataset}
+\subsection{Dataset Eksperimen}
 Dataset yang dipakai adalah \textit{Adult}. Dataset ini diperoleh dari website Kaggle. Dataset ini disimpan dalam format CSV seperti penjelasan pada bagian \ref{theory:csv}. Format CSV memisahkan nilai atribut data melalui simbol koma. Dataset \textit{Adult} dipilih, karena pernah digunakan sebelumnya untuk eksperimen algoritma \textit{k-anonymity}. Dataset ini berisi sampel sensus penduduk di Amerika Serikat pada tahun 1990. Penelitian ini melibatkan 10 juta baris data dengan ukuran data sebesar 1.2 GB. 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.52]{dataset1}
-	\caption{Dataset Adults}
-	\label{fig:dataset1}
-\end{figure}
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:lst_csv, caption=Dataset Adult]
+age,workclass,zip,education,year_of_education,marital_status,occupation
+39,State-gov,77516,Bachelors,13,Never-married,Adm-clerical
+50,Self-emp-not-inc,83311,Bachelors,13,Married-civ-spouse,Exec-managerial
+38,Private,215646,HS-grad,9,Divorced,Handlers-cleaners
+53,Private,234721,11th,7,Married-civ-spouse,Handlers-cleaners
+28,Private,338409,Bachelors,13,Married-civ-spouse,Prof-specialty
+\end{lstlisting}
 
 \noindent Berikut adalah kemungkinan nilai untuk masing-masing jenis atribut dalam dataset:
 
@@ -48,16 +53,16 @@ Dataset yang dipakai adalah \textit{Adult}. Dataset ini diperoleh dari website K
 \end{itemize}
 
 
-\subsection{Personally Identifiable Information}
+\subsection{\textit{Personally Identifiable Information}}
 Pada bagian \ref{sec:privasi}, telah dijelaskan mengenai konsep \textit{Personally Identifiable Information} (PII). PII digunakan untuk mengelompokkan nilai atribut berdasarkan kategori atribut yang digunakan pada proses anonimisasi data. Berdasarkan bagian \ref{sec:anonimisasi}, atribut pada proses anonimisasi dapat dikategorikan sebagai \textit{identifier, quasi-identifier}, dan \textit{sensitive attribute}. 
 \par Atribut \textit{identifier} adalah atribut yang dapat mengidentifikasi individu secara langsung. Contoh dari atribut identifier pada dataset \textit{Adult} adalah nama, tempat tanggal lahir, alamat rumah, nomor KTP. Atribut \textit{quasi-identifier} adalah atribut yang dapat mengidentifikasi seseorang apabila nilai sebuah atribut digabung dengan nilai atribut lain pada baris data yang sama. Contoh \textit{quasi-identifier} pada dataset \textit{Adult} adalah \textit{age, zip, education, years of education, occupation, race, sex, native country}. \textit{Sensitive attribute} adalah nilai yang ingin dirahasiakan. Contoh sensitive attribute pada dataset \textit{Adult} adalah \textit{workclass, marital status, relationship, income}.
 \par Atribut \textit{identifier} nantinya akan dihilangkan sebelum dilakukan proses anonimisasi, karena nilai dari atribut \textit{identifier} dapat langsung mengidentifikasi seseorang. Sedangkan \textit{sensitive attribute} nilainya tidak akan dihapus karena akan melalui proses anonimisasi bersamaan dengan nilai dari \textit{quasi-identifier} sehingga \textit{sensitive attribute} milik individu tidak dapat dibedakan satu sama lain pada hasil tabel akhir anonimisasi sehingga keamanan  distribusi data terjamin.
 
 
-\subsection{Perhitungan Distance, Information Loss}
+\subsection{Perhitungan \textit{Distance} dan \textit{Information Loss}}
 Pada bagian \ref{theory:dist,il,cf}, telah dijelaskan konsep mengenai penggunaan \textit{distance} dan \textit{information loss}. \textit{Distance} dan \textit{Information Loss} digunakan oleh algoritma \textit{Greedy k-member clustering} untuk mencari kelompok data terbaik sehingga menghasilkan pengelompokkan data yang tepat. 
 
-\subsubsection{Distance}
+\subsubsection{\textit{Distance}}
 \textit{Distance} bertujuan untuk menentukan hasil pengelompokan data pada algoritma \textit{Greedy k-member clustering}. Pemilihan distance yang baik dapat mencapai hasil klasifikasi yang lebih optimal.
 \\\\
 \noindent Akan diambil 2 sampel data dari dataset \textit{Adult} sebagai berikut:
@@ -88,7 +93,7 @@ Pada bagian \ref{theory:dist,il,cf}, telah dijelaskan konsep mengenai penggunaan
 	\label{fig:TD}
 \end{figure}
 
-\subsubsection{Information Loss}
+\subsubsection{\textit{Information Loss}}
 \textit{Information Loss} (IL) bertujuan untuk mengevaluasi seberapa baik kinerja algoritma \textit{k-anonymity} terhadap nilai informasi sebuah data. Tabel  \ref{table:informationloss} adalah contoh hasil pengelompokan data pada dataset \textit{Adult}:
 
 \begin{table}[H]
@@ -122,7 +127,7 @@ Total-IL(AT) &= \sum_{e \in \varepsilon}^{}  IL(e)\\
 &= IL(cluster1)+IL(cluster2)+\ldots+IL(clusterN)
 \end{align*}
 
-\subsection{Greedy K-Member Clustering}
+\subsection{\textit{Greedy K-Member Clustering}}
 Algoritma \textit{Greedy k-member clustering} telah dijelaskan pada bagian \ref{sec:greedyclustering}. Algoritma ini bertujuan untuk membagi seluruh data pada tabel terhadap masing-masing \textit{cluster} untuk kompleksitas yang lebih baik dan mendukung nilai utilitas informasi yang lebih baik dibandingkan algoritma \textit{clustering} lain. Pada bagian ini, akan dilakukan eksperimen sederhana untuk mencari tahu langkah kerja algoritma \textit{Greedy k-member clustering} secara konseptual.
 
 \par Melalui sampel data pada Tabel \ref{table:adults}, akan diputuskan nilai dari setiap atribut anonimisasi. Jenis atribut anonimisasi yang pertama adalah Quasi-identifier, dengan nilai QI = \{\textit{Age, Education, Occupation, Sex, Income}\}. Jenis atribut anonimisasi yang kedua adalah Sensitive Attribute, dengan nilai SA = \{\textit{Workclass}\}. Jika telah diketahui tabel data seperti diatas, k = 2, dan jumlah cluster (m) = 2, maka algoritma ini siap ditelusuri lebih lanjut.
@@ -219,7 +224,7 @@ t5 & 28 & Private & Bachelors & Prof-specialty & Female & <=50K	 \\
 
 \end{enumerate}
 
-\subsection{Domain Generalization Hierarchy}
+\subsection{\textit{Domain Generalization Hierarchy}}
 Pada bagian \ref{theory:hierarchy_generalization}, telah dijelaskan konsep mengenai \textit{Hierarchy Based Generalization}. DGH adalah contoh penerapan dari \textit{Hierarchy Based Generalization}. DGH bertujuan untuk melindungi data dengan cara menerapkan metode generalisasi terhadap nilai atribut data yang bersifat unik, agar menjadi nilai yang lebih umum. Berikut adalah penerapan DGH terhadap dataset \textit{Adult}. \\
 
 \noindent Diketahui kemungkinan nilai unik atribut pada dataset \textit{Adult} sebagai berikut:
@@ -263,7 +268,7 @@ Domain ini dipilih apabila tujuannya adalah mengutamakan perlindungan data. Bias
 
 
 \newpage
-\subsection{K-Anonymity}
+\subsection{\textit{K-Anonymity}}
 Pada bagian \ref{sec:anonimisasi}, dijelaskan konsep anonimisasi. \textit{K-anonymity} bertujuan untuk menyamarkan nilai dari masing \textit{quasi-identifier} yang unik pada kelompok \textit{cluster} yang sama. Kata kuncinya adalah nilai unik pada kelompok \textit{cluster} yang sama. Setelah dataset dilakukan anonimisasi, maka data privasi sudah terlindungi sehingga publikasi data dapat dilakukan dengan aman. Tabel \ref{table:clustering} adalah kelompok data yang dihasilkan oleh algoritma \textit{Greedy k-member clustering}. 
 \begin{table}[H]
 \centering
@@ -513,7 +518,7 @@ Berikut adalah tahapan instalasi IntelIJ:
 \end{enumerate}
 
 \newpage
-\subsection{Membuat Project Spark pada IntelIJ}
+\subsection{Membuat \textit{Project} Spark pada IntelIJ}
 Untuk membuat program Spark, pertama-tam perlu membuat project Spark baru untuk merancang kelas-kelas yang dibutuhkan pada eksekusi Spark. Beberapa hal yang perlu diperhatikan adalah menggunakan versi Scala sbt, memilih versi sbt 1.3.9, memilih versi Scala 2.11.12, dan melakukan \textit{import libraryDependencies} Spark sesuai kebutuhan.\\
 
 \noindent Berikut adalah tahapan pembuatan \textit{project} Spark pada IntelIJ:
@@ -583,7 +588,7 @@ object Main {
 
 \end{enumerate}
 
-\subsection{Membuat File JAR pada Command Prompt}
+\subsection{Membuat \textit{File} JAR pada Command Prompt}
 Sebelum menjalankan program Spark pada Hadoop Cluster, program Spark yang sudah jadi harus dibuat menjadi file JAR terlebih dahulu. Hal ini disebabkan karena perintah Spark hanya menerima input berupa kode program dalam format (.jar).\\
 
 \noindent Berikut adalah tahapan untuk membuat File JAR:
@@ -650,7 +655,7 @@ Scala memiliki jenis tipe data yang mirip dengan tipe data pada bahasa pemrogram
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:jenis_tipe_data, caption=Menentukan Jenis Tipe Data pada Scala]
 	
 val donutsBought: Int = 5
-val bigNumberOfDonuts: Long = 100000000L
+val bigNumberOfDonuts: Long = 10000000
 val smallNumberOfDonuts: Short = 1
 val priceOfDonut: Double = 2.50
 val donutPrice: Float = 2.50f
@@ -691,54 +696,51 @@ println(s"Elements of map1 = $map1")
 
 \end{lstlisting}
 
-\subsubsection{Membuat Kelas Object pada Scala}
-Scala menggunakan kelas \textit{Object} untuk menempatkan berbagai macam fungsi dan variabel yang saling berkaitan pada satu kelas yang sama. Kode program dapat dilihat pada Listing \ref{lst:kelas_object} mengenai kelas \textit{object} pada Scala.
+\subsubsection{Membuat Kelas pada Scala}
+Kelas pada Scala memiliki fungsi kelas yang sama pada Java yaitu untuk menyimpan variabel dan method. Kode program dapat dilihat pada Listing \ref{lst:class_scala} mengenai cara membuat kelas pada Scala.
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
-	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kelas_object, caption=Membuat Kelas Object pada Scala]
-	
-object DonutShoppingCartCalculator {
-
- val discount: Double = 0.01
-
- def calculateTotalCost(donuts: List[String]): Double = {
-  // calculate the cost of donuts
-  return 1
- }
- 
-}
-	
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:class_scala, caption=Membuat Kelas Object pada Scala]
+class AreaOfRectangle 
+{ 
+    var length = 20;  // Variables 
+    var height = 40; 
+      
+    def area()  // Method which gives the area of the rectangle 
+    { 
+        var ar = length * height; 
+        println("Area of the rectangle is :" + ar); 
+    } 
+} 
 \end{lstlisting}
 
-\newpage
+\subsubsection{Membuat \textit{Singleton Object} pada Scala}
+Scala tidak memiliki variabel statik seperti pada Java, sehingga fungsinya digantikan oleh {\it singleton object}. {\it Singleton object} adalah objek yang mendefinisikan method main dari kelas-kelas pada Scala. Kode program dapat dilihat pada Listing \ref{lst:object_scala} mengenai cara membuat \textit{singletion object} pada Scala.
+
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:object_scala, caption=Membuat Kelas Object pada Scala]
+object Main 
+{ 
+    def main(args: Array[String])  
+    { 
+        // Creating object of AreaOfRectangle class 
+        var obj = new AreaOfRectangle(); 
+        obj.area(); 
+    } 
+} 
+\end{lstlisting}
+
 \subsubsection{Membuat Fungsi Sederhana pada Scala}
 Scala menggunakan fungsi untuk menempatkan kode program berdasarkan tujuan masing-masing. Perlu diperhatikan bahwa hasil akhir dari fungsi langsung dikembalikan tanpa memanggil perintah \textit{return}, seperti pada Java. Kode program dapat dilihat pada Listing \ref{lst:fungsi_sederhana} mengenai pembuatan fungsi pada Scala.
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:fungsi_sederhana, caption=Membuat Fungsi Sedehana pada Scala]
-	
 def calculateDonutCost(donutName: String, quantity: Int): Double = {
   println(s"Calculating cost for $donutName, quantity = $quantity")
 
   // make some calculations ...
   2.50 * quantity
 }
-	
-\end{lstlisting}
-
-
-\subsubsection{Membuat Main Method}
-Scala menggunakan main method untuk melakukan eksekusi program. Kode program dapat dilihat pada Listing \ref{lst:main_method} mengenai pembuatan main method pada Scala.
-
-\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
-	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:main_method, caption=Membuat Main Method pada Scala]
-	
-object HelloWorld {
-	def main(args: Array[String] {
-		println("Hellow, world!")
-	}
-}
-	
 \end{lstlisting}
 
 \subsubsection{Membuat Fungsi Percabangan}
@@ -746,7 +748,6 @@ Scala memiliki jenis implementasi percabangan yang sama dengan Java. Percabangan
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:percabangan, caption=Membuat Fungsi Percabangan pada Scala]
-
 # If-Else statement
 if(numberOfPeople > 10) { 
   println(s"Number of donuts to buy = ${numberOfPeople * donutsPerPerson}")
@@ -758,7 +759,6 @@ else if (numberOfPeople == 0) {
 else {
   println(s"Number of donuts to buy = $defaultDonutsToBuy")
 }
-	
 \end{lstlisting}
 
 \subsubsection{Membuat Fungsi Perulangan pada Scala}
@@ -766,7 +766,6 @@ Scala memiliki jenis implementasi perulangan yang sama dengan Java. Perulangan d
 
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:perulangan, caption=Membuat Fungsi Perulangan pada Scala]
-	
 # For loop
 for(numberOfDonuts <- 1 to 5){
   println(s"Number of donuts to buy = $numberOfDonuts")
@@ -784,7 +783,6 @@ do {
   println(s"Number of donuts baked = $numberOfDonutsBaked")
 } 
 while (numberOfDonutsBaked < 5)
-
 \end{lstlisting}
 
 
@@ -809,6 +807,7 @@ val conf = new SparkConf()
 conf.setMaster("local[2]")
 conf.setAppName("Tutorial Spark")
 val sc = new SparkContext(conf)
+
 
 \end{lstlisting}
   
@@ -866,7 +865,7 @@ df = spark.createDataFrame(rdd,df_schema)
 \end{lstlisting}
 
 \newpage
-\subsubsection{Memanggil Fungsi Transformation}
+\subsubsection{Memanggil Fungsi \textit{Transformation}}
 \noindent Pada bagian \ref{sec:fungsi_rdd} dijelaskan jenis-jenis fungsi \textit{Transformation} pada RDD. Listing \ref{lst:transformation} adalah contoh penerapan jenis-jenis fungsi \textit{Tranformation} pada Spark, berikut adalah penjelasan singkat dari masing-masing fungsi:
 \begin{itemize}
 \item select(): menampilkan isi RDD berdasarkan nama variabel yang menyimpan RDD.
@@ -901,7 +900,7 @@ df1.join(df.2, (df1.x1 == df2.x1) & (df1.x2 == df2.x2),'left')
 
 \end{lstlisting}
 
-\subsubsection{Memanggil Fungsi Action}
+\subsubsection{Memanggil Fungsi \textit{Action}}
 \noindent Pada bagian \ref{sec:fungsi_rdd} dijelaskan jenis-jenis fungsi \textit{Action} pada RDD. Listing \ref{lst:action} adalah contoh penerapan jenis-jenis fungsi \textit{Action} pada Spark, berikut adalah penjelasan singkat dari masing-masing fungsi:
 \begin{itemize}
 \item show(): menampilkan n baris pertama dari \textit{DataFrame} atau RDD
@@ -1267,7 +1266,7 @@ result_df.show()
 \subsection{Eksperimen Spark MLIB}
 Pada bagian \ref{sec:konsep_spark_mllib} telah dijelaskan mengenai konsep dan contoh pemodelan pada Spark MLlib. Pada penelitian ini akan digunakan pemodelan \textit{Naive Bayes} untuk permasalahan klasifikasi pada bagian \ref{sec:naive_bayes} dan \textit{k-means} untuk permasalahan clustering pada bagian \ref{sec:k_means}.
 
-\subsubsection{Naive Bayes}
+\subsubsection{\textit{Naive Bayes}}
 \noindent Pada bagian \ref{sec:naivebayes_mllib} menjelaskan parameter pemodelan \textit{Naive Bayes} pada Spark MLlib. Berikut adalah tahapan eksperimen pada Listing \ref{lst:naivebayes_mllib} untuk pemodelan \textit{Naive Bayes}:
 \begin{enumerate}
 \item Membagi data input CSV menjadi training data dan test data.
@@ -1297,36 +1296,40 @@ val evaluator = new MulticlassClassificationEvaluator()
 val accuracy = evaluator.evaluate(predictions)
 
 \end{lstlisting}
+
+
+
 \newpage
-\par Hasil dari pemodelan \textit{Naive Bayes} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{Naive Bayes} data-data yang memiliki sifat yang sama letaknya berdekatan satu sama lain. Pada Gambar \ref{fig:mllib_naivebayes}, diketahui bahwa data dengan nilai umur yang sama (\textit{age} = 17) memiliki kelompok cluster yang sama (\textit{prediction} = 3.0).
+\noindent Dataset yang dipakai untuk eksperimen \textit{naive bayes} ini adalah sampel data dari dataset Adult yang sudah dijelaskan pada bagian. Data ini berjumlah 100.000 baris data dengan ukuran 11.000 KB. Dataset ini akan dibagi menjadi data test dan data training. Jumlah data test adalah 30.000 baris data, sedangkan jumlah data training adalah 70.000 data. Jumlah data training lebih banyak karena akan dipakai untuk pelatihan model \textit{naive bayes}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=1]{mllib_naivebayes}
+	\includegraphics[scale=0.65]{mllib_naivebayes}
 	\caption{Hasil Naive Bayes Spark MLlib}
 	\label{fig:mllib_naivebayes}
 \end{figure}
 
+\noindent Hasil pemodelan \textit{naive bayes} dari eksperimen ini adalah label data. Cluster ini terbentuk berdasarkan distance terdekat antara anggota data dengan titik centroid pada cluster tersebut. Sehingga data-data yang tergabung pada sebuah cluster, sudah dipastikan bahwa data-data tersebut lebih dekat dengan titik centroid pada cluster tersebut dibanding dengan titik centroid pada cluster lainnya. Gambar \ref{fig:mllib_naivebayes} menunjukan bahwa data dengan nilai umur yang sama (\textit{age} = 17) memiliki kelompok cluster yang sama (\textit{prediction} = 3.0).
 
-\subsubsection{K-Means}
+
+\subsubsection{\textit{K-Means}}
 \noindent Pada bagian \ref{sec:kmeans_mllib} menjelaskan parameter pemodelan \textit{k-means} pada Spark MLlib. Berikut adalah tahapan eksperimen pada Listing \ref{lst:kmeans_mllib} untuk pemodelan \textit{k-means}:
+
 \begin{enumerate}
 \item Membuat model \textit{k-means} menggunakan Spark MLlib
 \item Menentukan jumlah cluster (k) untuk pemodelan \textit{k-means}.
 \item Melakukan pelatihan data pada pemodelan \textit{k-means}.
 \item Mencari nilai \textit{centroid} dari masing-masing \textit{cluster}.
 \item Mengembalikan hasil \textit{clustering} dalam bentuk tabel.
-
 \end{enumerate}	
+
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 	columns=fullflexible, keepspaces=true, breaklines=true, label=lst:kmeans_mllib, caption=Eksperimen K-Means Spark MLlib]
-	
 // KMeans with 8 clusters
 val kmeans = new KMeans()
       .setK(8)
       .setFeaturesCol("features")
       .setPredictionCol("prediction")
-
 val kmeansModel = kmeans.fit(result_df)
 kmeansModel.clusterCenters.foreach(println)
 
@@ -1336,15 +1339,16 @@ predictDf.show(10)
 
 \end{lstlisting}
 
-\newpage
-\par Hasil dari pemodelan \textit{k-means} adalah prediksi jenis \textit{cluster} berdasarkan sifat dari masing-masing data. Umumnya pada hasil pemodelan \textit{k-means}, data-data yang memiliki perbedaan nilai atribut terkecil akan menjadi kelompok \textit{cluster} yang sama. Pada Gambar \ref{fig:mllib_kmeans}, diketahui bahwa sebuah data yang bernilai (\textit{age} = 39) memiliki kelompok \textit{cluster} yang sama (\textit{prediction} = 5) dengan data lain yang bernilai (\textit{age} = 38).
+\noindent Dataset yang dipakai untuk eksperimen \textit{k-means} ini adalah sampel data dari dataset Adult yang sudah dijelaskan pada bagian. Data ini berjumlah 100.000 baris data dengan ukuran 11.000 KB. Batas maksimum iterasi untuk fungsi k-means telah diatur sedemikian rupa oleh library Spark MLlib itu sendiri, sehingga parameter ini tidak perlu lagi diset manual oleh pengguna. Jumlah cluster yang akan dibentuk pada eksperimen ini berjumlah 8 cluster. Jumlah cluster pada fungsi k-means nantinya dapat diatur kembali sesuai kebutuhan eksperimen.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=1]{mllib_kmeans}
+	\includegraphics[scale=0.65]{mllib_kmeans}
 	\caption{Hasil K-Means Spark MLlib}
 	\label{fig:mllib_kmeans}
 \end{figure}
+
+\noindent Hasil pemodelan \textit{k-means} dari eksperimen ini adalah \textit{cluster} data. Cluster ini terbentuk berdasarkan distance terdekat antara anggota data dengan titik centroid pada cluster tersebut. Sehingga data-data yang tergabung pada sebuah cluster, sudah dipastikan bahwa data-data tersebut lebih dekat dengan titik centroid pada cluster tersebut dibanding dengan titik centroid pada cluster lainnya. Gambar \ref{fig:mllib_kmeans} menunjukan bahwa data dengan atribut (\textit{age} = 39) memiliki kelompok \textit{cluster} yang sama dengan dengan data lain dengan atribut (\textit{age} = 38), karena berada pada kelompok data yang sama dengan representasi nama kelompok (\textit{prediction} = 5).
 
 \section{Gambaran Umum Perangkat Lunak}
 Penelitian ini menghasilkan dua jenis perangkat lunak dengan tujuan yang berbeda satu sama lain, untuk menyelesaikan permasalahan penerapan algorima \textit{Greedy k-member clustering} pada lingkungan \textit{big data}. Berikut adalah deskripsi perangkat lunak yang akan dibuat:
