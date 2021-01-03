@@ -67,24 +67,22 @@
 \usepackage{etoolbox}%untuk programming dll
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
-\usepackage{pgffor}% untuk foreach 
+\usepackage{pgffor}% untuk foreach
+
+% Addition package
 \usepackage{algorithm,amsmath,algpseudocode}%pseudocode in latex
 \usepackage{amsthm}
 \newtheorem{theorem}{Teorema}
 \usepackage{tikz}
 \usepackage{caption}
 \usepackage{multirow}
-
-
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
-
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-
+ 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
 \newcommand{\rtext}[1]{{\color{red} \small #1}}%command untuk default text
@@ -102,10 +100,10 @@
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
 
 %default data prodi
-\newcommand{\vprodiINA}{TEKNIK INFORMATIKA}
-\newcommand{\vprodiENG}{INFORMATICS}
-\newcommand{\vstaINA}{SKRIPSI} 
-\newcommand{\vstaENG}{UNDERGRADUATE THESIS}
+\newcommand{\vprodiINA}{\rtext{<<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
+\newcommand{\vprodiENG}{\rtext{<<MATHEMATICS/PHYSICS/INFORMATICS>>}}
+\newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
+\newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
 \newcommand{\vkaprodi}{\rtext{<<Ketua Program Studi>>}}
   
 %data kaprodi 
@@ -117,8 +115,8 @@
 
 %data mahasiswi/a dan prodi 
 \newcommand{\namanpm}[2]{%
-	\vtext{\vnama}{}{#1}
-	\vtext{\vnpm}{}{#2}
+	\vtext{\vnama}{#1}{}
+	\vtext{\vnpm}{#2}{}
 	\newtoggle{okNPM}
 	\iftoggle{cekNPM}{%cek penulisan NPM
 		\newtoggle{myint} \newtoggle{mylen} \StrLen{\vnpm}[\mystrlen]
@@ -158,9 +156,9 @@
 }
 
 % data primer skripsi	 
-\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{}{#1} \hypersetup{pdftitle={#1}}}	
+\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{} \hypersetup{pdftitle={#1}}}	
 %\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{}}	
-\newcommand{\judulENG}[1]{\vtextup{\vjudulENG}{}{#1}}	
+\newcommand{\judulENG}[1]{\vtextup{\vjudulENG}{#1}{}}	
 \newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\\dtext{1}}}
 \newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{\\\dtext{2}}} 
 \newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}\hypersetup{pdfkeywords={#1}}}
@@ -171,7 +169,7 @@
 
 %data pembimbing dan penguji	
 \newcommand{\vnpemb}{2}
-\newcommand{\pembimbing}[2]{\vtext{\vpembu}{}{#1} \vtext{\vpembs}{}{#2}}
+\newcommand{\pembimbing}[2]{\vtext{\vpembu}{#1}{} \vtext{\vpembs}{#2}{}}
 \newcommand{\penguji}[2]{\vtext{\vpengi}{#1}{} \vtext{\vpengii}{#2}{}}
 
 %settings
@@ -245,9 +243,9 @@
 	\pembimbing{\BSB}{}\penguji{\TAB}{\LNV}
 	\judulINA{Judul Bahasa Indonesia}
 	\judulENG{Judul Bahasa Inggris}
-	\abstrakINA{Tuliskan abstrak anda di sini, dalam bahasa Indonesia }
+	\abstrakINA{}
 	\abstrakENG{Tuliskan abstrak anda di sini, dalam bahasa Inggris } 
-	\kunciINA{Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia}
+	\kunciINA{}
 	\kunciENG{Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris}
 	\untuk{kepada siapa anda mempersembahkan skripsi ini\ldots?}
 	\prakata{Tuliskan kata pengantar dari anda di sini \ldots}

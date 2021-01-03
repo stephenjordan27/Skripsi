@@ -1673,7 +1673,6 @@ Pada percobaan ini dapat disimpulkan 3 hal penting. Pertama, penggunaan algoritm
 \subsubsection{Kesimpulan Pengujian Eksperimental} 
 
 Beberapa hal penting yang perlu dipertimbangkan untuk penelitian selanjutnya. Pertama, pengelompokan data dengan greedy k-member clustering sangat lama sehingga dapat diganti ke library KMeans milik Spark MLlib. Kedua, total information loss dapat diminimalisir dengan penggunaan nilai k-value yang cukup besar dan jumlah quasi-identifier secukupnya. Ketiga, metode data mining terbaik untuk hasil anonimisasi adalah klasifikasi karena menghasilkan perbedaan prediksi paling sedikit. Hasil pengujian dapat dilihat pada Tabel \ref{table:kesimpulan_eksperimen}.
-
 \noindent
 \begin{table}[h]
 \centering
@@ -1683,12 +1682,12 @@ Beberapa hal penting yang perlu dipertimbangkan untuk penelitian selanjutnya. Pe
     \hline
     \textbf{\newline Hasil\newline Pengujian} & \textbf{\newline Kajian} & 	  \textbf{\newline Parameter\newline Terbaik \newline} & \textbf{\newline Kesimpulan} \\
     \hline
-    \multirow{3}{*}{\parbox{3cm}{Total \newline Information Loss}} & \parbox{3cm}{\vspace{0.5cm} column \newline} & kolom campuran,\newline k-value = 100 & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(2\times10^{6})$ untuk 1000 data.\\ \cline{2-4}
-     & \parbox{3cm}{\vspace{0.5cm} |QIDs| \newline} & 2-QID/3-QID,\newline 1 kolom numerik, 2 kolom kategori,\newline k-value = 100  & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(1\times10^{6})$ untuk 1000 data.\\ \cline{2-4}
-     & \parbox{3cm}{\vspace{0.5cm} size \newline} & 7-QID,\newline 2 kolom numerik, 5 kolom kategori,\newline k-value = 25 & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(4\times10^{7})$ untuk 10.000 data. \\ 
+    \multirow{3}{*}{\parbox{3cm}{Total \newline Information Loss}} & \parbox{3cm}{\vspace{0.5cm} column \newline} & kolom campuran,\newline k-value = 100 & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(2\times10^{6})$ untuk 1000 data \newline.\\ \cline{2-4}
+     & \parbox{3cm}{\vspace{0.5cm} |QIDs| \newline} & 2-QID/3-QID,\newline 1 kolom numerik, 2 kolom kategori,\newline k-value = 100  & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(1\times10^{6})$ untuk 1000 data. \newline\\ \cline{2-4}
+     & \parbox{3cm}{\vspace{0.5cm} size \newline} & 7-QID,\newline 2 kolom numerik, 5 kolom kategori,\newline k-value = 25 & Parameter ini dipilih karena memiliki total information loss paling kecil yaitu kurang dari $(4\times10^{7})$ untuk 10.000 data. \newline \\ 
     \hline
     \multirow{2}{*}{\parbox{3cm}{\vspace{0.5cm} Hasil \newline Data Mining}} & \parbox{3cm}{\vspace{0.5cm} k-means \newline} & k = 100,\newline n = 100 & Parameter ini dipilih karena memiliki perbedaan hasil clustering terendah (0.74) terhadap data sebelum dan setelah anonimisasi.\newline \\ \cline{2-4}
-     & \parbox{3cm}{\vspace{0.5cm} naive bayes \newline} & n = 100 & Parameter ini dipilih karena memiliki perbedaan hasil klasifikasi terendah (0.30) terhadap data sebelum dan setelah anonimisasi  \\
+     & \parbox{3cm}{\vspace{0.5cm} naive bayes \newline} & n = 100 & Parameter ini dipilih karena memiliki perbedaan hasil klasifikasi terendah (0.30) terhadap data sebelum dan setelah anonimisasi \\
     \hline
     \end{tabular}
 \label{table:kesimpulan_eksperimen}

@@ -5,7 +5,7 @@ Pada bab ini, akan dijelaskan konsep mengenai privasi, teknik \textit{data minin
 
 \section{Privasi}
 \label{sec:privasi}
-Privasi adalah suatu keadaan dimana kehidupan pribadi seseorang atau sekelompok orang terbebas dari pengawasan atau gangguan orang lain. Privasi juga dapat berarti kemampuan satu atau sekelompok individu untuk menutupi atau melindungi kehidupan dan urusan personalnya dari publik dengan mengontrol sumber-sumber informasi mengenai diri mereka. Untuk melakukan publikasi data dari satu perusahaan ke perusahaan lain, digunakan teknik anonimisasi data untuk melindungi dan menyamarkan atribut sensitif untuk setiap data.
+Privasi adalah hak untuk dibiarkan sendiri, atau bebas dari gangguan atau gangguan \footnote{https://iapp.org/about/what-is-privacy/}. Informasi privasi adalah hak untuk memiliki kendali atas bagaimana informasi pribadi Anda dikumpulkan dan digunakan. Privasi dapat berarti kemampuan satu atau sekelompok individu untuk menutupi atau melindungi kehidupan dan urusan personalnya dari publik dengan mengontrol sumber-sumber informasi mengenai diri mereka. Untuk melakukan publikasi data dari satu perusahaan ke perusahaan lain, digunakan teknik anonimisasi data untuk melindungi dan menyamarkan atribut sensitif untuk setiap data.
 
 \par \textit{Personally Identifiable Information} (PII) adalah standar yang digunakan untuk menentukan apakah informasi yang ada dapat melakukan identifikasi entitas individu secara lansung atau tidak langsung. PII menjelaskan bahwa identifikasi entitas secara langsung dapat dilakukan menggunakan atribut sensitif. Sedangkan identifikasi entitas secara tidak langsung dapat dilakukan menggunakan penggabungan beberapa atribut non-sensitif. PII adalah atribut  yang biasanya terjadi pelanggaran data dan pencurian identitas. Jika data perusahaan atau organisasi terungkap, maka sangat mungkin data pribadi seseorang akan terungkap. Informasi yang diketahui dapat dijual dan digunakan untuk melakukan pencurian identitas, menempatkan korban dalam risiko.
 \\\\
@@ -71,7 +71,9 @@ Data yang dikumpulkan bertambah banyak, sehingga perlu adanya cara untuk melakuk
 \end{itemize}
 
 \subsection{Klasifikasi} 
-Klasifikasi adalah proses menemukan model (atau fungsi) yang cocok untuk mendeskripsikan dan membedakan sebuah kelas data dengan kelas data lain. Dalam pembelajaran mesin, klasifikasi sering dianggap sebagai contoh dari metode pembelajaran yang diawasi, yaitu menyimpulkan fungsi dari data pelatihan berlabel.\\
+Klasifikasi adalah proses menemukan model (atau fungsi) yang menggambarkan dan membedakan kelas data. Model klasifikasi diturunkan berdasarkan analisis terhadap sekumpulan data pelatihan, yaitu objek data yang label kelasnya diketahui. Model klasifikasi digunakan untuk memprediksi label kelas dari objek yang label kelasnya tidak diketahui.\\
+
+Tahapan klasifikasi perlu diawali dengan analisis relevansi. Analisi relevansi bertujuan untuk mengidentifikasi atribut yang secara signifikan relevan dengan klasifikasi. Atribut tersebut akan dipilih untuk pembuatan model klasifikasi. Atribut lain yang tidak relevan tidak perlu disertakan dalam pembuatan model klasifikasi.\cite{jiawei:12:datmin}
 
 \noindent Berikut adalah tahapan klasifikasi secara umum:
 \begin{enumerate}

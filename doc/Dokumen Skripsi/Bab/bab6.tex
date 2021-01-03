@@ -1,0 +1,43 @@
+\chapter{Kesimpulan dan Saran}
+
+Pada bab ini akan dijelaskan kesimpulan dari awal hingga akhir penelitian beserta saran untuk penelitian selanjutnya. 
+
+\subsection{Kesimpulan}
+
+Kesimpulan yang dapat diambil dari penelitian ini adalah sebagai berikut:
+\begin{itemize}
+
+\item Pada penelitian ini, telah dipelajari cara kerja algoritma pengelompokan data yaitu Greedy k-member clustering. Pengelompokan data perlu dilakukan untuk meminimalkan informasi yang hilang saat anonimisasi data. Secara singkat tahapan dari algoritma ini adalah mengambil sebuah data secara acak, mencari k-1 data lainnya yang dekat dengan data acak tersebut, dan terakhir jika terdapat sisa data yang belum dikelompokan maka sisa data tersebut digabungkan pada cluster yang paling dekat.
+
+\item Perangkat lunak eksplorasi dan anonimisasi dibuat untuk memenuhi pengamantan terhadap anonimisasi data. Kedua perangkat lunak ini berhasil dibuat dengan menggunakan library Spark, antara lain Spark Core, Spark SQL. Masing-masing perangkat lunak hanya menerima sebuah file JSON dengan format yang berbeda satu sama lain. Masing-masing perangkat lunak dapat mengeluarkan output ke dalam format CSV pada lokasi folder yang telah dicantumkan pada file JSON.
+
+\item Perangkat lunak pengujian dibuat untuk memenuhi pengamatan terhadap pengujian fungsional dan eksperimental. Perangkat lunak ini berhasil dibuat menggunakan library Spark, yaitu Spark MLLib (library KMeans dan NaiveBayes). Perangkat lunak menerima input JSON yang dapat diisi sesuai jenis pengujian data mining (mengisi parameter untuk pengujian k-means/naive bayes). Perangkat lunak dapat mengeluarkan output dalam format CSV pada lokasi yang telah dicantumkan pada file JSON.
+
+\item Pada pengujian fungsional, telah dibandingkan hasil anonimisasi pada perangkat lunak anonimisasi dengan hasil perhitungan manual. Melalui pengamatan sebelumnya, telah diketahui bahwa pengujian memiliki hasil anonimisasi yang sama sehingga fungsionalitas perangkat lunak anonimisasi dapat dinyatakan sudah benar.
+
+\item Pengujian eksperimental berfungsi untuk mencari bukti apakah hasil anonimisasi dapat memiliki hasil data mining yang baik. Pada pengujian eksperimental yang dilakukan sebelumnya, telah dilakukan pengamatan terhadap kualitas hasil anonimisasi data berdasarkan total information loss dan kualitas hasil data mining sebelum dan setelah anonimisasi dengan metode k-means dan naive bayes. 
+
+\item Terkait pengujian kualitas hasil anonimisasi, telah diketahui bahwa hasil terbaik diperoleh pemilihan k-value yang lebih besar, penggunaan kolom campuran dengan tidak memakai terlalu banyak kolom numerik, penggunaan jumlah quasi-identifier yang lebih sedikit, dan penggunaan ukuran data yang lebih kecil. Karena parameter ini memiliki total information loss paling kecil dibandingkan dengan parameter lainnya, maka dapat dinyatakan bahwa kualitas anonimisasi data sudah baik untuk parameter tersebut.
+
+\item Terkait pengujian kualitas hasil data mining berdasarkan perbedaan persentasi prediksi, telah diketahui bahwa hasil terbaik diperoleh dengan metode klasifikasi karena memiliki perbedaan persentase prediksi yang lebih kecil antara data sebelum dan setelah dilakukan anonimisasi. Hasil klasifikasi memiliki perbedaan persentase prediksi dibawah 0.5, sehingga dapat disimpulkan bahwa proses anonimisasi data dengan dilakukan pengelompokan greedy k-member clustering terlebih dahulu memiliki prediksi yang hampir sama dengan data sesungguhnya, yang berarti kualitas hasil data mining pada data yang telah dianonimisasi sudah baik untuk mendapatkan informasi.
+
+\item Terkait pengujian kualitas hasil data mining berdasarkan silhouette score (clustering) dan tingkat akurasi (klasifikasi), telah diketahui 2 jenis informasi penting. Pertama, silhouette score tertinggi diperoleh pada data yang telah dianonimisasi karena data-data tersebut memiliki nilai inter cluster yang sangat mirip dan intra cluster yang sangat berbeda. Hal ini yang membuat pengelompokan data yang telah dianonimisasi lebih baik dibandingkan data yang belum dianonimisasi. Kedua, tingkat akurasi tertinggi diperoleh pada data yang belum dianonimisasi karena data yang dianonimisasi banyak mengadung nilai yang mirip, sehingga kemungkinan besar prediksinya bisa salah akibat dari kurangnya data yang bersifat unik.
+
+\item Terkait kinerja algoritma k-anonymity dan greedy k-member clustering, telah diketahui bahwa waktu eksekusi algoritma greedy k-member clustering sangat lama walaupun telah diimplementasi pada framework Spark yang dapat membagi pekerjaan secara paralel. Hal ini disebabkan karena sebagian besar pekerjaan pada algoritma ini tidak dapat dilakukan proses paralel, contohnya mencari anggota sebuah cluster. Hal ini membuat pemrosesan hanya dapat dijalankan pada satu komputer saja. Berbanding terbalik dengan algoritma sebelumnya, algoritma k-anonymity memiliki waktu komputasi yang lebih cepat karena pekerjaannya dapat dilakukan paralel.
+
+\end{itemize}
+
+\subsection{Saran}
+
+Saran untuk penelitian selanjutnya adalah sebagai berikut:
+
+\begin{itemize}
+
+\item Pada penelitian ini, diketahui bahwa algoritma greedy k-member clustering memiliki waktu komputasi yang sangat lama jika merancang algoritma pengelompokan secara mandiri. Solusi dari permasalahan pengelompokan data pada lingkungan big data adalah menggunakan library KMeans pada Spark MLlib agar waktu eksekusinya menjadi lebih efisien.
+
+\item Pada penelitian ini, pernah terjadi error java.lang.OutOfMemoryError terkait lazy evaluation pada Spark yang diterapkan pada algoritma yang iteratif. Dikutip dari Medium, masalah ini terjadi ketika  fungsi transformation filter(),union() dipanggil pada setiap iterasi. Fungsi tranformasi adalah fungsi dengan biaya komputasi yang mahal, terutama jika dipanggil beberapa kali dalam satu iterasi. Konsep lazy evaluation pada Spark mirip dengan konsep rekursif, dimana fungsi transformation akan dijalankan saat fungsi action dipanggil. Error ini terjadi ketika fungsi action dipanggil pada iterasi tertentu yang membuat fungsi tranformasi pada iterasi sebelumnya juga ikut dijalankan. Solusi yang dapat diterima adalah menyimpan dan membaca hasil komputasi transformasi pada sistem penyimpanan HDFS.
+
+\item Struktur data pada pemrosesan big data perlu diperhatikan. Diusahakan untuk memilih struktur data Dataframe/RDD, karena hanya operasi tersebut yang dapat berjalan secara paralel. Selain itu diusahakan untuk tidak terlalu banyak menggunakan operasi looping. Pada kasus tertentu, operasi looping dapat diganti dengan operasi kueri SQL.
+
+
+\end{itemize}

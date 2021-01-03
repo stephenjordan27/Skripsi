@@ -31,8 +31,8 @@
 % Isilah dengan 0 atau 1 (e.g. \daftarIsiError{1}). 
 % Pemilihan 0 atau 1 silahkan disesuaikan dengan hasil PDF yang dihasilkan.
 %=============================================================================
-%\daftarIsiError{0}   
-\daftarIsiError{1}   
+\daftarIsiError{0}   
+%\daftarIsiError{1}   
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -73,10 +73,10 @@
 % Mode default adalah 'template' yang menghasilkan isian berwarna merah, 
 % aktifkan salah satu mode di bawah ini :
 %=============================================================================
-\mode{bimbingan} 		% untuk keperluan bimbingan
+%\mode{bimbingan} 		% untuk keperluan bimbingan
 %\mode{sidang} 			% untuk sidang 1
 %\mode{sidangakhir} 	% untuk sidang 2 / sidang pada Skripsi 2(IF)
-%\mode{final} 			% untuk mencetak buku skripsi 
+\mode{final} 			% untuk mencetak buku skripsi 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -227,8 +227,26 @@
 % - hilangkan tanda << & >>, dan isi sesuai dengan data anda
 % - langsung mulai setelah '{' awal, jangan mulai menulis di baris bawahnya
 %=============================================================================
-\abstrakINA{<<Tuliskan abstrak anda di sini, dalam bahasa Indonesia>>}
-\abstrakENG{<<Tuliskan abstrak anda di sini, dalam bahasa Inggris>>} 
+\abstrakINA{
+
+\noindent Untuk menghasilkan keputusan bisnis yang berkualitas, diperlukan proses analisis sekumpulan data yang sangat banyak untuk mendapatkan hasil yang valid. Big data hadir sebagai teknologi penyimpanan dan pengolahan data yang hemat dan efisien untuk mengolah data yang berukuran besar. Beberapa teknologi big data yang umum untuk dipakai adalah Spark dan Hadoop. Data mining dapat membantu analisis pada big data untuk mencari karakteristik atau pola data. Sayangnya, proses data mining dapat menimbulkan masalah privasi. Konsep PPDM dipakai untuk melindungi privasi individu saat dilakukan proses data mining. Salah satu metode PPDM yang dapat dipakai adalah metode anonimisasi. Metode k-anonymity merupakan salah satu contoh metode anonimisasi. Karena metode anonimisasi menderita kehilangan informasi yang besar maka data akan dikelompokan terlebih dahulu menggunakan algoritma greedy k-member clustering. Tujuan dari penelitian ini adalah melakukan implementasi algoritma greedy k-member clustering dan k-anonymity pada lingkungan big data dan menguji model data mining klasifikasi dan clustering sebelum dan setelah data dilakukan anonimisasi.
+
+Pada penelitian ini, dibangun tiga buah perangkat lunak dengan framework Spark. Pertama, perangkat lunak eksplorasi yang bertujuan mencari nilai unik sebuah kolom untuk dipakai dalam membuat pohon generalisasi. Kedua, perangkat lunak anonimisasi yang berisi implementasi algoritma greedy k-member clustering dan k-anonymity. Ketiga, perangkat lunak pengujian untuk mengamati hasil pemodelan data mining sebelum dan setelah data dilakukan anonimisasi. Hasil dari perangkat lunak anonimisasi pengujian dipakai untuk analisis. Analisis dilakukan dengan pengujian eksperimental. Pengujian eksperimental dilakukan untuk mendapatkan performa algoritma dan model data mining, menghitung total information loss, evaluasi hasil data mining, dan mencari perbedaan hasil prediksi model data mining terbaik.
+
+Hasil pengujian kualitas informasi menunjukan bahwa {\it total information loss} terendah ditemukan jika memakai kolom campuran, mengurangi jumlah quasi-identifier bertipe numerik, memakai ukuran data yang relatif kecil. Untuk waktu komputasinya, algoritma greedy k-member clustering membutuhan waktu yang sangat lama untuk melakukan pengelompokan data, sedangkan algoritma k-anonymity dapat dilakukan komputasi dengan cepat. Saat dilakukan pengujian teknik data mining, dapat dilihat bahwa metode clustering memiliki perbedaan hasil pengelompokan yang cukup jauh antara sebelum dan setelah data dianonimisasi, sedangkan metode klasifikasi memiliki perbedaan hasil klasifikasi yang cukup dekat. Sehingga, pemodelan data mining yang cocok untuk anonimisasi data adalah klasifikasi.
+
+
+
+}
+\abstrakENG{
+
+\noindent In order to produce quality business decisions, it is necessary to process a large collection of data to obtain valid results. Big data exists as an efficient and efficient data storage and processing technology for processing large data. Some of the common big data technologies to use are Spark and Hadoop. Data mining can help analyze big data to look for data characteristics or patterns. Unfortunately, the data mining process can create privacy concerns. The PPDM concept is used to protect individual privacy during the data mining process. One of the PPDM methods that can be used is the anonymization method. The k-anonymity method is an example of an anonymization method. Because the anonymization method suffers from a large loss of information, the data will be grouped first using the greedy k-member clustering algorithm. The purpose of this study is to implement the greedy k-member clustering and k-anonymity algorithms in the big data environment and test the classification and clustering data mining model before and after the data is anonymized.
+
+In this research, three software with the Spark framework were built. First, exploration software that aims to find the unique value of a column to be used in creating a generalization tree. Second, anonymization software which contains the implementation of the greedy k-member clustering and k-anonymity algorithms. Third, testing software to observe the results of data mining modeling before and after the data is anonymized. The results of the test anonymization software are used for analysis. The analysis was carried out by experimental testing. Experimental testing is done to get the performance of algorithms and data mining models, calculate total information loss, evaluate data mining results, and look for differences in the results of predictions of the best data mining models.
+
+The results of the information quality test show that the lowest {\ it total information loss} is found when using mixed columns, reducing the number of quasi-identifiers of numeric type, using a relatively small data size. For computation time, the greedy k-member clustering algorithm takes a very long time to group data, while the k-anonymity algorithm can be computed quickly. When testing data mining techniques, it can be seen that the clustering method has quite a large difference in the results of the grouping between before and after the data is anonymized, while the classification method has quite close differences in classification results. Thus, data mining modeling suitable for data anonymization is classification.
+
+} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -240,8 +258,8 @@
 % - kunciENG: keywords in english
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\kunciINA{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia>>}
-\kunciENG{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris>>}
+\kunciINA{Big Data, Data Mining, Privasi, Privacy Preserving Data Mining, K-Anonymity, Greedy K-Member Clustering}
+\kunciENG{Big Data, Data Mining, Privacy, Privacy Preserving Data Mining, K-Anonymity, Greedy K-Member Clustering}
 %=============================================================================
 
 %_____________________________________________________________________________
